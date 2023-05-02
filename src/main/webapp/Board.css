@@ -1,0 +1,108 @@
+body {
+    background-image: url(https://littlerobin.nz/wp-content/uploads/2021/10/P6200152.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+table {
+    background-color: white;
+}
+span {
+    color: black;
+}
+.i-con {
+    margin-right: 5px;
+}
+.search {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.btn {
+    background-color: white;
+    margin-left: 10px;
+}
+.btn:hover {
+    background-color: darkgray;
+}
+#search {
+    width: 350px;
+    margin-left: 10px;
+    border: none;
+}
+.write-btn {
+    text-align: right; 
+    background-color: darkgray;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    height: 60px;
+    padding: 8px 12px;
+    
+}
+.navbar_logo i {
+    font-size: 20px;
+    color: 	green;
+    margin-left: 20px;
+    
+}
+.navbar_logo a {
+    font-size: 20px;
+    margin-left: 10px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-decoration: none;
+}
+.navbar_logo a:hover {
+  text-decoration: underline;
+  color: white;
+}
+.navbar_menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    
+}
+.navbar_menu li {
+    padding: 8px 12px;
+    margin-left: 100px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    color:white;
+    
+}
+.navbar_menu a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.navbar_menu a:hover {
+    text-decoration: underline;
+    color: white;
+}
+.navbar_login {
+    display: flex;
+    list-style: none;
+    font-size: 18px;
+}
+.navbar_login li {
+    list-style: none;
+    padding: 8px 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.navbar_login a {
+  text-decoration: none;
+  color: white;
+}
+.navbar_login a:hover {
+    text-decoration: underline;
+    color: white;
+}
+.master {
+  display: none;
+}
