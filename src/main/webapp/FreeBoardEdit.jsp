@@ -99,7 +99,7 @@
 			</table>
 		</form>
 	</div>
-	
+<%@ include file="./Footer.jsp" %>
 <script>
 	function editPost() {
 		var confirmed = confirm("게시글을 수정하시겠습니까?");

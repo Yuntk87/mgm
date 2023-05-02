@@ -110,7 +110,7 @@
 				<a href="<c:url value='/list${ph.sc.getQueryString(ph.endPage+1) }' />">&raquo;</a>
 			</c:if>
 		</div>
-
 	</div>
+<%@ include file="./Footer.jsp" %>
 </body>
 </html>

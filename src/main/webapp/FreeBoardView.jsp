@@ -88,6 +88,7 @@
 		</form>
 		<%@ include file="./Comment.jsp" %>
 	</div>
+<%@ include file="./Footer.jsp" %>
 <script>
 	function deletePost() {
 		var confirmed = confirm("정말 삭제하시겠습니까?");
