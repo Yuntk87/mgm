@@ -13,6 +13,7 @@ public class MateBoardDto {
 	private int viewCount;
 	private Date postDate;
 	private int commentCount;
+	private String m_name; // join으로 산이름 출력용도
 	
 	
 	public int getMate_num() {
@@ -75,7 +76,12 @@ public class MateBoardDto {
 	public void setCommentCount(int commentCount) {
 		this.commentCount = commentCount;
 	}
-	
+	public String getM_name() {
+		return m_name;
+	}
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
 	
 	public MateBoardDto() {
 		super();
@@ -90,12 +96,14 @@ public class MateBoardDto {
 		this.dDay = dDay;
 		this.mateLimit = mateLimit;
 	}
+	
 	@Override
 	public String toString() {
 		return "MateBoardDto [mate_num=" + mate_num + ", m_num=" + m_num + ", id=" + id + ", title=" + title
 				+ ", content=" + content + ", dDay=" + dDay + ", mateLimit=" + mateLimit + ", viewCount=" + viewCount
-				+ ", postDate=" + postDate + ", commentCount=" + commentCount + "]";
+				+ ", postDate=" + postDate + ", commentCount=" + commentCount + ", m_name=" + m_name + "]";
 	}
+
 
 	
 	

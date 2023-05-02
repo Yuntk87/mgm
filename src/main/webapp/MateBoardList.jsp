@@ -54,7 +54,7 @@
 					<c:forEach items="${boardLists }" var="b">
 						<tr>
 							<td>${b.mate_num }</td>
-							<td>${b.m_num }</td>
+							<td>${b.m_name }</td>
 							<td><a href='./view${ph.sc.getQueryString(ph.sc.page) }&num=${b.mate_num }&mode=MateBoard'>${b.title }</a></td>
 							<td>${b.id }</td>
 							<td>${b.viewCount }</td>

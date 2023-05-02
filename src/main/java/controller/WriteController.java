@@ -153,7 +153,7 @@ public class WriteController extends HttpServlet{
 			int res = dao.insertMateBoard(dto);
 			
 			if(res==1) {
-				resp.sendRedirect("./MateBoardList.jsp");
+				resp.sendRedirect("./List?mode=MateBoard");
 			} else {
 				JSFunction.alertBack(resp, "글쓰기 실패");
 			}

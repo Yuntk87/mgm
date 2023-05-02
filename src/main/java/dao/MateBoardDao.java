@@ -110,7 +110,7 @@ public class MateBoardDao extends JDBConnect {
 	public List<MateBoardDto> selectList(Map<String, Object>map) {
 		ArrayList<MateBoardDto> mbs = new ArrayList<MateBoardDto>();
 		MateBoardDto m = null;
-		String sql = "SELECT * FROM mate_board ";
+		String sql = "SELECT m.*, b.m_name FROM mate_board m INNER JOIN mountain_board b ON m.m_num = b.m_num ";
 		if(map.get("searchWord") != null) {
 			sql += " WHERE " + map.get("searchField") + " "
 					+ " LIKE '%" + map.get("searchWord") + "%'"; 
@@ -134,6 +134,7 @@ public class MateBoardDao extends JDBConnect {
 				m.setViewCount(rs.getInt(8));
 				m.setCommentCount(rs.getInt(9));
 				m.setPostDate(rs.getTimestamp(10));
+				m.setM_name(rs.getString(11));
 				mbs.add(m);
 			}
 			
