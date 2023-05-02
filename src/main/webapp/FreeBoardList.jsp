@@ -18,6 +18,7 @@
 
 	<div style="width: 60%; margin: 0 auto; margin-top: 60px">
 		<h2>자유 게시판</h2>
+		
 		<form id="search_form">
 			<table colspan="7" class="table table-dark">
 				<tr>
@@ -25,6 +26,7 @@
 						<select name="searchField">
 							<option value="title" ${param.searchField eq 'title'? "selected" : "" }>제목</option>
 							<option value="content" ${param.searchField eq 'content'? "selected" : "" } >내용</option>
+							<option value="category" ${param.searchField eq 'category'? "selected" : "" } >카테고리</option>
 							<option value="id" ${param.searchField eq 'id'? "selected" : "" }>작성자</option>
 						</select>
 						<input type="text" name="searchWord" id="search" value="${not empty param.searchWord? param.searchWord : '' }" >

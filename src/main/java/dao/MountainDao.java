@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import javax.servlet.ServletContext;
 import common.JDBConnect;
 import dto.ConfirmBoardDto;
 import dto.MountainDto;
+import dto.memberDto;
 
 public class MountainDao extends JDBConnect{
 
@@ -101,6 +103,30 @@ public class MountainDao extends JDBConnect{
 		return res;
 	}
 	
+	 public MountainDto selectMountain (String id) {
+		 	MountainDto m = null; 
+			try {
+				String sql = "SELECT * FROM mountain_board WHERE m_name=?";
+				psmt = con.prepareStatement(sql);
+				psmt.setString(1,  id);
+				rs = psmt.executeQuery();
+				if(rs.next()) {
+					m = new MountainDto();
+					m.setM_num(rs.getInt("m_num"));
+					m.setM_name(rs.getString("m_name"));
+					m.setM_addr_do(rs.getString("m_addr_do"));
+					m.setM_addr_si(rs.getString("m_addr_si"));
+					m.setM_addr_gu(rs.getString("m_addr_gu"));
+					m.setM_addr(rs.getString("m_addr"));
+					m.setLevel(rs.getInt("level"));
+					m.setM_recommend(rs.getInt("m_recommend"));
+				}
+			} catch (SQLException e) {
+				System.out.println("산 조회중 오류발생");
+				e.printStackTrace();
+			}
+			return m;
+		}
 	
 	public List<MountainDto> selectList(Map<String, Object>map){
 		ArrayList<MountainDto> mbl = new ArrayList<MountainDto>();
