@@ -31,7 +31,7 @@ import dto.MateBoardDto;
 public class ListController extends HttpServlet{
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
 		
 		if(JSFunction.loginChk(req)) {
 			String mode = req.getParameter("mode");

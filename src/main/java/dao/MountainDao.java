@@ -87,7 +87,6 @@ public class MountainDao extends JDBConnect{
 		return m;
 	}
 	
-	
 	public int deleteMountain(int num) {
 		int res=0;
 		String sql = "DELETE FROM mountain_board WHERE m_num=?";

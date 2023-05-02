@@ -13,12 +13,14 @@
 	<div>
 	<h2>인증게시판</h2>
 <!-- 		위치 정보 받아오기 -->
+	    
 	    <div>
 	        <form id="searchFrm" action="./write?mode=ConfirmBoard" method="post">
 	            <input type="text" id="mname" placeholder="산 이름을 검색하세요." />
-	            <button type="button" id="searchBtn">검색 요청</button>	
+	            <button type="button" id="searchBtn">검색 요청</button>	  
 	            
-	            <input type="text" name="m_num" value="2">
+<!-- 	            DB와 비교하여 m_num값 가져오도록 해야함 -->
+	            <input type="text" name="m_num" value="${dto.m_num }"> 
 				
 				<select id="listBox" name="listName"></select>
 	            <input type="text" id="mLocation" name="mLocation" value=""/> <br>
@@ -216,6 +218,8 @@
 	   }
 	 </script>
 
+<br>
+<br>
 <%@ include file="./Footer.jsp" %>
 </body>
 </html>
