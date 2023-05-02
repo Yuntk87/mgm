@@ -21,8 +21,10 @@ import common.PageHandler;
 import common.SearchCondition;
 import dao.ConfirmDao;
 import dao.FreeBoardDao;
+import dao.MateBoardDao;
 import dto.ConfirmBoardDto;
 import dto.FreeBoardDto;
+import dto.MateBoardDto;
 
 
 @WebServlet("/List")
@@ -75,6 +77,45 @@ public class ListController extends HttpServlet{
 				
 			} else if("ConfirmBoard".equals(mode)) {
 				req.getRequestDispatcher("/ConfirmBoard.jsp").forward(req, resp);
+			} else if("MateBoard".equals(mode)) {
+				MateBoardDao dao = new MateBoardDao(getServletContext());
+				
+				Map<String, Object> param = new HashMap<String, Object>();
+				String searchField = req.getParameter("searchField");
+				String searchWord = req.getParameter("searchWord");
+				int pageSize = Integer.parseInt(req.getServletContext().getInitParameter("PageSize"));
+				
+				SearchCondition sc = null;
+				PageHandler ph = null;
+				
+				int page = 1;
+				String pageTemp = req.getParameter("page");
+				if(pageTemp != null && !"".equals(pageTemp))
+					page = Integer.parseInt(pageTemp);
+				
+				if(searchWord != null && !"".equals(searchWord) && !"null".equals(searchWord)) {
+					param.put("searchField", searchField);
+					param.put("searchWord", searchWord);
+					sc = new SearchCondition(searchField,searchWord,page,pageSize);
+				} else {
+					sc = new SearchCondition(page,pageSize);
+				}
+				
+				int totalCount = dao.selectCount(param);
+				ph = new PageHandler(totalCount, sc);
+				param.put("offset", sc.getOffset(page));
+				param.put("pageSize", pageSize);
+				
+				List<MateBoardDto> boardLists = dao.selectList(param);
+				req.setAttribute("ph", ph);
+				req.setAttribute("boardLists", boardLists);
+				
+				Date today = new Date();
+				req.setAttribute("today", today);
+				dao.close();
+				
+				req.getRequestDispatcher("./MateBoardList.jsp").forward(req, resp);
+				
 			}
 
 		} else {

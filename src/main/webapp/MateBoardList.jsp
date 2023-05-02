@@ -25,6 +25,7 @@
 						<select name="searchField">
 							<option value="title" ${param.searchField eq 'title'? "selected" : "" }>제목</option>
 							<option value="content" ${param.searchField eq 'content'? "selected" : "" } >내용</option>
+							<option value="category" ${param.searchField eq 'category'? "selected" : "" } >산이름</option>
 							<option value="id" ${param.searchField eq 'id'? "selected" : "" }>작성자</option>
 						</select>
 						<input type="text" name="searchWord" id="search" value="${not empty param.searchWord? param.searchWord : '' }" >
@@ -38,7 +39,7 @@
 		<table class="boardList">
 			<tr>
 				<th width="5%">번호</th>
-				<th width="10%">카테고리</th>
+				<th width="10%">산이름</th>
 				<th width="50%">제목</th>
 				<th width="10%">작성자</th>
 				<th width="10%">조회수</th>
@@ -52,12 +53,12 @@
 				<c:otherwise>
 					<c:forEach items="${boardLists }" var="b">
 						<tr>
-							<td>${b.fbnum }</td>
-							<td>${b.category }</td>
-							<td><a href='./view${ph.sc.getQueryString(ph.sc.page) }&num=${b.fbnum }&mode=FreeBoard'>${b.title }</a></td>
+							<td>${b.mate_num }</td>
+							<td>${b.m_num }</td>
+							<td><a href='./view${ph.sc.getQueryString(ph.sc.page) }&num=${b.mate_num }&mode=MateBoard'>${b.title }</a></td>
 							<td>${b.id }</td>
 							<td>${b.viewCount }</td>
-							<td>${b.c_count }</td>
+							<td>${b.commentCount }</td>
 							
 							<fmt:formatDate value="${today }" type="date" pattern="yyyy-MM-dd" var="now"/>
 							<fmt:formatDate value="${b.postDate }" type="date" pattern="yyyy-MM-dd" var="post"/>

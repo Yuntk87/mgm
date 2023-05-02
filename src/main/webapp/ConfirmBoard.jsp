@@ -9,6 +9,7 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgWjfRDY2JDCNcxaKgoNBenu5o1POdE_c&callback=initMap&region=kr"></script>
 </head>
 <body>
+<%@ include file="Navi.jsp" %>
 	<div>
 	<h2>인증게시판</h2>
 <!-- 		위치 정보 받아오기 -->
@@ -215,6 +216,6 @@
 	   }
 	 </script>
 
-
+<%@ include file="./Footer.jsp" %>
 </body>
 </html>
