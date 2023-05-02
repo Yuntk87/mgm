@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,9 +15,11 @@ import javax.servlet.http.HttpSession;
 import common.JSFunction;
 import dao.ConfirmDao;
 import dao.FreeBoardDao;
+import dao.MateBoardDao;
 import dao.MountainDao;
 import dto.ConfirmBoardDto;
 import dto.FreeBoardDto;
+import dto.MateBoardDto;
 import dto.MountainDto;
 
 @WebServlet("/write")
@@ -117,9 +122,41 @@ public class WriteController extends HttpServlet{
 				JSFunction.alertLocation(resp, "권한이 없습니다.", "./main.jsp");
 			}
 			
+		} else if("MateBoard".equals(mode)) {
+			String tmp = req.getParameter("m_num");
+			int m_num = 0;
+			if(tmp != null) {
+				m_num = Integer.parseInt(tmp);
+			}
+			
+			HttpSession session = req.getSession();
+			String id = (String)session.getAttribute("UserId");
+			String title = req.getParameter("title");
+			String content = req.getParameter("content");
+			int limit = Integer.parseInt(req.getParameter("limit"));
 
+			String temp = req.getParameter("dDay");
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date dDay = null;
+			if(temp != null) {
+				try {
+					dDay = sdf.parse(temp);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+			}
+
+			MateBoardDao dao = new MateBoardDao(req.getServletContext());
+			MateBoardDto dto = new MateBoardDto(m_num, id, title, content, dDay, limit);
+			System.out.println(dto);
+			int res = dao.insertMateBoard(dto);
 			
-			
+			if(res==1) {
+				resp.sendRedirect("./Navi.jsp");
+			} else {
+				JSFunction.alertBack(resp, "글쓰기 실패");
+			}
+			dao.close();
 		}
 		
 		

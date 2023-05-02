@@ -19,16 +19,15 @@ public class MateBoardDao extends JDBConnect {
 
 	public int insertMateBoard (MateBoardDto m) {
 		int res=0;
-		String sql = "INSERT INTO mate_board(m_num, id, nickName, title, content, dDay) values(?,?,?,?,?,?)";
+		String sql = "INSERT INTO mate_board(m_num, id, title, content, dDay) values(?,?,?,?,?)";
 		
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setInt(1, m.getM_num());
 			psmt.setString(2, m.getId());
-			psmt.setString(3, m.getNickName());
-			psmt.setString(4, m.getTitle());
-			psmt.setString(5, m.getContent());
-			psmt.setDate(6, (Date) m.getdDay());
+			psmt.setString(3, m.getTitle());
+			psmt.setString(4, m.getContent());
+			psmt.setDate(5, (Date) m.getdDay());
 			res = psmt.executeUpdate();			
 		}
 		catch(Exception e) {
@@ -41,7 +40,7 @@ public class MateBoardDao extends JDBConnect {
 	
 	public int updateMateBoard(int num, String title, String content, Date dDay) {
 		int res=0;
-		String sql = "UPDATE Mate_board SET title=? , content=? , dDay=? WHERE num=?";
+		String sql = "UPDATE mate_board SET title=? , content=? , dDay=? WHERE mate_num=?";
 		
 		try {
 			psmt = con.prepareStatement(sql);
@@ -61,7 +60,7 @@ public class MateBoardDao extends JDBConnect {
 	
 	public MateBoardDto selectMateBoard(int num) {
 		MateBoardDto m = null;
-		String query = "SELECT*FROM mate_board WHERE num=?";
+		String query = "SELECT*FROM mate_board WHERE mate_num=?";
 		
 		try {
 			psmt = con.prepareStatement(query);
@@ -70,12 +69,16 @@ public class MateBoardDao extends JDBConnect {
 			
 			if(rs.next()) {
 				m = new MateBoardDto();
-				m.setM_num(rs.getInt("m_num"));
-				m.setId(rs.getString("id"));
-				m.setNickName(rs.getString("nickName"));
-				m.setTitle(rs.getString("title"));
-				m.setContent(rs.getString("content"));
-				m.setdDay(rs.getDate("dDay"));
+				m.setMate_num(rs.getInt(1));
+				m.setM_num(rs.getInt(2));
+				m.setId(rs.getString(3));
+				m.setTitle(rs.getString(4));
+				m.setContent(rs.getString(5));
+				m.setdDay(rs.getDate(6));
+				m.setLimit(rs.getInt(7));
+				m.setViewCount(rs.getInt(8));
+				m.setCommentCount(rs.getInt(9));
+				m.setPostDate(rs.getTimestamp(10));
 				return m;
 			}
 		}
@@ -89,7 +92,7 @@ public class MateBoardDao extends JDBConnect {
 	
 	public int deleteMateBoard(int num) {
 		int res=0;
-		String sql = "DELETE FROM mate_board WHERE num=?";
+		String sql = "DELETE FROM mate_board WHERE mate_num=?";
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setInt(1, num);
@@ -111,7 +114,7 @@ public class MateBoardDao extends JDBConnect {
 			sql += " WHERE " + map.get("searchField") + " "
 					+ " LIKE '%" + map.get("searchWord") + "%'"; 
 		}
-		sql += " ORDER BY num DESC ";
+		sql += " ORDER BY mate_num DESC ";
 		sql += "LIMIT " + map.get("offset")+","+map.get("pageSize");
 
 		try {
@@ -120,15 +123,16 @@ public class MateBoardDao extends JDBConnect {
 			
 			while(rs.next()) {
 				m = new MateBoardDto();
-				m.setNum(rs.getInt(1));
+				m.setMate_num(rs.getInt(1));
 				m.setM_num(rs.getInt(2));
 				m.setId(rs.getString(3));
-				m.setNickName(rs.getString(4));
-				m.setTitle(rs.getString(5));
-				m.setContent(rs.getString(6));
-				m.setdDay(rs.getDate(7));
-				m.setPostDate(rs.getTimestamp(8));
-				m.setViewCount(rs.getInt(9));
+				m.setTitle(rs.getString(4));
+				m.setContent(rs.getString(5));
+				m.setdDay(rs.getDate(6));
+				m.setLimit(rs.getInt(7));
+				m.setViewCount(rs.getInt(8));
+				m.setCommentCount(rs.getInt(9));
+				m.setPostDate(rs.getTimestamp(10));
 				mbs.add(m);
 			}
 			
@@ -164,7 +168,7 @@ public class MateBoardDao extends JDBConnect {
 	
 	public int updateViewCnt(int num) {
 		int res=0;
-		String sql = "UPDATE mate_board SET viewCount=viewCount+1 WHERE num=?";
+		String sql = "UPDATE mate_board SET viewCount=viewCount+1 WHERE mate_num=?";
 		
 		try {
 			psmt = con.prepareStatement(sql);

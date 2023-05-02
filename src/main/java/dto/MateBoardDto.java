@@ -3,22 +3,23 @@ package dto;
 import java.util.Date;
 
 public class MateBoardDto {
-	private int num;
+	private int mate_num;
 	private int m_num;
 	private String id;
-	private String nickName;
 	private String title;
 	private String content;
 	private Date dDay;
-	private Date postDate;
+	private int limit;
 	private int viewCount;
+	private Date postDate;
+	private int commentCount;
 	
 	
-	public int getNum() {
-		return num;
+	public int getMate_num() {
+		return mate_num;
 	}
-	public void setNum(int num) {
-		this.num = num;
+	public void setMate_num(int mate_num) {
+		this.mate_num = mate_num;
 	}
 	public int getM_num() {
 		return m_num;
@@ -31,12 +32,6 @@ public class MateBoardDto {
 	}
 	public void setId(String id) {
 		this.id = id;
-	}
-	public String getNickName() {
-		return nickName;
-	}
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
 	}
 	public String getTitle() {
 		return title;
@@ -56,11 +51,11 @@ public class MateBoardDto {
 	public void setdDay(Date dDay) {
 		this.dDay = dDay;
 	}
-	public Date getPostDate() {
-		return postDate;
+	public int getLimit() {
+		return limit;
 	}
-	public void setPostDate(Date postDate) {
-		this.postDate = postDate;
+	public void setLimit(int limit) {
+		this.limit = limit;
 	}
 	public int getViewCount() {
 		return viewCount;
@@ -68,30 +63,45 @@ public class MateBoardDto {
 	public void setViewCount(int viewCount) {
 		this.viewCount = viewCount;
 	}
+	public Date getPostDate() {
+		return postDate;
+	}
+	public void setPostDate(Date postDate) {
+		this.postDate = postDate;
+	}
+	public int getCommentCount() {
+		return commentCount;
+	}
+	public void setCommentCount(int commentCount) {
+		this.commentCount = commentCount;
+	}
 	
 	
 	public MateBoardDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public MateBoardDto(int m_num, String id, String nickName, String title, String content, Date dDay) {
+	public MateBoardDto(int m_num, String id, String title, String content, Date dDay, int limit) {
 		super();
 		this.m_num = m_num;
 		this.id = id;
-		this.nickName = nickName;
 		this.title = title;
 		this.content = content;
 		this.dDay = dDay;
+		this.limit = limit;
 	}
-	
 	
 	@Override
 	public String toString() {
-		return "MateBoardDto [num=" + num + ", m_num=" + m_num + ", id=" + id + ", nickName=" + nickName + ", title="
-				+ title + ", content=" + content + ", dDay=" + dDay + ", postDate=" + postDate + ", viewCount="
-				+ viewCount + "]";
+		return "MateBoardDto [mate_num=" + mate_num + ", m_num=" + m_num + ", id=" + id + ", title=" + title
+				+ ", content=" + content + ", dDay=" + dDay + ", limit=" + limit + ", viewCount=" + viewCount
+				+ ", postDate=" + postDate + ", commentCount=" + commentCount + "]";
 	}
+	
+	
+	
+	
+	
 	
 	
 	
