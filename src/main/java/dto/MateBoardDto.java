@@ -1,5 +1,7 @@
 package dto;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class MateBoardDto {
@@ -82,11 +84,14 @@ public class MateBoardDto {
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
 	}
+
+	
 	
 	public MateBoardDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public MateBoardDto(int m_num, String id, String title, String content, Date dDay, int mateLimit) {
 		super();
 		this.m_num = m_num;
@@ -96,15 +101,11 @@ public class MateBoardDto {
 		this.dDay = dDay;
 		this.mateLimit = mateLimit;
 	}
-	
 	@Override
 	public String toString() {
 		return "MateBoardDto [mate_num=" + mate_num + ", m_num=" + m_num + ", id=" + id + ", title=" + title
 				+ ", content=" + content + ", dDay=" + dDay + ", mateLimit=" + mateLimit + ", viewCount=" + viewCount
 				+ ", postDate=" + postDate + ", commentCount=" + commentCount + ", m_name=" + m_name + "]";
 	}
-
-
-	
 	
 }

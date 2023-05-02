@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -57,8 +58,7 @@ public class MateBoardDao extends JDBConnect {
 		}
 		return res;
 	}
-	
-	
+
 	public MateBoardDto selectMateBoard(int num) {
 		MateBoardDto m = null;
 		String query = "SELECT*FROM mate_board WHERE mate_num=?";
@@ -75,7 +75,7 @@ public class MateBoardDao extends JDBConnect {
 				m.setId(rs.getString(3));
 				m.setTitle(rs.getString(4));
 				m.setContent(rs.getString(5));
-				m.setdDay(rs.getDate(6));
+				m.setdDay(rs.getTimestamp(6));
 				m.setMateLimit(rs.getInt(7));
 				m.setViewCount(rs.getInt(8));
 				m.setCommentCount(rs.getInt(9));
@@ -129,7 +129,7 @@ public class MateBoardDao extends JDBConnect {
 				m.setId(rs.getString(3));
 				m.setTitle(rs.getString(4));
 				m.setContent(rs.getString(5));
-				m.setdDay(rs.getDate(6));
+				m.setdDay(rs.getTimestamp(6));
 				m.setMateLimit(rs.getInt(7));
 				m.setViewCount(rs.getInt(8));
 				m.setCommentCount(rs.getInt(9));

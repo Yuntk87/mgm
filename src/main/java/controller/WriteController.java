@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -135,15 +136,17 @@ public class WriteController extends HttpServlet{
 			String content = req.getParameter("content");
 			int limit = Integer.parseInt(req.getParameter("limit"));
 
-			String temp = req.getParameter("dDay");
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			String temp1 = req.getParameter("dDay");
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-DD'T'hh:mm");
+			System.out.println(temp1);
 			Date dDay = null;
-			if(temp != null) {
+			if(temp1 != null) {
 				try {
-					dDay = sdf.parse(temp);
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+					dDay = sdf.parse(temp1);
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}				
 			}
 
 			MateBoardDao dao = new MateBoardDao(req.getServletContext());

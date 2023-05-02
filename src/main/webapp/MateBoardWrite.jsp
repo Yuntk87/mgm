@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>MateBoardWrite</title>
+ <link rel="stylesheet" href="<c:url value="/webjars/jquery-ui/1.11.4/jquery-ui.min.css"/>" type="text/css"/>
+ <script src="<c:url value="/webjars/jquery/2.2.1/jquery.min.js"/>"></script>
+ <script src="<c:url value="/webjars/jquery-ui/1.11.4/jquery-ui.min.js"/>"></script>
 <style>
 	#write_box {
 		width:80%;
@@ -60,7 +63,8 @@
 				<option value="20">11~20명</option>
 			</select>
 			
-			<input type="text" name="dDay">날짜<br>
+	        <p><input type="datetime-local" name="dDay"></p>
+		
 			<input id="wtitle" type="text" name="title">제목<br>
 			<textarea id="wcontent" name="content">
 			</textarea>		
