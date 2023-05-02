@@ -19,7 +19,7 @@ public class MateBoardDao extends JDBConnect {
 
 	public int insertMateBoard (MateBoardDto m) {
 		int res=0;
-		String sql = "INSERT INTO mate_board(m_num, id, title, content, dDay) values(?,?,?,?,?)";
+		String sql = "INSERT INTO mate_board(m_num, id, title, content, dDay, mateLimit) values(?,?,?,?,?,?)";
 		
 		try {
 			psmt = con.prepareStatement(sql);
@@ -27,7 +27,8 @@ public class MateBoardDao extends JDBConnect {
 			psmt.setString(2, m.getId());
 			psmt.setString(3, m.getTitle());
 			psmt.setString(4, m.getContent());
-			psmt.setDate(5, (Date) m.getdDay());
+			psmt.setDate(5, new java.sql.Date(m.getdDay().getTime()));
+			psmt.setInt(6, m.getMateLimit());
 			res = psmt.executeUpdate();			
 		}
 		catch(Exception e) {
@@ -75,7 +76,7 @@ public class MateBoardDao extends JDBConnect {
 				m.setTitle(rs.getString(4));
 				m.setContent(rs.getString(5));
 				m.setdDay(rs.getDate(6));
-				m.setLimit(rs.getInt(7));
+				m.setMateLimit(rs.getInt(7));
 				m.setViewCount(rs.getInt(8));
 				m.setCommentCount(rs.getInt(9));
 				m.setPostDate(rs.getTimestamp(10));
@@ -129,7 +130,7 @@ public class MateBoardDao extends JDBConnect {
 				m.setTitle(rs.getString(4));
 				m.setContent(rs.getString(5));
 				m.setdDay(rs.getDate(6));
-				m.setLimit(rs.getInt(7));
+				m.setMateLimit(rs.getInt(7));
 				m.setViewCount(rs.getInt(8));
 				m.setCommentCount(rs.getInt(9));
 				m.setPostDate(rs.getTimestamp(10));

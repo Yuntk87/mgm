@@ -123,7 +123,7 @@ public class WriteController extends HttpServlet{
 			}
 			
 		} else if("MateBoard".equals(mode)) {
-			String tmp = req.getParameter("m_num");
+			String tmp = req.getParameter("mNum");
 			int m_num = 0;
 			if(tmp != null) {
 				m_num = Integer.parseInt(tmp);
@@ -149,10 +149,11 @@ public class WriteController extends HttpServlet{
 			MateBoardDao dao = new MateBoardDao(req.getServletContext());
 			MateBoardDto dto = new MateBoardDto(m_num, id, title, content, dDay, limit);
 			System.out.println(dto);
+			
 			int res = dao.insertMateBoard(dto);
 			
 			if(res==1) {
-				resp.sendRedirect("./Navi.jsp");
+				resp.sendRedirect("./MateBoardList.jsp");
 			} else {
 				JSFunction.alertBack(resp, "글쓰기 실패");
 			}

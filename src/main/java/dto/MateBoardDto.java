@@ -9,7 +9,7 @@ public class MateBoardDto {
 	private String title;
 	private String content;
 	private Date dDay;
-	private int limit;
+	private int mateLimit;
 	private int viewCount;
 	private Date postDate;
 	private int commentCount;
@@ -51,11 +51,11 @@ public class MateBoardDto {
 	public void setdDay(Date dDay) {
 		this.dDay = dDay;
 	}
-	public int getLimit() {
-		return limit;
+	public int getMateLimit() {
+		return mateLimit;
 	}
-	public void setLimit(int limit) {
-		this.limit = limit;
+	public void setMateLimit(int mateLimit) {
+		this.mateLimit = mateLimit;
 	}
 	public int getViewCount() {
 		return viewCount;
@@ -81,28 +81,22 @@ public class MateBoardDto {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public MateBoardDto(int m_num, String id, String title, String content, Date dDay, int limit) {
+	public MateBoardDto(int m_num, String id, String title, String content, Date dDay, int mateLimit) {
 		super();
 		this.m_num = m_num;
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.dDay = dDay;
-		this.limit = limit;
+		this.mateLimit = mateLimit;
 	}
-	
 	@Override
 	public String toString() {
 		return "MateBoardDto [mate_num=" + mate_num + ", m_num=" + m_num + ", id=" + id + ", title=" + title
-				+ ", content=" + content + ", dDay=" + dDay + ", limit=" + limit + ", viewCount=" + viewCount
+				+ ", content=" + content + ", dDay=" + dDay + ", mateLimit=" + mateLimit + ", viewCount=" + viewCount
 				+ ", postDate=" + postDate + ", commentCount=" + commentCount + "]";
 	}
-	
-	
-	
-	
-	
-	
+
 	
 	
 }
