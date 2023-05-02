@@ -7,32 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/09e1bc70db.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./Board.css">
+    <link rel="stylesheet" href="./FreeBoard.css">
     <title>자유 게시판</title>
   </head>
   <body>
 
-    <nav class="navbar">
-        <div class="navbar_logo">
-            <i class="fa-solid fa-mountain-sun"></i>
-            <a class="link" href="#">MGM</a>
-        </div>
+<!--     <nav class="navbar"> -->
+<!--         <div class="navbar_logo"> -->
+<!--             <i class="fa-solid fa-mountain-sun"></i> -->
+<!--             <a class="link" href="#">MGM</a> -->
+<!--         </div> -->
 
-        <ul class="navbar_menu">
-            <li><a class="link" href="#" >홈페이지 소개</a></li>
-            <li><a class="link" href="#">산 소개</a></li>
-            <li><a class="link" href="#">자유 게시판</a></li>
-            <li><a class="link" href="#">인증 게시판</a></li>
-            <li><a class="link" href="#">듀오 게시판</a></li>
-            <li><a class="link master" href="#">회원 관리 페이지</a></li>
-        </ul>
+<!--         <ul class="navbar_menu"> -->
+<!--             <li><a class="link" href="#" >홈페이지 소개</a></li> -->
+<!--             <li><a class="link" href="#">산 소개</a></li> -->
+<!--             <li><a class="link" href="#">자유 게시판</a></li> -->
+<!--             <li><a class="link" href="#">인증 게시판</a></li> -->
+<!--             <li><a class="link" href="#">듀오 게시판</a></li> -->
+<!--             <li><a class="link master" href="#">회원 관리 페이지</a></li> -->
+<!--         </ul> -->
     
-        <ul class="navbar_login">
-            <li><a class="link" href="#">로그인</a></li>
-            <li><a class="link" href="#">회원가입</a></li>
-        </ul>
-    </nav>
-    <!-- 메인 네비게이션 -->
+<!--         <ul class="navbar_login"> -->
+<!--             <li><a class="link" href="#">로그인</a></li> -->
+<!--             <li><a class="link" href="#">회원가입</a></li> -->
+<!--         </ul> -->
+<!--     </nav> -->
+<!--     메인 네비게이션 -->
 
 
 
