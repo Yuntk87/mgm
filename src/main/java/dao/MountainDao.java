@@ -87,6 +87,27 @@ public class MountainDao extends JDBConnect{
 		return m;
 	}
 	
+	public int selectMountainNum(String name) {
+		int res = 0;
+		String query = "SELECT m_num FROM mountain_board WHERE m_name=?";
+		
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, name);	
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				res = rs.getInt("m_num");
+				return res;
+			}
+		}
+		catch (Exception e) {
+			System.out.println("산이름 조회 중 예외 발생");
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
 	public int deleteMountain(int num) {
 		int res=0;
 		String sql = "DELETE FROM mountain_board WHERE m_num=?";

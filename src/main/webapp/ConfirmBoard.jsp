@@ -1,3 +1,5 @@
+<%@page import="dto.MountainDto"%>
+<%@page import="dao.MountainDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,22 +12,20 @@
 </head>
 <body>
 <%@ include file="Navi.jsp" %>
+
 	<div>
 	<h2>인증게시판</h2>
 <!-- 		위치 정보 받아오기 -->
 	    
 	    <div>
 	        <form id="searchFrm" action="./write?mode=ConfirmBoard" method="post">
-	            <input type="text" id="mname" placeholder="산 이름을 검색하세요." />
+	            <input type="text" id="mname" name="mName" placeholder="산 이름을 검색하세요." />
 	            <button type="button" id="searchBtn">검색 요청</button>	  
-	            
-<!-- 	            DB와 비교하여 m_num값 가져오도록 해야함 -->
-	            <input type="text" name="m_num" value="${dto.m_num }"> 
 				
 				<select id="listBox" name="listName"></select>
 	            <input type="text" id="mLocation" name="mLocation" value=""/> <br>
 	
-	        	<button type="button" id="tests" onclick="myLocations()">내위치확인</button>
+	        	<button type="button" id="myLocationBtn" onclick="myLocations()">내위치확인</button>
 	 	        <input type="text" id="myLocation" name="myLocation" value=""/> <br>
 	        	<div id="myLocationInfo"></div>
 	        	
@@ -55,7 +55,8 @@
 			});
 
 		});
-	 
+		
+		
 		//목적지 위치정보
 		$(function() {
 		    $('#searchBtn').click(function() {
@@ -70,7 +71,13 @@
 		      });
 		    });
 		});
-
+		
+		function errFunc(request, status, error) {
+	        console.log("code: " + request.status)
+	        console.log("message: " + request.responseText)
+	        console.log("error: " + error);
+	    }
+		
 		function lists(l) {
 			console.log(l)
 			var list ='';
@@ -79,6 +86,7 @@
 				list += $(this).find('placeNm').text() +'</option>';
 			});
 		    $('#listBox').html(list);
+
 		}
 		
 		function errFunc(e) {

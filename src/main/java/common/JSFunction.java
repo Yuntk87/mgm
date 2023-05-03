@@ -2,11 +2,13 @@ package common;
 
 import java.io.PrintWriter;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspWriter;
+
+import dao.MountainDao;
+import dto.MountainDto;
 
 public class JSFunction {
 	public static void alertLocation(String msg, String url, JspWriter out) {
@@ -70,6 +72,4 @@ public class JSFunction {
 			return false;
 		}
 	}
-	
-	
 }

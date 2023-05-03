@@ -53,12 +53,15 @@ public class ApiExplorer extends HttpServlet {
 	        String line;
 	        while ((line = rd.readLine()) != null) {
 	            sb.append(line);
+	        System.out.println("yyyy" + line);
 	        }
 	        rd.close();
 	        conn.disconnect();
 	        System.out.println(sb.toString());
 	        resp.setContentType("text/xml; charset=utf-8");
+	        //System.out.println(sb.toString());
 	        resp.getWriter().write(sb.toString());  // 서블릿에서 즉시 출력
+	        
 		}
 
 }
