@@ -20,8 +20,8 @@ import dao.FreeBoardDao;
 import dto.CommentDto;
 
 
-@WebServlet("/comments")
-public class CommentController extends HttpServlet{
+@WebServlet("/FreeBoardComments")
+public class FreeBoardCommentController extends HttpServlet{
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

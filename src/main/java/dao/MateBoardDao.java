@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -184,5 +185,21 @@ public class MateBoardDao extends JDBConnect {
 		}
 		return res;
 	}
+	
+	 public int updateCommentCnt(int num, int commentCnt) {
+			int res=0;
+			String sql = "update mate_board set commentCount = commentCount+? where mate_num =?";
+			try {
+				psmt= con.prepareStatement(sql);
+				psmt.setInt(1, commentCnt);
+				psmt.setInt(2, num);
+				System.out.println(sql);
+				res = psmt.executeUpdate();
+			}catch(SQLException e) {
+				System.out.println("댓글 수 수정 중 예외발생");
+				e.printStackTrace();
+			}
+			return res;
+		}
 	
 }

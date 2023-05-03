@@ -91,7 +91,7 @@
 				</tr>
 			</table>		
 		</form>
-		<%@ include file="./Comment.jsp" %>
+		<%@ include file="./MateBoardComment.jsp" %>
 	</div>
 <%@ include file="./Footer.jsp" %>
 <script>

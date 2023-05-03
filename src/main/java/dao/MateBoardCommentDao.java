@@ -6,22 +6,24 @@ import java.util.HashMap;
 import javax.servlet.ServletContext;
 import common.JDBConnect;
 import dto.CommentDto;
+import dto.MateBoardCommentDto;
+import dto.MateBoardDto;
 
-public class CommentDao extends JDBConnect{
+public class MateBoardCommentDao extends JDBConnect{
 
-	public CommentDao(ServletContext application) {
+	public MateBoardCommentDao(ServletContext application) {
 		super(application);
 		// TODO Auto-generated constructor stub
 	}
 
 	//댓글 수 조회
-	public int count(int fb_num) {
+	public int count(int mate_num) {
 		int res = 0;
-		String sql = "SELECT COUNT(*) FROM free_board_comment WHERE fb_num=?";
+		String sql = "SELECT COUNT(*) FROM mate_board_comment WHERE mate_num=?";
 		
 		try {
 			psmt = con.prepareStatement(sql);
-			psmt.setInt(1, fb_num);
+			psmt.setInt(1, mate_num);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
 				res = rs.getInt(1);
@@ -35,11 +37,11 @@ public class CommentDao extends JDBConnect{
 	//댓글 삭제	
 	public int delete(HashMap<String, String> param) {
 		int res = 0;
-		String sql = "DELETE FROM free_board_comment WHERE fbc_num=? and commenter=?";
+		String sql = "DELETE FROM mate_board_comment WHERE matec_num=? and commenter=?";
 		
 		try {
 			psmt = con.prepareStatement(sql);
-			psmt.setString(1, param.get("fbc_num"));
+			psmt.setString(1, param.get("matec_num"));
 			psmt.setString(2, param.get("commenter"));
 			res = psmt.executeUpdate();
 		} catch(SQLException e) {
@@ -50,13 +52,13 @@ public class CommentDao extends JDBConnect{
 	
 	
 	//댓글 입력
-	public int insert(CommentDto dto) {
+	public int insert(MateBoardCommentDto dto) {
 		int res = 0;
-		String sql = "INSERT INTO free_board_comment(fb_num, comment, commenter) VALUES(?,?,?)";
+		String sql = "INSERT INTO mate_board_comment(mate_num, comment, commenter) VALUES(?,?,?)";
 		
 		try {
 			psmt = con.prepareStatement(sql);
-			psmt.setInt(1, dto.getFb_num());
+			psmt.setInt(1, dto.getMate_num());
 			psmt.setString(2, dto.getComment());
 			psmt.setString(3, dto.getCommenter());
 			res = psmt.executeUpdate();
@@ -67,18 +69,18 @@ public class CommentDao extends JDBConnect{
 	}
 	
 	//댓글 전체 조회
-	public ArrayList<CommentDto> SellectAll(int fb_num) {
-		ArrayList<CommentDto> dtos = new ArrayList<CommentDto>();
-		String sql = "SELECT * FROM free_board_comment WHERE fb_num = ? ORDER BY fbc_num DESC, postDate ASC";
+	public ArrayList<MateBoardCommentDto> SellectAll(int fb_num) {
+		ArrayList<MateBoardCommentDto> dtos = new ArrayList<MateBoardCommentDto>();
+		String sql = "SELECT * FROM mate_board_comment WHERE mate_num = ? ORDER BY matec_num DESC, postDate ASC";
 		
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setInt(1, fb_num);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
-				CommentDto dto = new CommentDto();
-				dto.setFbc_num(rs.getInt("fbc_num"));
-				dto.setFb_num(rs.getInt("fb_num"));
+				MateBoardCommentDto dto = new MateBoardCommentDto();
+				dto.setMatec_num(rs.getInt("matec_num"));
+				dto.setMate_num(rs.getInt("mate_num"));
 				dto.setComment(rs.getString("comment"));
 				dto.setCommenter(rs.getString("commenter"));
 				dto.setPostDate(rs.getTimestamp("postDate"));
@@ -92,15 +94,14 @@ public class CommentDao extends JDBConnect{
 	
 	
 	//댓글 수정
-	public int update(CommentDto dto) {
+	public int update(MateBoardCommentDto dto) {
 		int res = 0;
-		String sql = "UPDATE free_board_comment SET comment=?, postDate=now() WHERE fbc_num=? and commenter=?";
+		String sql = "UPDATE mate_board_comment SET comment=?, postDate=now() WHERE matec_num=? and commenter=?";
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, dto.getComment());
-			psmt.setInt(2, dto.getFbc_num());
+			psmt.setInt(2, dto.getMatec_num());
 			psmt.setString(3, dto.getCommenter());
-			
 			res = psmt.executeUpdate();		
 		} catch(SQLException e) {
 			System.out.println("댓글 수정 중 예외 발생");

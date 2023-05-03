@@ -86,7 +86,7 @@
 				</tr>
 			</table>		
 		</form>
-		<%@ include file="./Comment.jsp" %>
+		<%@ include file="./FreeBoardComment.jsp" %>
 	</div>
 <%@ include file="./Footer.jsp" %>
 <script>
