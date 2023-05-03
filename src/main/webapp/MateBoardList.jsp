@@ -78,7 +78,7 @@
 									<a href="<c:url value='/list${ph.sc.getQueryString(ph.beginPage-1) }' />">&laquo;</a>
 								</c:if>
 								<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }">
-									<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='/list${ph.sc.getQueryString(i) }' />">${i }</a>
+									<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='/List${ph.sc.getQueryString(i) }&mode=MateBoard' />">${i }</a>
 								</c:forEach>
 								<c:if test="${ph.showNext }">
 									<a href="<c:url value='/list${ph.sc.getQueryString(ph.endPage+1) }' />">&raquo;</a>
