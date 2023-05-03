@@ -61,7 +61,7 @@ public class MateBoardDao extends JDBConnect {
 
 	public MateBoardDto selectMateBoard(int num) {
 		MateBoardDto m = null;
-		String query = "SELECT*FROM mate_board WHERE mate_num=?";
+		String query = "SELECT m.*, b.m_name FROM mate_board m INNER JOIN mountain_board b ON m.m_num = b.m_num WHERE mate_num=?";
 		
 		try {
 			psmt = con.prepareStatement(query);
@@ -80,6 +80,7 @@ public class MateBoardDao extends JDBConnect {
 				m.setViewCount(rs.getInt(8));
 				m.setCommentCount(rs.getInt(9));
 				m.setPostDate(rs.getTimestamp(10));
+				m.setM_name(rs.getString(11));
 				return m;
 			}
 		}

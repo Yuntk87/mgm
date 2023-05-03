@@ -12,8 +12,10 @@ import common.PageHandler;
 import common.SearchCondition;
 import dao.ConfirmDao;
 import dao.FreeBoardDao;
+import dao.MateBoardDao;
 import dto.ConfirmBoardDto;
 import dto.FreeBoardDto;
+import dto.MateBoardDto;
 
 @WebServlet("/view")
 public class ViewController extends HttpServlet{
@@ -44,6 +46,27 @@ public class ViewController extends HttpServlet{
 			dao.close();
 			req.getRequestDispatcher("./FreeBoardView.jsp").forward(req, resp);
 			
+		} else  if("MateBoard".equals(mode)) {
+			String temp = req.getParameter("num");
+			int num = 0;
+			if(temp != null) {
+				num = Integer.parseInt(temp);			
+			}
+			
+			MateBoardDao dao = new MateBoardDao(req.getServletContext());
+			dao.updateViewCnt(num);
+			MateBoardDto dto = dao.selectMateBoard(num);
+			req.setAttribute("dto", dto);
+			
+			int page = Integer.parseInt(req.getParameter("page"));
+			int pageSize = Integer.parseInt(req.getParameter("pageSize"));
+			String searchField = req.getParameter("searchField");
+			String searchWord = req.getParameter("searchWord");
+			SearchCondition sc = new SearchCondition(searchField, searchWord, page, pageSize);
+			req.setAttribute("sc", sc);
+			
+			dao.close();
+			req.getRequestDispatcher("./MateBoardView.jsp").forward(req, resp);
 		}
 		
 
