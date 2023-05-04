@@ -101,6 +101,15 @@ public class MateBoardDto {
 		this.dDay = dDay;
 		this.mateLimit = mateLimit;
 	}
+	
+	public MateBoardDto(int mate_num, String title, String content, Date dDay, int mateLimit) {
+		super();
+		this.mate_num = mate_num;
+		this.title = title;
+		this.content = content;
+		this.dDay = dDay;
+		this.mateLimit = mateLimit;
+	}
 	@Override
 	public String toString() {
 		return "MateBoardDto [mate_num=" + mate_num + ", m_num=" + m_num + ", id=" + id + ", title=" + title

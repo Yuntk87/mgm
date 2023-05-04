@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import javax.servlet.ServletContext;
 
 import common.JDBConnect;
 import dto.ConfirmBoardDto;
+import dto.FreeBoardDto;
 import dto.MateBoardDto;
 
 public class MateBoardDao extends JDBConnect {
@@ -29,7 +31,7 @@ public class MateBoardDao extends JDBConnect {
 			psmt.setString(2, m.getId());
 			psmt.setString(3, m.getTitle());
 			psmt.setString(4, m.getContent());
-			psmt.setDate(5, new java.sql.Date(m.getdDay().getTime()));
+			psmt.setTimestamp(5, new Timestamp(m.getdDay().getTime()));
 			psmt.setInt(6, m.getMateLimit());
 			res = psmt.executeUpdate();			
 		}
@@ -49,7 +51,7 @@ public class MateBoardDao extends JDBConnect {
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, title);
 			psmt.setString(2, content);
-			psmt.setDate(3, dDay);
+			psmt.setTimestamp(3, new Timestamp(dDay.getTime()));
 			psmt.setInt(4, num);
 			res = psmt.executeUpdate();	
 		}
@@ -93,6 +95,26 @@ public class MateBoardDao extends JDBConnect {
 	}
 	
 	
+	public int updateEdit(MateBoardDto dto) {
+			String sql = "UPDATE mate_board SET dDay=?, mateLimit=?, title=?, content=? WHERE mate_num=?";
+			int res = 0;
+			try {
+				psmt = con.prepareStatement(sql);
+				psmt.setTimestamp(1, new Timestamp(dto.getdDay().getTime()));
+				psmt.setInt(2, dto.getMateLimit());
+				psmt.setString(3, dto.getTitle());
+				psmt.setString(4, dto.getContent());
+				psmt.setInt(5, dto.getMate_num());
+				
+				res = psmt.executeUpdate();
+			}
+			catch(SQLException e) {
+				System.out.println("게시물 수정 중 예외 발생");
+				e.printStackTrace();
+			}
+			return res;
+	}
+	 
 	public int deleteMateBoard(int num) {
 		int res=0;
 		String sql = "DELETE FROM mate_board WHERE mate_num=?";
@@ -201,5 +223,48 @@ public class MateBoardDao extends JDBConnect {
 			}
 			return res;
 		}
-	
+	 
+	 public MateBoardDto selectView(int num) {
+		 MateBoardDto dto = null;
+			String sql = "SELECT * FROM mate_board WHERE mate_num=?";
+			
+			try {
+				psmt = con.prepareStatement(sql);
+				psmt.setInt(1, num);
+				rs = psmt.executeQuery();
+				if(rs.next()) {
+					dto = new MateBoardDto();
+					dto.setMate_num(rs.getInt("mate_num"));
+					dto.setM_num(rs.getInt("m_num"));
+					dto.setId(rs.getString("id"));
+					dto.setTitle(rs.getString("title"));
+					dto.setContent(rs.getString("content"));
+					dto.setdDay(rs.getTimestamp("dDay"));
+					dto.setMateLimit(rs.getInt("mateLimit"));
+					dto.setViewCount(rs.getInt("viewCount"));
+					dto.setCommentCount(rs.getInt("commentCount"));
+					dto.setPostDate(rs.getTimestamp("postDate"));
+				}
+			}
+			catch(SQLException e) {
+				System.out.println("게시물 조회 중 예외 발생");
+				e.printStackTrace();
+			}
+			System.out.println(dto);
+			return dto;
+		}
+	 
+	 public int deleteView(int num) {
+			int res=0;
+			String sql = "DELETE from mate_board WHERE mate_num=?";
+			try {
+				psmt = con.prepareStatement(sql);
+				psmt.setInt(1,num);
+				res = psmt.executeUpdate();
+			}catch(SQLException e) {
+				System.out.println("게시물 삭제 중 예외발생");
+				e.printStackTrace();
+			}
+			return res;
+		}
 }

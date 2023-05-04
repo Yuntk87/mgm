@@ -45,7 +45,8 @@
 
 	<div id="write_box">
 		<h2>메이트게시판 글 쓰기</h2>	
-		<form id="mSearch" action="./mountain">
+		<form id="mSearch" action="./mountain" method="post">
+			<input type="hidden" name="mode" value="write">
 			<input type="text" name="mName" value="${dto.m_name }">
 			<button type="submit" id="mSearchBtn">검색</button>
 		</form>

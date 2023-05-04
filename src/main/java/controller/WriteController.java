@@ -142,8 +142,9 @@ public class WriteController extends HttpServlet{
 				int limit = Integer.parseInt(req.getParameter("limit"));
 	
 				String temp1 = req.getParameter("dDay");
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-DD'T'hh:mm");
 				System.out.println(temp1);
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+				System.out.println("1111" + temp1);
 				Date dDay = null;
 				if(temp1 != null) {
 					try {
@@ -153,7 +154,7 @@ public class WriteController extends HttpServlet{
 						e1.printStackTrace();
 					}				
 				}
-	
+				System.out.println("2222" + dDay);
 				MateBoardDao dao = new MateBoardDao(req.getServletContext());
 				MateBoardDto dto = new MateBoardDto(m_num, id, title, content, dDay, limit);
 				System.out.println(dto);

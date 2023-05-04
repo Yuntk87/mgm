@@ -95,7 +95,7 @@
 		if(confirmed) {
 			var form = document.writeFrm;
 			form.method = "post"
-			form.action = "./delete";
+			form.action = "./delete?mode=FreeBoard";
 			form.submit();
 		}
 	}
