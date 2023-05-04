@@ -94,40 +94,6 @@ public class WriteController extends HttpServlet{
 					JSFunction.alertBack(resp, "글쓰기 실패");
 				}
 				
-			} else if("MountainRegister".equals(mode)) {
-				HttpSession session = req.getSession();
-				String id = (String)session.getAttribute("UserId");
-				
-				//manager 계정 필요
-				if("qwe".equals(id)) {
-					
-					String mname = req.getParameter("mname");
-					String addr_do = req.getParameter("addr_do");
-					String addr_si = req.getParameter("addr_si");
-					String addr_gu = req.getParameter("addr_gu");
-					String addr = req.getParameter("addr");
-					
-					String temp = req.getParameter("level");
-					int level = 0;
-					if(temp != null) {
-						level = Integer.parseInt(temp);
-					}
-					
-					MountainDao dao = new MountainDao(getServletContext());
-					MountainDto dto = new MountainDto(mname, addr_do, addr_si, addr_gu, addr,level);
-					int res = dao.insertMountain(dto);
-					
-					if(res == 1) {
-						resp.sendRedirect("./Main.jsp");
-					} else {
-						JSFunction.alertBack(resp, "등록 실패");
-					}
-					dao.close();
-					
-				} else {
-					JSFunction.alertLocation(resp, "권한이 없습니다.", "./main.jsp");
-				}
-				
 			} else if("MateBoard".equals(mode)) {
 				String tmp = req.getParameter("mNum");
 				int m_num = 0;

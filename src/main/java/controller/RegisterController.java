@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UserDao;
 import dao.memberDao;
+import dto.UserDto;
 import dto.memberDto;
 
 
@@ -38,32 +40,22 @@ public class RegisterController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		 	String id = req.getParameter("id");
-		 	String pwd = req.getParameter("pwd");
-		 	String name = req.getParameter("name");
+		 	String password = req.getParameter("pwd");
 		 	String nickName = req.getParameter("nickName");
-		 	
-		 	String temp = req.getParameter("birth");
-		 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		 	Date birth = null;
-			try {
-				birth = sdf.parse(temp);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}		 		
+		 	String name = req.getParameter("name");
+		 	String phone = req.getParameter("phone");
+		 	String pNumber = req.getParameter("pNumber");
+		 	String addr1 = req.getParameter("addr1");
+		 	String addr2 = req.getParameter("addr2"); 		
 
-		 	String addr_do = req.getParameter("addr_do");
-		 	String addr_si = req.getParameter("addr_si");
-		 	String addr_gu = req.getParameter("addr_gu");
-		 	String addr = req.getParameter("addr");
-		 	String tel = req.getParameter("tel");
-
-		 	memberDto dto = new memberDto(id, pwd, name, nickName, birth, addr_do, addr_si, addr_gu, addr, tel);
-		 	memberDao dao = new memberDao(req.getServletContext());
+		 	UserDao dao = new UserDao(req.getServletContext());
+		    UserDto dto = new UserDto(id, password, nickName, name, phone, pNumber,
+						addr1, addr2);
 
 		 	
-			int res = dao.insertMember(dto);
+			int res = dao.insertUser(dto);
 			if(res!=0) {
 				System.out.println("회원가입 성공");
 				resp.sendRedirect("./login");

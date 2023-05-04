@@ -47,7 +47,7 @@ pageEncoding="UTF-8"%>
                 
                 temp = $(this).find('mntninfopoflc').text().split(' ');
                 
-                list += '<form action="./MountainRegister.jsp">'
+                list += '<form action="./mountain?mode=register">'
                 list += '<input type="text" name="mname" value="';
                 list +=	$(this).find('mntnnm').text();
                 list += '"></input>';
@@ -60,6 +60,9 @@ pageEncoding="UTF-8"%>
                 list += '<input type="text" name="mhight" value="';
                 list +=	$(this).find('mntninfohght').text();
                 list += '"></input>';
+                list += '<select name="level">';
+                list +=	'<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>';
+                list += '</select>';
                 list+='<li><button type="submit">등록</button></li>'; //등록버튼
                 list += '</form>';
                 list += '</ul>'

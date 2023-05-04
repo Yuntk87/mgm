@@ -13,7 +13,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import common.JSFunction;
 import dao.MountainDao;
 import dto.MountainDto;
 
@@ -22,6 +24,7 @@ public class MountainController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String mode = req.getParameter("mode");
 
 
 	}
@@ -29,7 +32,6 @@ public class MountainController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String mode = req.getParameter("mode");
-		System.out.println(mode);
 		String mName = req.getParameter("mName");
 
 		if("write".equals(mode)) {
@@ -44,6 +46,39 @@ public class MountainController extends HttpServlet {
 			req.setAttribute("dto", dto);
 			dao.close();
 			req.getRequestDispatcher("./MateBoardEdit.jsp").forward(req, resp);
+		} else if("register".equals(mode)) {
+			HttpSession session = req.getSession();
+			String id = (String)session.getAttribute("UserId");
+			
+			if("qwe".equals(id)) {
+				System.out.println("rererer");
+				String mname = req.getParameter("mname");
+				String addr_do = req.getParameter("addr_do");
+				String addr_si = req.getParameter("addr_si");
+				String addr_gu = req.getParameter("addr_gu");
+				String addr = req.getParameter("addr");
+				
+				String temp = req.getParameter("level");
+				int level = 0;
+				if(temp != null) {
+					level = Integer.parseInt(temp);
+				}
+				
+				MountainDao dao = new MountainDao(getServletContext());
+				MountainDto dto = new MountainDto(mname, addr_do, addr_si, addr_gu, addr,level);
+				int res = dao.insertMountain(dto);
+				
+				if(res == 1) {
+					resp.sendRedirect("./Main.jsp");
+				} else {
+					JSFunction.alertBack(resp, "등록 실패");
+				}
+				dao.close();
+				
+			} else {
+				JSFunction.alertLocation(resp, "권한이 없습니다.", "./main.jsp");
+			}
+			
 		} else {
 			System.out.println("산 조회 실패");
 		}

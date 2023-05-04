@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/09e1bc70db.js" crossorigin="anonymous"></script>
-<link href="./Main.css?v=1" rel="stylesheet">
+<link href="./css/Main.css?v=1" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <title>Navi</title>
 </head>
@@ -29,16 +29,17 @@
                 <li><a class="link" href="./List?mode=MateBoard">메이트 게시판</a></li>
                 <li><a class="link master" href="#">회원 관리 페이지</a></li>
             </ul>
-        
-	       	<c:choose>
-	        	<c:when test="${empty sessionScope.UserId }" >
-	        		<a class='link' href='./login'>로그인</a>
-	       		</c:when>
-	       		<c:otherwise>
-	       			<a class='link' href='./logout'>로그아웃</a>
-	  			</c:otherwise>
-			</c:choose>
-			<a class="link" href="./register" >회원가입</a>
+         	<div>
+		       	<c:choose>
+		        	<c:when test="${empty sessionScope.UserId }" >
+		        		<a class='link' href='./login'>로그인</a>
+		       		</c:when>
+		       		<c:otherwise>
+		       			<a class='link' href='./logout'>로그아웃</a>
+		  			</c:otherwise>
+				</c:choose>
+				<a class="link" href="./register" >회원가입</a>
+         	</div>
         </nav>
         
 <!--        	<div id="logo_box"> -->
