@@ -33,21 +33,19 @@ public class MountainController extends HttpServlet {
 		String mName = req.getParameter("mName");
 
 		if("write".equals(mode)) {
-			System.out.println("wwwwwwww");
 			MountainDao dao = new MountainDao(getServletContext());
 			MountainDto dto = dao.selectMountain(mName);
 			req.setAttribute("dto", dto);
 			dao.close();
 			req.getRequestDispatcher("./MateBoardWrite.jsp").forward(req, resp);
 		} else if("edit".equals(mode)) {
-			System.out.println("eeeeeeeee");
 			MountainDao dao = new MountainDao(getServletContext());
 			MountainDto dto = dao.selectMountain(mName);
 			req.setAttribute("dto", dto);
 			dao.close();
 			req.getRequestDispatcher("./MateBoardEdit.jsp").forward(req, resp);
 		} else {
-			System.out.println("xxxxxxxxxx");
+			System.out.println("산 조회 실패");
 		}
 	}
 	
