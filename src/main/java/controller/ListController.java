@@ -53,7 +53,6 @@ public class ListController extends HttpServlet{
 					page = Integer.parseInt(pageTemp);
 				
 				if(searchWord != null && !"".equals(searchWord) && !"null".equals(searchWord)) {
-					param.put("mode", mode);
 					param.put("searchField", searchField);
 					param.put("searchWord", searchWord);
 					sc = new SearchCondition(searchField,searchWord,page,pageSize);

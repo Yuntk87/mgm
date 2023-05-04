@@ -37,6 +37,7 @@ public class SearchCondition {
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
+	
 
 	public SearchCondition() {
 		super();
@@ -51,12 +52,11 @@ public class SearchCondition {
 		this.page = page;
 		this.pageSize = pageSize;
 	}
-
+	
 
 	public SearchCondition(int page, int pageSize) {
 		this("","",page,pageSize);
 	}
-
 
 	public int getOffset(int page) {
 		return (page-1)*pageSize;
@@ -78,7 +78,6 @@ public class SearchCondition {
 
 
 
-	
 
 	
 }
