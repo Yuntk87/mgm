@@ -78,7 +78,7 @@
 				<tr>
 					<td colspan="4" align="center">
 					<c:if test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id }">
-						<button type="button" onclick="location.href='./edit${sc.getQueryString(param.page) }&num=${dto.fbnum }'">수정하기</button>
+						<button type="button" onclick="location.href='./edit${sc.getQueryString(param.page) }&num=${dto.fbnum }&mode=FreeBoard'">수정하기</button>
 						<button tyep="button" onclick="deletePost()">삭제하기</button>
 					</c:if>
 					<button type="button" onclick="location.href='./List?mode=FreeBoard&page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>

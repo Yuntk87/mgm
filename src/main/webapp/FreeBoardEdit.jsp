@@ -106,7 +106,7 @@
 		if(confirmed) {
 			var form = document.editFrm;
 			form.method = "post"
-			form.action = "./edit";
+			form.action = "./edit?mode=FreeBoard";
 			if(formCheck(form)) {
 				form.submit();	
 			}

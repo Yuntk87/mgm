@@ -70,11 +70,15 @@ public class SearchCondition {
 		return "?page="+page+"&pageSize="+pageSize+"&searchField="+searchField+"&searchWord="+searchWord;
 	}
 
-	
 	@Override
 	public String toString() {
 		return "SearchCondition [searchField=" + searchField + ", searchWord=" + searchWord + ", page=" + page
 				+ ", pageSize=" + pageSize + "]";
 	}
+
+
+
+	
+
 	
 }

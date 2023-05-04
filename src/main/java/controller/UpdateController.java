@@ -32,7 +32,7 @@ public class UpdateController extends HttpServlet{
 		
 		if("FreeBoard".equals(mode)) {
 			if(snum==null) {
-				JSFunction.alertLocation(resp, "잘못된 접근입니다.", "./list");
+				JSFunction.alertLocation(resp, "잘못된 접근입니다.", "./List");
 				return;
 			}
 			int num = Integer.parseInt(snum);
@@ -53,7 +53,7 @@ public class UpdateController extends HttpServlet{
 			req.getRequestDispatcher("/FreeBoardEdit.jsp").forward(req, resp);
 		} else if("MateBoard".equals(mode)) {
 			if(snum==null) {
-				JSFunction.alertLocation(resp, "잘못된 접근입니다.", "./list");
+				JSFunction.alertLocation(resp, "잘못된 접근입니다.", "./List");
 				return;
 			}
 			int num = Integer.parseInt(snum);
@@ -82,7 +82,7 @@ public class UpdateController extends HttpServlet{
 		
 		if("FreeBoard".equals(mode)) {
 			if(snum==null) {
-				JSFunction.alertLocation(resp, "잘못된 접근입니다.", "./list");
+				JSFunction.alertLocation(resp, "잘못된 접근입니다.", "./List");
 				return;
 			}
 			int fbnum = Integer.parseInt(snum);

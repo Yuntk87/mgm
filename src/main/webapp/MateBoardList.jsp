@@ -29,7 +29,7 @@
 							<option value="id" ${param.searchField eq 'id'? "selected" : "" }>작성자</option>
 						</select>
 						<input type="text" name="searchWord" id="search" value="${not empty param.searchWord? param.searchWord : '' }" >
-						<button type="button" class="btn btn-light" style="height: 35px;"><i class="fa-solid fa-magnifying-glass i-con"></i>검색</button>
+						<button class="btn btn-light" style="height: 35px;"><i class="fa-solid fa-magnifying-glass i-con"></i>검색</button>
 					</td>
 				</tr>		
 			</table>
