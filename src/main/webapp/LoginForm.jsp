@@ -199,14 +199,14 @@ function aa(){
     </ul>
     
     <!-- Form -->
-    <form id="frm-reset" action="" method="post">
+    <form id="frm-reset" action="./login" method="post">
    
       <div class="first-input input__block first-input__block">
-         <input type="text" placeholder="id" class="input" id="id"   />
+         <input type="text" placeholder="id" class="input" id="id" name="id" />
       </div>
   
       <div class="input__block">
-         <input type="password" placeholder="Password" class="input" id="password"    />
+         <input type="password" placeholder="Password" class="input" id="password" name="pass"/>
       </div>
       
       

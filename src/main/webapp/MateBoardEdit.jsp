@@ -56,7 +56,7 @@
 	<div id="edit_box">		
 		<h2>메이트 게시판 - 수정하기(Edit)</h2>
 		
-		<form name="editFrm" action="./edit?mode=MateBoard" method="post" onsubmit="return formCheck(this)">
+		<form name="editFrm" action="./MateBoardEdit" method="post" onsubmit="return formCheck(this)">
 			<table border="1" width="100%">
 			<input type="hidden" name="num" value="${dto.mate_num }">
 			<input type="hidden" name="mNum" value="${dto.m_num }">
@@ -108,7 +108,7 @@
 					<td colspan="4" align="center">
 						<button type="button" onclick="editPost()">작성완료</button>
 						<button type="reset">다시입력</button>
-						<button type="button" onclick="location.href='./List?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }&mode=MateBoard'">목록보기</button>
+						<button type="button" onclick="location.href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
 					</td>
 				</tr>
 			</table>
@@ -121,7 +121,7 @@
 		if(confirmed) {
 			var form = document.editFrm;
 			form.method = "post"
-			form.action = "./edit?mode=MateBoard";
+			form.action = "./MateBoardEdit";
 			if(formCheck(form)) {
 				form.submit();	
 			}

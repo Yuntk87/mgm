@@ -18,7 +18,7 @@
 	
 <!-- 		위치 정보 받아오기 -->
 	    <div>
-	        <form id="searchFrm" action="./write?mode=ConfirmBoard" method="post">
+	        <form id="searchFrm" action="./ConfirmBoardWrite" method="post">
 	            <input type="text" id="mname" name="mName" placeholder="산 이름을 검색하세요." />
 	            <button type="button" id="searchBtn">검색 요청</button>	  
 				

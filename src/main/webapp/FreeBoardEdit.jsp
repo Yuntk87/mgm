@@ -55,7 +55,7 @@
 
 	<div id="edit_box">		
 		<h2>자유 게시판 - 수정하기(Edit)</h2>
-		<form name="editFrm" action="./edit" method="post" onsubmit="return formCheck(this)">
+		<form name="editFrm" action="./FreeBoardEdit" method="post" onsubmit="return formCheck(this)">
 			<table border="1" width="100%">
 			<input type="hidden" name="num" value="${dto.fbnum }">
 				<tr>
@@ -93,7 +93,7 @@
 					<td colspan="4" align="center">
 						<button type="button" onclick="editPost()">작성완료</button>
 						<button type="reset">다시입력</button>
-						<button type="button" onclick="location.href='./list?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
+						<button type="button" onclick="location.href='./FreeBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
 					</td>
 				</tr>
 			</table>
@@ -106,7 +106,7 @@
 		if(confirmed) {
 			var form = document.editFrm;
 			form.method = "post"
-			form.action = "./edit?mode=FreeBoard";
+			form.action = "./FreeBoardEdit";
 			if(formCheck(form)) {
 				form.submit();	
 			}

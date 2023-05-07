@@ -43,7 +43,7 @@
 	<div id="write_box">
 		<h2>자유게시판 글 쓰기</h2>	
 		
-		<form id="write_board" action="./write?mode=FreeBoard" method="post" onsubmit="return formCheck(this)">
+		<form id="write_board" action="./FreeBoardWrite" method="post" onsubmit="return formCheck(this)">
 			<select name="category">
 				<option value="산">산</option>
 				<option value="맛집">맛집</option>
@@ -56,7 +56,7 @@
 			<div id="wbtns">
 			<button type="submit">등록</button>
 			<button type="reset">다시 입력</button>
-			<button type="button" onclick="location.href='./list?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
+			<button type="button" onclick="location.href='./FreeBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
 			</div>
 		</form>
 	</div>

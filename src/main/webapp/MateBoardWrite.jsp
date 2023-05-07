@@ -51,7 +51,7 @@
 			<button type="submit" id="mSearchBtn">검색</button>
 		</form>
 		
-		<form id="write_board" action="./write?mode=MateBoard" method="post" onsubmit="return formCheck(this)">
+		<form id="write_board" action="./MateBoardWrite" method="post" onsubmit="return formCheck(this)">
 			<input type="text" name="mNum" value="${dto.m_num }">
 			<input type="text" name="id" value="${sessionScope.UserId }">
 			<p>난이도 : ${dto.level }</p>
@@ -73,7 +73,7 @@
 			<div id="wbtns">
 			<button type="submit">등록</button>
 			<button type="reset">다시 입력</button>
-			<button type="button" onclick="location.href='./list?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
+			<button type="button" onclick="location.href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
 			</div>
 		</form>
 	</div>

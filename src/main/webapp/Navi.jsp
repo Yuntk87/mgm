@@ -24,9 +24,9 @@
             <ul class="navbar_menu">
                 <li><a class="link" href="./HomepageIntroduction.jsp" >홈페이지 소개</a></li>
                 <li><a class="link" href="./List.jsp">산 소개</a></li>
-                <li><a class="link" href="./List?mode=FreeBoard">자유 게시판</a></li>
-                <li><a class="link" href="./List?mode=ConfirmBoard">인증 게시판</a></li>
-                <li><a class="link" href="./List?mode=MateBoard">메이트 게시판</a></li>
+                <li><a class="link" href="./FreeBoardList">자유 게시판</a></li>
+                <li><a class="link" href="./ConfirmBoardList">인증 게시판</a></li>
+                <li><a class="link" href="./MateBoardList">메이트 게시판</a></li>
                 <li><a class="link master" href="#">회원 관리 페이지</a></li>
             </ul>
          	<div>

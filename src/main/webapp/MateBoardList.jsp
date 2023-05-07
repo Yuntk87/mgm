@@ -55,7 +55,7 @@
 						<tr>
 							<td>${b.mate_num }</td>
 							<td>${b.m_name }</td>
-							<td><a href='./view${ph.sc.getQueryString(ph.sc.page) }&num=${b.mate_num }&mode=MateBoard'>${b.title }</a></td>
+							<td><a href='./MateBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.mate_num }'>${b.title }</a></td>
 							<td>${b.id }</td>
 							<td>${b.viewCount }</td>
 							<td>${b.commentCount }</td>
@@ -75,13 +75,13 @@
 						<tr>
 							<td colspan="7">
 								<c:if test="${ph.showPrev }">
-									<a href="<c:url value='/list${ph.sc.getQueryString(ph.beginPage-1) }' />">&laquo;</a>
+									<a href="<c:url value='/MateBoardList${ph.sc.getQueryString(ph.beginPage-1) }' />">&laquo;</a>
 								</c:if>
 								<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }">
-									<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='/List${ph.sc.getQueryString(i) }&mode=MateBoard' />">${i }</a>
+									<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='/MateBoardList${ph.sc.getQueryString(i) }' />">${i }</a>
 								</c:forEach>
 								<c:if test="${ph.showNext }">
-									<a href="<c:url value='/list${ph.sc.getQueryString(ph.endPage+1) }' />">&raquo;</a>
+									<a href="<c:url value='/MateBoardList${ph.sc.getQueryString(ph.endPage+1) }' />">&raquo;</a>
 								</c:if>
 							</td>
 						</tr>
@@ -92,7 +92,7 @@
 		<table class="table table-dark">
 			<tr>
 				<td colspan="7" class="write-btn">
-					<button class="rbttn" onclick="location.href='./write${ph.sc.getQueryString(ph.sc.page) }&mode=MateBoard'"><span><i class="fa-solid fa-pen i-con"></i>글쓰기</span></button>
+					<button class="rbttn" onclick="location.href='./MateBoardWrite${ph.sc.getQueryString(ph.sc.page) }'"><span><i class="fa-solid fa-pen i-con"></i>글쓰기</span></button>
 				</td>
 			</tr>
 		</table>

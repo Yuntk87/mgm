@@ -17,45 +17,15 @@ import dto.ConfirmBoardDto;
 import dto.FreeBoardDto;
 import dto.MateBoardDto;
 
-@WebServlet("/delete")
-public class DeleteController extends HttpServlet{
+@WebServlet("/MateBoardDelete")
+public class MateBoardDeleteController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String mode = req.getParameter("mode");
-		
-		if("FreeBoard".equals(mode)) {
+
 			String snum = req.getParameter("num");
 			if(snum==null) {
-				JSFunction.alertLocation(resp, "잘못된 접근입니다.", "./List?mode=FreeBoard");
-				return;
-			} else {
-				int fbnum = Integer.parseInt(snum);
-				FreeBoardDao dao = new FreeBoardDao(getServletContext());
-				FreeBoardDto dto = dao.selectView(fbnum);
-				
-				HttpSession session = req.getSession();
-				String id = session.getAttribute("UserId").toString();
-				int res=0;
-				
-				if(id == null || dto == null) {
-					JSFunction.alertBack(resp, "잘못된 접근입니다.");
-				} else if(id.equals(dto.getId())) {
-					res = dao.deleteView(fbnum);
-					dao.close();
-					if(res==1) {
-						resp.sendRedirect("./List?mode=FreeBoard");
-					} else {
-						JSFunction.alertBack(resp, "삭제 실패");
-					}
-				} else {
-					JSFunction.alertBack(resp, "잘못된 접근입니다.");
-				}
-			}
-		} else if("MateBoard".equals(mode)) {
-			String snum = req.getParameter("num");
-			if(snum==null) {
-				JSFunction.alertLocation(resp, "잘못된 접근입니다.", "./List?mode=MateBoard");
+				JSFunction.alertLocation(resp, "잘못된 접근입니다.", "./MateBoardList");
 				return;
 			} else {
 				int matenum = Integer.parseInt(snum);
@@ -72,7 +42,7 @@ public class DeleteController extends HttpServlet{
 					res = dao.deleteView(matenum);
 					dao.close();
 					if(res==1) {
-						resp.sendRedirect("./List?mode=MateBoard");
+						resp.sendRedirect("./MateBoardList");
 					} else {
 						JSFunction.alertBack(resp, "삭제 실패");
 					}
@@ -80,9 +50,6 @@ public class DeleteController extends HttpServlet{
 					JSFunction.alertBack(resp, "잘못된 접근입니다.");
 				}
 			}
-		}
-		
-		
 
 	}
 	
