@@ -41,14 +41,18 @@ public class RegisterController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		 	String id = req.getParameter("id");
-		 	String password = req.getParameter("pwd");
+		
+		    String email1 = req.getParameter("email1");
+		    String email2 = req.getParameter("email2");
+		 	String id = email1 + "@" + email2;
+		 	
+		 	String password = req.getParameter("password");
 		 	String nickName = req.getParameter("nickName");
-		 	String name = req.getParameter("name");
-		 	String phone = req.getParameter("phone");
-		 	String pNumber = req.getParameter("pNumber");
+		 	String pNumber = req.getParameter("pNumber");		
 		 	String addr1 = req.getParameter("addr1");
 		 	String addr2 = req.getParameter("addr2"); 		
+		 	String name = req.getParameter("name");
+		 	String phone = req.getParameter("phone");
 
 		 	UserDao dao = new UserDao(req.getServletContext());
 		    UserDto dto = new UserDto(id, password, nickName, name, phone, pNumber,

@@ -17,10 +17,10 @@ public class UserDao extends JDBConnect{
 	
 	public int insertUser(UserDto u ) {
 		int res=0;
-		String sql="insert into user(email,password,nickName,name,phone,pNumber,addr1,addr2) values(?,?,?,?,?,?,?,?)";
+		String sql="insert into user(id,password,nickName,name,phone,pNumber,addr1,addr2) values(?,?,?,?,?,?,?,?)";
 		try {
 			psmt=con.prepareStatement(sql);
-			psmt.setString(1,u.getEmail());
+			psmt.setString(1,u.getId());
 			psmt.setString(2,u.getPassword());
 			psmt.setString(3,u.getNickName());
 			psmt.setString(4,u.getName());
@@ -34,16 +34,16 @@ public class UserDao extends JDBConnect{
 			e.printStackTrace();
 		}return res;
 				    
-	}  public UserDto selectUser(String nickName) {
+	}  public UserDto selectUser(String id) {
 		UserDto u = null; 
 		try {
-			String sql = "select * from user where nickName=?";
+			String sql = "select * from user where id=?";
 			psmt = con.prepareStatement(sql);
-			psmt.setString(1,  nickName);
+			psmt.setString(1,  id);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
 				u = new UserDto();
-				u.setEmail(rs.getString("email"));
+				u.setId(rs.getString("id"));
 				u.setPassword(rs.getString("password"));
 				u.setNickName(rs.getString("nickName"));
 				u.setName(rs.getString("name"));
@@ -70,7 +70,7 @@ public class UserDao extends JDBConnect{
 			
 			while(rs.next()) {
 				u = new UserDto();
-				u.setEmail(rs.getString("email"));
+				u.setId(rs.getString("id"));
 				u.setPassword(rs.getString("password"));
 				u.setNickName(rs.getString("nickName"));
 				u.setName(rs.getString("name"));

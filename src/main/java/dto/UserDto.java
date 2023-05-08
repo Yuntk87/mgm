@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class UserDto {
 	private int user_num;
-	private String email;
+	private String id;
 	private String password;
 	private String nickName;
 	private String name;
@@ -15,17 +15,18 @@ public class UserDto {
 	private Date postDate;
 	
 	
+	
 	public int getUser_num() {
 		return user_num;
 	}
 	public void setUser_num(int user_num) {
 		this.user_num = user_num;
 	}
-	public String getEmail() {
-		return email;
+	public String getId() {
+		return id;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getPassword() {
 		return password;
@@ -81,10 +82,11 @@ public class UserDto {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public UserDto(String email, String password, String nickName, String name, String phone, String pNumber,
-			String addr1, String addr2) {
+	
+	public UserDto(String id, String password, String nickName, String name, String phone, String pNumber, String addr1,
+			String addr2) {
 		super();
-		this.email = email;
+		this.id = id;
 		this.password = password;
 		this.nickName = nickName;
 		this.name = name;
@@ -94,12 +96,13 @@ public class UserDto {
 		this.addr2 = addr2;
 	}
 	
+	
 	@Override
 	public String toString() {
-		return "UserDto [user_num=" + user_num + ", email=" + email + ", password=" + password + ", nickName="
-				+ nickName + ", name=" + name + ", phone=" + phone + ", pNumber=" + pNumber + ", addr1=" + addr1
-				+ ", addr2=" + addr2 + ", postDate=" + postDate + "]";
+		return "UserDto [user_num=" + user_num + ", id=" + id + ", password=" + password + ", nickName=" + nickName
+				+ ", name=" + name + ", phone=" + phone + ", pNumber=" + pNumber + ", addr1=" + addr1 + ", addr2="
+				+ addr2 + ", postDate=" + postDate + "]";
 	}
-	
+
 
 }

@@ -11,13 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UserDao;
 import dao.memberDao;
+import dto.UserDto;
 import dto.memberDto;
 
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet{
-	memberDao dao = null;
+	UserDao dao = null;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,9 +48,9 @@ public class LoginController extends HttpServlet{
 		String rememberId = req.getParameter("rememberId");
 		
 		//req.getServletContext() = application 객체 생성
-		memberDao dao = new memberDao(req.getServletContext());
-		memberDto dto = dao.selectUser(id);
-		
+		UserDao dao = new UserDao(req.getServletContext());
+		UserDto dto = dao.selectUser(id);
+		System.out.println(dto);
 		if(dto == null) {
 			resp.setContentType("text/html;charset=utf-8");
 			PrintWriter writer = resp.getWriter();
@@ -58,7 +60,7 @@ public class LoginController extends HttpServlet{
 			req.getRequestDispatcher("./LoginForm.jsp").forward(req, resp);
 			writer.close();
 		}
-		if(dto != null && dto.getId().equals(id) && dto.getPwd().equals(pwd)) {
+		else if(dto != null && dto.getId().equals(id) && dto.getPassword().equals(pwd)) {
 			System.out.println("로그인 성공");
 			if(rememberId != null) {
 				Cookie cookie = new Cookie("id", id);
@@ -73,7 +75,7 @@ public class LoginController extends HttpServlet{
 			HttpSession session = req.getSession();
 			
 			session.setAttribute("UserId", dto.getId());
-			session.setAttribute("UserName", dto.getNickName());
+			session.setAttribute("UserNickName", dto.getNickName());
 			
 			String Uri = (session.getAttribute("Uri") != null)? 
 					session.getAttribute("Uri").toString() : null;
