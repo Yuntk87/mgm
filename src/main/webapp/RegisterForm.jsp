@@ -62,8 +62,8 @@
            	<div id="postnum">
            		<input type="button" id="post"onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
         	</div>
-            <input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="addr1" value="충청북도">
-            <input type="hidden" id="sample4_jibunAddress" placeholder="지번주소"  value="청주시" name="addr2">
+            <input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="addr1" >
+            <input type="hidden" id="sample4_jibunAddress" placeholder="지번주소" name="addr2">
             <span id="guide" style="color:#999;display:none"></span>
             <!--<input type="text" id="sample4_detailAddress" placeholder="상세주소"> -->
             <!-- <input type="text" id="sample4_extraAddress" placeholder="참고항목"> -->
