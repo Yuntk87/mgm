@@ -237,12 +237,12 @@ function aa(){
   
    <!--구글로그인  -->
     <li id="GgCustomLogin">
-   <a href="javascript:void(0)" onclick=""><img src="../imges/google.png" ></a>
+   <a href="javascript:void(0)" onclick=""><img src="./img/google.png" ></a>
   </li>
  
    <li onclick="kakaoLogin();">
       <a href="javascript:void(0)">
-          <img src="../imges/kakao.png" >
+          <img src="./img/kakao.png" >
       </a>
 	</li>
 	

@@ -4,7 +4,7 @@
 	<li>
     
       <a id="naverIdLogin_loginButton" href="javascript:void(0)">
-          <img src="../imges/startnaver.gif" >
+          <img src="./img/startnaver.gif" >
       </a>
 	</li>
 	<li onclick="naverLogout(); return false;">

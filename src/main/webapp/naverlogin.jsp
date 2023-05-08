@@ -4,7 +4,7 @@
 	<li>
       <!-- 아래와같이 아이디를 꼭 써준다. -->
       <a id="naverIdLogin_loginButton" href="javascript:void(0)">
-          <img src="../imges/naver.png" >
+          <img src="./img/naver.png" >
       </a>
 	</li>
 	<li onclick="naverLogout(); return false;">

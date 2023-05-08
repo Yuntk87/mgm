@@ -26,14 +26,12 @@
 
 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 
-<script src="https://apis.google.com/js/platform.js?onload=init" async
-	defer></script>
+<script src="https://apis.google.com/js/platform.js?onload=init" asyncdefer></script>
 
 <!-- 네이버 스크립트 -->
 
 <script
-	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"
-	charset="utf-8"></script>
+	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 
 <meta name="google-signin-client_id"
 	content="428109481500-p5a4ij83ptb1tn9iuf4lhiea1rdg4r31.apps.googleusercontent.com">
@@ -409,8 +407,8 @@
 
 			<%@ include file='../startnaverlogin.jsp'%>
 
-			<li id="GgCustomLogin"><a href="javascript:void(0)" onclick=""><img src="../imges/startgoogle.gif"></a></li>
-			<li onclick="kakaoLogin();"><a href="javascript:void(0)"> <img src="../imges/startkakao.gif">
+			<li id="GgCustomLogin"><a href="javascript:void(0)" onclick=""><img src="./img/startgoogle.gif"></a></li>
+			<li onclick="kakaoLogin();"><a href="javascript:void(0)"> <img src="./img/startkakao.gif">
 
 			</a></li>
 
