@@ -74,10 +74,10 @@ public class RegisterController extends HttpServlet{
 	
 	protected void doIdChk(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("UTF-8");
-		String id = req.getParameter("id");
+		String nickName = req.getParameter("nickName");
 		UserDao dao = new UserDao(req.getServletContext());
 		PrintWriter out = resp.getWriter();
-		int res = dao.chkId(id);
+		int res = dao.chkId(nickName);
 		out.write(res+"");
 	}
 

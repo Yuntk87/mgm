@@ -52,7 +52,8 @@
 		</div>
 		<div class="nickname">
             <input type="text" id="nname" placeholder="닉네임" name="nickName">
-            <input type="button" id="btncheck" onclick="usernameCheck()" value="중복체크하기" > </button>
+            <div id="msg"></div>
+            <input type="button" id="nickNameChk" onclick="nickNameChk()" value="중복체크하기" > </button>
         </div>
 		<div class="jumin">
 			<input type="text" id="pnumber" placeholder="주민등록번호 ex)990121" name="pNumber" required> 
@@ -99,6 +100,33 @@
 		</div>
 
 <script>
+
+
+//아이디 중복체크
+$("#nickNameChk").click(function() {
+	let nickName = $("#nname").val();
+	if(nickName.trim() == '') {
+		alert("닉네임을 입력해주세요.");
+		return;
+	}
+	$.ajax({
+        type:'GET',       // 요청 메서드
+        url: './register?nickName='+nickName+"&mode=idchk",  // 요청 URI	
+        success : function(result){ // 요청이 성공일 때 실행되는 이벤트
+        	if(result == 1) {
+        		$("#msg").text("아이디 중복");
+        		$("#msg").css("color","red");
+        	}
+        	else {
+        		$("#msg").text("사용가능");
+        		$("#msg").css("color","blue");
+        	}
+        },
+        error: function(request, status, error){ alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error) } // 에러가 발생했을 때, 호출될 함수
+    }); // $.ajax()
+});
+
+
         function sample4_execDaumPostcode() {
             new daum.Postcode({
                 oncomplete: function(data) {
