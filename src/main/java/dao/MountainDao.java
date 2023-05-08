@@ -10,7 +10,7 @@ import javax.servlet.ServletContext;
 import common.JDBConnect;
 import dto.ConfirmBoardDto;
 import dto.MountainDto;
-import dto.memberDto;
+import dto.z_memberDto;
 
 public class MountainDao extends JDBConnect{
 

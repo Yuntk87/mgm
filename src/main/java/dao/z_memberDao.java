@@ -7,14 +7,14 @@ import java.util.Date;
 import javax.servlet.ServletContext;
 
 import common.JDBConnect;
-import dto.memberDto;
+import dto.z_memberDto;
 
-public class memberDao extends JDBConnect{
-	public memberDao(ServletContext application) {
+public class z_memberDao extends JDBConnect{
+	public z_memberDao(ServletContext application) {
 		super(application);
 	}
 	
-	public int insertMember(memberDto m ) {
+	public int insertMember(z_memberDto m ) {
 		int res=0;
 		String sql="insert into member(id,pwd,name,birth,addr_do,addr_si,addr_gu,addr,tel,nickName) values(?,?,?,?,?,?,?,?,?,?)";
 		try {
@@ -35,15 +35,15 @@ public class memberDao extends JDBConnect{
 			e.printStackTrace();
 		}return res;
 				    
-	}  public memberDto selectUser(String id) {
-		memberDto m = null; 
+	}  public z_memberDto selectUser(String id) {
+		z_memberDto m = null; 
 		try {
 			String sql = "select * from member where id=?";
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1,  id);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
-				m = new memberDto();
+				m = new z_memberDto();
 				m.setId(rs.getString(2));
 				m.setPwd(rs.getString(3));
 				m.setName(rs.getString(4));
@@ -63,15 +63,15 @@ public class memberDao extends JDBConnect{
 	}
 	
 	
-	public ArrayList<memberDto> selectAll(){
-		ArrayList<memberDto> mList = new ArrayList<memberDto>();
+	public ArrayList<z_memberDto> selectAll(){
+		ArrayList<z_memberDto> mList = new ArrayList<z_memberDto>();
 		try {
 			String sql = "select * from member";
 			psmt = con.prepareStatement(sql);
 				rs=psmt.executeQuery();
-			memberDto m = null;
+			z_memberDto m = null;
 			while(rs.next()) {
-				m = new memberDto();
+				m = new z_memberDto();
 				m.setId(rs.getString(2));
 				m.setPwd(rs.getString(3));
 				m.setName(rs.getString(4));

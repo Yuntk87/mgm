@@ -14,14 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDao;
-import dao.memberDao;
+import dao.z_memberDao;
 import dto.UserDto;
-import dto.memberDto;
+import dto.z_memberDto;
 
 
 @WebServlet("/register")
 public class RegisterController extends HttpServlet{
-	memberDao dao = null;
+	UserDao dao = null;
 	
 	
 	
@@ -75,7 +75,7 @@ public class RegisterController extends HttpServlet{
 	protected void doIdChk(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("UTF-8");
 		String id = req.getParameter("id");
-		memberDao dao = new memberDao(req.getServletContext());
+		UserDao dao = new UserDao(req.getServletContext());
 		PrintWriter out = resp.getWriter();
 		int res = dao.chkId(id);
 		out.write(res+"");

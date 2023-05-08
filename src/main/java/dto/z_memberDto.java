@@ -2,7 +2,7 @@ package dto;
 
 import java.util.Date;
 
-public class memberDto {
+public class z_memberDto {
 	private int mem_num;
 	private String id;
 	private String pwd;
@@ -91,11 +91,11 @@ public class memberDto {
 	}
 	
 	
-	public memberDto() {
+	public z_memberDto() {
 		super();
 	}
 	
-	public memberDto(String id, String pwd, String name, String nickName, Date birth, String addr_do, String addr_si, String addr_gu,
+	public z_memberDto(String id, String pwd, String name, String nickName, Date birth, String addr_do, String addr_si, String addr_gu,
 			String addr, String tel) {
 		super();
 		this.id = id;

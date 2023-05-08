@@ -8,7 +8,7 @@ import javax.servlet.ServletContext;
 
 import common.JDBConnect;
 import dto.UserDto;
-import dto.memberDto;
+import dto.z_memberDto;
 
 public class UserDao extends JDBConnect{
 	public UserDao(ServletContext application) {
@@ -70,6 +70,7 @@ public class UserDao extends JDBConnect{
 			
 			while(rs.next()) {
 				u = new UserDto();
+				u.setUser_num(rs.getInt("user_num"));
 				u.setId(rs.getString("id"));
 				u.setPassword(rs.getString("password"));
 				u.setNickName(rs.getString("nickName"));
@@ -78,6 +79,7 @@ public class UserDao extends JDBConnect{
 				u.setpNumber(rs.getString("pNumber"));
 				u.setAddr1(rs.getString("addr1"));
 				u.setAddr1(rs.getString("addr2"));
+				u.setPostDate(rs.getTimestamp("postDate"));
 				uList.add(u);
 			}
 		} catch (SQLException e) {
@@ -89,13 +91,13 @@ public class UserDao extends JDBConnect{
 	
 	
 	
-	public int delete(String nickName) {
+	public int delete(int userNum) {
 		int result = 0;
 		try {
 			
-			String sql = "DELETE FROM user WHERE nickName=?";
+			String sql = "DELETE FROM user WHERE user_num=?";
 			psmt = con.prepareStatement(sql); 
-			psmt.setString(1, nickName);
+			psmt.setInt(1, userNum);
 			result = psmt.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -120,6 +122,37 @@ public class UserDao extends JDBConnect{
 			e.printStackTrace();
 		} 
 		return res;
+	}
+		
+	public ArrayList search(String nickName){
+		String sql="SELECT * FROM user WHERE nickName LIKE ?";
+		ArrayList<UserDto> userList=new ArrayList<UserDto>();
+		nickName = "%"+nickName+"%";
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1,nickName);
+			rs = psmt.executeQuery();
+			UserDto m = null;
+			while(rs.next()) {
+				m = new UserDto();
+				m.setUser_num(rs.getInt(1));
+				m.setId(rs.getString(2));
+				m.setPassword(rs.getString(3));
+				m.setNickName(rs.getString(4));
+				m.setName(rs.getString(5));
+				m.setPhone(rs.getString(6));
+				m.setpNumber(rs.getString(7));
+				m.setAddr1(rs.getString(8));
+				m.setAddr2(rs.getString(9));
+				m.setPostDate(rs.getTimestamp(10));
+				userList.add(m);
+				
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return userList;
 	}
 	
 }
