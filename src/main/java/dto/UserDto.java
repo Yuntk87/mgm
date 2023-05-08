@@ -10,10 +10,10 @@ public class UserDto {
 	private String name;
 	private String phone;
 	private String pNumber;
+	private String gender;
 	private String addr1;
 	private String addr2;
 	private Date postDate;
-	
 	
 	
 	public int getUser_num() {
@@ -58,6 +58,12 @@ public class UserDto {
 	public void setpNumber(String pNumber) {
 		this.pNumber = pNumber;
 	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public String getAddr1() {
 		return addr1;
 	}
@@ -83,8 +89,8 @@ public class UserDto {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public UserDto(String id, String password, String nickName, String name, String phone, String pNumber, String addr1,
-			String addr2) {
+	public UserDto(String id, String password, String nickName, String name, String phone, String pNumber,
+			String gender, String addr1, String addr2) {
 		super();
 		this.id = id;
 		this.password = password;
@@ -92,6 +98,7 @@ public class UserDto {
 		this.name = name;
 		this.phone = phone;
 		this.pNumber = pNumber;
+		this.gender = gender;
 		this.addr1 = addr1;
 		this.addr2 = addr2;
 	}
@@ -100,8 +107,8 @@ public class UserDto {
 	@Override
 	public String toString() {
 		return "UserDto [user_num=" + user_num + ", id=" + id + ", password=" + password + ", nickName=" + nickName
-				+ ", name=" + name + ", phone=" + phone + ", pNumber=" + pNumber + ", addr1=" + addr1 + ", addr2="
-				+ addr2 + ", postDate=" + postDate + "]";
+				+ ", name=" + name + ", phone=" + phone + ", pNumber=" + pNumber + ", gender=" + gender + ", addr1="
+				+ addr1 + ", addr2=" + addr2 + ", postDate=" + postDate + "]";
 	}
 
 

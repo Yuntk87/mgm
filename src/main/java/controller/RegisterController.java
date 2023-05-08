@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.StringJoiner;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,21 +43,30 @@ public class RegisterController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		
-		    String email1 = req.getParameter("email1");
-		    String email2 = req.getParameter("email2");
+		    String email1 = req.getParameter("email");
+		    String email2 = req.getParameter("email1");
 		 	String id = email1 + "@" + email2;
 		 	
 		 	String password = req.getParameter("password");
 		 	String nickName = req.getParameter("nickName");
 		 	String pNumber = req.getParameter("pNumber");		
-		 	String addr1 = req.getParameter("addr1");
-		 	String addr2 = req.getParameter("addr2"); 		
+		 	String gender = req.getParameter("gender");		
+		 	
+		 	String address = req.getParameter("roadAddress");
+		 	String[] temp = address.split(" ");
+		 	String addr1 = temp[0].toString(); 		
+		 	StringBuilder sb = new StringBuilder();
+		 	for(int i=1; i<temp.length; i++) {
+		 		sb.append(temp[i].toString()).append(" ");
+		 	}
+		 	String addr2 = sb.toString();
+		 	
 		 	String name = req.getParameter("name");
 		 	String phone = req.getParameter("phone");
 
 		 	UserDao dao = new UserDao(req.getServletContext());
 		    UserDto dto = new UserDto(id, password, nickName, name, phone, pNumber,
-						addr1, addr2);
+						gender,addr1, addr2);
 
 		 	
 			int res = dao.insertUser(dto);

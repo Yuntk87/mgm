@@ -1,9 +1,9 @@
 function joinform_check() {
   
-    var id = document.getElementById("email");
+    var id = document.getElementById("email1");
     var pwd = document.getElementById("password");
-    var pnumber = document.getElementById("pnumber");
-    var pnumber2= document.getElementById("pnumber2")
+    var pnumber = document.getElementById("pNumber");
+    var gender= document.getElementById("gender")
     var postnumber = document.getElementById("sample4_postcode");
     var roadaddress = document.getElementById("sample4_roadAddress");
     var jibun = document.getElementById("sample4_jibunAddress");
@@ -41,7 +41,7 @@ function joinform_check() {
         return false;
     };
     if(pnumber2.value==""){
-        alert("주민번호뒷자리를 입력해주세요");
+        alert("성별은 선택해 주세요");
         pnumber2.focus();
         return false;
     }
@@ -49,18 +49,18 @@ function joinform_check() {
       let regx = /^([0-4]){1}$/  
 
       let regx2 = /^([0-9]){6}$/  //숫자만 입력하는 정규식
-    console.log("=========="+reg.test(pnumber2.value)) 
+//    console.log("=========="+reg.test(pnumber2.value)) 
     console.log("=========="+reg.test(pnumber.value))
     if (!regx.test(pnumber.value)) {
       alert("주민번호는 숫자만 입력할 수 있습니다.");
       pnumber.focus();
       return false;
     }
-    if(!regx2.test(pnumber2.value)){
-    alert("주민번호는 숫자만 입력할 수 있습니다.");
-    pnumber2.focus();
-    return false;
-  }
+//    if(!regx2.test(pnumber2.value)){
+//    alert("주민번호는 숫자만 입력할 수 있습니다.");
+//    pnumber2.focus();
+//    return false;
+//  }
    
   
   

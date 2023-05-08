@@ -17,7 +17,7 @@ public class UserDao extends JDBConnect{
 	
 	public int insertUser(UserDto u ) {
 		int res=0;
-		String sql="insert into user(id,password,nickName,name,phone,pNumber,addr1,addr2) values(?,?,?,?,?,?,?,?)";
+		String sql="insert into user(id,password,nickName,name,phone,pNumber,gender,addr1,addr2) values(?,?,?,?,?,?,?,?,?)";
 		try {
 			psmt=con.prepareStatement(sql);
 			psmt.setString(1,u.getId());
@@ -26,8 +26,9 @@ public class UserDao extends JDBConnect{
 			psmt.setString(4,u.getName());
 			psmt.setString(5,u.getPhone());
 			psmt.setString(6,u.getpNumber());
-			psmt.setString(7,u.getAddr1());
-			psmt.setString(8,u.getAddr2());
+			psmt.setString(7,u.getGender());
+			psmt.setString(8,u.getAddr1());
+			psmt.setString(9,u.getAddr2());
 			res=psmt.executeUpdate();
 		}catch (SQLException e) {
 			System.out.println("회원입력중 오류발생");
@@ -49,6 +50,7 @@ public class UserDao extends JDBConnect{
 				u.setName(rs.getString("name"));
 				u.setPhone(rs.getString("phone"));
 				u.setpNumber(rs.getString("pNumber"));
+				u.setGender(rs.getString("gender"));
 				u.setAddr1(rs.getString("addr1"));
 				u.setAddr1(rs.getString("addr2"));
 			}
@@ -77,6 +79,7 @@ public class UserDao extends JDBConnect{
 				u.setName(rs.getString("name"));
 				u.setPhone(rs.getString("phone"));
 				u.setpNumber(rs.getString("pNumber"));
+				u.setGender(rs.getString("gender"));
 				u.setAddr1(rs.getString("addr1"));
 				u.setAddr1(rs.getString("addr2"));
 				u.setPostDate(rs.getTimestamp("postDate"));
@@ -142,9 +145,10 @@ public class UserDao extends JDBConnect{
 				m.setName(rs.getString(5));
 				m.setPhone(rs.getString(6));
 				m.setpNumber(rs.getString(7));
-				m.setAddr1(rs.getString(8));
-				m.setAddr2(rs.getString(9));
-				m.setPostDate(rs.getTimestamp(10));
+				m.setGender(rs.getString(8));
+				m.setAddr1(rs.getString(9));
+				m.setAddr2(rs.getString(10));
+				m.setPostDate(rs.getTimestamp(11));
 				userList.add(m);
 				
 			}
