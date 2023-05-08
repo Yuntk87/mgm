@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MateBoardView</title>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <style>
 	table {
 		border-collapse : collapse;
@@ -51,9 +52,9 @@
 			<table border="1" width="100%">
 				<tr>
 					<td>번호</td>
-					<td>${dto.mate_num }</td>
+					<td id="mateNum">${dto.mate_num }</td>
 					<td>작성자</td>
-					<td>${dto.id }</td>
+					<td id="id">${dto.id }</td>
 				</tr>
 				<tr>
 					<td>작성일</td>
@@ -65,10 +66,11 @@
 				</tr>
 				<tr>
 					<td>산이름</td>
+					<td id="mNum">${dto.m_num }</td>
 					<td>${dto.m_name }</td>
 					<td>예정일</td>
 					<fmt:formatDate value="${dto.dDay }" type="both" pattern="yyyy-MM-dd hh:mm:ss" var="dDay"/>
-					<td>${dDay }</td>
+					<td id="dDay">${dDay }</td>
 					<td>인원</td>
 					<td>${dto.mateLimit }</td>
 				</tr>
@@ -82,10 +84,20 @@
 				</tr>
 				<tr>
 					<td colspan="4" align="center">
-					<c:if test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id }">
-						<button type="button" onclick="location.href='./MateBoardEdit${sc.getQueryString(param.page) }&num=${dto.mate_num }&mName=${dto.m_name }'">수정하기</button>
-						<button tyep="button" onclick="deletePost()">삭제하기</button>
-					</c:if>
+					<c:choose>
+						<c:when test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id }">
+							<button type="button" onclick="location.href='./MateBoardEdit${sc.getQueryString(param.page) }&num=${dto.mate_num }&mName=${dto.m_name }'">수정하기</button>
+							<button tyep="button" id="joinBtn" onclick="deletePost()">삭제하기</button>
+						</c:when>
+						<c:otherwise>
+							<button type="button" id="joinBtn">참가</button>
+<%-- 							<button type="button" id="joinBtn" onclick="location.href='./MateJoin?mateNum=${dto.mate_num}&id=${dto.id }&mNum=${dto.m_num }&dDay=${dDay }'">참가</button> --%>
+						</c:otherwise>
+					</c:choose>
+<%-- 					<c:if test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id }"> --%>
+<%-- 						<button type="button" onclick="location.href='./MateBoardEdit${sc.getQueryString(param.page) }&num=${dto.mate_num }&mName=${dto.m_name }'">수정하기</button> --%>
+<!-- 						<button tyep="button" onclick="deletePost()">삭제하기</button> -->
+<%-- 					</c:if> --%>
 					<button type="button" onclick="location.href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
 					</td>
 				</tr>
@@ -104,6 +116,32 @@
 			form.submit();
 		}
 	}
+	
+	$(document).ready(function() {
+
+		//등록
+		$("#joinBtn").click(function() {
+			let mateNum = $('#mateNum').text();
+			let id = $('#id').text();
+			let mNum = $('#mNum').text();
+			let dDay = $('#dDay').text();
+			$.ajax({
+		        type:'POST',       // 요청 메서드
+		        url: './MateJoin',
+		        dataType : "text",
+		        data : { mateNum:mateNum , id:id, mNum:mNum, dDay:dDay  } ,// 전달 데이터
+		        success : function(result){ // 요청이 성공일 때 실행되는 이벤트
+		        	if("y" ==  result) {
+		        		alert("yes")
+		        	} else {
+		        		alert("no")
+		        	}
+		        },
+		        error: function(request, status, error){ alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error) } // 에러가 발생했을 때, 호출될 함수
+		    }); // $.ajax()
+		});
+	});
 </script>
+
 </body>
 </html>
