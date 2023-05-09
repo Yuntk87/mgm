@@ -6,8 +6,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.processing.SupportedSourceVersion;
@@ -17,6 +19,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import dao.MateJoinDao;
 import dto.MateJoinDto;
@@ -73,21 +78,35 @@ public class MateJoinController extends HttpServlet{
 		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMdd");
 		
 
+		JSONObject sObject = new JSONObject();
+		
 		if(dto == null) {
 			if(ScheduleChk(mList,temp3) == 0) {
 				dto = new MateJoinDto(mateNum, id, mNum, dDay, jid);
 				dao.insertWrite(dto);
+				cnt = dao.count(mateNum);
 				dao.close();
-				out.println("y");
+				sObject.put("result","y"+"");
+				sObject.put("cnt", cnt+"");
+				resp.setContentType("application/json; charset=utf-8");
+				out.println(sObject.toJSONString());
 			} else {
-				out.println("re");
+				cnt = dao.count(mateNum);
+				sObject.put("result","re"+"");
+				sObject.put("cnt", cnt+"");
+				resp.setContentType("application/json; charset=utf-8");
+				out.println(sObject.toJSONString());
 			}
 		} else {
 			dao.deleteMateBoardJoin(dto);
+			cnt = dao.count(mateNum);
 			dao.close();
-			out.println("n");
+			sObject.put("result","n"+"");
+			sObject.put("cnt", cnt+"");
+			resp.setContentType("application/json; charset=utf-8");
+			out.println(sObject.toJSONString());
 		}
-		
+
 	}
 	
 	public int ScheduleChk(List<String> mList, String dDay) {
@@ -102,10 +121,8 @@ public class MateJoinController extends HttpServlet{
 				String days = sdf1.format(tmp2);
 
 				if(dDaychk.equals(days)) {
-					System.out.println("111111111");
 					return res=1;
 				} else {
-					System.out.println("0000000000");
 					continue;
 				}
 			} catch (ParseException e) {

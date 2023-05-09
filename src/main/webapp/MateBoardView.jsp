@@ -48,13 +48,14 @@
 		<h2>메이트 게시판 - 상세보기</h2>
 		<form name="writeFrm">
 			<input type="hidden" name="num" value="${dto.mate_num }">
+			<input type="hidden" id="id" name="id" value="${dto.id }">
 			
 			<table border="1" width="100%">
 				<tr>
 					<td>번호</td>
 					<td id="mateNum">${dto.mate_num }</td>
 					<td>작성자</td>
-					<td id="id">${dto.id }</td>
+					<td>${sessionScope.UserNickName }</td>
 				</tr>
 				<tr>
 					<td>작성일</td>
@@ -72,7 +73,8 @@
 					<fmt:formatDate value="${dto.dDay }" type="both" pattern="yyyy-MM-dd hh:mm:ss" var="dDay"/>
 					<td id="dDay">${dDay }</td>
 					<td>인원</td>
-					<td>${dto.mateLimit } / ${cnt }</td>
+					<td>${dto.mateLimit }</td>
+					<td id="cnt">${cnt }</td>
 				</tr>
 				<tr>
 					<td>제목</td>
@@ -103,16 +105,11 @@
 					</td>
 				</tr>
 			</table>
-			<div>
-				<c:forEach items="${mList }" var="m">
-					${m }
-				</c:forEach>
-			</div>
-				
 		</form>
 		<%@ include file="./MateBoardComment.jsp" %>
 	</div>
 <%@ include file="./Footer.jsp" %>
+
 <script>
 	function deletePost() {
 		var confirmed = confirm("정말 삭제하시겠습니까?");
@@ -141,24 +138,28 @@
 		//등록
 		$("#joinBtn").click(function() {
 			let mateNum = $('#mateNum').text();
-			let id = $('#id').text();
+			let id = $('#id').val();
 			let mNum = $('#mNum').text();
 			let dDay = $('#dDay').text();
 			$.ajax({
 		        type:'POST',       // 요청 메서드
 		        url: './MateJoin',
-		        dataType : "text",
+		        dataType : "json",
 		        data : { mateNum:mateNum , id:id, mNum:mNum, dDay:dDay  } ,// 전달 데이터
-		        success : function(result){ // 요청이 성공일 때 실행되는 이벤트
-		        	const res = $.trim(result);
-		        	if(res == "y") alert("참가신청 완료");
-		        	if(res == "n") alert("참가신청 취소");
-		        	if(res == "re") alert("예정일에 이미 참가일정이 있습니다. 일정을 확인 해 주세요");
-		        	joinBtn(res);
+		        success : function(data){ // 요청이 성공일 때 실행되는 이벤트
+		        	let obj = data;
+		        	let res = obj.result;
+					$("#cnt").text(obj.cnt);
+					if(res == "y") alert("참가신청 완료");
+					if(res == "n") alert("참가신청 취소");
+					if(res == "re") alert("예정일에 이미 참가일정이 있습니다. 일정을 확인 해 주세요");
+		        	joinBtn(obj.result);
 		        },
 		        error: function(request, status, error){ alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error) } // 에러가 발생했을 때, 호출될 함수
 		    }); // $.ajax()
 		});
+		
+		
 	});
 
 </script>

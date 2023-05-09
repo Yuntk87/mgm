@@ -54,6 +54,7 @@
 		<form id="write_board" action="./MateBoardWrite" method="post" onsubmit="return formCheck(this)">
 			<input type="text" name="mNum" value="${dto.m_num }">
 			<input type="text" name="id" value="${sessionScope.UserId }">
+			<input type="text" name="nickName" value="${sessionScope.UserNickName }">
 			<p>난이도 : ${dto.level }</p>
 			<p>추천수 : ${dto.m_recommend }</p>
 			

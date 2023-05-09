@@ -48,6 +48,7 @@ public class MateBoardWriteController extends HttpServlet{
 				
 				HttpSession session = req.getSession();
 				String id = (String)session.getAttribute("UserId");
+				String nickName = req.getParameter("nickName");
 				String title = req.getParameter("title");
 				String content = req.getParameter("content");
 				int limit = Integer.parseInt(req.getParameter("limit"));
@@ -64,7 +65,7 @@ public class MateBoardWriteController extends HttpServlet{
 					}				
 				}
 				MateBoardDao dao = new MateBoardDao(req.getServletContext());
-				MateBoardDto dto = new MateBoardDto(m_num, id, title, content, dDay, limit);
+				MateBoardDto dto = new MateBoardDto(m_num, nickName, title, content, dDay, limit);
 				System.out.println(dto);
 				
 				int res = dao.insertMateBoard(dto);
