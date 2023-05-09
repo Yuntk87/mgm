@@ -3,6 +3,9 @@ package dao;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 
@@ -100,5 +103,25 @@ public class MateJoinDao extends JDBConnect{
 		}
 		return m;
 	}
-		
+	
+	public List<String> selectJId(String jId) {
+		ArrayList<String> mbs = new ArrayList<String>();
+		String query = "SELECT d_day FROM mate_board_join WHERE j_id=?";
+
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, jId);	
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				mbs.add(rs.getString(1));
+			}
+			
+		}
+		catch(Exception e) {
+			System.out.print("참가기록 조회 중 예외 발생");
+			e.printStackTrace();
+		}
+		return mbs;
+	}
 }

@@ -72,7 +72,7 @@
 					<fmt:formatDate value="${dto.dDay }" type="both" pattern="yyyy-MM-dd hh:mm:ss" var="dDay"/>
 					<td id="dDay">${dDay }</td>
 					<td>인원</td>
-					<td>${dto.mateLimit }</td>
+					<td>${dto.mateLimit } / ${cnt }</td>
 				</tr>
 				<tr>
 					<td>제목</td>
@@ -87,21 +87,28 @@
 					<c:choose>
 						<c:when test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id }">
 							<button type="button" onclick="location.href='./MateBoardEdit${sc.getQueryString(param.page) }&num=${dto.mate_num }&mName=${dto.m_name }'">수정하기</button>
-							<button tyep="button" id="joinBtn" onclick="deletePost()">삭제하기</button>
+							<button type="button" onclick="deletePost()">삭제하기</button>
+						</c:when>
+						<c:when test="${mdto != null}">
+							<button id="joinBtn" type="button" type="button" >참가취소</button>
+						</c:when>
+						<c:when test="${dto.mateLimit eq cnt}">
+							<button id="joinBtn" type="button" type="button" disabled>참가불가</button>
 						</c:when>
 						<c:otherwise>
-							<button type="button" id="joinBtn">참가</button>
-<%-- 							<button type="button" id="joinBtn" onclick="location.href='./MateJoin?mateNum=${dto.mate_num}&id=${dto.id }&mNum=${dto.m_num }&dDay=${dDay }'">참가</button> --%>
+							<button id="joinBtn" type="button" type="button" >참가하기</button>
 						</c:otherwise>
 					</c:choose>
-<%-- 					<c:if test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id }"> --%>
-<%-- 						<button type="button" onclick="location.href='./MateBoardEdit${sc.getQueryString(param.page) }&num=${dto.mate_num }&mName=${dto.m_name }'">수정하기</button> --%>
-<!-- 						<button tyep="button" onclick="deletePost()">삭제하기</button> -->
-<%-- 					</c:if> --%>
 					<button type="button" onclick="location.href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
 					</td>
 				</tr>
-			</table>		
+			</table>
+			<div>
+				<c:forEach items="${mList }" var="m">
+					${m }
+				</c:forEach>
+			</div>
+				
 		</form>
 		<%@ include file="./MateBoardComment.jsp" %>
 	</div>
@@ -116,9 +123,21 @@
 			form.submit();
 		}
 	}
+
+	let joinBtn = function(res){
+		let tmp = "";
+		if(res == "y") {
+			console.log("참가신청 완료");
+			$("#joinBtn").text("참가취소");
+		} else {
+			console.log("참가취소");
+			$("#joinBtn").text("참가하기");
+		}
+		return tmp;
+	}
+	
 	
 	$(document).ready(function() {
-
 		//등록
 		$("#joinBtn").click(function() {
 			let mateNum = $('#mateNum').text();
@@ -131,16 +150,18 @@
 		        dataType : "text",
 		        data : { mateNum:mateNum , id:id, mNum:mNum, dDay:dDay  } ,// 전달 데이터
 		        success : function(result){ // 요청이 성공일 때 실행되는 이벤트
-		        	if("y" ==  result) {
-		        		alert("yes")
-		        	} else {
-		        		alert("no")
-		        	}
+		        	const res = $.trim(result);
+		        	alert(res);
+		        	if(res == "y") alert("참가신청 완료");
+		        	if(res == "n") alert("참가신청 취소");
+		        	if(res == "re") alert("예정일에 이미 참가일정이 있습니다. 일정을 확인 해 주세요");
+		        	joinBtn(res);
 		        },
 		        error: function(request, status, error){ alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error) } // 에러가 발생했을 때, 호출될 함수
 		    }); // $.ajax()
 		});
 	});
+
 </script>
 
 </body>

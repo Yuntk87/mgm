@@ -1,21 +1,28 @@
 package controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import common.PageHandler;
 import common.SearchCondition;
 import dao.ConfirmDao;
 import dao.FreeBoardDao;
 import dao.MateBoardDao;
+import dao.MateJoinDao;
 import dto.ConfirmBoardDto;
 import dto.FreeBoardDto;
 import dto.MateBoardDto;
+import dto.MateJoinDto;
 
 @WebServlet("/MateBoardView")
 public class MateBoardViewController extends HttpServlet{
@@ -41,6 +48,30 @@ public class MateBoardViewController extends HttpServlet{
 			SearchCondition sc = new SearchCondition(searchField, searchWord, page, pageSize);
 			req.setAttribute("sc", sc);
 			
+			HttpSession session = req.getSession();
+			String jid = session.getAttribute("UserId").toString();
+			MateJoinDao mdao = new MateJoinDao(getServletContext());
+			MateJoinDto mdto = mdao.selectMateBoardJoin(num, jid);
+			int cnt = mdao.count(num);
+			req.setAttribute("cnt", cnt);
+			req.setAttribute("mdto", mdto);
+			
+//			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//			String tt = "2023-06-06 12:00:00";
+//			Date aa = null;
+//			try {
+//				aa = sdf1.parse(tt);
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+//			System.out.println(sdf2.format(aa));
+			
+			List<String> mList = mdao.selectJId("test2@naver.com");
+			req.setAttribute("mList", mList);
+			
+			mdao.close();
 			dao.close();
 			req.getRequestDispatcher("./MateBoardView.jsp").forward(req, resp);
 

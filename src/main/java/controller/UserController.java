@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.MateJoinDao;
 import dao.UserDao;
+import dto.MateJoinDto;
 
 @WebServlet("/user")
 public class UserController extends HttpServlet{
