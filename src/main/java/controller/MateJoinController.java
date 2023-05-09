@@ -51,6 +51,7 @@ public class MateJoinController extends HttpServlet{
 		}
 		
 		String temp3 = req.getParameter("dDay");
+		System.out.println("tttttt" + temp3);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date dDay = null;
 		if(temp3 != null) {
@@ -101,9 +102,11 @@ public class MateJoinController extends HttpServlet{
 				String days = sdf1.format(tmp2);
 
 				if(dDaychk.equals(days)) {
+					System.out.println("111111111");
 					return res=1;
 				} else {
-					return res=0;
+					System.out.println("0000000000");
+					continue;
 				}
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block

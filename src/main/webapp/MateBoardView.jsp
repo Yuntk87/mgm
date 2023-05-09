@@ -151,7 +151,6 @@
 		        data : { mateNum:mateNum , id:id, mNum:mNum, dDay:dDay  } ,// 전달 데이터
 		        success : function(result){ // 요청이 성공일 때 실행되는 이벤트
 		        	const res = $.trim(result);
-		        	alert(res);
 		        	if(res == "y") alert("참가신청 완료");
 		        	if(res == "n") alert("참가신청 취소");
 		        	if(res == "re") alert("예정일에 이미 참가일정이 있습니다. 일정을 확인 해 주세요");

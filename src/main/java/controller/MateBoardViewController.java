@@ -56,21 +56,6 @@ public class MateBoardViewController extends HttpServlet{
 			req.setAttribute("cnt", cnt);
 			req.setAttribute("mdto", mdto);
 			
-//			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//			String tt = "2023-06-06 12:00:00";
-//			Date aa = null;
-//			try {
-//				aa = sdf1.parse(tt);
-//			} catch (ParseException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-//			System.out.println(sdf2.format(aa));
-			
-			List<String> mList = mdao.selectJId("test2@naver.com");
-			req.setAttribute("mList", mList);
-			
 			mdao.close();
 			dao.close();
 			req.getRequestDispatcher("./MateBoardView.jsp").forward(req, resp);
