@@ -28,7 +28,7 @@
     더욱 더 노력하고 발전하는 MGM이 되겠습니다.</h5>
     
   <div class="home">
-    <a href=./Main.jsp><img src="./imges/logo.jpg"></a>
+    <a href=./Main.jsp><img src="./img/logo.jpg"></a>
   </div>
 </body>
 </html>
