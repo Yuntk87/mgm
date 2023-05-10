@@ -40,13 +40,14 @@ public class FreeBoardWriteController extends HttpServlet{
 
 				HttpSession session = req.getSession();
 				String id = (String)session.getAttribute("UserId");
+				String nickName = req.getParameter("nickName");
 				String title = req.getParameter("title");
 				String content = req.getParameter("content");
 				String category = req.getParameter("category");
 				System.out.println(category);
 				
 				FreeBoardDao dao = new FreeBoardDao(req.getServletContext());
-				FreeBoardDto dto = new FreeBoardDto(category, id, title, content);
+				FreeBoardDto dto = new FreeBoardDto(category, nickName, title, content);
 				System.out.println(dto);
 				int res = dao.insertWrite(dto);
 				
