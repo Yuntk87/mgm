@@ -126,8 +126,10 @@ i{
 .home{
 	
 
-    margin: 17px 335px;
-    padding: 32px 253px;
+	display:flex;
+ justify-content: center;
+  align-items: center;
+
 
 }
 
