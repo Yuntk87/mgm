@@ -44,6 +44,8 @@
 		<h2>자유게시판 글 쓰기</h2>	
 		
 		<form id="write_board" action="./FreeBoardWrite" method="post" onsubmit="return formCheck(this)">
+			<input type="hidden" name="id" value="${sessionScope.UserId }">
+			<input type="hidden" name="nickName" value="${sessionScope.UserNickName }">
 			<select name="category">
 				<option value="산">산</option>
 				<option value="맛집">맛집</option>

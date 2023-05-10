@@ -25,7 +25,7 @@
 						<select name="searchField">
 							<option value="title" ${param.searchField eq 'title'? "selected" : "" }>제목</option>
 							<option value="content" ${param.searchField eq 'content'? "selected" : "" } >내용</option>
-							<option value="category" ${param.searchField eq 'category'? "selected" : "" } >산이름</option>
+							<option value="m_name" ${param.searchField eq 'category'? "selected" : "" } >산이름</option>
 							<option value="id" ${param.searchField eq 'id'? "selected" : "" }>작성자</option>
 						</select>
 						<input type="text" name="searchWord" id="search" value="${not empty param.searchWord? param.searchWord : '' }" >
