@@ -3,14 +3,12 @@ package dto;
 public class MountainDto {
 	private int m_num;
 	private String m_name;
-	private String m_addr_do;
-	private String m_addr_si;
-	private String m_addr_gu;
-	private String m_addr;
+	private String m_addr_1;
+	private String m_addr_2;
 	private int level;
 	private int m_recommend;
 	
-
+	
 	public int getM_num() {
 		return m_num;
 	}
@@ -23,29 +21,17 @@ public class MountainDto {
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
 	}
-	public String getM_addr_do() {
-		return m_addr_do;
+	public String getM_addr_1() {
+		return m_addr_1;
 	}
-	public void setM_addr_do(String m_addr_do) {
-		this.m_addr_do = m_addr_do;
+	public void setM_addr_1(String m_addr_1) {
+		this.m_addr_1 = m_addr_1;
 	}
-	public String getM_addr_si() {
-		return m_addr_si;
+	public String getM_addr_2() {
+		return m_addr_2;
 	}
-	public void setM_addr_si(String m_addr_si) {
-		this.m_addr_si = m_addr_si;
-	}
-	public String getM_addr_gu() {
-		return m_addr_gu;
-	}
-	public void setM_addr_gu(String m_addr_gu) {
-		this.m_addr_gu = m_addr_gu;
-	}
-	public String getM_addr() {
-		return m_addr;
-	}
-	public void setM_addr(String m_addr) {
-		this.m_addr = m_addr;
+	public void setM_addr_2(String m_addr_2) {
+		this.m_addr_2 = m_addr_2;
 	}
 	public int getLevel() {
 		return level;
@@ -66,31 +52,19 @@ public class MountainDto {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	public MountainDto(String m_name, String m_addr_do, String m_addr_si, String m_addr_gu, String m_addr, int level) {
+	public MountainDto(String m_name, String m_addr_1, String m_addr_2, int level) {
 		super();
 		this.m_name = m_name;
-		this.m_addr_do = m_addr_do;
-		this.m_addr_si = m_addr_si;
-		this.m_addr_gu = m_addr_gu;
-		this.m_addr = m_addr;
+		this.m_addr_1 = m_addr_1;
+		this.m_addr_2 = m_addr_2;
 		this.level = level;
 	}
 	
 	@Override
 	public String toString() {
-		return "MountainDto [m_num=" + m_num + ", m_name=" + m_name + ", m_addr_do=" + m_addr_do + ", m_addr_si="
-				+ m_addr_si + ", m_addr_gu=" + m_addr_gu + ", m_addr=" + m_addr + ", level=" + level + ", m_recommend="
-				+ m_recommend + "]";
+		return "MountainDto [m_num=" + m_num + ", m_name=" + m_name + ", m_addr_1=" + m_addr_1 + ", m_addr_2="
+				+ m_addr_2 + ", level=" + level + ", m_recommend=" + m_recommend + "]";
 	}
-	
-
-	
-	
-	
-	
-	
-	
 
 	
 }

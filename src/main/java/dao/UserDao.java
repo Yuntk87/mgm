@@ -8,7 +8,6 @@ import javax.servlet.ServletContext;
 
 import common.JDBConnect;
 import dto.UserDto;
-import dto.z_memberDto;
 
 public class UserDao extends JDBConnect{
 	public UserDao(ServletContext application) {
@@ -108,6 +107,19 @@ public class UserDao extends JDBConnect{
 		return result;
 	}
 	
+	public int delete(String id) {
+		int res = 0;
+		String sql="delete from user where id=?";
+		try {
+			psmt=con.prepareStatement(sql);
+			psmt.setString(1, id);
+			res=psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
 	public int chkId(String nickName) {
 		int res = 0;
 		String query = "SELECT COUNT(*) FROM user WHERE nickName=? ";
@@ -158,6 +170,29 @@ public class UserDao extends JDBConnect{
 		}
 		return userList;
 	}
+	
+	public int update(UserDto dto) {
+		System.out.println(dto);
+		int res = 0;
+		String sql = "UPDATE user SET password=?,gender=?,addr1=?,addr2=?, nickName=? WHERE id=?";
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, dto.getPassword());
+			psmt.setString(2, dto.getGender());
+			psmt.setString(3, dto.getAddr1());
+			psmt.setString(4, dto.getAddr2());
+			psmt.setString(5, dto.getNickName());
+			psmt.setString(6, dto.getId());
+			System.out.println(sql);
+			res = psmt.executeUpdate();	
+			System.out.println(res);
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("회원정보수정실패 - trycatch");
+		} return res;
+	}
+	
+	
 	
 }
 	    

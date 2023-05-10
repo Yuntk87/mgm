@@ -1,5 +1,4 @@
 <%@page import="dto.MountainDto"%>
-<%@page import="dao.MountainDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,7 +11,6 @@
 </head>
 <body>
 <%@ include file="Navi.jsp" %>
-
 	<div>
 	<h2>인증게시판</h2>
 	

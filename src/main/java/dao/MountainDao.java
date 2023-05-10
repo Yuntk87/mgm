@@ -1,16 +1,18 @@
 package dao;
 
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
+import javax.servlet.annotation.WebServlet;
 
 import common.JDBConnect;
-import dto.ConfirmBoardDto;
+
 import dto.MountainDto;
-import dto.z_memberDto;
+
 
 public class MountainDao extends JDBConnect{
 
@@ -21,16 +23,14 @@ public class MountainDao extends JDBConnect{
 	
 	public int insertMountain (MountainDto m) {
 		int res=0;
-		String sql = "INSERT INTO mountain_board(m_name, m_addr_do, m_addr_si, m_addr_gu, m_addr,level) values(?,?,?,?,?,?)";
+		String sql = "INSERT INTO mountain_board(m_name, m_addr_1, m_addr_2, level) values(?,?,?,?)";
 		
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, m.getM_name() );
-			psmt.setString(2, m.getM_addr_do());
-			psmt.setString(3, m.getM_addr_si());
-			psmt.setString(4, m.getM_addr_gu());
-			psmt.setString(5, m.getM_addr());
-			psmt.setInt(6, m.getLevel());
+			psmt.setString(2, m.getM_addr_1());
+			psmt.setString(3, m.getM_addr_2());
+			psmt.setInt(4, m.getLevel());
 			res = psmt.executeUpdate();			
 		}
 		catch(Exception e) {
@@ -71,10 +71,8 @@ public class MountainDao extends JDBConnect{
 				m = new MountainDto();
 				m.setM_num(rs.getInt("m_num"));
 				m.setM_name(rs.getString("m_name"));
-				m.setM_addr_do(rs.getString("m_addr_do"));
-				m.setM_addr_si(rs.getString("m_addr_si"));
-				m.setM_addr_gu(rs.getString("m_addr_gu"));
-				m.setM_addr(rs.getString("m_addr"));
+				m.setM_addr_1(rs.getString("m_addr_1"));
+				m.setM_addr_2(rs.getString("m_addr_2"));
 				m.setLevel(rs.getInt("level"));
 				m.setM_recommend(rs.getInt("m_recommend"));
 				return m;
@@ -87,6 +85,30 @@ public class MountainDao extends JDBConnect{
 		return m;
 	}
 	
+	
+	 public MountainDto selectMountain (String id) {
+		 	MountainDto m = null; 
+			try {
+				String sql = "SELECT * FROM mountain_board WHERE m_name=?";
+				psmt = con.prepareStatement(sql);
+				psmt.setString(1,  id);
+				rs = psmt.executeQuery();
+				if(rs.next()) {
+					m = new MountainDto();
+					m.setM_num(rs.getInt("m_num"));
+					m.setM_name(rs.getString("m_name"));
+					m.setM_addr_1(rs.getString("m_addr_1"));
+					m.setM_addr_2(rs.getString("m_addr_2"));
+					m.setLevel(rs.getInt("level"));
+					m.setM_recommend(rs.getInt("m_recommend"));
+				}
+			} catch (SQLException e) {
+				System.out.println("산 조회중 오류발생");
+				e.printStackTrace();
+			}
+			return m;
+		}
+	 
 	public int selectMountainNum(String name) {
 		int res = 0;
 		String query = "SELECT m_num FROM mountain_board WHERE m_name=?";
@@ -108,6 +130,7 @@ public class MountainDao extends JDBConnect{
 		return res;
 	}
 	
+
 	public int deleteMountain(int num) {
 		int res=0;
 		String sql = "DELETE FROM mountain_board WHERE m_num=?";
@@ -123,32 +146,8 @@ public class MountainDao extends JDBConnect{
 		return res;
 	}
 	
-	 public MountainDto selectMountain (String id) {
-		 	MountainDto m = null; 
-			try {
-				String sql = "SELECT * FROM mountain_board WHERE m_name=?";
-				psmt = con.prepareStatement(sql);
-				psmt.setString(1,  id);
-				rs = psmt.executeQuery();
-				if(rs.next()) {
-					m = new MountainDto();
-					m.setM_num(rs.getInt("m_num"));
-					m.setM_name(rs.getString("m_name"));
-					m.setM_addr_do(rs.getString("m_addr_do"));
-					m.setM_addr_si(rs.getString("m_addr_si"));
-					m.setM_addr_gu(rs.getString("m_addr_gu"));
-					m.setM_addr(rs.getString("m_addr"));
-					m.setLevel(rs.getInt("level"));
-					m.setM_recommend(rs.getInt("m_recommend"));
-				}
-			} catch (SQLException e) {
-				System.out.println("산 조회중 오류발생");
-				e.printStackTrace();
-			}
-			return m;
-		}
 	
-	public List<MountainDto> selectList(Map<String, Object>map){
+	public List<MountainDto> selectList(Map<String, String>map){
 		ArrayList<MountainDto> mbl = new ArrayList<MountainDto>();
 		MountainDto m = null;
 		String query = "SELECT*FROM mountain_board";
@@ -167,10 +166,8 @@ public class MountainDao extends JDBConnect{
 				
 				m.setM_num(rs.getInt("m_num"));
 				m.setM_name(rs.getString("m_name"));
-				m.setM_addr_do(rs.getString("m_addr_do"));
-				m.setM_addr_si(rs.getString("m_addr_si"));
-				m.setM_addr_gu(rs.getString("m_addr_gu"));
-				m.setM_addr(rs.getString("m_addr"));
+				m.setM_addr_1(rs.getString("m_addr_1"));
+				m.setM_addr_2(rs.getString("m_addr_2"));
 				m.setLevel(rs.getInt("level"));
 				m.setM_recommend(rs.getInt("m_recommend"));
 				mbl.add(m);
@@ -184,7 +181,7 @@ public class MountainDao extends JDBConnect{
 	}
 	
 	
-	public int selectCount(Map<String, Object>map) {
+	public int selectCount(Map<String, String>map) {
 		int totalCount = 0;
 		String sql = "SELECT COUNT(*) FROM mountain_board";
 		if(map.get("searchWord") != null) {
@@ -221,5 +218,31 @@ public class MountainDao extends JDBConnect{
 		return res;
 	}
 	
+	public MountainDto selectView(int m_num) {
+		MountainDto dto = null;
+		String sql = "SELECT * FROM mountain_board WHERE m_num = ?";
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setInt(1, m_num);
+			rs = psmt.executeQuery();
+			
+			
+			if(rs.next()) {
+				dto = new MountainDto();
+				dto.setM_num(rs.getInt("m_num"));
+				dto.setM_name(rs.getString("m_name"));
+				dto.setM_addr_1(rs.getString("m_addr_1"));
+				dto.setM_addr_2(rs.getString("m_addr_2"));
+				dto.setLevel(rs.getInt("level"));
+				dto.setM_recommend(rs.getInt("m_recommend"));
+			}
+			
+			
+		} catch(Exception e) {
+			System.out.println("산 불러오는 중 오류");
+			e.printStackTrace();
+		}
+		return dto;
+	}
 	
 }

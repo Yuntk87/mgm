@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Footer</title>
+<link href="./css/Navi.css?v=1" rel="stylesheet">
 </head>
 <body>
         <footer class="footer">

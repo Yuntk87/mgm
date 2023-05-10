@@ -17,7 +17,6 @@ import common.JSFunction;
 import dao.ConfirmDao;
 import dao.FreeBoardDao;
 import dao.MateBoardDao;
-import dao.MountainDao;
 import dto.ConfirmBoardDto;
 import dto.FreeBoardDto;
 import dto.MateBoardDto;

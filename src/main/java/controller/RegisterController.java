@@ -15,9 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDao;
-import dao.z_memberDao;
 import dto.UserDto;
-import dto.z_memberDto;
 
 
 @WebServlet("/register")

@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspWriter;
 
-import dao.MountainDao;
-import dto.MountainDto;
 
 public class JSFunction {
 	public static void alertLocation(String msg, String url, JspWriter out) {
