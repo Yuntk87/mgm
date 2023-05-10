@@ -27,10 +27,8 @@
 	<h5>그 동안 MGM을 사랑해주셔서 감사합니다.<br>
     더욱 더 노력하고 발전하는 MGM이 되겠습니다.</h5>
     
-    
-  <!--   <div class="home">
-    <a href=./Main.jsp><i class="fa-solid fa-house"></i></a>
-    </div>
-   -->
+  <div class="home">
+    <a href=./Main.jsp><img src="./imges/logo.jpg"></a>
+  </div>
 </body>
 </html>
