@@ -83,7 +83,7 @@
                         			<p class="card-text"><i class="fa-solid fa-location-dot"></i> : ${dto.m_addr_1} ${dto.m_addr_2 }</p>
                         			<p class="card-text"><i class="fa-solid fa-person-hiking"></i> : ${dto.level }</p>
                         			<div class="btn-box">
-                          				<a href="./view?searchWord=${dto.m_name }&m_num=${dto.m_num}"><span class="badge bg-success">상세보기</span></a>
+                          				<a href="./MountainView?searchWord=${dto.m_name }&m_num=${dto.m_num}"><span class="badge bg-success">상세보기</span></a>
                         			</div>
                         			<div class="row row-icon">
                           				<div class="col">
