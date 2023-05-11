@@ -1,8 +1,68 @@
 @charset "UTF-8";
-#ConfirmMain {
-	width: 80%;
-	margin: 0 auto;
-}
-#searchDiv {
-	margin-top:100px;
-}
+	table {
+		text-align: center;
+	    border-spacing: 50px;
+	}
+	th, td {
+	    margin-right: 50px;
+	}
+	input {
+	    border: none;
+	    border-bottom: 1px solid #999;
+	}
+	#ConfirmMain {
+		width:100%;
+		margin-bottom:1000px;
+	}
+	.title {
+		margin-top:30px;
+	}
+	.title span {
+		font-size: 30px;
+		color: black;
+	}
+	#map {
+		width: 100%;
+		height:5px;
+		transition: all 1.5s ease;
+	}
+	#map.on {
+		height:400px;
+	}
+	#mapDiv {
+    	width:80%;
+    	margin: 0 auto;
+		margin-top:60px;
+	}
+	#searchDiv {
+    	width:80%;
+    	margin: 0 auto;
+		margin-top:100px;
+	}
+    #titleImg img {
+        width: 100%;
+        height: 800px;
+    }
+   	.myButton {
+   		padding: 5px;
+		box-shadow:inset 0px 1px 0px 0px #ffffff;
+		background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+		background-color:#ededed;
+		border-radius:6px;
+		border:1px solid #dcdcdc;
+		display:inline-block;
+		cursor:pointer;
+		color:#777777;
+		font-family:Arial;
+		font-size:15px;
+		font-weight:bold;
+		padding:6px 24px;
+	}
+	.myButton:hover {
+		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+		background-color:#dfdfdf;
+	}
+	.myButton:active {
+		position:relative;
+		top:1px;
+	}
