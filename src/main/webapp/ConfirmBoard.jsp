@@ -9,7 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgWjfRDY2JDCNcxaKgoNBenu5o1POdE_c&callback=initMap&region=kr"></script>
 <link rel="stylesheet" href="./css/confirmBoard.css">
-<script src="./ConfirmBoard.js"></script>
+<script src="./js/ConfirmBoard.js"></script>
 </head>
 
 <body>

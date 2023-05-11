@@ -1,0 +1,63 @@
+	.commentAll {
+		margin-top: 50px;
+		font-family: 'Noto Sans KR', sans-serif;
+		font-size: 10px;
+	}
+	h2 {
+		font-size: 20px;
+	}
+	#comment {
+		width:80%;
+		height: 20px;
+	}
+	ul {
+		list-style : none;
+	}
+	#commentList {
+		text-align: left;
+		width: 100%;
+		color: black;
+	}
+	.clist li{
+		border-top: 1px solid lightgray;
+		padding:10px;
+	}
+	.commenter {
+		color:black;
+		font-weight: bold;
+	}
+	.comment {
+		color:black;
+		font-weight: lighter;
+		text-align: justify;
+	}
+	.delBtn, .modBtnb, #modBtn {
+		float:right;
+	}
+	.regdate{
+		font-size:5px;
+		color:#999;
+	}
+	.reply {
+		display: inline-block;
+		margin-top:10px;
+		margin-left:10px;
+		font-size:5px;
+		color:#999;
+	} 
+	.postDate {
+		margin-top:10px;
+		font-size:5px;
+		color:#999;
+	}
+	.mod {
+		width:100%;
+		margin-top:20px;
+	}
+	.mod input {
+		width:80%;
+		margin-right:20px;
+		height: 20px;
+		border: 1px solid black;
+	}
+	

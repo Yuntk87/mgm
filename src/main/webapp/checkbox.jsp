@@ -6,7 +6,7 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="./checkbox.css">
+<link rel="stylesheet" href="./css/checkbox.css">
 </head>
 <body>
 
@@ -71,6 +71,6 @@
  		
 			
 			
-	<script type="text/javascript" src="./checkbox.js"></script>		
+	<script type="text/javascript" src="./js/checkbox.js"></script>		
 </body>
 </html>
