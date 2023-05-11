@@ -210,3 +210,24 @@ input#email{
 li{
 list-style: none;
 }
+
+.home{
+display:flex;
+margin:-140px 0 0 160px;
+align-items: center;
+}
+
+.home a >img{
+	
+	height: 105px;
+    width: 105px;
+}
+
+#nickNameChk{
+	 border: none;
+	  cursor: pointer;
+	  border-radius:8px;
+	  width:82px;
+	  height:50px;
+	  
+}

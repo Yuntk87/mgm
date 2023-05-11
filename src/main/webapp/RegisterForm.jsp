@@ -13,7 +13,7 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<link href="./css/RegisterForm.css" rel="stylesheet">
+<link href="./css/RegisterForm.css?v=1" rel="stylesheet">
 
 <head>
 
@@ -290,10 +290,16 @@
 </head>
 
 <body>
-
 	<div class="container">
 
-		<h1>join</h1>
+	<div class="home">
+    
+  <a href=./Main.jsp>
+   	<img src="./img/logo.jpg"></a>
+	<div><h1>join</h1></div>
+    </div>
+
+		 	
 
 		<ul class="links">
 
@@ -413,6 +419,7 @@
 			</a></li>
 
 		</div>
+		</div>
 <script>
 
 //닉네임 중복체크
@@ -427,12 +434,17 @@ $("#nickNameChk").click(function() {
         url: './register?nickName='+nickName+"&mode=idchk",  // 요청 URI	
         success : function(result){ // 요청이 성공일 때 실행되는 이벤트
         	if(result == 1) {
-        		$("#msg").text("아이디 중복");
+        		$("#msg").text("중복입니다");
         		$("#msg").css("color","red");
+        		$("#msg").css("text-align","center");
+        		$("#msg").css("line-height","50px");
+        		
         	}
         	else {
-        		$("#msg").text("사용가능");
+        		$("#msg").text("사용가능합니다");
         		$("#msg").css("color","blue");
+        		$("#msg").css("text-align","center");
+        		$("#msg").css("line-height","50px");
         	}
         },
         error: function(request, status, error){ alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error) } // 에러가 발생했을 때, 호출될 함수

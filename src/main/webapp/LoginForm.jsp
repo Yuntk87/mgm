@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
  <title>로그인화면</title>
- <link href="./css/LoginForm.css" rel="stylesheet">
+ <link href="./css/LoginForm.css?v=1" rel="stylesheet">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -182,9 +182,13 @@ function aa(){
 </head>
 <body>
   <div class="container">
-    <!-- Heading -->
-    <h1>login</h1>
+  <div class="home">
     
+  <a href=./Main.jsp>
+   	<img src="./img/logo.jpg"></a>
+   
+    <div><h1>login</h1></div>
+    </div>
     <!-- Links -->
     <ul class="links">
       <li>
