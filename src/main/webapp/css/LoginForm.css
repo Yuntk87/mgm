@@ -154,3 +154,15 @@ img:first-child{
 li{
 list-style: none;
 }
+.home{
+display:flex;
+margin:-100px 0 0 60px;
+align-items: center;
+}
+
+.home a >img{
+	
+	height: 105px;
+    width: 105px;
+}
+
