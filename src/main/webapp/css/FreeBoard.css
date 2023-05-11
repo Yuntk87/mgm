@@ -10,6 +10,9 @@ table {
 span {
     color: black;
 }
+a {
+	text-decoration: none;
+}
 .i-con {
     margin-right: 5px;
 }

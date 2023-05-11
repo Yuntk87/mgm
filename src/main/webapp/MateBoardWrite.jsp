@@ -10,6 +10,7 @@
  <link rel="stylesheet" href="<c:url value="/webjars/jquery-ui/1.11.4/jquery-ui.min.css"/>" type="text/css"/>
  <script src="<c:url value="/webjars/jquery/2.2.1/jquery.min.js"/>"></script>
  <script src="<c:url value="/webjars/jquery-ui/1.11.4/jquery-ui.min.js"/>"></script>
+ <link rel="stylesheet" href="./css/MateBoardWrite.css">
 <style>
 	#write_box {
 		width:80%;

@@ -7,10 +7,17 @@
 <meta charset="UTF-8">
 <title>MateBoardComment</title>
 <style>
+	.commentAll {
+		margin-top: 50px;
+		font-family: 'Noto Sans KR', sans-serif;
+		font-size: 10px;
+	}
+	h2 {
+		font-size: 20px;
+	}
 	#comment {
 		width:80%;
 		height: 20px;
-		border: 1px solid black;
 	}
 	ul {
 		list-style : none;
@@ -18,15 +25,19 @@
 	#commentList {
 		text-align: left;
 		width: 100%;
+		color: black;
 	}
 	.clist li{
-		border-top: 1px solid #999;
+		border-top: 1px solid lightgray;
 		padding:10px;
 	}
 	.commenter {
+		color:black;
 		font-weight: bold;
 	}
 	.comment {
+		color:black;
+		font-weight: lighter;
 		text-align: justify;
 	}
 	.delBtn, .modBtnb, #modBtn {
@@ -63,12 +74,11 @@
 </head>
 <body>
 	<div class="commentAll">
-		<h2>댓글</h2>
 		<div id="commentList"></div>
 		<h2>댓글쓰기</h2>
 		<div class="send">
-			<input type="text" name="comment" id="comment">
-			<button id="sendBtn" type="button">등록</button>
+			<input type="text" name="comment" id="comment" placeholder="댓글입력">
+			<button id="sendBtn" class="myButton" type="button">등록</button>
 		</div>
 	</div>
 <script>
@@ -130,8 +140,8 @@
 			let mate_num = $(this).parent().attr('data-mate_num');
 			
 			$(".mod", $(this).parent()).append('<input class="form-control" type="text" name="recomment" id="recomment">');
-			$(".mod", $(this).parent()).append('<button class="btn btn-default" type="button" id="modBtn">등록</button>');
-			$(".mod", $(this).parent()).append('<button class="btn btn-default" type="button" id="modBtnC">취소</button>');
+			$(".mod", $(this).parent()).append('<button class="btn btn-default myButton" type="button" id="modBtn">등록</button>');
+			$(".mod", $(this).parent()).append('<button class="btn btn-default myButton" type="button" id="modBtnC">취소</button>');
 			$('input[name=recomment]').val($('span.comment', $(this).parent()).text());
 			$("#modBtn").attr('data-matec_num', matec_num);
 		});
@@ -172,13 +182,13 @@
 		comments.forEach(function(comment) {
 			tmp += '<li data-matec_num=' + comment.matec_num
 			tmp += ' data-mate_num=' + comment.mate_num + '>'
-			tmp += '작성자: <span class="commenter"> ' + comment.commenter + '</span><br>'
+			tmp += '<span class="commenter"> ' + comment.commenter + '</span> : '
 			tmp += '<span class="comment"> ' + comment.comment + '</span><br>'
 			tmp += '<span class="postDate"> ' + comment.postDate + '</span>'
-			tmp += '<a href="javascript:;" class="reply">답글달기</a>'
+			tmp += '<a href="javascript:;" class="reply myButton">답글달기</a>'
 			if(comment.commenter == "${sessionScope.UserId}") {
-				tmp += '<button class="delBtn">삭제</button>'
-				tmp += '<button class="modBtnb">수정</button>'
+				tmp += '<button class="delBtn myButton">삭제</button>'
+				tmp += '<button class="modBtnb myButton">수정</button>'
 			}
 			tmp += '<div class="mod"></div>'
 			tmp += '</li>'

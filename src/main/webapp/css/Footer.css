@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
  .footer {
+  margin-top:100px;
   width: 100%;
   background-color: gray;
   color: white;

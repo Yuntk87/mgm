@@ -11,17 +11,17 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
    <script src="https://kit.fontawesome.com/09e1bc70db.js" crossorigin="anonymous"></script>
-   <link rel="stylesheet" href="./FreeBoard.css">
+   <link rel="stylesheet" href="./css/MateBoard.css">
 </head>
 <body>
 <%@ include file="Navi.jsp" %>
 
-	<div style="width: 60%; margin: 0 auto; margin-top: 60px">
+	<div id="listDiv">
 		<h2>메이트 게시판</h2>
 		<form id="search_form">
 			<table colspan="7" class="table table-dark">
 				<tr>
-					<td>
+					<td class="tableBar">
 						<select name="searchField">
 							<option value="title" ${param.searchField eq 'title'? "selected" : "" }>제목</option>
 							<option value="content" ${param.searchField eq 'content'? "selected" : "" } >내용</option>
@@ -29,7 +29,7 @@
 							<option value="id" ${param.searchField eq 'id'? "selected" : "" }>작성자</option>
 						</select>
 						<input type="text" name="searchWord" id="search" value="${not empty param.searchWord? param.searchWord : '' }" >
-						<button class="btn btn-light" style="height: 35px;"><i class="fa-solid fa-magnifying-glass i-con"></i>검색</button>
+						<button class="myButton" style="height: 35px;"><i class="fa-solid fa-magnifying-glass i-con"></i>검색</button>
 					</td>
 				</tr>		
 			</table>
@@ -38,13 +38,13 @@
 		
 		<table class="boardList">
 			<tr>
-				<th width="5%">번호</th>
+				<th width="10%">번호</th>
 				<th width="10%">산이름</th>
-				<th width="50%">제목</th>
+				<th width="40%">제목</th>
 				<th width="10%">작성자</th>
-				<th width="10%">조회수</th>
-				<th width="10%">댓글수</th>
-				<th width="25%">등록날짜</th>
+				<th width="5%">조회수</th>
+				<th width="5%">댓글수</th>
+				<th width="20%">등록날짜</th>
 			</tr>
 			<c:choose>
 				<c:when test="${empty boardLists }" >
@@ -91,8 +91,8 @@
 		
 		<table class="table table-dark">
 			<tr>
-				<td colspan="7" class="write-btn">
-					<button class="rbttn" onclick="location.href='./MateBoardWrite${ph.sc.getQueryString(ph.sc.page) }'"><span><i class="fa-solid fa-pen i-con"></i>글쓰기</span></button>
+				<td colspan="7" class="tableBar" padding="0">
+					<button class="myButton" onclick="location.href='./MateBoardWrite${ph.sc.getQueryString(ph.sc.page) }'"><i class="fa-solid fa-pen i-con"></i>글쓰기</button>
 				</td>
 			</tr>
 		</table>

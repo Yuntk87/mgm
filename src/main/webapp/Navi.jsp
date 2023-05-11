@@ -17,7 +17,7 @@
 <script src="https://kit.fontawesome.com/09e1bc70db.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link href="./css/Navi.css?v=1" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
 <script src="Navi.js"></script>
 <% 
 	Date today = new Date();
@@ -495,60 +495,60 @@ $.ajax({
         <!-- 메인 네비게이션 -->
         
         
-<!--         <div class="container-weather" > -->
-<!--     			<div class="weather"> -->
-<!--         			<div class="title fade2"> -->
-<%--             			<p class="date"><%=nowDate %></p> --%>
-<!--             			<div class="list"> -->
-<!--                 			<span id="mpty0" class="pty"></span> -->
-<!--                 			<span id="mintmp0" class="tmp mtmp"></span> -->
-<!--                 			<span>/</span> -->
-<!--                 			<span id="maxtmp0" class="tmp ntmp"> </span> -->
-<!--                 			<span id="npty0" class="pty"></span> -->
-<!--             			</div> -->
-<!--         			</div> -->
-<!--         			<div class="title fade2"> -->
-<%--             			<p class="date"><%=day1 %></p> --%>
-<!--             			<div class="list"> -->
-<!--                 			<span id="mpty1" class="pty"></span> -->
-<!--                 			<span id="mintmp1" class="tmp mtmp"></span> -->
-<!--                 			<span>/</span> -->
-<!--                 			<span id="maxtmp1" class="tmp ntmp"></span> -->
-<!--                 			<span id="npty1" class="pty"></span> -->
-<!--             			</div> -->
-<!--         			</div> -->
-<!--         			<div class="title fade2"> -->
-<%--             			<p class="date"><%=day2 %></p> --%>
-<!--             			<div class="list"> -->
-<!--                 			<span id="mpty2" class="pty"></span> -->
-<!--                 			<span id="mintmp2" class="tmp mtmp"></span> -->
-<!--                 			<span>/</span> -->
-<!--                 			<span id="maxtmp2" class="tmp ntmp"></span> -->
-<!--                 			<span id="npty2" class="pty"></span> -->
-<!--             			</div> -->
-<!--         			</div> -->
-<!--         			<div class="title fade2"> -->
-<%--               			<p class="date"><%=day3 %></p> --%>
-<!--             			<div class="list"> -->
-<!--                 			<span id="mpty3" class="pty"></span> -->
-<!--                 			<span id="mintmp3" class="tmp mtmp"></span> -->
-<!--                 			<span>/</span> -->
-<!--                 			<span id="maxtmp3" class="tmp ntmp"></span> -->
-<!--                 			<span id="npty3" class="pty"></span> -->
-<!--             			</div> -->
-<!--         			</div> -->
-<!--         			<div class="title fade2"> -->
-<%--                			<p class="date"><%=day4 %></p> --%>
-<!--                			<div class="list"> -->
-<!--                 			<span id="mpty4" class="pty"></span> -->
-<!--                 			<span id="mintmp4" class="tmp mtmp"></span> -->
-<!--                 			<span>/</span> -->
-<!--                 			<span id="maxtmp4" class="tmp ntmp"></span> -->
-<!--                 			<span id="npty4" class="pty"></span> -->
-<!--             			</div> -->
-<!--         			</div> -->
-<!--     			</div> -->
-<!-- 			</div> -->
+        <div class="container-weather" >
+    			<div class="weather">
+        			<div class="title fade2">
+            			<p class="date"><%=nowDate %></p>
+            			<div class="list">
+                			<span id="mpty0" class="pty"></span>
+                			<span id="mintmp0" class="tmp mtmp"></span>
+                			<span>/</span>
+                			<span id="maxtmp0" class="tmp ntmp"> </span>
+                			<span id="npty0" class="pty"></span>
+            			</div>
+        			</div>
+        			<div class="title fade2">
+            			<p class="date"><%=day1 %></p>
+            			<div class="list">
+                			<span id="mpty1" class="pty"></span>
+                			<span id="mintmp1" class="tmp mtmp"></span>
+                			<span>/</span>
+                			<span id="maxtmp1" class="tmp ntmp"></span>
+                			<span id="npty1" class="pty"></span>
+            			</div>
+        			</div>
+        			<div class="title fade2">
+            			<p class="date"><%=day2 %></p>
+            			<div class="list">
+                			<span id="mpty2" class="pty"></span>
+                			<span id="mintmp2" class="tmp mtmp"></span>
+                			<span>/</span>
+                			<span id="maxtmp2" class="tmp ntmp"></span>
+                			<span id="npty2" class="pty"></span>
+            			</div>
+        			</div>
+        			<div class="title fade2">
+              			<p class="date"><%=day3 %></p>
+            			<div class="list">
+                			<span id="mpty3" class="pty"></span>
+                			<span id="mintmp3" class="tmp mtmp"></span>
+                			<span>/</span>
+                			<span id="maxtmp3" class="tmp ntmp"></span>
+                			<span id="npty3" class="pty"></span>
+            			</div>
+        			</div>
+        			<div class="title fade2">
+               			<p class="date"><%=day4 %></p>
+               			<div class="list">
+                			<span id="mpty4" class="pty"></span>
+                			<span id="mintmp4" class="tmp mtmp"></span>
+                			<span>/</span>
+                			<span id="maxtmp4" class="tmp ntmp"></span>
+                			<span id="npty4" class="pty"></span>
+            			</div>
+        			</div>
+    			</div>
+			</div>
 
   <!--  		
   		<div id="logo_box">

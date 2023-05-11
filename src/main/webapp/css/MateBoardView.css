@@ -1,0 +1,67 @@
+	table {
+		width:100%;
+		border:1px solid black;
+		border-collapse : collapse;
+		border-collapse : collapse;
+		border-radius : 7px;
+		border-style : hidden;
+		box-shadow : 0 0 0 1px #666;
+	}
+	tr {
+ 		border-bottom: 1px solid lightgray;
+	}
+	tr:last-child { 
+ 		border-bottom: 1px solid black;
+ 	} 
+	th, td {
+		border:none;
+	}
+	#view_box {
+		width:80%;
+		font-family: 'Noto Sans KR', sans-serif;
+ 		text-align:center;
+		margin:0 auto;
+		margin-top: 100px;
+	}
+	textarea, input {
+		vertical-align: middle;
+	}
+	textarea {
+		border:none;
+		background:#fff;
+		width:98%;
+		height:95%;
+		resize:none;
+	}
+	input {
+		margin-left:5px;
+		border:none;
+		left:0;
+		background:#fff;
+	}
+	.title {
+		text-align:left;
+	}
+	.myButton {
+		box-shadow:inset 0px 1px 0px 0px #ffffff;
+		background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+		background-color:#ededed;
+		border-radius:6px;
+		border:1px solid #dcdcdc;
+		display:inline-block;
+		cursor:pointer;
+		color:#777777;
+		font-family:Arial;
+		font-size:12px;
+		font-weight:bold;
+		padding:5px 10px;
+		margin-right: 2px;
+	}
+	.myButton:hover {
+		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+		background-color:#dfdfdf;
+	}
+	.myButton:active {
+		position:relative;
+		top:1px;
+	}

@@ -8,100 +8,66 @@
 <head>
 <meta charset="UTF-8">
 <title>MateBoardView</title>
-<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-<style>
-	table {
-		border-collapse : collapse;
-	}
-	#view_box {
-		width:80%;
- 		text-align:center;
-		margin:0 auto;	
-	}
-	h2 {
-		margin:30px;
-	}
-	textarea, input {
-		vertical-align: middle;
-	}
-	textarea {
-		border:none;
-		background:#fff;
-		width:98%;
-		height:95%;
-		resize:none;
-	}
-	input {
-		margin-left:5px;
-		border:none;
-		left:0;
-		background:#fff;
-	}
-	.title {
-		text-align:left;
-	}
-</style>
+	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="./css/MateBoardView.css">
 </head>
 <body>
 <%@ include file="Navi.jsp" %>
 	<div id="view_box">
-		<h2>메이트 게시판 - 상세보기</h2>
 		<form name="writeFrm">
-			<input type="hidden" name="num" value="${dto.mate_num }">
+			<input type="hidden" id="num" name="num" value="${dto.mate_num }">
 			<input type="hidden" id="id" name="id" value="${dto.id }">
+			<input type="hidden" id="mNum" name="mNum" value="${dto.m_num }">
 			
-			<table border="1" width="100%">
+			<table>
 				<tr>
-					<td>번호</td>
-					<td id="mateNum">${dto.mate_num }</td>
-					<td>작성자</td>
+					<th>번호</th>
+					<td>${dto.mate_num }</td>
+					<th>작성자</th>
 					<td>${sessionScope.UserNickName }</td>
-				</tr>
-				<tr>
-					<td>작성일</td>
+					<th>작성일</th>
 					<fmt:formatDate value="${dto.postDate }" type="both" pattern="yyyy-MM-dd hh:mm" var="post"/>
 					<td>${post }</td>
-					
-					<td>조회수</td>
+					<th>조회수</th>
 					<td>${dto.viewCount }</td>
 				</tr>
 				<tr>
-					<td>산이름</td>
-					<td id="mNum">${dto.m_num }</td>
+					<th>산이름</th>
 					<td>${dto.m_name }</td>
-					<td>예정일</td>
+					<th>예정일</th>
 					<fmt:formatDate value="${dto.dDay }" type="both" pattern="yyyy-MM-dd hh:mm:ss" var="dDay"/>
 					<td id="dDay">${dDay }</td>
-					<td>인원</td>
+					<th>제한인원</th>
 					<td>${dto.mateLimit }</td>
+					<th>현재 참가인원</th>
 					<td id="cnt">${cnt }</td>
 				</tr>
 				<tr>
-					<td>제목</td>
-					<td class="title" colspan="3"><input type="text" name="title" value="${dto.title }" disabled></td>
+					<th>제목</th>
+					<td colspan="7" class="title" colspan="3"><input type="text" name="title" value="${dto.title }" disabled></td>
 				</tr>
 				<tr>
-					<td>내용</td>
-					<td colspan="3" height="100"><textarea type="text" name="content" disabled>${ dto.content}</textarea></td>
+					<th>내용</th>
+					<td colspan="7" height="100"><textarea type="text" name="content" disabled>${ dto.content}</textarea></td>
 				</tr>
 				<tr>
-					<td colspan="4" align="center">
+					<td colspan="8" align="center">
 					<c:choose>
 						<c:when test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id }">
-							<button type="button" onclick="location.href='./MateBoardEdit${sc.getQueryString(param.page) }&num=${dto.mate_num }&mName=${dto.m_name }'">수정하기</button>
-							<button type="button" onclick="deletePost()">삭제하기</button>
+							<button type="button" class="myButton" onclick="location.href='./MateBoardEdit${sc.getQueryString(param.page) }&num=${dto.mate_num }&mName=${dto.m_name }'">수정하기</button>
+							<button type="button" class="myButton" onclick="deletePost()">삭제하기</button>
 						</c:when>
 						<c:when test="${mdto != null}">
-							<button id="joinBtn" type="button" type="button" >참가취소</button>
+							<button id="joinBtn" type="button" class="myButton" type="button" >참가취소</button>
 						</c:when>
 						<c:when test="${dto.mateLimit eq cnt}">
-							<button id="joinBtn" type="button" type="button" disabled>참가불가</button>
+							<button id="joinBtn" type="button" class="myButton" type="button" disabled>참가불가</button>
 						</c:when>
 						<c:otherwise>
-							<button id="joinBtn" type="button" type="button" >참가하기</button>
+							<button id="joinBtn" type="button" class="myButton" type="button" >참가하기</button>
 						</c:otherwise>
 					</c:choose>
-					<button type="button" onclick="location.href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
+					<button type="button" class="myButton" onclick="location.href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
 					</td>
 				</tr>
 			</table>
@@ -137,9 +103,9 @@
 	$(document).ready(function() {
 		//등록
 		$("#joinBtn").click(function() {
-			let mateNum = $('#mateNum').text();
+			let mateNum = $('#num').val();
 			let id = $('#id').val();
-			let mNum = $('#mNum').text();
+			let mNum = $('#mNum').val();
 			let dDay = $('#dDay').text();
 			$.ajax({
 		        type:'POST',       // 요청 메서드
