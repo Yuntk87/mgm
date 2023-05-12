@@ -18,10 +18,12 @@ import dao.ConfirmDao;
 import dao.FreeBoardDao;
 import dao.MateBoardDao;
 import dao.MountainDao;
+import dao.UserDao;
 import dto.ConfirmBoardDto;
 import dto.FreeBoardDto;
 import dto.MateBoardDto;
 import dto.MountainDto;
+import dto.UserDto;
 
 @WebServlet("/ConfirmBoardWrite")
 public class ConfirmBoardWriteController extends HttpServlet{
@@ -55,7 +57,10 @@ public class ConfirmBoardWriteController extends HttpServlet{
 					ConfirmDao dao = new ConfirmDao(req.getServletContext());
 					ConfirmBoardDto dto = new ConfirmBoardDto(m_num, id);
 					System.out.println(dto);
-					res = dao.insertConfirmBoard(dto);	
+					res = dao.insertConfirmBoard(dto);
+					UserDao udao = new UserDao(getServletContext());
+					int res1 = udao.updateLevel(id, 1);
+					udao.close();
 					dao.close();
 				}
 	

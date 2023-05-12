@@ -34,7 +34,8 @@ public class UserDao extends JDBConnect{
 			e.printStackTrace();
 		}return res;
 				    
-	}  public UserDto selectUser(String id) {
+	}  
+	public UserDto selectUser(String id) {
 		UserDto u = null; 
 		try {
 			String sql = "select * from user where id=?";
@@ -52,6 +53,33 @@ public class UserDao extends JDBConnect{
 				u.setGender(rs.getString("gender"));
 				u.setAddr1(rs.getString("addr1"));
 				u.setAddr1(rs.getString("addr2"));
+				u.setLevel(rs.getInt("level"));
+			}
+		} catch (SQLException e) {
+			System.out.println("회원조회중 오류발생");
+			e.printStackTrace();
+		}
+		return u;
+	}
+	public UserDto selectUserNickname(String nickName) {
+		UserDto u = null; 
+		try {
+			String sql = "select * from user where nickName=?";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1,  nickName);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				u = new UserDto();
+				u.setId(rs.getString("id"));
+				u.setPassword(rs.getString("password"));
+				u.setNickName(rs.getString("nickName"));
+				u.setName(rs.getString("name"));
+				u.setPhone(rs.getString("phone"));
+				u.setpNumber(rs.getString("pNumber"));
+				u.setGender(rs.getString("gender"));
+				u.setAddr1(rs.getString("addr1"));
+				u.setAddr1(rs.getString("addr2"));
+				u.setLevel(rs.getInt("level"));
 			}
 		} catch (SQLException e) {
 			System.out.println("회원조회중 오류발생");
@@ -81,6 +109,7 @@ public class UserDao extends JDBConnect{
 				u.setGender(rs.getString("gender"));
 				u.setAddr1(rs.getString("addr1"));
 				u.setAddr1(rs.getString("addr2"));
+				u.setLevel(rs.getInt("level"));
 				u.setPostDate(rs.getTimestamp("postDate"));
 				uList.add(u);
 			}
@@ -160,7 +189,8 @@ public class UserDao extends JDBConnect{
 				m.setGender(rs.getString(8));
 				m.setAddr1(rs.getString(9));
 				m.setAddr2(rs.getString(10));
-				m.setPostDate(rs.getTimestamp(11));
+				m.setLevel(rs.getInt(11));
+				m.setPostDate(rs.getTimestamp(12));
 				userList.add(m);
 				
 			}
@@ -192,6 +222,19 @@ public class UserDao extends JDBConnect{
 		} return res;
 	}
 	
+	public int updateLevel(String id, int lv) {
+		int res = 0;
+		String sql = "UPDATE user SET level = level+? WHERE id=?";
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setInt(1, lv);
+			psmt.setString(2, id);
+			res = psmt.executeUpdate();	
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("회원레벨 수정오류");
+		} return res;
+	}
 	
 	
 }

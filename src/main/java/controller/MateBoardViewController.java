@@ -19,10 +19,12 @@ import dao.ConfirmDao;
 import dao.FreeBoardDao;
 import dao.MateBoardDao;
 import dao.MateJoinDao;
+import dao.UserDao;
 import dto.ConfirmBoardDto;
 import dto.FreeBoardDto;
 import dto.MateBoardDto;
 import dto.MateJoinDto;
+import dto.UserDto;
 
 @WebServlet("/MateBoardView")
 public class MateBoardViewController extends HttpServlet{
@@ -30,6 +32,7 @@ public class MateBoardViewController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+			String nickName = req.getParameter("nickName");
 			String temp = req.getParameter("num");
 			int num = 0;
 			if(temp != null) {
@@ -53,9 +56,14 @@ public class MateBoardViewController extends HttpServlet{
 			MateJoinDao mdao = new MateJoinDao(getServletContext());
 			MateJoinDto mdto = mdao.selectMateBoardJoin(num, jid);
 			int cnt = mdao.count(num);
+			
+			UserDao udao = new UserDao(getServletContext());
+			UserDto udto = udao.selectUserNickname(nickName);
+			req.setAttribute("udto", udto);
 			req.setAttribute("cnt", cnt);
 			req.setAttribute("mdto", mdto);
 			
+			udao.close();
 			mdao.close();
 			dao.close();
 			req.getRequestDispatcher("./MateBoardView.jsp").forward(req, resp);

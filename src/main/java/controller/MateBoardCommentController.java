@@ -100,18 +100,30 @@ public class MateBoardCommentController extends HttpServlet{
 		HttpSession session = req.getSession();
 		String commenter = "";
 //		if(session.getAttribute("UserNickName") != null) commenter = session.getAttribute("UserNickName").toString();
-		if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
 		
-		HashMap<String, String> param = new HashMap<String, String>();
-		param.put("matec_num", matec_num);
-		param.put("commenter", commenter); 
+		if("master".equals(session.getAttribute("UserId"))) {
+			int num=0;
+			if(matec_num != null) {
+				num = Integer.parseInt(matec_num);
+			}
+			int res = dao.deleteNum(num);
+			if(res==1) mdao.updateCommentCnt(mate_num, -1);
+			dao.close();
+			mdao.close();
+			System.out.println("del");
+			
+		} else if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
 		
-		int res = dao.delete(param);
-		if(res==1) mdao.updateCommentCnt(mate_num, -1);
-		dao.close();
-		mdao.close();
-		System.out.println("del");
-	}
+			HashMap<String, String> param = new HashMap<String, String>();
+			param.put("matec_num", matec_num);
+			param.put("commenter", commenter); 
+			
+			int res = dao.delete(param);
+			if(res==1) mdao.updateCommentCnt(mate_num, -1);
+			dao.close();
+			mdao.close();
+			System.out.println("del");
+		}
 
 	protected void doPatch(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String temp = req.getParameter("matec_num");

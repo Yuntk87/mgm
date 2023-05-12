@@ -13,6 +13,7 @@ public class UserDto {
 	private String gender;
 	private String addr1;
 	private String addr2;
+	private int level;
 	private Date postDate;
 	
 	
@@ -76,6 +77,12 @@ public class UserDto {
 	public void setAddr2(String addr2) {
 		this.addr2 = addr2;
 	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
 	public Date getPostDate() {
 		return postDate;
 	}
@@ -103,13 +110,12 @@ public class UserDto {
 		this.addr2 = addr2;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "UserDto [user_num=" + user_num + ", id=" + id + ", password=" + password + ", nickName=" + nickName
 				+ ", name=" + name + ", phone=" + phone + ", pNumber=" + pNumber + ", gender=" + gender + ", addr1="
-				+ addr1 + ", addr2=" + addr2 + ", postDate=" + postDate + "]";
+				+ addr1 + ", addr2=" + addr2 + ", level=" + level + ", postDate=" + postDate + "]";
 	}
-
+	
 
 }

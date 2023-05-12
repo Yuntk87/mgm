@@ -60,7 +60,7 @@
 						<tr>
 							<td>${b.mate_num }</td>
 							<td>${b.m_name }</td>
-							<td><a href='./MateBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.mate_num }'>${b.title }</a></td>
+							<td><a href='./MateBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.mate_num }&nickName=${b.id }'>${b.title }</a></td>
 							<td>${b.id }</td>
 							<td>${b.viewCount }</td>
 							<td>${b.commentCount }</td>

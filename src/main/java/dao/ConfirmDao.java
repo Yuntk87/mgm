@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -95,5 +96,23 @@ public class ConfirmDao extends JDBConnect {
 		return totalCount;
 	}
 	
+	public int Count(String nickNname) {
+		int Count = 0;
+		String sql = "SELECT COUNT(*) FROM confirm_board WHERE id=?";
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, nickNname);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				Count = rs.getInt(1);
+			}
+		}
+		catch(Exception e) {
+			System.out.println("인증게시글 카운트 중 예외 발생");
+			e.printStackTrace();
+		}
+		return Count;
+	}
 	
 }

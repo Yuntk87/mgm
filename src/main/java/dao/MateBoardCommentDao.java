@@ -50,6 +50,19 @@ public class MateBoardCommentDao extends JDBConnect{
 		} return res;
 	}
 	
+	public int deleteNum(int num) {
+		int res = 0;
+		String sql = "DELETE FROM mate_board_comment WHERE matec_num=?";
+		
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setInt(1, num);
+			res = psmt.executeUpdate();
+		} catch(SQLException e) {
+			System.out.println("관리자 댓글 삭제 중 예외 발생");
+			e.printStackTrace();
+		} return res;
+	}
 	
 	//댓글 입력
 	public int insert(MateBoardCommentDto dto) {
