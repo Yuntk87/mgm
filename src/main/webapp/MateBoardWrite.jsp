@@ -8,22 +8,12 @@
 <meta charset="UTF-8">
 <title>MateBoardWrite</title>
  <link rel="stylesheet" href="<c:url value="/webjars/jquery-ui/1.11.4/jquery-ui.min.css"/>" type="text/css"/>
+ <script src="https://kit.fontawesome.com/a8d8408c2e.js" crossorigin="anonymous"></script>
  <script src="<c:url value="/webjars/jquery/2.2.1/jquery.min.js"/>"></script>
  <script src="<c:url value="/webjars/jquery-ui/1.11.4/jquery-ui.min.js"/>"></script>
  <link rel="stylesheet" href="./css/MateBoardWrite.css">
 <style>
-	#write_box {
-		width:80%;
-		margin:0 auto;
-	}
-	#wtitle {
-		width: 100%;
-		margin-bottom:10px;
-	}
-	#wcontent {
-		width: 100%;
-		height: 500px;
-	}
+
 </style>
 </head>
 <body>
@@ -46,38 +36,58 @@
 
 	<div id="write_box">
 		<h2>메이트게시판 글 쓰기</h2>	
-		<form id="mSearch" action="./mountain" method="post">
-			<input type="hidden" name="mode" value="write">
-			<input type="text" name="mName" value="${dto.m_name }">
-			<button type="submit" id="mSearchBtn">검색</button>
-		</form>
-		
-		<form id="write_board" action="./MateBoardWrite" method="post" onsubmit="return formCheck(this)">
-			<input type="text" name="mNum" value="${dto.m_num }">
-			<input type="text" name="id" value="${sessionScope.UserId }">
-			<input type="text" name="nickName" value="${sessionScope.UserNickName }">
-			<p>난이도 : ${dto.level }</p>
-			<p>추천수 : ${dto.m_recommend }</p>
-			
-			<select name="limit">
-				<option value="0" selected>제한없음</option>
-				<option value="5">1~5명</option>
-				<option value="10">6~10명</option>
-				<option value="20">11~20명</option>
-			</select>
-			
-	        <p><input type="datetime-local" name="dDay"></p>
-		
-			<input id="wtitle" type="text" name="title">제목<br>
-			<textarea id="wcontent" name="content">
-			</textarea>		
-			
-			<div id="wbtns">
-			<button type="submit">등록</button>
-			<button type="reset">다시 입력</button>
-			<button type="button" onclick="location.href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
+		<div class="searchDiv">
+			<div class="searchDiv1">
+				<form id="mSearch" action="./mountain" method="post">
+					<input type="hidden" name="mode" value="write">
+					<input type="text" name="mName" value="${dto.m_name }" placeholder="산 검색">
+					<button type="submit" id="mSearchBtn" class="myButton">검색</button>
+				</form>
 			</div>
-		</form>
+			<div class="searchDiv2">
+				<a href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'><i class="fa-solid fa-list"> 목록보기</i></a>
+			</div>
+		</div>
+		
+		<div class="content">
+			<form id="write_board" action="./MateBoardWrite" method="post" onsubmit="return formCheck(this)">
+				<input type="hidden" name="mNum" value="${dto.m_num }">
+				<input type="hidden" name="id" value="${sessionScope.UserId }">
+				<input type="hidden" name="nickName" value="${sessionScope.UserNickName }">
+				<div>
+					<table>
+						<tr>
+							<td><i class="fa-solid fa-calendar-days"></i></td>
+							<td>목적지 : ${dto.m_name } &nbsp;&nbsp;&nbsp;&nbsp; <span class="mInfo">난이도 : ${dto.level } &nbsp;&nbsp; 추천수 : ${dto.m_recommend }</span></td>
+							<td>
+								<select name="limit">
+									<option disabled selected>제한인원</option>
+									<option value="1000">제한없음</option>
+									<option value="5">1~5명</option>
+									<option value="10">6~10명</option>
+									<option value="20">11~20명</option>
+								</select>
+							</td>
+							<td>
+								날짜 : <input type="datetime-local" name="dDay">
+							</td>
+						</tr>
+					</table> 
+				</div>
+
+			
+				<input id="wtitle" type="text" name="title" placeholder="제목"><br>
+				<textarea id="wcontent" name="content"></textarea>		
+				
+				<div id="btnBox">
+					<div class="wbtns">
+						<button type="submit" class="myButton">등록</button>
+						<button type="reset" class="myButton">다시 입력</button>
+	<%-- 				<button type="button" onclick="location.href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button> --%>
+					</div>
+				</div>
+			</form>
+		</div>
 	</div>
 <%@ include file="./Footer.jsp" %>
 </body>

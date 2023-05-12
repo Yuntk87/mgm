@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>MateBoardComment</title>
 <link rel="stylesheet" href="./css/MateBoardComment.css">
-
 </head>
 <body>
 	<div class="commentAll">

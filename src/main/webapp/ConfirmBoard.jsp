@@ -7,18 +7,16 @@
 <meta charset="UTF-8">
 <title>confirmBoard</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/a8d8408c2e.js" crossorigin="anonymous"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgWjfRDY2JDCNcxaKgoNBenu5o1POdE_c&callback=initMap&region=kr"></script>
 <link rel="stylesheet" href="./css/confirmBoard.css">
 <script src="./js/ConfirmBoard.js"></script>
 </head>
-
 <body>
 <%@ include file="Navi.jsp" %>
 	<div id="ConfirmMain">
-        <div id="titleImg">
-            <img src="https://images.unsplash.com/photo-1510987216810-99a82775a158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1482&q=80">
-        </div>
 	    <div id="searchDiv">
+	    	<h3>인증하기</h3><hr>
 	        <form id="searchFrm" action="./ConfirmBoardWrite" method="post">
 	        	<table class="table">
 	        	<tr>
@@ -46,16 +44,15 @@
 							<button id="mBtn" class="myButton" type="button">등록확인</button>
 						</div>
 					</td>
-
 	        	</tr>
-
 				</table>
+				<p><i class="fa-solid fa-circle-exclamation"></i> 해당 목적지 1.5km내에 위치해야 등록됩니다</p>
 	        </form>
 	    </div>
 	    
 <!-- 		지도 API -->
 	    <div id="mapDiv">
-	    	<h4>지도</h4>
+	    	<h4><i class="fa-regular fa-map"></i>지도</h4>
 	        <input id="address" type="hidden" placeholder="주소입력" />
 		 	<div id="map"></div>
 	    </div>

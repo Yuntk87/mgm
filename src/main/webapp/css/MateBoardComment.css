@@ -1,7 +1,10 @@
 	.commentAll {
 		margin-top: 50px;
 		font-family: 'Noto Sans KR', sans-serif;
-		font-size: 10px;
+		font-size: 12px;
+	}
+	a {
+		text-decoration:none;
 	}
 	h2 {
 		font-size: 20px;
@@ -9,6 +12,7 @@
 	#comment {
 		width:80%;
 		height: 20px;
+		border-bottom: 1px solid lightgray;
 	}
 	ul {
 		list-style : none;
@@ -19,7 +23,7 @@
 		color: black;
 	}
 	.clist li{
-		border-top: 1px solid lightgray;
+		border-bottom: 1px solid lightgray;
 		padding:10px;
 	}
 	.commenter {
@@ -47,7 +51,7 @@
 	} 
 	.postDate {
 		margin-top:10px;
-		font-size:5px;
+		font-size:10px;
 		color:#999;
 	}
 	.mod {

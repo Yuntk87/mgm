@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>MateBoardView</title>
 	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/a8d8408c2e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/MateBoardView.css">
     <script src="./js/MateBoardView.js"></script>
 </head>
@@ -20,39 +21,28 @@
 			<input type="hidden" id="id" name="id" value="${dto.id }">
 			<input type="hidden" id="mNum" name="mNum" value="${dto.m_num }">
 			
-			<table>
-				<tr>
-					<th>번호</th>
-					<td>${dto.mate_num }</td>
-					<th>작성자</th>
-					<td>${sessionScope.UserNickName }</td>
-					<th>작성일</th>
+			<div class="title">
+				<input type="text" class="title" name="title" value="${dto.title }" disabled>
+			</div>
+			<div class="profile">
+				<div class="profile1">
+					<img src="https://cdn-icons-png.flaticon.com/128/6020/6020006.png">
+					<span class="nickName">${sessionScope.UserNickName }</span><span class="lv">Lv.5</span>
 					<fmt:formatDate value="${dto.postDate }" type="both" pattern="yyyy-MM-dd hh:mm" var="post"/>
-					<td>${post }</td>
-					<th>조회수</th>
-					<td>${dto.viewCount }</td>
-				</tr>
-				<tr>
-					<th>산이름</th>
-					<td>${dto.m_name }</td>
-					<th>예정일</th>
+					<span class="days">${post } &nbsp;&nbsp; 조회 : &nbsp;${dto.viewCount }</span>
+				</div>
+				<div class="profile2">
+					<a href="#commentList"><i class="fa-regular fa-comment"> 댓글</i></a>
+<%-- 					<button type="button" class="myButton" onclick="location.href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button> --%>
+					<a href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'><i class="fa-solid fa-list"> 목록보기</i></a>
+				</div>
+			</div>
+			<div class="schedule">
+				<div>
 					<fmt:formatDate value="${dto.dDay }" type="both" pattern="yyyy-MM-dd hh:mm:ss" var="dDay"/>
-					<td id="dDay">${dDay }</td>
-					<th>제한인원</th>
-					<td>${dto.mateLimit }</td>
-					<th>현재 참가인원</th>
-					<td id="cnt">${cnt }</td>
-				</tr>
-				<tr>
-					<th>제목</th>
-					<td colspan="7" class="title" colspan="3"><input type="text" name="title" value="${dto.title }" disabled></td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td colspan="7" height="100"><textarea type="text" name="content" disabled>${ dto.content}</textarea></td>
-				</tr>
-				<tr>
-					<td colspan="8" align="center">
+					<i class="fa-solid fa-calendar-days"></i> &nbsp;&nbsp;&nbsp; <b>장소 :</b> ${dto.m_name } &nbsp;&nbsp;&nbsp;&nbsp; <b>예정일 :</b> &nbsp;&nbsp;${dDay }  &nbsp;&nbsp;&nbsp;&nbsp; <b>제한 인원 : </b>&nbsp;&nbsp;${dto.mateLimit } &nbsp;/&nbsp; <span id="cnt">${cnt }
+				</div>
+				<div class="btnDiv">
 					<c:choose>
 						<c:when test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id }">
 							<button type="button" class="myButton" onclick="location.href='./MateBoardEdit${sc.getQueryString(param.page) }&num=${dto.mate_num }&mName=${dto.m_name }'">수정하기</button>
@@ -67,11 +57,12 @@
 						<c:otherwise>
 							<button id="joinBtn" type="button" class="myButton" type="button" >참가하기</button>
 						</c:otherwise>
-					</c:choose>
-					<button type="button" class="myButton" onclick="location.href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
-					</td>
-				</tr>
-			</table>
+					</c:choose>		
+				</div>
+			</div>
+			<div class="content">
+				<textarea type="text" name="content" disabled>${ dto.content}</textarea>
+			</div>
 		</form>
 		<%@ include file="./MateBoardComment.jsp" %>
 	</div>
