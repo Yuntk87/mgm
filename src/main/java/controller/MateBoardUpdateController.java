@@ -59,11 +59,12 @@ public class MateBoardUpdateController extends HttpServlet{
 		int mateNum = 0;
 		System.out.println(snum);
 		if(snum==null) {
-			JSFunction.alertLocation(resp, "잘못된 접근입니다.", "./list");
+			JSFunction.alertLocation(resp, "잘못된 접근입니다.", "./MateBoardList");
 			return;
 		} else {
 			mateNum = Integer.parseInt(snum);				
 		}
+		
 		String temp2 = req.getParameter("dDay");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
 		Date dDay = null;

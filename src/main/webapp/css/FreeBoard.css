@@ -1,20 +1,39 @@
 body {
-    background-image: url(https://littlerobin.nz/wp-content/uploads/2021/10/P6200152.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+	font-family: 'Noto Sans KR', sans-serif;
 }
+h2{
+	padding-left:80px;
+}
+h2 img{
+	width:5%;
+}
+
 table {
     background-color: white;
     text-align: center;
+    width:1000px;
+    margin:0 auto;
+}
+select{
+	border:none;
+}
+.topTable{
+	text-align:right;
+	height:100px;
 }
 span {
     color: black;
 }
-a {
-	text-decoration: none;
-}
 .i-con {
-    margin-right: 5px;
+    color:darkgray;
+}
+.i-con:hover{
+	color:black;
+}
+#textSearch{
+	display:inline-block;
+	border:2px solid gray;
+	border-radius:10px;
 }
 .search {
     display: flex;
@@ -23,17 +42,132 @@ a {
 }
 .btn {
     background-color: white;
-    margin-left: 10px;
-}
-.btn:hover {
-    background-color: darkgray;
+    border:none;
+    padding-bottom:10px;
 }
 #search {
-    width: 350px;
+    width: 170px;
     margin-left: 10px;
     border: none;
+    color:black;
+    outline:none;
+}
+
+.bottomTable{
+	text-align:right;
+	height:50px;
 }
 .write-btn {
     text-align: right; 
-    background-color: darkgray;
 }
+
+table a{
+	color:black;
+	text-decoration: none;
+}
+.link:hover {
+	font-weight:bold;
+	color: black;
+}
+.one{
+	background-color:lightgray;
+}
+.bttn{
+	border:2px solid darkgray;
+	border-radius:10px;
+	background:none;
+}
+.bttn:hover {
+	background-color:black;
+	border-color:black;
+	color:white;
+}
+.bttn:hover #goWrite{
+	color:white;
+}
+.bttn:hover #goWrite i{
+	color:white;
+}
+#goWrite{
+	color:black;
+}
+#goWrite i{
+	color:black;
+}
+
+.check {
+	color:red;
+}
+
+
+/* .navbar { */
+/*     display: flex; */
+/*     justify-content: space-between; */
+/*     align-items: center; */
+/*     background-color: gray; */
+/*     height: 60px; */
+/*     padding: 8px 12px; */
+/*     top:0; */
+/* } */
+/* .navbar_logo i { */
+/*     font-size: 20px; */
+/*     color: 	green; */
+/*     margin-left: 20px; */
+    
+/* } */
+/* .navbar_logo a { */
+/*     font-size: 20px; */
+/*     margin-left: 10px; */
+/*     color: white; */
+/*     font-weight: bold; */
+/*     font-family: 'Noto Sans KR', sans-serif; */
+/*     text-decoration: none; */
+/* } */
+/* .navbar_logo a:hover { */
+/*   text-decoration: underline; */
+/*   color: white; */
+/* } */
+/* .navbar_menu { */
+/*     display: flex; */
+/*     list-style: none; */
+/*     padding-left: 0; */
+    
+/* } */
+/* .navbar_menu li { */
+/*     padding: 8px 12px; */
+/*     margin-left: 100px; */
+/*     font-family: 'Noto Sans KR', sans-serif; */
+/*     font-size: 18px; */
+/*     color:white; */
+    
+/* } */
+/* .navbar_menu a { */
+/*   text-decoration: none; */
+/*   color: white; */
+/*   font-family: 'Noto Sans KR', sans-serif; */
+/* } */
+/* .navbar_menu a:hover { */
+/*     text-decoration: underline; */
+/*     color: white; */
+/* } */
+/* .navbar_login { */
+/*     display: flex; */
+/*     list-style: none; */
+/*     font-size: 18px; */
+/* } */
+/* .navbar_login li { */
+/*     list-style: none; */
+/*     padding: 8px 12px; */
+/*     font-family: 'Noto Sans KR', sans-serif; */
+/* } */
+/* .navbar_login a { */
+/*   text-decoration: none; */
+/*   color: white; */
+/* } */
+/* .navbar_login a:hover { */
+/*     text-decoration: underline; */
+/*     color: white; */
+/* } */
+/* .master { */
+/*   display: none; */
+/* } */

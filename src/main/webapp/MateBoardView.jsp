@@ -33,7 +33,6 @@
 				</div>
 				<div class="profile2">
 					<a href="#commentList"><i class="fa-regular fa-comment"> 댓글</i></a>
-<%-- 					<button type="button" class="myButton" onclick="location.href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button> --%>
 					<a href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'><i class="fa-solid fa-list"> 목록보기</i></a>
 				</div>
 			</div>

@@ -1,41 +1,43 @@
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+h2{
+	padding-left:80px;
+}
+h2 img{
+	width:5%;
+}
+
 table {
-	width: 100%;
-	margin: 0 auto;
+    background-color: white;
+    text-align: center;
+    width:1000px;
+    margin:0 auto;
 }
-table .i-con {
-	margin: 0;
-	color:black;
-	font-size:12px;
+select{
+	border:none;
 }
-table a {
-	text-decoration: none;
+.boardList img{
+	width:20px;
+	height:20px;
+}
+.topTable{
+	text-align:right;
+	height:100px;
+}
+span {
     color: black;
 }
-table a:hover {
-    color: red;
-}
-table button {
-	height: 35px;
-	width: 120px;
-}
-tr, th, td {
-	text-align: center;
-}
-th, td {
-	padding: 5px;
-}
-th {
-	border-bottom: 1px solid lightgray;
-}
-#listDiv {
-	margin-top: 100px;
-	font-family: 'Noto Sans KR', sans-serif;
-	width:80%;
-	margin: 0 auto;
-	margin-top: 60px;
-}
 .i-con {
-    margin-right: 5px;
+    color:darkgray;
+}
+.i-con:hover{
+	color:black;
+}
+#textSearch{
+	display:inline-block;
+	border:2px solid gray;
+	border-radius:10px;
 }
 .search {
     display: flex;
@@ -43,50 +45,61 @@ th {
     align-items: center;
 }
 .btn {
-    background-color: black;
-    color: black;
-    margin-left: 10px;
-}
-
-.btn:hover {
-    background-color: darkgray;
+    background-color: white;
+    border:none;
+    padding-bottom:10px;
 }
 #search {
-    width: 350px;
+    width: 170px;
     margin-left: 10px;
     border: none;
+    color:black;
+    outline:none;
 }
-.tableBar {
+
+.bottomTable{
+	text-align:right;
+	height:50px;
+}
+.write-btn {
     text-align: right; 
-    background-color: darkgray;
 }
-.check {
-	display: inline-block;
-	padding:1px;
-	text-align:center;
-	border-radius:2px;
-	color:red;
+
+table a{
+	color:black;
+	text-decoration: none;
 }
-.myButton {
- 	padding: 5px;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
-	background-color:#ededed;
-	border-radius:6px;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	cursor:pointer;
-	color:#777777;
-	font-family:Arial;
-	font-size:15px;
+.link:hover {
 	font-weight:bold;
-	padding:6px 24px;
+	color: black;
 }
-.myButton:hover {
-	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
-	background-color:#dfdfdf;
+.one{
+	background-color:lightgray;
 }
-.myButton:active {
-	position:relative;
-	top:1px;
+.bttn{
+	border:2px solid darkgray;
+	border-radius:10px;
+	background:none;
+}
+.bttn:hover {
+	background-color:black;
+	border-color:black;
+	color:white;
+}
+.bttn:hover #goWrite{
+	color:white;
+}
+.bttn:hover #goWrite i{
+	color:white;
+}
+#goWrite{
+	color:black;
+}
+#goWrite i{
+	color:black;
+}
+
+
+.check {
+	color:red;
 }

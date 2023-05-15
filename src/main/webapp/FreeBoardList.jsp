@@ -9,18 +9,19 @@
 <title>FreeBoard</title>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
    <script src="https://kit.fontawesome.com/09e1bc70db.js" crossorigin="anonymous"></script>
-   <link rel="stylesheet" href="./css/FreeBoard.css">
+   <link rel="stylesheet" href="./css/FreeBoard.css?v=1">
+   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
+
 <body>
 <%@ include file="Navi.jsp" %>
 
-	<div style="width: 60%; margin: 0 auto; margin-top: 60px">
-		<h2>자유 게시판</h2>
+	<div id="all" style="width: 60%; margin: 0 auto; margin-top: 85px;">
+		<h2><img src="https://img.icons8.com/?size=512&id=59040&format=png"> 게시판</h2>
 		
 		<form id="search_form">
-			<table colspan="7" class="table table-dark">
+			<table colspan="7" class="topTable">
 				<tr>
 					<td>
 						<select name="searchField">
@@ -29,8 +30,10 @@
 							<option value="category" ${param.searchField eq 'category'? "selected" : "" } >카테고리</option>
 							<option value="id" ${param.searchField eq 'id'? "selected" : "" }>작성자</option>
 						</select>
-						<input type="text" name="searchWord" id="search" value="${not empty param.searchWord? param.searchWord : '' }" >
-						<button class="btn btn-light" style="height: 35px;"><i class="fa-solid fa-magnifying-glass i-con"></i>검색</button>
+						<div id="textSearch">
+							<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" >
+							<button class="btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button>
+						</div>
 					</td>
 				</tr>		
 			</table>
@@ -38,39 +41,34 @@
 		
 		
 		<table class="boardList">
-			<tr>
-				<th width="5%">번호</th>
-				<th width="10%">카테고리</th>
-				<th width="50%">제목</th>
-				<th width="10%">작성자</th>
-				<th width="10%">조회수</th>
-				<th width="10%">댓글수</th>
-				<th width="25%">등록날짜</th>
-			</tr>
 			<c:choose>
 				<c:when test="${empty boardLists }" >
 					<tr><td colspan="7">등록 된 게시물이 없습니다.</td></tr>
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${boardLists }" var="b">
-						<tr>
-							<td>${b.fbnum }</td>
-							<td>${b.category }</td>
-							<td><a href='./FreeBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.fbnum }'>${b.title }</a></td>
-							<td>${b.id }</td>
-							<td>${b.viewCount }</td>
-							<td>${b.c_count }</td>
-							
+						<tr  class="lists" style="border-top:1px solid darkgray">
+							<td width="4%;" style="font-size:14px;">${b.fbnum }.</td>
+							<td width="5%;" style="font-size:15px;">${b.category }</td>
+							<td></td>
+							<td rowspan="2" style="font-size:18px;"><a class="link" href='./FreeBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.fbnum }'>${b.title }</a></td>
 							<fmt:formatDate value="${today }" type="date" pattern="yyyy-MM-dd" var="now"/>
 							<fmt:formatDate value="${b.postDate }" type="date" pattern="yyyy-MM-dd" var="post"/>
 							<c:choose>
 								<c:when test="${now eq post }">
-									<td><fmt:formatDate value="${b.postDate }" type="time" pattern="HH:mm" /></td>
+									<td width="15%;" colspan="3" style="font-size:15px;"><fmt:formatDate value="${b.postDate }" type="time" pattern="HH:mm" /></td>
 								</c:when>
 								<c:otherwise>
-									<td>${post }</td>
+									<td width="15%;" colspan="3" style="font-size:15px;">${post }</td>
 								</c:otherwise>
 							</c:choose>
+						</tr>
+						<tr class="lists">
+							<td width="4%;"><img style="width:50%;" src="https://img.icons8.com/?size=512&id=12438&format=png"></td>
+							<td colspan="2" width="15%" style="text-align:left; font-size:15px;">${b.id }</td>
+							<td width="3%"><img style="width:70%;" src="https://img.icons8.com/?size=512&id=lJUgtSWOeJR9&format=png"></td>
+							<td width="3%;" style="text-align:left;">${b.viewCount }</td>
+							<td width="6%;"><img style="width:33%;" src="https://img.icons8.com/?size=512&id=38977&format=png"> ${b.c_count }</td>
 						</tr>
 					</c:forEach>
 						<tr>
@@ -90,15 +88,28 @@
 			</c:choose>
 		</table>
 		
-		<table class="table table-dark">
+		<table class="bottomTable">
 			<tr>
 				<td colspan="7" class="write-btn">
-					<button class="rbttn" onclick="location.href='./FreeBoardWrite${ph.sc.getQueryString(ph.sc.page) }'"><span><i class="fa-solid fa-pen i-con"></i>글쓰기</span></button>
+					<button class="bttn" onclick="location.href='./FreeBoardWrite${ph.sc.getQueryString(ph.sc.page) }'"><span id="goWrite"><i class="fa-solid fa-pen i-con"></i>글쓰기</span></button>
 				</td>
 			</tr>
 		</table>
 	</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<script>
+	  $(".lists").hover(function(){
+			
+	        $(this).addClass("one")
+	        $(this).next().addClass("one")
+
+	    }, function(){
+
+	    	 $(this).removeClass("one")
+	        $(this).next().removeClass("one")
+
+	  });
+	</script>
+
 <%@ include file="./Footer.jsp" %>
 </body>
 </html>

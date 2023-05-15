@@ -7,14 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>MateBoardWrite</title>
- <link rel="stylesheet" href="<c:url value="/webjars/jquery-ui/1.11.4/jquery-ui.min.css"/>" type="text/css"/>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
  <script src="https://kit.fontawesome.com/a8d8408c2e.js" crossorigin="anonymous"></script>
- <script src="<c:url value="/webjars/jquery/2.2.1/jquery.min.js"/>"></script>
- <script src="<c:url value="/webjars/jquery-ui/1.11.4/jquery-ui.min.js"/>"></script>
  <link rel="stylesheet" href="./css/MateBoardWrite.css">
-<style>
-
-</style>
 </head>
 <body>
 <script>
@@ -36,11 +31,12 @@
 
 	<div id="write_box">
 		<h2>메이트게시판 글 쓰기</h2>	
+		<hr>
 		<div class="searchDiv">
 			<div class="searchDiv1">
 				<form id="mSearch" action="./mountain" method="post">
 					<input type="hidden" name="mode" value="write">
-					<input type="text" name="mName" value="${dto.m_name }" placeholder="산 검색">
+					<input type="text" name="mName" value="${dto.m_name }" placeholder="산을 검색하세요">
 					<button type="submit" id="mSearchBtn" class="myButton">검색</button>
 				</form>
 			</div>
@@ -54,26 +50,27 @@
 				<input type="hidden" name="mNum" value="${dto.m_num }">
 				<input type="hidden" name="id" value="${sessionScope.UserId }">
 				<input type="hidden" name="nickName" value="${sessionScope.UserNickName }">
-				<div>
-					<table>
-						<tr>
-							<td><i class="fa-solid fa-calendar-days"></i></td>
-							<td>목적지 : ${dto.m_name } &nbsp;&nbsp;&nbsp;&nbsp; <span class="mInfo">난이도 : ${dto.level } &nbsp;&nbsp; 추천수 : ${dto.m_recommend }</span></td>
-							<td>
-								<select name="limit">
-									<option disabled selected>제한인원</option>
-									<option value="1000">제한없음</option>
-									<option value="5">1~5명</option>
-									<option value="10">6~10명</option>
-									<option value="20">11~20명</option>
-								</select>
-							</td>
-							<td>
-								날짜 : <input type="datetime-local" name="dDay">
-							</td>
-						</tr>
-					</table> 
+
+				<div id="scheduleBox">
+					<div>
+						<i class="fa-solid fa-calendar-days"></i>
+					</div>
+					<div>목적지 : ${dto.m_name }</div>
+					<div><span class="mInfo">난이도 : ${dto.level } 추천수 : ${dto.m_recommend }</div>
+					<div>
+						<select name="limit" required>
+							<option disabled selected>제한인원</option> 
+							<option value="1000">제한없음</option> 
+							<option value="5">1~5명</option>
+							<option value="10">6~10명</option>
+							<option value="20">11~20명</option>
+						</select>
+					</div>
+					<div>
+						날짜 : <input type="datetime-local" name="dDay" required>
+					</div>
 				</div>
+
 
 			
 				<input id="wtitle" type="text" name="title" placeholder="제목"><br>
