@@ -12,8 +12,7 @@
 <script src="./js/ConfirmBoard.js"></script>
 </head>
 <body>
-<%@ include file="Navi.jsp" %>
-	<div id="ConfirmMain">    	
+	<div id="Location">    	
 		<h2>검색</h2>
 	    <div id="search-panel">
 	        <input id="address" type="text" placeholder="지역명 또는 주소 검색" />
@@ -23,28 +22,22 @@
 	    <h2>봉우리 정보 검색</h2>
 <!-- 		위치 정보 받아오기 -->
 	    <div id="searchDiv">
-	        <form id="searchFrm" action="./ConfirmBoardWrite" method="post">
-	            <input type="text" id="mname" name="mName" placeholder="산 이름을 검색하세요." />
-	            <button type="button" id="searchBtn">검색 요청</button>	  
-				
-				<select id="listBox" name="listName"></select>
-	            <input type="hidden" id="mLocation" name="mLocation" value=""/>
-	
-	        	<button type="button" id="myLocationBtn" onclick="myLocations()">내위치확인</button>
-	 	        <input type="hidden" id="myLocation" name="myLocation" value=""/> <br>
-	        	<div id="myLocationInfo"></div>
-	      
-	        	<button id="mBtn" type="button">지도 검색</button>
-				<div id="btnPo"></div>
-	        </form>
+            <input type="text" id="mname" name="mName" placeholder="산 이름을 검색하세요." />
+            <button type="button" id="searchBtn">검색 요청</button>	  
+			
+			<select id="listBox" name="listName"></select>
+            <input type="text" id="mLocation" name="mLocation" value=""/>
+
+        	<button type="button" id="myLocationBtn" onclick="myLocations()">내위치확인</button>
+ 	        <input type="text" id="myLocation" name="myLocation" value=""/> <br>
+        	<div id="myLocationInfo"></div>
+      
+        	<button id="mBtn" type="button">지도 검색</button>
 	    </div>
 	    
 <!-- 		지도 API -->
 	    <h2>지도</h2>
-
-	 	<div id="map" style="width:30%; height: 30vh;"></div>
+	 	<div id="map" style="width:100%; height: 30vh;"></div>
 	</div>
-	
-<%@ include file="./Footer.jsp" %>
 </body>
 </html>

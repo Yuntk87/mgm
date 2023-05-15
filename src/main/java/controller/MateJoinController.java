@@ -38,6 +38,7 @@ public class MateJoinController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		PrintWriter out = resp.getWriter();
+		System.out.println("qwwwwwwwwwww");
 
 		String jid = null;
 		if(session.getAttribute("UserId") != null) {

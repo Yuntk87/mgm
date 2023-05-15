@@ -31,9 +31,12 @@
 		font-size: 30px;
 		margin-bottom: 10px;
 	}
-		.nickName {
+	.nickName {
 		font-size: 20px;
 		color:black;
+	}
+	#dDay {
+		color: black;
 	}
 	#cnt {
 		color:black;

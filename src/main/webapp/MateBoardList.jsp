@@ -52,7 +52,7 @@
 							<fmt:formatDate value="${b.postDate }" type="date" pattern="yyyy-MM-dd" var="post"/>
 							<c:choose>
 								<c:when test="${now eq post }">
-									<td><fmt:formatDate value="${b.postDate }" type="time" pattern="HH:mm" /></td>
+									<td colspan="4"><fmt:formatDate value="${b.postDate }" type="time" pattern="HH:mm" /></td>
 								</c:when>
 								<c:otherwise>
 									<td colspan="4">${post }</td>
