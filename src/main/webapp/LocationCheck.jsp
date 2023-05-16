@@ -12,28 +12,39 @@
 <script src="./js/ConfirmBoard.js"></script>
 </head>
 <body>
-	<div id="Location">    	
-		<h2>검색</h2>
-	    <div id="search-panel">
-	        <input id="address" type="text" placeholder="지역명 또는 주소 검색" />
-	        <button id="searchMap" type="button" value="Geocode">지도 검색</button>
+
+	<div id="Location">
+		<div class="tab">
+			<button class="tablinks" onclick="opendiv(event, 'myPosition')">내위치 확인</button>
+			<button class="tablinks" onclick="opendiv(event, 'search-panel')">주소로 검색</button>
+			<button class="tablinks" onclick="opendiv(event, 'searchDiv')">남은거리 보기</button>
+		</div>
+	    <div id="myPosition" class="tabcontent">
+	    <h3>현재위치 확인</h3>
+	    	<button type="button" id="myLocationBtn1" class="myButton" onclick="myLocations1()">지도 검색</button>
+   	        <input id="address1" type="hidden"/>
+   	        <button id="searchMap1" type="button" value="Geocode" style="display:none">지도 검색</button>
 	    </div>
-	    
-	    <h2>봉우리 정보 검색</h2>
+	    <div id="search-panel" class="tabcontent">
+			<h3>주소 검색</h3>
+	        <input id="address" type="text" placeholder="지역명 또는 주소 검색" />
+	        <button id="searchMap" type="button" class="myButton" value="Geocode">지도 검색</button>
+	    </div>
 <!-- 		위치 정보 받아오기 -->
-	    <div id="searchDiv">
+	    <div id="searchDiv" class="tabcontent">
+		    <h3>남은거리 보기</h3>
+        	<button type="button" id="myLocationBtn" class="myLocationBtn myButton" onclick="myLocations()">현재위치 확인</button>
+ 	        <input type="hidden" id="myLocation" name="myLocation" value=""/>
+ 	        
             <input type="text" id="mname" name="mName" placeholder="산 이름을 검색하세요." />
-            <button type="button" id="searchBtn">검색 요청</button>	  
+            <button type="button" id="searchBtn" class="myButton">검색 요청</button>	  
 			
 			<select id="listBox" name="listName"></select>
-            <input type="text" id="mLocation" name="mLocation" value=""/>
+            <input type="hidden" id="mLocation" name="mLocation" value=""/>
 
-        	<button type="button" id="myLocationBtn" onclick="myLocations()">내위치확인</button>
- 	        <input type="text" id="myLocation" name="myLocation" value=""/> <br>
-        	<div id="myLocationInfo"></div>
-      
-        	<button id="mBtn" type="button">지도 검색</button>
+        	<button id="mBtn" type="button" class="myButton">지도 검색</button>
 	    </div>
+
 	    
 <!-- 		지도 API -->
 	    <h2>지도</h2>

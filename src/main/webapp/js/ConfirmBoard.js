@@ -1,5 +1,8 @@
 
 $(document).ready(function() {
+	if($(".tablinks:first") === true) {
+		$(".tablinks:first").trigger('click');		
+	};
 	
 	//봉우리 선택 시 위.경도 자동 가져오기
 	$("#listBox").on('change', function() {
@@ -13,6 +16,21 @@ $(document).ready(function() {
     });
 	
 });
+
+//tab 이벤트
+function opendiv(evt, id) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(id).style.display = "block";
+  evt.currentTarget.className += " active";
+}
 
 
 //목적지 위치정보
@@ -43,6 +61,7 @@ function lists(l) {
 		list += '<option value="'+ $(this).find('lat').text() +" " +$(this).find('lot').text() +'">';
 		list += $(this).find('placeNm').text() +'</option>';
 	});
+	list += '<option disabled selected>선택하세요</option>';
     $('#listBox').html(list);
 
 }
@@ -83,6 +102,40 @@ function whereami(elt) {
 function myLocations() {
 	var elt = document.getElementById("myLocation");
 	whereami(elt);
+}
+
+//테스트
+function whereami1(elt) {
+    var options = {
+        enableHighAccuracy: false,
+        maximumAge: 30000,
+        timeout: 15000
+    }
+
+    if(navigator.geolocation)
+        navigator.geolocation.getCurrentPosition(success, error, options);
+    else
+        alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.");
+
+    function error(e) {
+        alert("Geolocation 오류 "+e.code +": " + e.message);
+        $("#myLocationBtn").css("background","red");
+    }
+
+    function success(pos) {
+        console.log(pos);
+        var msg = pos.coords.latitude +" "+ pos.coords.longitude;
+        $('input[id=address1]').attr('value',msg);
+        $("#myLocationBtn").css("background","#6f866f");
+        $("#myLocationBtn").css("color","white");
+        $("#myLocationBtn").text("확인완료");
+        $("#searchMap1").trigger("click");
+	}    
+}
+
+function myLocations1() {
+	var elt = document.getElementById("address1");
+	whereami1(elt);
 }
 
 
@@ -142,6 +195,11 @@ function initMap() {
     });
     document.getElementById('searchMap').addEventListener('click', function() {
     	var address = document.getElementById('address').value;
+    	var addr1 = document.getElementById('myLocation').value;
+        geocodeAddress(geocoder, map, address, addr1);
+    });
+        document.getElementById('searchMap1').addEventListener('click', function() {
+    	var address = document.getElementById('address1').value;
     	var addr1 = document.getElementById('myLocation').value;
         geocodeAddress(geocoder, map, address, addr1);
     });

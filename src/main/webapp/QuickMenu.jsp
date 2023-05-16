@@ -3,352 +3,297 @@
 <%@page import="java.util.Calendar"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>QuickMenuTest</title>
+<title>QuickMenu</title>
 <link href="./css/QuickMenu.css" rel="stylesheet">
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
-<% 
-	Date today = new Date();
-	SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMdd");
-	SimpleDateFormat sdf2 = new SimpleDateFormat("MM월 dd일");
-	
-	String titleDate = sdf1.format(today);
-	
-	Date day = null;
-	try {
-		day = sdf1.parse(titleDate);
-	} catch (java.text.ParseException e) {
-		e.printStackTrace();
-	}
-	String nowDate = sdf2.format(today);
-	
-	Calendar cal1 = new GregorianCalendar(Locale.KOREA);
-	cal1.setTime(day);
-	cal1.add(Calendar.DATE,1);
-	String tomorrow = sdf1.format(cal1.getTime());
-	String day1 = sdf2.format(cal1.getTime());
-	
-	Calendar cal2 = new GregorianCalendar(Locale.KOREA);
-	cal2.setTime(day);
-	cal2.add(Calendar.DATE,2);
-	String after = sdf1.format(cal2.getTime());
-	String day2 = sdf2.format(cal2.getTime());
-	
-	Calendar cal3 = new GregorianCalendar(Locale.KOREA);
-	cal3.setTime(day);
-	cal3.add(Calendar.DATE,3);
-	String day3 = sdf2.format(cal3.getTime());
-
-	Calendar cal4 = new GregorianCalendar(Locale.KOREA);
-	cal4.setTime(day);
-	cal4.add(Calendar.DATE,4);
-	String day4 = sdf2.format(cal4.getTime());
-	
-	Calendar cal5 = new GregorianCalendar(Locale.KOREA);
-	cal5.setTime(day);
-	cal5.add(Calendar.DATE,5);
-	String day5 = sdf2.format(cal5.getTime());
-	
-	Calendar cal6 = new GregorianCalendar(Locale.KOREA);
-	cal6.setTime(day);
-	cal6.add(Calendar.DATE,6);
-	String day6 = sdf2.format(cal6.getTime());
-	
-	Calendar cal7 = new GregorianCalendar(Locale.KOREA);
-	cal7.setTime(day);
-	cal7.add(Calendar.DATE,7);
-	String day7 = sdf2.format(cal7.getTime());
-	
-	Calendar cal8 = new GregorianCalendar(Locale.KOREA);
-	cal8.setTime(day);
-	cal8.add(Calendar.DATE,8);
-	String day8 = sdf2.format(cal8.getTime());
-	
-	Calendar cal9 = new GregorianCalendar(Locale.KOREA);
-	cal9.setTime(day);
-	cal9.add(Calendar.DATE,9);
-	String day9 = sdf2.format(cal9.getTime());
-	
-	Calendar cal10 = new GregorianCalendar(Locale.KOREA);
-	cal10.setTime(day);
-	cal10.add(Calendar.DATE,10);
-	String day10 = sdf2.format(cal10.getTime());
-%>
+<%@ include file="./Weather10Scriptlet.jsp" %>
 <body>
-	<body>
-
-		<!-- 첫 번째 Modal을 여는 클래스 -->
-		<button class="btn">MODAL_1</button>
-	 
-		<!-- 첫 번째 Modal -->
-		<div class="modal">
-	 
-		  <!-- 첫 번째 Modal의 내용 -->
-		  <div class="modal-content">
-			<span class="close">&times;</span>                         
-			<p>단체대화</p>
-		  </div>
-		</div>
-	 
-		<hr>
-		<!-- 두 번째 Modal을 여는 클래스 -->
-		<button class="btn">MODAL_2</button>
-	 
-		<!-- 두 번째 Modal -->
-		<div class="modal">
-	 
-		  <!-- 두 번째 Modal의 내용 -->
-		  <div class="modal-content">
-			<span class="close">&times;</span>
-			<%@ include file="./LocationCheck.jsp" %>
-		  </div>
-		</div>
-	 
-		<hr>
-		<!-- 세 번째 Modal을 여는 클래스 -->
-		<button class="btn">MODAL_3</button>
-	 
-		<!-- 세 번째 Modal -->
-		<div class="modal">
-	 
-		  <!-- 세 번째 Modal의 내용 -->
-		  <div class="modal-content">
-			<span class="close">&times;</span>
-			    <div class="box">
-			    	<div id="left">
-			    		<div class="weather">
-			    			<p class="date"><%=nowDate %></p>
-			    			<div class="qq">
-			    				<div class="bottom">
-			    					<p>오전</p>
-			    					<div id="mpty0" class="pty"></div>
-			    					<div id="mintmp0" class="tmp"></div>
-			    					<div id="msky0" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="mpop0"></div>
-			    					</div>
-			    				</div>
-			    				<div class="bottom">
-			    					<p>오후</p>
-			    					<div id="npty0" class="pty"></div>
-			    					<div id="maxtmp0" class="tmp"></div>
-			    					<div id="nsky0" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="npop0"></div>
-			    					</div>
-			    				</div>
-			    			</div>
-			    		</div>
-			    		<div class="weather">
-			    			<p class="date"><%=day1 %></p>
-			    			<div class="qq">
-			    				<div class="bottom">
-			    					<p>오전</p>
-			    					<div id="mpty1" class="pty"></div>
-			    					<div id="mintmp1" class="tmp"></div>
-			    					<div id="msky1" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="mpop1"></div>
-			    					</div>
-			    				</div>
-			    				<div class="bottom">
-			    					<p>오후</p>
-			    					<div id="npty1" class="pty"></div>
-			    					<div id="maxtmp1" class="tmp"></div>
-			    					<div id="nsky1" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="npop1"></div>
-			    					</div>
-			    				</div>
-			    			</div>
-			    		</div>
-			    		<div class="weather">
-			    			<p class="date"><%=day2 %></p>
-			    			<div class="qq">
-			    				<div class="bottom">
-			    					<p>오전</p>
-			    					<div id="mpty2" class="pty"></div>
-			    					<div id="mintmp2" class="tmp"></div>
-			    					<div id="msky2" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="mpop2"></div>
-			    					</div>
-			    				</div>
-			    				<div class="bottom">
-			    					<p>오후</p>
-			    					<div id="npty2" class="pty"></div>
-			    					<div id="maxtmp2" class="tmp"></div>
-			    					<div id="nsky2" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="npop2"></div>
-			    					</div>
-			    				</div>
-			    			</div>
-			    		</div>
-			    		<div class="weather">
-			    			<p class="date"><%=day3 %></p>
-			    			<div class="qq">
-			    				<div class="bottom">
-			    					<p>오전</p>
-			    					<div id="mpty3" class="pty"></div>
-			    					<div id="mintmp3" class="tmp"></div>
-			    					<div id="msky3" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="mpop3"></div>
-			    					</div>
-			    				</div>
-			    				<div class="bottom">
-			    					<p>오후</p>
-			    					<div id="npty3" class="pty"></div>
-			    					<div id="maxtmp3" class="tmp"></div>
-			    					<div id="nsky3" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="npop3"></div>
-			    					</div>
-			    				</div>
-			    			</div>
-			    		</div>
-			    		<div class="weather">
-			    			<p class="date"><%=day4 %></p>
-			    			<div class="qq">
-			    				<div class="bottom">
-			    					<p>오전</p>
-			    					<div id="mpty4" class="pty"></div>
-			    					<div id="mintmp4" class="tmp"></div>
-			    					<div id="msky4" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="mpop4"></div>
-			    					</div>
-			    				</div>
-			    				<div class="bottom">
-			    					<p>오후</p>
-			    					<div id="npty4" class="pty"></div>
-			    					<div id="maxtmp4" class="tmp"></div>
-			    					<div id="nsky4" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="npop4"></div>
-			    					</div>
-			    				</div>
-			    			</div>
-			    		</div>
-			    	</div>
-			    	<div>
-			    		<div class="weather">
-			    			<p class="date"><%=day5 %></p>
-			    			<div class="qq">
-			    				<div class="bottom">
-			    					<p>오전</p>
-			    					<div id="mpty5" class="pty"></div>
-			    					<div id="mintmp5" class="tmp"></div>
-			    					<div id="msky5" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="mpop5"></div>
-			    					</div>
-			    				</div>
-			    				<div class="bottom">
-			    					<p>오후</p>
-			    					<div id="npty5" class="pty"></div>
-			    					<div id="maxtmp5" class="tmp"></div>
-			    					<div id="nsky5" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="npop5"></div>
-			    					</div>
-			    				</div>
-			    			</div>
-			    		</div>
-			    		<div class="weather">
-			    			<p class="date"><%=day6 %></p>
-			    			<div class="qq">
-			    				<div class="bottom">
-			    					<p>오전</p>
-			    					<div id="mpty6" class="pty"></div>
-			    					<div id="mintmp6" class="tmp"></div>
-			    					<div id="msky6" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="mpop6"></div>
-			    					</div>
-			    				</div>
-			    				<div class="bottom">
-			    					<p>오후</p>
-			    					<div id="npty6" class="pty"></div>
-			    					<div id="maxtmp6" class="tmp"></div>
-			    					<div id="nsky6" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="npop6"></div>
-			    					</div>
-			    				</div>
-			    			</div>
-			    		</div>
-			    		<div class="weather">
-			    			<p class="date"><%=day7 %></p>
-			    			<div class="qq">
-			    				<div class="bottom">
-			    					<p>오전</p>
-			    					<div id="mpty7" class="pty"></div>
-			    					<div id="mintmp7" class="tmp"></div>
-			    					<div id="msky7" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="mpop7"></div>
-			    					</div>
-			    				</div>
-			    				<div class="bottom">
-			    					<p>오후</p>
-			    					<div id="npty7" class="pty"></div>
-			    					<div id="maxtmp7" class="tmp"></div>
-			    					<div id="nsky7" class="sky"></div>
-			    					<div class="pop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="npop7"></div>
-			    					</div>
-			    				</div>
-			    			</div>
-			    		</div>
-			    		<div class="bweather">
-			    			<p class="bdate"><%=day8 %></p>
-			    				<div class="bbottom">
-			    					<div id="pty8" class="bpty"></div>
-			    					<div id="mintmp8" class="btmp"></div>/<div id="maxtmp8" class="btmp"></div>
-			    					<div id="sky8" class="sky"></div>
-			    					<div class="bpop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="pop8"></div>
-			    					</div>
-			    				</div>
-			    		</div>
-			    		<div class="bweather">
-			    			<p class="bdate"><%=day9 %></p>
-			    				<div class="bbottom">
-			    					<div id="pty9" class="bpty"></div>
-			    					<div id="mintmp9" class="btmp"></div>/<div id="maxtmp9" class="btmp"></div>
-			    					<div id="sky9" class="sky"></div>
-			    					<div class="bpop">
-			    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-			    						<div id="pop9"></div>
-			    					</div>
-			    				</div>
-			    		</div>
-			    		<div class="bweather">
-			    			<p class="bdate"><%=day10 %></p>
+	<!-- 첫 번째 Modal을 여는 클래스 -->
+	
+	<input type="hidden" value=${sessionScope.UserNickName } id="chatId"/>   
+	<button class="btn" onclick="chatWinOpen()">MODAL_1</button>
+	
+	<!-- 첫 번째 Modal -->
+	<div class="modal">
+ 
+	  <!-- 첫 번째 Modal의 내용 -->
+	  <div class="modal-content">
+		<span class="close">&times;</span>
+		<c:choose>
+		    <c:when test="${empty sessionScope.UserNickName}">
+				<p>*로그인이 필요한 기능입니다*</p>
+				<a href="./login">로그인으로 이동</a>
+		    </c:when>
+		    <c:otherwise>
+				<%@ include file="./ChatWindow.jsp" %>
+		    </c:otherwise>
+		</c:choose>        
+	  </div>
+	</div>
+ 
+	<hr>
+	<!-- 두 번째 Modal을 여는 클래스 -->
+	<button class="btn">MODAL_2</button>
+ 
+	<!-- 두 번째 Modal -->
+	<div class="modal">
+ 
+	  <!-- 두 번째 Modal의 내용 -->
+	  <div class="modal-content">
+		<span class="close">&times;</span>
+		<%@ include file="./LocationCheck.jsp" %>
+	  </div>
+	</div>
+ 
+	<hr>
+	<!-- 세 번째 Modal을 여는 클래스 -->
+	<button class="btn">MODAL_3</button>
+ 
+	<!-- 세 번째 Modal -->
+	<div class="modal">
+ 
+	  <!-- 세 번째 Modal의 내용 -->
+	  <div class="modal-content">
+		<span class="close">&times;</span>
+		<div>
+		    <div class="box">
+		    	<div id="left">
+		    		<div class="weather">
+		    			<p class="date"><%=nowDate %></p>
+		    			<div class="qq">
+		    				<div class="bottom">
+		    					<p>오전</p>
+		    					<div id="mpty0" class="pty"></div>
+		    					<div id="mintmp0" class="tmp"></div>
+		    					<div id="msky0" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="mpop0"></div>
+		    					</div>
+		    				</div>
+		    				<div class="bottom">
+		    					<p>오후</p>
+		    					<div id="npty0" class="pty"></div>
+		    					<div id="maxtmp0" class="tmp"></div>
+		    					<div id="nsky0" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="npop0"></div>
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+		    		<div class="weather">
+		    			<p class="date"><%=day1 %></p>
+		    			<div class="qq">
+		    				<div class="bottom">
+		    					<p>오전</p>
+		    					<div id="mpty1" class="pty"></div>
+		    					<div id="mintmp1" class="tmp"></div>
+		    					<div id="msky1" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="mpop1"></div>
+		    					</div>
+		    				</div>
+		    				<div class="bottom">
+		    					<p>오후</p>
+		    					<div id="npty1" class="pty"></div>
+		    					<div id="maxtmp1" class="tmp"></div>
+		    					<div id="nsky1" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="npop1"></div>
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+		    		<div class="weather">
+		    			<p class="date"><%=day2 %></p>
+		    			<div class="qq">
+		    				<div class="bottom">
+		    					<p>오전</p>
+		    					<div id="mpty2" class="pty"></div>
+		    					<div id="mintmp2" class="tmp"></div>
+		    					<div id="msky2" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="mpop2"></div>
+		    					</div>
+		    				</div>
+		    				<div class="bottom">
+		    					<p>오후</p>
+		    					<div id="npty2" class="pty"></div>
+		    					<div id="maxtmp2" class="tmp"></div>
+		    					<div id="nsky2" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="npop2"></div>
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+		    		<div class="weather">
+		    			<p class="date"><%=day3 %></p>
+		    			<div class="qq">
+		    				<div class="bottom">
+		    					<p>오전</p>
+		    					<div id="mpty3" class="pty"></div>
+		    					<div id="mintmp3" class="tmp"></div>
+		    					<div id="msky3" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="mpop3"></div>
+		    					</div>
+		    				</div>
+		    				<div class="bottom">
+		    					<p>오후</p>
+		    					<div id="npty3" class="pty"></div>
+		    					<div id="maxtmp3" class="tmp"></div>
+		    					<div id="nsky3" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="npop3"></div>
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+		    		<div class="weather">
+		    			<p class="date"><%=day4 %></p>
+		    			<div class="qq">
+		    				<div class="bottom">
+		    					<p>오전</p>
+		    					<div id="mpty4" class="pty"></div>
+		    					<div id="mintmp4" class="tmp"></div>
+		    					<div id="msky4" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="mpop4"></div>
+		    					</div>
+		    				</div>
+		    				<div class="bottom">
+		    					<p>오후</p>
+		    					<div id="npty4" class="pty"></div>
+		    					<div id="maxtmp4" class="tmp"></div>
+		    					<div id="nsky4" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="npop4"></div>
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+		    	</div>
+		    	<div>
+		    		<div class="weather">
+		    			<p class="date"><%=day5 %></p>
+		    			<div class="qq">
+		    				<div class="bottom">
+		    					<p>오전</p>
+		    					<div id="mpty5" class="pty"></div>
+		    					<div id="mintmp5" class="tmp"></div>
+		    					<div id="msky5" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="mpop5"></div>
+		    					</div>
+		    				</div>
+		    				<div class="bottom">
+		    					<p>오후</p>
+		    					<div id="npty5" class="pty"></div>
+		    					<div id="maxtmp5" class="tmp"></div>
+		    					<div id="nsky5" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="npop5"></div>
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+		    		<div class="weather">
+		    			<p class="date"><%=day6 %></p>
+		    			<div class="qq">
+		    				<div class="bottom">
+		    					<p>오전</p>
+		    					<div id="mpty6" class="pty"></div>
+		    					<div id="mintmp6" class="tmp"></div>
+		    					<div id="msky6" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="mpop6"></div>
+		    					</div>
+		    				</div>
+		    				<div class="bottom">
+		    					<p>오후</p>
+		    					<div id="npty6" class="pty"></div>
+		    					<div id="maxtmp6" class="tmp"></div>
+		    					<div id="nsky6" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="npop6"></div>
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+		    		<div class="weather">
+		    			<p class="date"><%=day7 %></p>
+		    			<div class="qq">
+		    				<div class="bottom">
+		    					<p>오전</p>
+		    					<div id="mpty7" class="pty"></div>
+		    					<div id="mintmp7" class="tmp"></div>
+		    					<div id="msky7" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="mpop7"></div>
+		    					</div>
+		    				</div>
+		    				<div class="bottom">
+		    					<p>오후</p>
+		    					<div id="npty7" class="pty"></div>
+		    					<div id="maxtmp7" class="tmp"></div>
+		    					<div id="nsky7" class="sky"></div>
+		    					<div class="pop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="npop7"></div>
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+		    		<div class="bweather">
+		    			<p class="bdate"><%=day8 %></p>
+		    				<div class="bbottom">
+		    					<div id="pty8" class="bpty"></div>
+		    					<div id="mintmp8" class="btmp"></div>/<div id="maxtmp8" class="btmp"></div>
+		    					<div id="sky8" class="sky"></div>
+		    					<div class="bpop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="pop8"></div>
+		    					</div>
+		    				</div>
+		    		</div>
+		    		<div class="bweather">
+		    			<p class="bdate"><%=day9 %></p>
+		    				<div class="bbottom">
+		    					<div id="pty9" class="bpty"></div>
+		    					<div id="mintmp9" class="btmp"></div>/<div id="maxtmp9" class="btmp"></div>
+		    					<div id="sky9" class="sky"></div>
+		    					<div class="bpop">
+		    						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
+		    						<div id="pop9"></div>
+		    					</div>
+		    				</div>
+		    		</div>
+		    		<div class="bweather">
+		    			<p class="bdate"><%=day10 %></p>
 		    				<div class="bbottom">
 		    					<div id="pty10" class="bpty"></div>
 		    					<div id="mintmp10" class="btmp"></div>/<div id="maxtmp10" class="btmp"></div>
@@ -362,14 +307,12 @@
 			    	</div>
 			   	</div>
 			</div>
+	  	  </div>
 		</div>
-	 
-		<script src=js/modal.js>
-		/*modal.js */
-		</script>
-
-	  </body>
-
+ 
+<script src=js/modal.js>
+/*modal.js */
+</script>
 <script>
 	// Modal을 가져옵니다.
 	var modals = document.getElementsByClassName("modal");
@@ -414,8 +357,6 @@
 </script>
 
 <script>
-
-
 $.ajax({
     url : "./Weather10tmp_Api.do",  // 요청 URL
     type : "get",                  // HTTP 메서드

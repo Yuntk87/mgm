@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+
+  
+#chatWindow{
+
+	width:270px;
+	 height:310px; 
+	 overflow:scroll; 
+	 padding:5px;
+	  border-radius:20px;
+	  
+	}
+#chatId{
+	text-align:center;
+	
+	}
+#chatMessage{
+	width:236px; height:30px;
+	 border:0px solid #AAAAAA;
+	 background-color:#dcf2f8;}
+#sendBtn{
+	height:30px;
+	 position:relative;
+	  top:2px; 
+	  left:-2px;
+	   border:0px solid #AAAAAA;
+	 background-color:#50bcdc;
+	  color:white;
+	   border-radius:20px;
+	  }
+#closeBtn{
+	margin-bottom:3px; 
+	position:relative;
+	 top:2px; 
+	 width:280px; 
+	 height:40px;
+	  border:0px;
+	 background-color:#f79c95;
+	 color:white;
+	  border-radius:20px;
+	}
+#chatId{
+	width:260px; 
+	height:40px;
+	 border:0px solid #AAAAAA;
+	 background-color:#EEEEEE;
+	 border-radius:20px;
+}
+.myMsg{
+	text-align:right;
+	 background: #ddd;
+   background: #0dd0e5;
+    float:right;
+	font-size: 14px;
+    line-height: 4em;
+    margin-bottom: 1em;
+	padding: 0 1em;
+	border-radius:20px;
+	width:100px;
+	height:50px;
+	color:white;
+}
+	
+.send{
+	text-align:left;
+	float:left;
+	font-size: 14px;
+    line-height: 4em;
+    margin-bottom: 1em;
+	padding: 0 1em;
+	border-radius:20px;
+	width:100px;
+	color: white;
+	background: #acd6ff;
+}	
+	
+	
+.whisper{
+	
+	text-align:left;
+	float:left;
+	font-size: 14px;
+    line-height: 4em;
+    margin-bottom: 1em;
+	padding: 0 1em;
+	border-radius:20px;
+	width:100px;
+	color: white;
+	background: #fda2af;
+}	
+	
+	
