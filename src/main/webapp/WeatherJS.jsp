@@ -5,18 +5,6 @@
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Weather</title>
-</head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/09e1bc70db.js" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- <link href="./css/Weather.css" rel="stylesheet"> 
 
 <% 
 	Date today = new Date();
@@ -461,63 +449,7 @@ $.ajax({
 		  $('#npop'+z).html(nipop[z]);
 	  }
   }
-</script>
-<body>   
-        <div class="container-weather" >
-    			<div class="weather">
-        			<div class="title fade2">
-            			<div class="list">
-            				<span class="date"><%=nowDate %></span>
-                			<span id="mpty0" class="pty"></span>
-                			<span id="mintmp0"  class="tmp"></span>
-                			<span>/</span>
-                			<span id="maxtmp0"  class="tmp"> </span>
-                			<span id="npty0" class="pty"></span>
-            			</div>
-        			</div>
-        			<div class="title fade2">
-            			<div class="list">
-            				<span class="date"><%=day1 %></span>
-                			<span id="mpty1" class="pty"></span>
-                			<span id="mintmp1"  class="tmp"></span>
-                			<span>/</span>
-                			<span id="maxtmp1" class="tmp"></span>
-                			<span id="npty1" class="pty"></span>
-            			</div>
-        			</div>
-        			<div class="title fade2">
-            			<div class="list">
-            				<span class="date"><%=day2 %></span>
-                			<span id="mpty2" class="pty"></span>
-                			<span id="mintmp2" class="tmp"></span>
-                			<span>/</span>
-                			<span id="maxtmp2" class="tmp "></span>
-                			<span id="npty2" class="pty"></span>
-            			</div>
-        			</div>
-        			<div class="title fade2">
-            			<div class="list">
-            				<span class="date"><%=day3 %></span>
-                			<span id="mpty3" class="pty"></span>
-                			<span id="mintmp3" class="tmp"></span>
-                			<span>/</span>
-                			<span id="maxtmp3" class="tmp"></span>
-                			<span id="npty3" class="pty"></span>
-            			</div>
-        			</div>
-        			<div class="title fade2">
-               			<div class="list">
-               				<span class="date"><%=day4 %></span>
-                			<span id="mpty4" class="pty"></span>
-                			<span id="mintmp4" class="tmp"></span>
-                			<span>/</span>
-                			<span id="maxtmp4" class="tmp"></span>
-                			<span id="npty4" class="pty"></span>
-            			</div>
-        			</div>
-    			</div>
-			</div>
-<script>
+
 let slideIndex2 = 0;
 showSlides2();
 
@@ -533,5 +465,3 @@ function showSlides2() {
   	setTimeout(showSlides2, 3000); // Change image every 2 seconds
 }
 </script>
-</body>
-</html>

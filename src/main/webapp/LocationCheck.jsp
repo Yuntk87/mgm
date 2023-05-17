@@ -19,18 +19,21 @@
 			<button class="tablinks" onclick="opendiv(event, 'search-panel')">주소로 검색</button>
 			<button class="tablinks" onclick="opendiv(event, 'searchDiv')">남은거리 보기</button>
 		</div>
+		
 	    <div id="myPosition" class="tabcontent">
-	    <h3>현재위치 확인</h3>
+	    	<h3>현재위치 확인</h3>
 	    	<button type="button" id="myLocationBtn1" class="myButton" onclick="myLocations1()">지도 검색</button>
    	        <input id="address1" type="hidden"/>
    	        <button id="searchMap1" type="button" value="Geocode" style="display:none">지도 검색</button>
 	    </div>
+	    
 	    <div id="search-panel" class="tabcontent">
 			<h3>주소 검색</h3>
 	        <input id="address" type="text" placeholder="지역명 또는 주소 검색" />
 	        <button id="searchMap" type="button" class="myButton" value="Geocode">지도 검색</button>
 	    </div>
-<!-- 		위치 정보 받아오기 -->
+	    
+
 	    <div id="searchDiv" class="tabcontent">
 		    <h3>남은거리 보기</h3>
         	<button type="button" id="myLocationBtn" class="myLocationBtn myButton" onclick="myLocations()">현재위치 확인</button>

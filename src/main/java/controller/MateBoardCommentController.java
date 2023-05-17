@@ -101,7 +101,8 @@ public class MateBoardCommentController extends HttpServlet{
 		String commenter = "";
 //		if(session.getAttribute("UserNickName") != null) commenter = session.getAttribute("UserNickName").toString();
 		
-		if("master".equals(session.getAttribute("UserId"))) {
+		if("admin".equals(session.getAttribute("UserId"))) {
+			System.out.println("admin");
 			int num=0;
 			if(matec_num != null) {
 				num = Integer.parseInt(matec_num);

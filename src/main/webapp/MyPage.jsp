@@ -14,9 +14,6 @@
     <link rel="stylesheet" href="./css/mypage.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <title>mypage</title>
-
-
-
 </head>
 
 <body>

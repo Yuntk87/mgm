@@ -33,7 +33,7 @@ public class MountainRegisterController extends HttpServlet {
 		int res = dao.insertMountain(dto);
 		
 		if(res==1) {
-			response.sendRedirect("./MountainRegisterList");
+			response.sendRedirect("./AdminPage.jsp");
 		} else {
 			JSFunction.alertBack(response, "글쓰기 실패");
 		}

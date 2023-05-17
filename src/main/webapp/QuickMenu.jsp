@@ -65,6 +65,20 @@
 		<c:import url="./Weather10.jsp" />
   	  </div>
 	</div>
+	
+	<hr>
+	<!-- 네 번째 Modal을 여는 클래스 -->
+	<button class="btn">MODAL_4</button>
+ 
+	<!-- 네 번째 Modal -->
+	<div class="modal">
+ 
+	  <!-- 네 번째 Modal의 내용 -->
+	  <div class="modal-content">
+		<span class="close">&times;</span>
+		<c:import url="./Ranking.jsp" />
+  	  </div>
+	</div>
  
 <script src=./js/QuickMenu.js>
 /*modal.js */

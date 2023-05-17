@@ -243,6 +243,32 @@ public class MountainDao extends JDBConnect{
 			e.printStackTrace();
 		}
 		return dto;
-	}
+	} 
 	
+	
+	public List<MountainDto> PopularList(){
+		ArrayList<MountainDto> mbl = new ArrayList<MountainDto>();
+		MountainDto m = null;
+		String query = "SELECT * FROM mountain_board ORDER BY m_recommend DESC LIMIT 10";
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+			    m = new MountainDto();
+				m.setM_num(rs.getInt("m_num"));
+				m.setM_name(rs.getString("m_name"));
+				m.setM_addr_1(rs.getString("m_addr_1"));
+				m.setM_addr_2(rs.getString("m_addr_2"));
+				m.setLevel(rs.getInt("level"));
+				m.setM_recommend(rs.getInt("m_recommend"));
+				mbl.add(m);
+			} System.out.println(mbl);
+		}
+		catch(Exception e) {
+			System.out.println("산 인기순 조회 중 오류 발생");
+			e.printStackTrace();
+		}
+		return mbl;
+	}
 }

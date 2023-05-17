@@ -1,264 +1,156 @@
+* {
+  box-sizing:border-box
+}
 body {
-    margin: 0;
+  margin: 0;
+  padding: 0;
 }
-
-img {
-    max-width: 100%;
-    height: 1150px;
+ul {
+  list-style: none;
 }
-p {
-  font-size: 14px;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    height: 60px;
-    padding: 8px 12px;
-    
-}
-.navbar_logo i {
-    font-size: 20px;
-    color: 	green;
-    margin-left: 20px;
-    
-}
-.navbar_logo a {
-    font-size: 20px;
-    margin-left: 10px;
-    color: white;
-    font-weight: bold;
-    font-family: 'Noto Sans KR', sans-serif;
-    text-decoration: none;
-}
-.navbar_logo a:hover {
-  text-decoration: underline;
-  color: white;
-}
-.navbar_menu {
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-    
-}
-.navbar_menu li {
-    padding: 8px 12px;
-    margin-left: 100px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 18px;
-    color:white;
-    
-}
-.navbar_menu a {
-  text-decoration: none;
-  color: white;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-.navbar_menu a:hover {
-    text-decoration: underline;
-    color: white;
-}
-.navbar_login {
-    display: flex;
-    list-style: none;
-    font-size: 18px;
-}
-.navbar_login li {
-    list-style: none;
-    padding: 8px 12px;
-    font-family: 'Noto Sans KR', sans-serif;
-}
-.navbar_login a {
-  text-decoration: none;
-  color: white;
-}
-.navbar_login a:hover {
-    text-decoration: underline;
-    color: white;
-}
-.master {
-  display: none;
-}
-
-
 .slideshow-container {
-    margin: auto;
-  }
-  
-  /* Hide the images by default */
-  .mySlides {
-    display: none;
-  }
-  
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    text-decoration: none;
-  }
-  
+width: 100%;
+height: 1260px;
+position: relative;
 
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
+}
 
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
-  
-  .active, .dot:hover {
-    background-color: #717171;
-  }
-  
-
-  .fade {
-    animation-name: fade;
-    animation-duration: 2s;
-  }
-  
-  @keyframes fade {
-    from {opacity: .5}
-    to {opacity: 1}
-  }
+#wrapper{
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 200px;
+}
 
 
 
 
+.mySlides {
+display: none;
+}
+.fade {
+animation-name: fade;
+animation-duration: 1.5s;
+}
 
-
-.recommend-slide {
+@keyframes fade {
+from {opacity: .4}
+to {opacity: 1}
+}
+.quick-menu {
   display: none;
-}
-.recommend-slide img {
-  height: 400px;
-}
-.cursor {
-  cursor: pointer;
-}
- .caption-container {
-  text-align: center;
-  background-color: #222;
-  padding: 2px 16px;
-  color: white;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Six columns side by side */
-.column {
-  float: left;
-  width: 25%;
-}
-.column img{
-  height: 400px;
-}
-
-
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-} 
-.mountain-title {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 400px;
-  margin-bottom: 100px;
-
-}
-.mountain-title h2 {
-  text-align: center;
-  font-family: 'Noto Sans KR', sans-serif; 
-  font-size: 40px;
-}
-
-
-
-
-.slide-container {
-  position: relative;
-    background-color: white;
-    width: 100%;
-   
-    display: flex;
-    overflow: hidden;
-    height: 50vh;
-}
-.container {
-  position: relative;
-  width: 90%;
-  height: 50%;
-  margin: 0 auto;
-
-
-  display: flex;
-  justify-content: center;
   align-items: center;
-  animation: loop 3s linear infinite;
+  flex-direction: column;
+  position:absolute;
+  background-color: #1e3932;;
+  width:80px;
+  height: 320px;
+  right: 50px;
+  border-radius: 10px;
+  z-index: 10;
+  
+  
+}
+.quick-box {
+  text-align: center;
 }
 
-.slide-container:hover > .container {
-  animation-play-state: paused;
+.quick-box i{
+text-align: center;
+color: white;
+font-size: 30px;
 }
-.card  {
-  margin: 5px;
+.quick-box i:hover {
+color: #0CD1E4;
+transition: all 1s;
+}
+.quick-box a {
+text-align: center;
+text-decoration: none;
+color: white;
+font-size: 20px;
+margin:0
+}
+.quick-box a:hover {
+text-decoration: underline;
+color: white;
+}
+.quick-box {
+margin-top: 40px;
+}
+
+
+.quick-btn {
+  position: absolute;
+  padding: 10px;
+  right: -20px;
+  top: 150px;
+  border: none;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  z-index: 10;
+  
+  
 }
-.card:hover {
-  transform: scale(1.1);
-}
-.card img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-}
-.card-text {
-  text-overflow: ellipsis;
-}
-
-@keyframes loop {
-  100% {
-    transform: translateX(-100%);
-  }
-}
-@-webkit-keyframes loop {
-  100% {
-    transform: translateX(-100%);
-  }
+.quick-btn i {
+  font-size: 35px;
 }
 
 
 
+.scroll-img {
+width: 100%;
+height: 1200px;
+position: relative;
+}
+
+.image1 {
+  background: url(https://images.unsplash.com/photo-1486037242572-f25faf7505e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80) no-repeat;
+  background-size: cover;
+background-attachment: fixed;
+}
+.image1-box {
+position: absolute;
+width: 500px;
+top: 500px;
+left: 300px;
+}
+.image1-box-btn {
+padding: 20px;
+background-color: rgba(0, 0, 0, 0.5);
+border:none;
+color: white;
+font-size: 24px;
+}
+.image1-box-btn:hover {
+background-color: #0CD1E4;
+transition: all 1s;
+}
+
+.image2 {
+  background: url(https://images.unsplash.com/photo-1611154046036-cd91e50978be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80) no-repeat;
+  background-size: cover;
+background-attachment: fixed;
+}
+.image2-box {
+position: absolute;
+text-align: right;
+width: 500px;
+top: 580px;
+right: 250px;
+}
 
 
+.text {
+width: 100%;
+height: 850px;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+color: #fff;
+background: #1e3932;
+font-size: 1.1rem;
+}
 
-
-
-
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");

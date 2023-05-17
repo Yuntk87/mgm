@@ -26,7 +26,6 @@
 			</div>
 			<div class="profile">
 				<div class="profile1">
-					<img src="https://cdn-icons-png.flaticon.com/128/6020/6020006.png">
 					<span class="nickName">${dto.id }</span><span class="lv">Lv.${udto.level }</span>
 					<fmt:formatDate value="${dto.postDate }" type="both" pattern="yyyy-MM-dd hh:mm" var="post"/>
 					<span class="days">${post } &nbsp;&nbsp; 조회 : &nbsp;${dto.viewCount }</span>
@@ -44,7 +43,7 @@
 				</div>
 				<div class="btnDiv">
 					<c:choose>
-						<c:when test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id || sessionScope.UserId eq 'master'}">
+						<c:when test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id || sessionScope.UserId eq 'admin'}">
 							<button type="button" class="myButton" onclick="location.href='./MateBoardEdit${sc.getQueryString(param.page) }&num=${dto.mate_num }&mName=${dto.m_name }'">수정하기</button>
 							<button type="button" class="myButton" onclick="deletePost()">삭제하기</button>
 						</c:when>

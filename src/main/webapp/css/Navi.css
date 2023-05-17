@@ -1,191 +1,311 @@
-@charset "UTF-8";
 body {
-	font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-image: url(https://post-phinf.pstatic.net/MjAyMDAzMTJfNzcg/MDAxNTg0MDA2NTY0OTk1.vInkVx27Ge-WBdWxrN-KO7d0Jru80_8C19-QDUYs2GEg.DX3IDPd6rr7Cz48aELvDlQckUcgabFdeZMyleKcAOK0g.JPEG/1_120_5grindelwald-first-lake-bachalpsee-hike-switzerland-sarah-tom-bricker-mark-willard1.jpg?type=w1200); */
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 2000px;
+    overflow-x: hidden;
 }
-p {
-
-	font-size: 14px;
+h1, h2, h3, h4, h5, li, a, span {
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
 }
-.alink {
-	text-decoration: none;
-	color: white;
-	font-size: 12px;
+a {
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    margin-right: 10px;
 }
-
-.navbar {
-	position: absolute;
+ul {
+    list-style: none;
+}
+span {
+    font-size: 20px;
+}
+.navi {
+    width: 100%;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
-    height: 60px;
-    padding: 8px 12px;
-    z-index: 2;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+.navi_menu {
+    display: flex;
+    align-items: center;
+    margin-left: 60px;
+    margin-right: 90px;
+    
+}
+.navi_menu li {
+    margin: 0 20px;
+    
+}
+.navi_menu a:hover {
+    color: #0CD1E4;
+    transition: all 0.5s;
     
 }
 
-.navbar_logo i {
-    font-size: 20px;
-    color: 	green;
-    margin-left: 20px;
-    
-}
-.navbar_logo a {
-    font-size: 20px;
-    margin-left: 10px;
-    color: white;
+.active {
     font-weight: bold;
-    font-family: 'Noto Sans KR', sans-serif;
-    text-decoration: none;
+    font-size: 40px;
+    margin-right: 180px;
 }
-.navbar_logo a:hover {
+
+.navi_login {
+    display: flex;
+    align-items: center;
+}
+.navi_login a:hover {
+    color: #0CD1E4;
+    transition: all 0.5s;
+}   
+.master_menu {
+    position: fixed;
+    display: none;
+    top: 70px;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 60px;
+    z-index: 10;
+}
+.master_menu a:hover{
+    color: #0CD1E4;
+    transition: all 0.5s;
+}
+
+
+
+
+.quick-menu {
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    position:absolute;
+    background-color: #1e3932;;
+    width:80px;
+    height: 420px;
+    right: 50px;
+    border-radius: 10px;
+    z-index: 10;
+    
+    
+  }
+  .quick-box {
+    text-align: center;
+  }
+  
+  .quick-box i{
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  }
+
+  .quick-box a {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  margin:0
+  }
+  .quick-box a:hover {
   text-decoration: underline;
   color: white;
-}
-.navbar_menu {
-
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-    margin-right: 100px;
-    
-}
-.navbar_menu li {
-    padding: 8px 12px;
-    margin-left: 100px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 18px;
-    color:white;
-    
-}
-.navbar_menu a {
-  text-decoration: none;
-  color: white;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-.navbar_menu a:hover {
-    text-decoration: underline;
-    color: white;
-}
-.navbar_login {
-    display: flex;
-    list-style: none;
-    font-size: 18px;
-}
-.navbar_login li {
-    list-style: none;
-    padding: 8px 12px;
-    font-family: 'Noto Sans KR', sans-serif;
-}
-.navbar_login a {
-  text-decoration: none;
-  color: white;
-}
-.navbar_login a:hover {
-    text-decoration: underline;
-    color: white;
-}
-.master {
-  display: none;
-}
-.container-weather {
-	position: relative;
-	top: 0 ;
-	width: 100%;
-	z-index: 10;
-}
-	
-	.weather {
-		padding: 0;
-        width: 300px;
-        height: 60px;
-        transition: all 1s;
-        background-color: black;
-
-        position: absolute;
-        right: 230px;
+  }
+  .quick-box {
+  margin-top: 40px;
+  }
   
-    }
+  
+  .quick-btn {
+    position: absolute;
+    padding: 10px;
+    top: 150px;
+    right: -20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    z-index: 10;
+    
+    
+  }
+  .quick-btn i {
+    font-size: 35px;
+  }
 
-    i {
-    	color: white;
-    }
-    .pty {
-    	filter: opacity(1) drop-shadow(0 0 0 white);
-    }
-    span {
-    	color: white;
-    	font-weight: bold;
-    }
-    .mtmp {
-    	color: blue;
-    }
-    .ntmp {
-    	color: red;
-    }
-    .date {
-        text-align: center;
-        color: white;
-    }
-    
-    .title p {
-    	padding: 0;
-    	margin: 0;
-    	font-size: 18px;
-    	font-weight: bold;
-    }
-    .list {
-    
-        list-style: none;
-        display: flex;
-        justify-content: space-around;
-        align-items: baseline;
-    }
-    .fade2 {
-        animation-name: fade;
-        animation-duration: 1.5s;
-    }
 
-    @keyframes fade2 {
-        from {opacity: .4}
-         to {opacity: 1}
-    }
+
+
+
+
+
+  
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; 
+    /* Could be more or less, depending on screen size */
+}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+    .date{
+    text-align:center;
+    line-height:120px;
+    font-size:13px;
+    margin:0;
+}
+.bdate{
+    text-align:center;
+    line-height:70px;
+    font-size:13px;
+    margin:0;
+}
+.box{
+    display:flex;
+    justify-content:center;
+    text-align:center;
+}
+#left{
+    margin-right:10px;
+}
+.weather_t{
+    width:450px;
+    height:120px;
+    display:flex;
+    justify-content:space-around;
+    border:4.5px solid lightgray;
+}
+.bweather{
+    width:450px;
+    height:77.2px;
+    display:flex;
+    justify-content:space-around;
+    border:4.5px solid lightgray;
     
-    
- .footer {
-  width: 100%;
-  background-color: gray;
-  color: white;
-  text-align: center;
 }
-.footer-bg {
-  width: 60%;
-  height: 33.3%;
-  margin: 0 auto;
+.qq{
+    height:120px;
 }
-.footer-top {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.bottom{
+    display:flex;
+    justify-content:center;
+    height:60px;
+    width:350px;
+    line-height:60px;
 }
-.footer-middle {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-top: 1px solid white;
-  list-style: none;
+.bottom p{
+    font-size:13px;
+    margin:0 10px 0 0;
+    width:50px;
 }
-.footer-middle a{
-  text-decoration: none;
-  color: white;
+.bbottom{
+    display:flex;
+    justify-content:center;
+    height:70px;
+    width:330px;
+    line-height:70px;
+    margin-left:25px;
 }
-.sns-icon i {
-  font-size: 28px;
+.ppty img{
+    width:50px;
+    margin:5px 10px 0 0;
 }
-.sns-icon a {
-  color: white;
+.ppty{
+    width:50px;
 }
-.i-con {
-  margin-right: 10px;
+.bpty{
+    width:50px;
 }
- 
+.bpty img{
+    width:45px;
+    margin:12px 15px 0 0;
+}
+.tmp{
+    width:50px;
+    margin-right:10px;
+    font-size:23px;
+}
+.btmp{
+    width:40px;
+    font-size:20px;
+}
+.sky{
+    width:100px;
+    font-size:14px;
+}
+.pop{
+    display:flex;
+    justify-content:center;
+    width:70px;
+    margin-left:35px;
+    font-size:14px;
+}
+.pop img{
+    width:25px;
+    height:25px;
+    margin:17px 5px 0 0;
+}
+.bpop{
+    display:flex;
+    justify-content:center;
+    width:70px;
+    margin-left:35px;
+    font-size:14px;
+}
+.bpop img{
+    width:25px;
+    height:25px;
+    margin:22px 5px 0 0;
+}
+.btn {
+	width: 55px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.btn:hover {
+    background-color: #0CD1E4;
+    transition: all 1s;
+}
+
+
+

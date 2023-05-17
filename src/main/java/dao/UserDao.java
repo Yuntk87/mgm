@@ -3,6 +3,9 @@ package dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 
@@ -13,7 +16,7 @@ public class UserDao extends JDBConnect{
 	public UserDao(ServletContext application) {
 		super(application);
 	}
-	
+
 	public int insertUser(UserDto u ) {
 		int res=0;
 		String sql="insert into user(id,password,nickName,name,phone,pNumber,gender,addr1,addr2) values(?,?,?,?,?,?,?,?,?)";
@@ -236,6 +239,87 @@ public class UserDao extends JDBConnect{
 		} return res;
 	}
 	
+	public ArrayList<UserDto> userRanking(){
+		ArrayList<UserDto> uList = new ArrayList<UserDto>();
+		try {
+			String sql = "select * from user WHERE NOT id='master' ORDER BY level DESC, postDate DESC LIMIT 5";
+			psmt = con.prepareStatement(sql);
+			rs=psmt.executeQuery();
+			UserDto u = null;
+			
+			while(rs.next()) {
+				u = new UserDto();
+				u.setUser_num(rs.getInt("user_num"));
+				u.setId(rs.getString("id"));
+				u.setPassword(rs.getString("password"));
+				u.setNickName(rs.getString("nickName"));
+				u.setName(rs.getString("name"));
+				u.setPhone(rs.getString("phone"));
+				u.setpNumber(rs.getString("pNumber"));
+				u.setGender(rs.getString("gender"));
+				u.setAddr1(rs.getString("addr1"));
+				u.setAddr1(rs.getString("addr2"));
+				u.setLevel(rs.getInt("level"));
+				u.setPostDate(rs.getTimestamp("postDate"));
+				uList.add(u);
+			}
+		} catch (SQLException e) {
+			System.out.println("유저랭킹 조회중 오류발생");
+			e.printStackTrace();
+		}
+		return uList;
+	}
+	
+	public List<HashMap<String, String>> userRankingMonth(String firstDay, String lastDay){
+		List<HashMap<String, String>> uList = new ArrayList<HashMap<String, String>>();
+		HashMap<String, String> map = null;
+		
+		try {
+			String sql = "SELECT a.*,b.level FROM (SELECT id,COUNT(*) FROM confirm_board WHERE postDate BETWEEN ? AND ? GROUP BY id ORDER BY count(*) DESC LIMIT 5) a "
+					+ "INNER JOIN (SELECT DISTINCT c.id,u.level FROM confirm_board c LEFT OUTER JOIN user u ON c.id = u.id) b ON a.id = b.id";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, firstDay);
+			psmt.setString(2, lastDay);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {		
+				map = new HashMap<String, String>();
+				map.put("id", rs.getString(1));
+				map.put("count", Integer.toString(rs.getInt(2)));
+				map.put("level", Integer.toString(rs.getInt(3)));
+				uList.add(map);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("이달 유저랭킹 조회중 오류발생");
+			e.printStackTrace();
+		}
+		return uList;
+	}
+	
+	public List<HashMap<String, String>> RepeatMountain(String id){
+		List<HashMap<String, String>> uList = new ArrayList<HashMap<String, String>>();
+		HashMap<String, String> map = null;
+		
+		try {
+			String sql = "SELECT m_name FROM (SELECT m_num FROM confirm_board WHERE id=? GROUP BY m_num having count(*) > 5) c INNER JOIN mountain_board m ON c.m_num = m.m_num";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {		
+				map = new HashMap<String, String>();
+				map.put("mname", rs.getString(1));
+				uList.add(map);
+			}
+			System.out.println(uList);
+			
+		} catch (SQLException e) {
+			System.out.println("반복등반 조회중 오류발생");
+			e.printStackTrace();
+		}
+		return uList;
+	}
 	
 }
 	    

@@ -1,0 +1,16 @@
+
+.weather {
+    width: 250px;
+    height: 70px;
+   
+ 
+}
+.pty i {
+	font-size: 15px;
+}
+.list span {
+	line-height: 70px;
+	font-size: 14px;
+	color: white;
+	font-family: 'Oswald', sans-serif;
+}
