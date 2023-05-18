@@ -414,7 +414,7 @@ $("#nickNameChk").click(function() {
         url: './user?nickName='+nickName+"&mode=idchk",  // 요청 URI	
         success : function(result){ // 요청이 성공일 때 실행되는 이벤트
         	if(result == 1) {
-        		$("#msg").text("아이디 중복");
+        		$("#msg").text("중복입니다");
         		$("#msg").css("color","red");
         		$("#msg").css("text-align","center");
         		$("#msg").css("line-height","49px");
