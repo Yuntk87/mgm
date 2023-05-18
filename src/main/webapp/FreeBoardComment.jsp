@@ -5,70 +5,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-	#comment {
-		width:80%;
-		height: 20px;
-		border: 1px solid black;
-	}
-	ul {
-		list-style : none;
-	}
-	#commentList {
-		text-align: left;
-		width: 100%;
-	}
-	.clist li{
-		border-top: 1px solid #999;
-		padding:10px;
-	}
-	.commenter {
-		font-weight: bold;
-	}
-	.comment {
-		text-align: justify;
-	}
-	.delBtn, .modBtnb, #modBtn {
-		float:right;
-	}
-	.regdate{
-		font-size:5px;
-		color:#999;
-	}
-	.reply {
-		display: inline-block;
-		margin-top:10px;
-		margin-left:10px;
-		font-size:5px;
-		color:#999;
-	} 
-	.postDate {
-		margin-top:10px;
-		font-size:5px;
-		color:#999;
-	}
-	.mod {
-		width:100%;
-		margin-top:20px;
-	}
-	.mod input {
-		width:80%;
-		margin-right:20px;
-		height: 20px;
-		border: 1px solid black;
-	}
-	
-</style>
+<title>MateBoardComment</title>
+<link rel="stylesheet" href="./css/FreeBoardComment.css">
 </head>
 <body>
 	<div class="commentAll">
 		<h2>댓글</h2>
 		<div id="commentList"></div>
-		<h2>댓글쓰기</h2>
-		<div class="send">
-			<input type="text" name="comment" id="comment">
-			<button id="sendBtn" type="button">등록</button>
+		<div class="coSend">
+			<input type="text" name="comment" id="comment" placeholder="댓글입력">
+			<button id="coSendBtn" class="myButton" type="button">등록</button>
 		</div>
 	</div>
 <script>
@@ -94,7 +40,7 @@
 		showList(fb_num);
 		
 		//등록
-		$("#sendBtn").click(function() {
+		$("#coSendBtn").click(function() {
 			let comment = $('input[name=comment]').val();
 			if(comment.trim() == '') {
 				alert("입력해주세요.");
@@ -130,8 +76,8 @@
 			let fb_num = $(this).parent().attr('data-fb_num');
 			
 			$(".mod", $(this).parent()).append('<input class="form-control" type="text" name="recomment" id="recomment">');
-			$(".mod", $(this).parent()).append('<button class="btn btn-default" type="button" id="modBtn">등록</button>');
-			$(".mod", $(this).parent()).append('<button class="btn btn-default" type="button" id="modBtnC">취소</button>');
+			$(".mod", $(this).parent()).append('<button class="btn btn-default myButton" type="button" id="modBtn">등록</button>');
+			$(".mod", $(this).parent()).append('<button class="btn btn-default myButton" type="button" id="modBtnC">취소</button>');
 			$('input[name=recomment]').val($('span.comment', $(this).parent()).text());
 			$("#modBtn").attr('data-fbc_num', fbc_num);
 		});
@@ -172,13 +118,12 @@
 		comments.forEach(function(comment) {
 			tmp += '<li data-fbc_num=' + comment.fbc_num
 			tmp += ' data-fb_num=' + comment.fb_num + '>'
-			tmp += '작성자: <span class="commenter"> ' + comment.commenter + '</span><br>'
+			tmp += '<span class="commenter"> ' + comment.commenter + '</span> : '
 			tmp += '<span class="comment"> ' + comment.comment + '</span><br>'
 			tmp += '<span class="postDate"> ' + comment.postDate + '</span>'
-			tmp += '<a href="javascript:;" class="reply">답글달기</a>'
-			if(comment.commenter == "${sessionScope.UserId}") {
-				tmp += '<button class="delBtn">삭제</button>'
-				tmp += '<button class="modBtnb">수정</button>'
+			if(comment.commenter == "${sessionScope.UserId}" || "master" == ("${sessionScope.UserId}")) {
+				tmp += '<button class="delBtn myButton">삭제</button>'
+				tmp += '<button class="modBtnb myButton">수정</button>'
 			}
 			tmp += '<div class="mod"></div>'
 			tmp += '</li>'

@@ -1,0 +1,112 @@
+	#view_box {
+		width:80%;
+		font-family: 'Noto Sans KR', sans-serif;
+ 		text-align:center;
+		margin:0 auto;
+		margin-top: 100px;
+		border:1px solid lightgray;
+		border-radius : 5px;
+		padding: 20px;
+	}
+	textarea, input {
+		vertical-align: middle;
+	}
+	textarea {
+		border:none;
+		background:#fff;
+		width:98%;
+		min-height: 500px;
+		resize:none;
+	}
+	input {
+		margin-left:5px;
+		border:none;
+		left:0;
+		background:#fff;
+	}
+	.category{
+		text-align:left;
+		font-weight: bold;
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+	.fbtitle{
+		display: flex;
+		justify-content: space-between;
+	}
+	.title1 {
+		text-align:left;
+		font-weight: bold;
+		font-size: 30px;
+		margin-bottom: 10px;
+	}
+	.nickName {
+		font-size: 20px;
+		color:black;
+	}
+	.lv {
+		color:black;
+		font-size:12px;
+	}
+	.days {
+		color: #999;
+		font-size: 12px;
+	}
+	.profile {
+		display: flex;
+		justify-content: space-between;
+		border-top: 1px solid lightgray;
+		border-bottom: 1px solid lightgray;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.profile span {
+		margin-right: 10px;
+	}
+	.profile img{
+		width:40px;
+		height:40px;
+	}
+	.content {
+		min-height: 500px;
+		border-bottom: 1px solid lightgray;
+	}
+	.titleRight a {
+		text-decoration:none;
+		color: darkgray;
+		margin-right:10px;
+	}
+	.titleRight a:hover {
+		color: black;
+	}
+	.titleRight i {
+		margin-right:5px;
+		color: darkgray;
+	}
+	.titleRight i:hover {
+		color: black;
+	}
+	.myButton {
+		box-shadow:inset 0px 1px 0px 0px #ffffff;
+		background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+		background-color:#ededed;
+		border-radius:6px;
+		border:1px solid #dcdcdc;
+		display:inline-block;
+		cursor:pointer;
+		color:#777777;
+		font-family:Arial;
+		font-size:12px;
+		font-weight:bold;
+		padding:5px 10px;
+		margin-right: 2px;
+		margin-top:10px;
+	}
+	.myButton:hover {
+		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+		background-color:#dfdfdf;
+	}
+	.myButton:active {
+		position:relative;
+		top:1px;
+	}

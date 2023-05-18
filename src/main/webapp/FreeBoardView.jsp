@@ -3,88 +3,53 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-	table {
-		border-collapse : collapse;
-	}
-	#view_box {
-		width:80%;
- 		text-align:center;
-		margin:0 auto;	
-	}
-	h2 {
-		margin:30px;
-	}
-	textarea, input {
-		vertical-align: middle;
-	}
-	textarea {
-		border:none;
-		background:#fff;
-		width:98%;
-		height:95%;
-		resize:none;
-	}
-	input {
-		margin-left:5px;
-		border:none;
-		left:0;
-		background:#fff;
-	}
-	.title {
-		text-align:left;
-	}
-</style>
+<title>FreeBoardView</title>
+<link rel="stylesheet" href="./css/FreeBoardView.css">
+
 </head>
 <body>
 <%@ include file="Navi.jsp" %>
 	<div id="view_box">
-		<h2>자유 게시판 - 상세보기</h2>
 		<form name="writeFrm">
 			<input type="hidden" name="num" value="${dto.fbnum }">
+			<div class="category">
+				${dto.category }
+			</div>
+			<div class="fbtitle">
+				<div class="title1">
+					<input type="text" class="title1" name="title" value="${dto.title }" disabled>
+				</div>
+				<div class="titleRight">
+						<a href="#commentList"><i class="fa-regular fa-comment"> 댓글</i></a>
+						<a href='./FreeBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'><i class="fa-solid fa-list"> 목록보기</i></a>
+				</div>
+			</div>
+			<div class="profile">
+				<div class="profile1">
+						<img src="https://cdn-icons-png.flaticon.com/128/6020/6020006.png">
+						<span class="nickName" style="cursor:pointer;" onClick="location.href='./yourpage?id=${dto.id}'">${dto.id }</span>
+						<span class="lv">Lv.${udto.level }</span>
+						<fmt:formatDate value="${dto.postDate }" type="both" pattern="yyyy-MM-dd hh:mm" var="post"/>
+						<span class="days">${post } &nbsp;&nbsp; 조회 : &nbsp;${dto.viewCount }</span>
+				</div>
+				<div class="btnDiv">
+					<c:choose>
+						<c:when test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id || sessionScope.UserId eq 'master'}">
+							<button type="button" class="myButton" onclick="location.href='./FreeBoardEdit${sc.getQueryString(param.page) }&num=${dto.fbnum }'">수정하기</button>
+							<button type="button" class="myButton" onclick="deletePost()">삭제하기</button>
+						</c:when>
+					</c:choose>		
+				</div>
+			</div>
 			
-			<table border="1" width="100%">
-				<tr>
-					<td>번호</td>
-					<td>${dto.fbnum }</td>
-					<td>작성자</td>
-					<td>${dto.id }</td>
-				</tr>
-				<tr>
-					<td>작성일</td>
-					<fmt:formatDate value="${dto.postDate }" type="both" pattern="yyyy-MM-dd hh:mm" var="post"/>
-					<td>${post }</td>
-					
-					<td>조회수</td>
-					<td>${dto.viewCount }</td>
-				</tr>
-				<tr>
-					<td>카테고리</td>
-					<td>${dto.category }</td>
-				</tr>
-				<tr>
-					<td>제목</td>
-					<td class="title" colspan="3"><input type="text" name="title" value="${dto.title }" disabled></td>
-				</tr>
-				<tr>
-					<td>내용</td>
-					<td colspan="3" height="100"><textarea type="text" name="content" disabled>${ dto.content}</textarea></td>
-				</tr>
-				<tr>
-					<td colspan="4" align="center">
-					<c:if test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id }">
-						<button type="button" onclick="location.href='./FreeBoardEdit${sc.getQueryString(param.page) }&num=${dto.fbnum }'">수정하기</button>
-						<button tyep="button" onclick="deletePost()">삭제하기</button>
-					</c:if>
-					<button type="button" onclick="location.href='./FreeBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
-					</td>
-				</tr>
-			</table>		
+			<div class="content">
+				<textarea type="text" name="content" disabled>${ dto.content}</textarea>
+			</div>		
 		</form>
 		<%@ include file="./FreeBoardComment.jsp" %>
 	</div>

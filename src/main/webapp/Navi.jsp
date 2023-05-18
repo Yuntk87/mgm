@@ -23,7 +23,7 @@
             <li><a href="./HomepageIntroduction.jsp" >홈페이지 소개</a></li>
             <li><a href="./MountainList">산 소개</a></li>
             <li><a href="./FreeBoardList">자유 게시판</a></li>
-            <li><a href="./ConfirmBoardList">인증 게시판</a></li>
+            <li><a href="./ConfirmBoard">인증 게시판</a></li>
             <li><a href="./MateBoardList">메이트 게시판</a></li>
             <c:if test="${not empty sessionScope.UserId && sessionScope.UserId eq 'admin'}">
             	<li><a href="./admin" class="master">관리자</a></li>
@@ -39,7 +39,7 @@
                     <a class="link" href="./register" >회원가입</a>
                    </c:when>
                    <c:otherwise>
-                       <a class='link' href='./MyPage'>회원정보</a>
+                       <a class='link' href='./mypage'>회원정보</a>
                        <a class='link' href='./logout'>로그아웃</a>
                   </c:otherwise>
             </c:choose>

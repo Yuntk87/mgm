@@ -1,4 +1,11 @@
 //admin
+ $(document).ready(function() {
+//	 function confirmListClick() {
+//	 	$("#tablinks1").trigger('click'); 		 
+//	 }
+	 
+ });
+ 
 function openCity(evt, cityName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -14,6 +21,7 @@ function openCity(evt, cityName) {
 }
 
 var requset=new XMLHttpRequest();
+
 
 
 //admin user

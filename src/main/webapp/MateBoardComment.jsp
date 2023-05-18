@@ -12,9 +12,9 @@
 	<div class="commentAll">
 		<div id="commentList"></div>
 		<h2>댓글쓰기</h2>
-		<div class="send">
+		<div class="coSend">
 			<input type="text" name="comment" id="comment" placeholder="댓글입력">
-			<button id="sendBtn" class="myButton" type="button">등록</button>
+			<button id="coSendBtn" class="myButton" type="button">등록</button>
 		</div>
 	</div>
 <script>
@@ -40,7 +40,7 @@
 		showList(mate_num);
 		
 		//등록
-		$("#sendBtn").click(function() {
+		$("#coSendBtn").click(function() {
 			let comment = $('input[name=comment]').val();
 			if(comment.trim() == '') {
 				alert("입력해주세요.");

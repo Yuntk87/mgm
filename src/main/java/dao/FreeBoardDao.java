@@ -191,6 +191,35 @@ public class FreeBoardDao extends JDBConnect{
 		return fbl;
 	}
 	
-	
-	
+	public List<FreeBoardDto> selectListmp(String id){
+		ArrayList<FreeBoardDto> fbl = new ArrayList<FreeBoardDto>();
+		FreeBoardDto dto = new FreeBoardDto();
+		String sql = "SELECT*FROM free_board where id=?";
+		
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+			    dto = new FreeBoardDto();
+				
+				dto.setFbnum(rs.getInt("fb_num"));
+				dto.setCategory(rs.getString("category"));
+				dto.setId(rs.getString("id"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setPostDate(rs.getTimestamp("postDate"));
+				dto.setViewCount(rs.getInt("viewCount"));
+				dto.setC_count(rs.getInt("c_count")); 
+				fbl.add(dto);
+			}
+		}
+		catch(Exception e) {
+			System.out.println("자유게시판 게시물 조회 중 오류 발생");
+			e.printStackTrace();
+		}
+		return fbl;
+	}
+		
 }

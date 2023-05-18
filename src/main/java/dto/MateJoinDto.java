@@ -10,7 +10,7 @@ public class MateJoinDto {
 	private Date dDay;
 	private String jId;
 	private Date postDate;
-	
+	private String m_name; // join으로 산이름 출력용도
 	
 	public int getMatejNum() {
 		return matejNum;
@@ -54,7 +54,12 @@ public class MateJoinDto {
 	public void setPostDate(Date postDate) {
 		this.postDate = postDate;
 	}
-	
+	public String getM_name() {
+		return m_name;
+	}
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
 	
 	public MateJoinDto() {
 		super();

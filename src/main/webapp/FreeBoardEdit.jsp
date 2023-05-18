@@ -8,29 +8,114 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>FreeBoardEdit</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
-	table {
-		border-collapse : collapse;
-	}
 	#edit_box {
 		width:80%;
-		text-align:center;
-		margin:0 auto;	
+		font-family: 'Noto Sans KR', sans-serif;
+ 		text-align:center;
+		margin:0 auto;
+		margin-top: 100px;
+		border:1px solid lightgray;
+		border-radius : 5px;
+		padding: 20px;
 	}
-	h2 {
-		margin:30px;
-	}
-	input, textarea {
-		width:98%;
-		border:none;
+	textarea, input {
 		vertical-align: middle;
 	}
 	textarea {
-		
-		height:90%;
+		border:none;
+		background:#fff;
+		width:98%;
+		min-height: 500px;
 		resize:none;
+	}
+	input {
+		margin-left:5px;
+		border:none;
+		left:0;
+		background:#fff;
+	}
+	input:focus {
+		outline:none;
+	}
+	textarea:focus{
+		outline:none;
+	}
+	select:focus{
+		outline:none;
+	}
+	.title1 {
+		text-align:left;
+		font-weight: bold;
+		font-size: 26px;
+		margin-bottom: 10px;
+		border: 1px solid lightgray;
+		line-height:12px;
+	}
+	.title1 input {
+		width:100%;
+		padding: 11px 12px 10px;
+		height:45px;
+	}
+	.nickName {
+		font-size: 20px;
+		color:black;
+	}
+	.lv {
+		color:black;
+		font-size:12px;
+	}
+	.days {
+		color: #999;
+		font-size: 12px;
+	}
+	.boardTop {
+		display: flex;
+		justify-content: space-between;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.boardTop span {
+		margin-right: 10px;
+	}
+	.boardTop img{
+		width:40px;
+		height:40px;
+	}
+	select{
+	    width: 200px;
+   		height: 40px;
+    	border-color: lightgray;
+	}
+	.content {
+		min-height: 500px;
+		border: 1px solid lightgray;
+	}
+	.myButton {
+		box-shadow:inset 0px 1px 0px 0px #ffffff;
+		background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+		background-color:#ededed;
+		border-radius:6px;
+		border:1px solid #dcdcdc;
+		display:inline-block;
+		cursor:pointer;
+		color:#777777;
+		font-family:Arial;
+		font-size:12px;
+		font-weight:bold;
+		padding:5px 10px;
+		margin-right: 2px;
+		margin-top:10px;
+	}
+	.myButton:hover {
+		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+		background-color:#dfdfdf;
+	}
+	.myButton:active {
+		position:relative;
+		top:1px;
 	}
 </style>
 </head>
@@ -54,49 +139,38 @@
 </script>
 
 	<div id="edit_box">		
-		<h2>자유 게시판 - 수정하기(Edit)</h2>
+		<h3>자유게시판 수정하기</h3>
 		<form name="editFrm" action="./FreeBoardEdit" method="post" onsubmit="return formCheck(this)">
-			<table border="1" width="100%">
 			<input type="hidden" name="num" value="${dto.fbnum }">
-				<tr>
-					<td>번호</td>
-					<td>${dto.fbnum }</td>
-					<td>작성자</td>
-					<td>${dto.id }</td>
-				</tr>
-				<tr>
-					<td>작성일</td>
-					<td>${dto.postDate }</td>
-					<td>조회수</td>
-					<td>${dto.viewCount }</td>
-				</tr>
-				<tr>
-					<td>카테고리</td>
-					<td>
+			<div class="boardTop">
+				<div class="cate">
 					<select name="category">
-						<option value="산" ${dto.category=='산'? 'selected' : '' }>산</option>
-						<option value="맛집" ${dto.category=='맛집'? 'selected' : '' }>맛집</option>
-						<option value="기타" ${dto.category=='기타'? 'selected' : '' }>기타</option>
+							<option value="산" ${dto.category=='산'? 'selected' : '' }>산</option>
+							<option value="맛집" ${dto.category=='맛집'? 'selected' : '' }>맛집</option>
+							<option value="기타" ${dto.category=='기타'? 'selected' : '' }>기타</option>
 					</select>
-
-					</td>
-				</tr>
-				<tr>
-					<td>제목</td>
-					<td colspan="3"><input id="wtitle" type="text" name="title" value="${dto.title }""></td>
-				</tr>
-				<tr>
-					<td>내용</td>
-					<td colspan="3" height="100"><textarea id="wcontent" type="text" name="content">${dto.content }</textarea></td>
-				</tr>
-				<tr>
-					<td colspan="4" align="center">
-						<button type="button" onclick="editPost()">작성완료</button>
-						<button type="reset">다시입력</button>
-						<button type="button" onclick="location.href='./FreeBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
-					</td>
-				</tr>
-			</table>
+				</div>
+				<div class="profile1">
+						<img src="https://cdn-icons-png.flaticon.com/128/6020/6020006.png">
+						<span class="nickName" style="cursor:pointer;" onClick="location.href='/mgm1/yourpage?id=${dto.id}'">${dto.id }</span>
+						<span class="lv">Lv.${udto.level }</span>
+						<fmt:formatDate value="${dto.postDate }" type="both" pattern="yyyy-MM-dd hh:mm" var="post"/>
+						<span class="days">${post } &nbsp;&nbsp; 조회 : &nbsp;${dto.viewCount }</span>
+				</div>
+				
+			</div>
+			<div class="title1">
+				<input type="text" name="title" value="${dto.title }">
+			</div>
+			
+			<div class="content">
+				<textarea type="text" name="content">${ dto.content}</textarea>
+			</div>
+			<div class="btnDiv">
+				<button type="button" class="myButton" onclick="editPost()">작성완료</button>
+				<button type="reset" class="myButton">다시입력</button>
+				<button type="button" class="myButton" onclick="location.href='./FreeBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
+			</div>
 		</form>
 	</div>
 <%@ include file="./Footer.jsp" %>

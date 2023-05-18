@@ -124,4 +124,29 @@ public class MateJoinDao extends JDBConnect{
 		}
 		return mbs;
 	}
+	
+	public List<MateJoinDto> selectCalendar(String jId) {
+		ArrayList<MateJoinDto> mbs = new ArrayList<MateJoinDto>();
+//		MateJoinDto m = null;
+		String query = "SELECT J.d_day, M.m_name FROM mate_board_join J INNER JOIN mountain_board M ON J.m_num=M.m_num WHERE j_id=?";
+
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, jId);	
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				MateJoinDto m = new MateJoinDto();
+				m.setdDay(rs.getTimestamp(1));
+				m.setM_name(rs.getString(2));
+				mbs.add(m);
+			}
+			System.out.println(mbs);
+		}
+		catch(Exception e) {
+			System.out.print("캘린더 조회 중 예외 발생");
+			e.printStackTrace();
+		}
+		return mbs;
+	}
 }

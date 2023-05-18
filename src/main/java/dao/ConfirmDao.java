@@ -115,4 +115,57 @@ public class ConfirmDao extends JDBConnect {
 		return Count;
 	}
 	
+	public String selectmountain(String id) {
+		ArrayList<ConfirmBoardDto> c = new ArrayList<ConfirmBoardDto>();
+		String sql = "SELECT M.m_name FROM confirm_board C INNER JOIN mountain_board M ON C.m_num = M.m_num where id=? order by c.m_num desc limit 3";
+		String res="";
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, id);	
+			rs = psmt.executeQuery();
+			res="";
+			while(rs.next()) {
+				
+				res += rs.getString("m_name") +" ";
+				
+			}
+		}
+		catch (Exception e) {
+			System.out.println("인증카운트중 예외 발생");
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	public List<ConfirmBoardDto> selectList(Map<String, Object>map){
+		ArrayList<ConfirmBoardDto> fbl = new ArrayList<ConfirmBoardDto>();
+		ConfirmBoardDto dto = null;
+		String query = "SELECT*FROM confirm_board";
+		if(map.get("searchWord")!=null) {
+			query += " WHERE "+ map.get("searchField")+" "
+					+ " LIKE '%" + map.get("searchWord")+"%' ";
+		}
+		query += " ORDER BY cb_num DESC";
+		query += " LIMIT " + map.get("offset")+","+map.get("pageSize");
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+			    dto = new ConfirmBoardDto();
+				
+				dto.setCd_num(rs.getInt("cb_num"));
+				dto.setM_num(rs.getInt("m_num"));
+				dto.setId(rs.getString("id"));
+				dto.setPostDate(rs.getTimestamp("postDate"));
+				fbl.add(dto);
+			}
+		}
+		catch(Exception e) {
+			System.out.println("인증게시판 게시물 조회 중 오류 발생");
+			e.printStackTrace();
+		}
+		return fbl;
+	}
+	
 }

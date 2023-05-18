@@ -26,7 +26,7 @@
 			</div>
 			<div class="profile">
 				<div class="profile1">
-					<span class="nickName">${dto.id }</span><span class="lv">Lv.${udto.level }</span>
+					<span class="nickName" style="cursor:pointer;" onClick="location.href='./yourpage?id=${dto.id}'">${dto.id }</span><span class="lv">Lv.${udto.level }</span>
 					<fmt:formatDate value="${dto.postDate }" type="both" pattern="yyyy-MM-dd hh:mm" var="post"/>
 					<span class="days">${post } &nbsp;&nbsp; 조회 : &nbsp;${dto.viewCount }</span>
 				</div>

@@ -1,0 +1,219 @@
+@charset "UTF-8";
+body {
+    font-family: "Century Gothic", "Lato", sans-serif;
+  }
+  
+span>a{
+	text-decoration-line: none;
+	color:black;
+}
+ 
+   h1 {
+   
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 1rem;
+    text-align: center;
+  }
+  h3 {
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
+    opacity: 0.6;
+    text-align: center;
+  }
+  
+  img, #userImg{
+    width: 260px;
+    height: 440px;
+  }
+  .main{
+  display: flex;
+  margin-left: 500px;
+ 
+  }
+  .main1{
+  display: flex;
+  margin :60px auto;
+  width: 1000px;
+  justify-content: center;
+  }
+  button{
+    width:84px;
+    height:45px;
+    margin: 20px;
+  }
+  li{list-style:none;
+    padding: 7px 0px 5px 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #efefef;
+    font-size: 12px;
+}
+  
+
+  
+  .btn {
+    cursor: pointer;
+    position: relative;
+    padding: 10px 20px;
+    background: white;
+    font-size: 28px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: all 1s;
+  }
+  .btn:after, .btn:before {
+    content: " ";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    z-index:-1;
+    border: 0px solid #fff;
+    transition: all 1s;
+    margin: 5px;
+  }
+  .btn:after {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    margin: 5px;
+  }
+  .btn:before {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+  }
+  .btn:hover {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+  .btn:hover:before, .btn:hover:after {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .data-container {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mypage{
+   margin-top:30px;
+  }
+  
+ 
+  
+  
+  body {
+  font-family: "Raleway", sans-serif;
+}
+
+
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+   list-style: none;
+  
+}
+@media screen and (min-width: 900px) {
+  .tabs {
+    display: block;
+  }
+}
+
+.accordion-tabs-minimal {
+  width: 80%;
+  margin: 2rem auto;
+}
+.tab-header-and-content{
+	  list-style: none;
+}
+
+li.tab-header-and-content {
+  list-style: none;
+  border-bottom: 1px solid gainsboro;
+}
+@media screen and (min-width: 900px) {
+  li.tab-header-and-content {
+    display: inline;
+  }
+}
+
+a.tab-link {
+  background-color: #fff;
+  color: #333;
+  display: block;
+  padding: 25px;
+  text-decoration: none;
+  font-size: 20px;
+}
+@media screen and (min-width: 900px) {
+  a.tab-link {
+    border-top: 0;
+    display: inline-block;
+    font-size: 16px;
+  }
+}
+a.tab-link:hover {
+  color: #477DCA;
+}
+a.tab-link:focus {
+  outline: none;
+}
+a.tab-link.is-active {
+  border-bottom: 0;
+}
+@media screen and (min-width: 900px) {
+  a.tab-link.is-active {
+    border: 1px solid gainsboro;
+    border-bottom-color: white;
+    margin-bottom: -1px;
+  }
+}
+
+.tab-content {
+  display: none;
+  padding-left: 30px;
+  width: 100%;
+}
+@media screen and (min-width: 900px) {
+  .tab-content {
+    border-top: 1px solid gainsboro;
+    float: left;
+    padding-top: 1rem;
+  }
+}
+  
+
+.box-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:10%;
+}
+.box{
+  padding:30px;
+  margin:5%;
+  background:white;
+  width:30%;
+  border:1px solid #d6d6d6;
+  box-shadow:0 2px 3px 0px rgba(0,0,0,0.25);
+  border-radius:3px;
+  transition:.2s all; 
+}
+.box-wrap:hover .box{
+  filter:blur(3px);
+  opacity:.5;
+  transform: scale(.98);
+  box-shadow:none;
+}
+.box-wrap:hover .box:hover{
+  transform:scale(1);
+  filter:blur(0px);
+  opacity:1;
+  box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+}
+

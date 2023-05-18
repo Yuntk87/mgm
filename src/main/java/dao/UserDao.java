@@ -321,6 +321,44 @@ public class UserDao extends JDBConnect{
 		return uList;
 	}
 	
+	public String findId(String name,String phone) {
+		String id=null;
+		try {
+			String sql="select id from user where name=? and phone=?";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, name);
+			psmt.setString(2, phone);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				id=rs.getString(1);
+				System.out.println(id+"-----");
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("아이디찾기 오류");
+	}return id;
+	
+   }
+	
+	public String findPwd(String id,String phone,String name) {
+		String pwd=null;
+		try {
+			String sql="select password from user where id=?and phone=? and name=?";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, phone);
+			psmt.setString(3, name);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				pwd=rs.getString("user.password");
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("비밀번호 찾기 오류");
+	}
+	return pwd;
+   }
+	
 }
 	    
 	
