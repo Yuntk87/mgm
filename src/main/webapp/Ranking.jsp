@@ -84,7 +84,7 @@
 				<div class="rInfo">
 					<div>${status.count}</div>
 					<div>${user.nickName}</div>
-					<div class="small">LV.${user.level}</div>
+					<div><span class="small">LV.${user.level}</span></div>
 				</div>
 			</c:forEach>
 		</div>
@@ -94,7 +94,7 @@
 				<div class="rInfo">
 					<div>${status.count}</div>
 					<div>${userM.get('id')}</div>
-					<div class="small">Lv.${userM.get('level')}</div>
+					<div><span class="small">${userM.get('count')}회</span></div>
 				</div>
 			</c:forEach>
 		</div>

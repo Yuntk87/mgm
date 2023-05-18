@@ -20,9 +20,9 @@
 			<input type="hidden" id="num" name="num" value="${dto.mate_num }">
 			<input type="hidden" id="id" name="id" value="${dto.id }">
 			<input type="hidden" id="mNum" name="mNum" value="${dto.m_num }">
-			
-			<div class="title">
-				<input type="text" class="title" name="title" value="${dto.title }" disabled>
+			<div></div>
+			<div class="mbtitle">
+				<input type="text" class="mbtitle1" name="title" value="${dto.title }" disabled>
 			</div>
 			<div class="profile">
 				<div class="profile1">

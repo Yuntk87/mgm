@@ -242,7 +242,7 @@ public class UserDao extends JDBConnect{
 	public ArrayList<UserDto> userRanking(){
 		ArrayList<UserDto> uList = new ArrayList<UserDto>();
 		try {
-			String sql = "select * from user WHERE NOT id='master' ORDER BY level DESC, postDate DESC LIMIT 5";
+			String sql = "select * from user WHERE NOT id='admin' ORDER BY level DESC, postDate DESC LIMIT 5";
 			psmt = con.prepareStatement(sql);
 			rs=psmt.executeQuery();
 			UserDto u = null;

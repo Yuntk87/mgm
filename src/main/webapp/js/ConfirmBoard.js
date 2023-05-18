@@ -14,6 +14,7 @@ $(document).ready(function() {
     }, function() {
         $("#map").toggleClass("on");
     });
+
 	
 });
 
@@ -179,6 +180,7 @@ function errFunc(e) {
 //주소 입력시 지도 표시
 function initMap() {
  var map = new google.maps.Map(
+//   document.getElementById('map')
    document.getElementById('map'), {
      zoom: 12,
      center: {

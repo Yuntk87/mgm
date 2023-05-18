@@ -25,7 +25,11 @@
 		left:0;
 		background:#fff;
 	}
-	.title {
+	.mbtitle{
+		display: flex;
+		justify-content: space-between;
+	}
+	.mbtitle1 {
 		text-align:left;
 		font-weight: bold;
 		font-size: 30px;

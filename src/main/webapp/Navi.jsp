@@ -23,7 +23,7 @@
             <li><a href="./HomepageIntroduction.jsp" >홈페이지 소개</a></li>
             <li><a href="./MountainList">산 소개</a></li>
             <li><a href="./FreeBoardList">자유 게시판</a></li>
-            <li><a href="./ConfirmBoard">인증 게시판</a></li>
+            <li><a href="./ConfirmBoard?mode=confirm">인증 게시판</a></li>
             <li><a href="./MateBoardList">메이트 게시판</a></li>
             <c:if test="${not empty sessionScope.UserId && sessionScope.UserId eq 'admin'}">
             	<li><a href="./admin" class="master">관리자</a></li>
@@ -84,7 +84,8 @@
             <!-- 두 번째 Modal의 내용 -->
             <div class="modal-content">
               <span class="close">&times;</span>
-              <%@ include file="./LocationCheck.jsp" %>
+<%--               <%@ include file="./LocationCheck.jsp" %> --%>
+				<c:import url="./ConfirmBoard.jsp" />
             </div>
         </div>
 

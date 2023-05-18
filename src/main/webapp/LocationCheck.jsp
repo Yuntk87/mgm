@@ -9,10 +9,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgWjfRDY2JDCNcxaKgoNBenu5o1POdE_c&callback=initMap&region=kr"></script>
 <link rel="stylesheet" href="./css/LocationCheck.css">
-<script src="./js/ConfirmBoard.js"></script>
+<!-- <script src="./js/LocationCheck.js"></script> -->
 </head>
 <body>
-
 	<div id="Location">
 		<div class="tab">
 			<button class="tablinks" onclick="opendiv(event, 'myPosition')">내위치 확인</button>
@@ -45,13 +44,13 @@
 			<select id="listBox" name="listName"></select>
             <input type="hidden" id="mLocation" name="mLocation" value=""/>
 
-        	<button id="mBtn" type="button" class="myButton">지도 검색</button>
+        	<button id="qmBtn" type="button" class="myButton">지도 검색</button>
 	    </div>
 
 	    
 <!-- 		지도 API -->
 	    <h2>지도</h2>
-	 	<div id="map" style="width:100%; height: 30vh;"></div>
+	 	<div id="map" class='qmap' style="width:100%; height: 30vh;"></div>
 	</div>
 </body>
 </html>

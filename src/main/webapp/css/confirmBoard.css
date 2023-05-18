@@ -10,25 +10,25 @@
 		font-size:15px;
 		color:yellow;
 	}
-	.table {
+	#ConfirmMain .table {
 		text-align: center;
 	    border-spacing: 50px;
 	    width: 80%;    
 	}
-	th, td {
+	#ConfirmMain th, #ConfirmMain td {
 	    margin-right: 50px;
 	}
-	input {
+	#ConfirmMain input {
 	    border: none;
 	    border-bottom: 1px solid #999;
 	}
-	p {
+	#ConfirmMain p {
 		color: darkgray;
 	}
-	.title {
+	#ConfirmMain .title {
 		margin-top:30px;
 	}
-	.title span {
+	#ConfirmMain .title span {
 		font-size: 30px;
 		color: black;
 	}
@@ -54,7 +54,67 @@
     	margin: 0 auto;
 		margin-top:100px;
 	}
+	
 
+	#Location {
+		margin: 0 auto;
+		padding: 20px;
+	}
+	.tab {
+	  overflow: hidden;
+	  border-bottom: 1px solid lightgray;
+	}
+	
+	.tab button {
+	  background-color: inherit;
+	  float: left;
+	  border: none;
+	  outline: none;
+	  cursor: pointer;
+	  padding: 14px 16px;
+	  transition: 0.3s;
+	  font-size: 17px;
+	}
+	
+	/* Change background color of buttons on hover */
+	.tab button:hover {
+	  background-color: #ddd;
+	}
+	
+	/* Create an active/current tablink class */
+	.tab button.active {
+	  background-color: #ccc;
+	}
+	
+	/* Style the tab content */
+	.tabcontent {
+	  display: none;
+	  padding: 6px 12px;
+	  -webkit-animation: fadeEffect 1s;
+	  animation: fadeEffect 1s;
+	}
+	
+	/* Fade in tabs */
+	@-webkit-keyframes fadeEffect {
+	  from {opacity: 0;}
+	  to {opacity: 1;}
+	}
+	
+	@keyframes fadeEffect {
+	  from {opacity: 0;}
+	  to {opacity: 1;}
+	}
+	#myLocationBtn {
+		font-size:5px;
+	}
+	#mname {
+		margin-left:20px;
+		width:20%;
+		border:none;
+		border-bottom:1px solid lightgray;
+	}
+	
+	
    	.myButton {
    		padding: 5px;
 		box-shadow:inset 0px 1px 0px 0px #ffffff;
