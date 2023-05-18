@@ -15,9 +15,6 @@ table {
     margin:0 auto;
     border-collapse : collapse;
 }
-th, td {
-	border:none;
-}
 select{
 	border:none;
 }

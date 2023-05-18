@@ -121,7 +121,7 @@
 	        if($(this).hasClass("last"))
 	       	 	$(this).prev().removeClass("one")
 	        else
-	       	 	$(this).next().removeClass("one")	    	 
+	       	 	$(this).next().removeClass("one")	    	  
 
 	  });
 	  
