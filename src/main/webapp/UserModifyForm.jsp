@@ -410,15 +410,19 @@ $("#nickNameChk").click(function() {
 	}
 	$.ajax({
         type:'GET',       // 요청 메서드
-        url: './update?nickName='+nickName+"&mode=idchk",  // 요청 URI	
+        url: './user?nickName='+nickName+"&mode=idchk",  // 요청 URI	
         success : function(result){ // 요청이 성공일 때 실행되는 이벤트
         	if(result == 1) {
         		$("#msg").text("아이디 중복");
         		$("#msg").css("color","red");
+        		$("#msg").css("text-align","center");
+        		$("#msg").css("line-height","70px");
         	}
         	else {
         		$("#msg").text("사용가능");
         		$("#msg").css("color","blue");
+        		$("#msg").css("text-align","center");
+        		$("#msg").css("line-height","70px");
         	}
         },
         error: function(request, status, error){ alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error) } // 에러가 발생했을 때, 호출될 함수
