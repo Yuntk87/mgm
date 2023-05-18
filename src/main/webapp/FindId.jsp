@@ -19,7 +19,7 @@
     <p class="desc"> 회원가입시 사용한 아이디는<br><span class="fid">${id}<br></span>입니다</p>
      
       
-      <button onclick="location.href='http://localhost:8081/mgm1/LoginForm.jsp'" class="button" id="signup">로그인화면으로 가기 </button>
+      <button onclick="location.href='http://localhost:8081/mgm/LoginForm.jsp'" class="button" id="signup">로그인화면으로 가기 </button>
     </div>
 </body>
 </html>

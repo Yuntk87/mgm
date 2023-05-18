@@ -1,0 +1,123 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+
+
+.myTable {
+    border-collapse: collapse; 
+    width: 90%; 
+    border: 1px solid #ddd; 
+    font-size: 18px; 
+    margin: 0 auto;
+  }
+.myTable a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+  }
+.myTable a:hover {
+    text-decoration: underline;
+} 
+  
+  .myTable th, .myTable td {
+    text-align: center; 
+    padding: 12px; 
+  }
+
+.content_box {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+.btn-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+.btn_like {
+    position: relative;
+    margin: 10px auto;
+    display: block;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #DD5D54;
+    border-radius: 44px;
+    font-family: notokr-bold,sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    background-color: white;
+    color: #DD5D54;
+    transition: border .2s ease-out,box-shadow .1s ease-out,background-color .4s ease-out;
+    cursor: pointer;
+  }
+  
+  .btn_like:hover {
+    border: 1px solid rgba(228,89,89,0.3);
+    background-color: rgba(228,89,89,0.02);
+  }
+  
+  .btn_unlike .img_emoti {
+      background-position: -30px -120px;
+  }
+  
+  .img_emoti {
+      display: inline-block;
+      overflow: hidden;
+      font-size: 0;
+      line-height: 0;
+      background: url(https://mk.kakaocdn.net/dn/emoticon/static/images/webstore/img_emoti.png?v=20180410) no-repeat;
+      text-indent: -9999px;
+      vertical-align: top;
+      width: 20px;
+      height: 17px;
+      margin-top: 1px;
+      background-position: 0px -120px;
+      text-indent: 0;
+  }
+  
+  .btn_like .ani_heart_m {
+      margin: -63px 0 0 -63px;
+  }
+  
+  .ani_heart_m {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 125px;
+      height: 125px;
+      margin: -63px 0 0 -63px;
+      pointer-events: none;
+  }
+  
+  .ani_heart_m.hi {
+      background-image: url(https://t1.daumcdn.net/cfile/tistory/99ADD94D5B1E40A319?original);
+      -webkit-background-size: 9000px 125px;
+      background-size: 9000px 125px;
+      animation: on_m 1.06s steps(72);
+  }
+  
+  .ani_heart_m.bye {
+      background-image: url(https://t1.daumcdn.net/cfile/tistory/99C2A03F5B1E3E7529?original);
+      -webkit-background-size: 8250px 125px;
+      background-size: 8250px 125px;
+      animation: off_m 1.06s steps(66);
+  }
+  
+  @keyframes on_m {
+    from { background-position: 0 }
+    to { background-position: -9000px }
+  }
+  
+  @keyframes off_m {
+    from { background-position: 0 }
+    to { background-position: -8250px }
+  }
+ .btn-box {
+    position: absolute;
+    top: 30px;
+    right: 80px;
+  }

@@ -14,7 +14,6 @@
 
 <body>
 <%-- <%@ include file="./Navi.jsp" %> --%>
-	
 	<div class="tab">
 	  <h1>관리자 페이지</h1>
 	  <button id="tablinks1" class="tablinks" onclick="openCity(event, 'confirm')">인증게시글 관리</button>

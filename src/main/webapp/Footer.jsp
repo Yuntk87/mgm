@@ -15,7 +15,7 @@
     <div class="footer">
         <div class="footer_img" >
             <div>
-                <img src="img/로고11-removebg-preview.png" width="300px" height="150px" alt="">
+                <img src="img/FooterLogo.png" width="300px" height="150px" alt="">
             </div>
             
         </div>

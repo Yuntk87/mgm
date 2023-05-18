@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
  <title>로그인화면</title>
- <link href="./css/LoginForm.css?v=1" rel="stylesheet">
+ <link href="./css/LoginForm.css" rel="stylesheet">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -182,24 +182,22 @@ function aa(){
 </head>
 <body>
   <div class="container">
-  <div class="home">
+    <!-- Heading -->
+    <h1>login</h1>
     
-  <a href=./Main.jsp>
-   	<img src="./img/logo.jpg"></a>
-   
-    <div><h1>login</h1></div>
-    </div>
     <!-- Links -->
     <ul class="links">
       <li>
-        <a href="#" id="signin">login</a>
+        <a href="#" id="signin">join</a>
       </li>
       <li>
-        <a href="#" id="signup">join</a>
+        <a href="./ForgetId.jsp" id="signup">forget</a>
       </li>
       <li>
         <a href="javascript:aa()" id="reset">RESET</a>
       </li>
+       
+      
     </ul>
     
     <!-- Form -->
@@ -230,13 +228,7 @@ function aa(){
  <%@ include file='../naverlogin.jsp'%>
  
  
-<!--  <li id="naverIdLogin_loginButton" >
-      
-      <a href="javascript:void(0)">
-      <img src="../imges/naver.png" >
-      </a>
-	</li> -->
- 
+
 	 
   
    <!--구글로그인  -->
@@ -250,11 +242,9 @@ function aa(){
       </a>
 	</li>
 	
-   <!--  
-    <button type='button' onclick="kakaoLogin();"></button>
-    <button type='button' onclick='RegisterContent()'>회원정보</button>
-    <button type='button' onclick='kakaoLogout()'>로그아웃</button> -->
+   
   </div>
+  
 
   
 </body>

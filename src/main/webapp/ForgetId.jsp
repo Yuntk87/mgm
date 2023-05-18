@@ -16,7 +16,7 @@
     <div class="pinkbox">
       <div class="signup nodisplay">
         <h1>find<br>Password</h1>
-        <form method="post" action="/mgm1/find?mode=pwd">
+        <form method="post" action="./find?mode=pwd">
             <input type="text" name="id2" id="id2" placeholder="아이디" required>
             <input type="text" name="phone2" id="phone2" placeholder="핸드폰번호" required>
             <input type="text" name="name2" id="name2" placeholder="이름" required>
@@ -25,7 +25,7 @@
       </div>
       <div class="signin">
         <h1>find<br>id</h1>
-        <form class="more-padding" method="post" action="/mgm1/find?mode=id">
+        <form class="more-padding" method="post" action="./find?mode=id">
             <input type="text" name="name" id="name" placeholder="이름" required>
             <input type="text" name="phone" id="phone" placeholder="핸드폰번호" required>
           

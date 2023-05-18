@@ -1,28 +1,16 @@
 body {
     margin: 0;
     padding: 0;
-    /* background-image: url(https://post-phinf.pstatic.net/MjAyMDAzMTJfNzcg/MDAxNTg0MDA2NTY0OTk1.vInkVx27Ge-WBdWxrN-KO7d0Jru80_8C19-QDUYs2GEg.DX3IDPd6rr7Cz48aELvDlQckUcgabFdeZMyleKcAOK0g.JPEG/1_120_5grindelwald-first-lake-bachalpsee-hike-switzerland-sarah-tom-bricker-mark-willard1.jpg?type=w1200); */
     background-repeat: no-repeat;
     background-size: 100%;
     height: 2000px;
-    overflow-x: hidden;
 }
-h1, h2, h3, h4, h5, li, a, span {
-    font-family: 'Oswald', sans-serif;
-    font-weight: bold;
-}
-a {
-    text-decoration: none;
-    font-size: 15px;
-    color: white;
-    margin-right: 10px;
-}
+
+
 ul {
     list-style: none;
 }
-span {
-    font-size: 20px;
-}
+
 .navi {
     width: 100%;
     height: 70px;
@@ -40,12 +28,23 @@ span {
     display: flex;
     align-items: center;
     margin-left: 60px;
-    margin-right: 90px;
-    
+    margin-right: 90px; 
+}
+#active {
+    font-weight: bold;
+    font-size: 40px;
+    margin-right: 180px;
 }
 .navi_menu li {
     margin: 0 20px;
-    
+}
+.navi_menu li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    margin-right: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
 }
 .navi_menu a:hover {
     color: #0CD1E4;
@@ -53,15 +52,19 @@ span {
     
 }
 
-.active {
-    font-weight: bold;
-    font-size: 40px;
-    margin-right: 180px;
-}
+
 
 .navi_login {
     display: flex;
     align-items: center;
+}
+.navi_login a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    margin-right: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
 }
 .navi_login a:hover {
     color: #0CD1E4;
@@ -78,12 +81,18 @@ span {
     line-height: 60px;
     z-index: 10;
 }
+.master_menu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    margin-right: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+}
 .master_menu a:hover{
     color: #0CD1E4;
     transition: all 0.5s;
 }
-
-
 
 
 .quick-menu {
@@ -110,17 +119,15 @@ span {
   font-size: 30px;
   }
 
-  .quick-box a {
+  .quick-box i {
+
   text-align: center;
   text-decoration: none;
   color: white;
   font-size: 20px;
   margin:0
   }
-  .quick-box a:hover {
-  text-decoration: underline;
-  color: white;
-  }
+
   .quick-box {
   margin-top: 40px;
   }
@@ -142,7 +149,6 @@ span {
   .quick-btn i {
     font-size: 35px;
   }
-
 
 
 

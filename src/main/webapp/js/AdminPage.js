@@ -1,8 +1,9 @@
 //admin
  $(document).ready(function() {
-//	 function confirmListClick() {
-//	 	$("#tablinks1").trigger('click'); 		 
-//	 }
+	 $(".check").click(function() {
+		 $("#tablinks1").trigger("click");
+	 });
+	 
 	 
  });
  

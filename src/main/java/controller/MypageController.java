@@ -54,7 +54,7 @@ public class MypageController extends HttpServlet {
 		req.setAttribute("mountainLists", res);
 		
 		
-		req.getRequestDispatcher("./mypage2.jsp").forward(req, resp);
+		req.getRequestDispatcher("./MyPage.jsp").forward(req, resp);
 		
 	}
 

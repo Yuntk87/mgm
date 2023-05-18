@@ -105,7 +105,7 @@ function successFunc(d) {
 	var maxtmp=[0,0,0,'','','','','','','',''];
 
 	$(d).find('item').each(function(index, item){
-		for(let i=3; i<=10; i++){
+		for(let i=4; i<=10; i++){
 			mintmp[i] +=$(this).find('taMin'+i).text()+'℃';
 			maxtmp[i] +=$(this).find('taMax'+i).text()+'℃';
 		}

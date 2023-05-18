@@ -47,7 +47,7 @@
         등산이 점점 좋아집니다. <br><br>
         MGM과 함께 <br><br>
         <button type="button" class="image1-box-btn">VIEW MORE</button><br><br>
-        <img src="img/그림4.png" width="600px" height="250px" alt="">
+        <img src="img/TeamPhoto.png" width="600px" height="250px" alt="">
         
       </h2>
     </div>

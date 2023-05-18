@@ -218,6 +218,23 @@ public class MountainDao extends JDBConnect{
 		return res;
 	}
 	
+	public int updateRecommend(int board_num, int m_recommend ) {
+		int res=0;
+		String sql = "UPDATE mountain_board SET m_recommend = m_recommend+? WHERE m_num=?";
+		
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setInt(1, m_recommend);
+			psmt.setInt(2, board_num);
+			res = psmt.executeUpdate();	
+		}
+		catch(Exception e) {
+			System.out.println("추천수 업데이트 중 예외 발생");
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
 	public MountainDto selectView(int m_num) {
 		MountainDto dto = null;
 		String sql = "SELECT * FROM mountain_board WHERE m_num = ?";
