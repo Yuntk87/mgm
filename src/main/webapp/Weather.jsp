@@ -165,76 +165,76 @@ function sucFunc(d) {
 			
 			if(apty[i].split(' ').length==2){
 	           	if(apty[i].split(' ')[1] == '비'){
-	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=656&format=png">'
+	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
 	           	}
 	           	if(apty[i].split(' ')[1] == '눈'){
-	        	   	mpty[i] += '<img src="https://img.icons8.com/pulsar-color/256/winter.png">'
+	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
 	           	}
 	           	if(apty[i].split(' ')[1] == '비/눈'){
-	        	   	mpty[i] += '<img src="https://img.icons8.com/pulsar-color/256/sleet.png">'
+	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
 	           	}
 	           	if(apty[i].split(' ')[1] == '소나기'){
-	        	   	mpty[i] += '<img src="https://img.icons8.com/pulsar-color/256/heavy-rain.png">'
+	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=18593&format=png">'
 	           	}
 	        }else{
 				if(apty[i].split(' ')[0] == '맑음'){
-					mpty[i] += '<img src="https://img.icons8.com/?size=512&id=6Z2mGj6qDVv4&format=png">'
+					mpty[i] += '<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
 				}
 	           	if(apty[i].split(' ')[0] == '구름많음'){
-	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=658&format=png">'
+	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
 	            }
 	           	if(apty[i].split(' ')[0] == '흐림'){
-	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=650&format=png">'
+	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 	            }
 	        }
 			
 			if(ppty[i].split(' ').length==2){
 				if(ppty[i].split(' ')[1] == '비'){
-					npty[i] += '<img src="https://img.icons8.com/?size=512&id=656&format=png">'
+					npty[i] += '<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
 				}
 				if(ppty[i].split(' ')[1] == '눈'){
-					npty[i] += '<img src="https://img.icons8.com/pulsar-color/256/winter.png">'
+					npty[i] += '<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
 		        }
 				if(ppty[i].split(' ')[1] == '비/눈'){
-					npty[i] += '<img src="https://img.icons8.com/pulsar-color/256/sleet.png">'
+					npty[i] += '<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
 		        }
 				if(ppty[i].split(' ')[1] == '소나기'){
-					npty[i] += '<img src="https://img.icons8.com/pulsar-color/256/heavy-rain.png">'
+					npty[i] += '<img src="https://img.icons8.com/?size=512&id=18593&format=png">'
 		        }
 			}else{
 				if(ppty[i].split(' ')[0] == '맑음'){
-					npty[i] += '<img src="https://img.icons8.com/?size=512&id=6Z2mGj6qDVv4&format=png">'
+					npty[i] += '<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
 				}
 				if(ppty[i].split(' ')[0] == '구름많음'){
-					npty[i] += '<img src="https://img.icons8.com/?size=512&id=658&format=png">'
+					npty[i] += '<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
 		        }
 		        if(ppty[i].split(' ')[0] == '흐림'){
-					npty[i] += '<img src="https://img.icons8.com/?size=512&id=650&format=png">'
+					npty[i] += '<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 		        }
 			}
 			
 			if(pty[i].split(' ').length==2){
 				if(pty[i].split(' ')[1] == '비'){
-					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=656&format=png">'
+					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
 				}
 				if(pty[i].split(' ')[1] == '눈'){
-					bpty[i] += '<img src="https://img.icons8.com/pulsar-color/256/winter.png">'
+					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
 		        }
 				if(pty[i].split(' ')[1] == '비/눈'){
-					bpty[i] += '<img src="https://img.icons8.com/pulsar-color/256/sleet.png">'
+					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
 		        }
 				if(ppty[i].split(' ')[1] == '소나기'){
-					bpty[i] += '<img src="https://img.icons8.com/pulsar-color/256/heavy-rain.png">'
+					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=18593&format=png">'
 		        }
 			}else{
 				if(pty[i].split(' ')[0] == '맑음'){
-					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=6Z2mGj6qDVv4&format=png">'
+					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
 				}
 				if(pty[i].split(' ')[0] == '구름많음'){
-					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=658&format=png">'
+					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
 		        }
 		        if(pty[i].split(' ')[0] == '흐림'){
-					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=650&format=png">'
+					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 		        }
 			}
 			
@@ -289,15 +289,15 @@ $.ajax({
 			}
 			
 			if(item.category == 'PTY'){
-				if(item.fcstValue == "1") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=656&format=png">'
-				else if(item.fcstValue == "2") mopty[0]+='<img src="https://img.icons8.com/pulsar-color/256/sleet.png">'
-				else if(item.fcstValue == "3") mopty[0]+='<img src="https://img.icons8.com/pulsar-color/256/winter.png">'
-				else if(item.fcstValue == "4") mopty[0]+='<img src="https://img.icons8.com/pulsar-color/256/heavy-rain.png">'			
+				if(item.fcstValue == "1") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
+				else if(item.fcstValue == "2") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
+				else if(item.fcstValue == "3") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
+				else if(item.fcstValue == "4") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=18593&format=png">'			
 				else{
 					console.log(ch+"ch")
-					if(ch =="1") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=6Z2mGj6qDVv4&format=png">'
-					else if(ch =="3") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=658&format=png">'
-					else if(ch =="4") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=650&format=png">'
+					if(ch =="1") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
+					else if(ch =="3") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					else if(ch =="4") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
 			
@@ -318,15 +318,15 @@ $.ajax({
 			}
 			
 			if(item.category == 'PTY'){
-				if(item.fcstValue == "1") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=656&format=png">'
-				else if(item.fcstValue == "2") nipty[0]+='<img src="https://img.icons8.com/pulsar-color/256/sleet.png">'
-				else if(item.fcstValue == "3") nipty[0]+='<img src="https://img.icons8.com/pulsar-color/256/winter.png">'
-				else if(item.fcstValue == "4") nipty[0]+='<img src="https://img.icons8.com/pulsar-color/256/heavy-rain.png">'			
+				if(item.fcstValue == "1") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
+				else if(item.fcstValue == "2") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
+				else if(item.fcstValue == "3") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
+				else if(item.fcstValue == "4") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=18593&format=png">'			
 				else{
 					console.log(ch+"ch")
-					if(ch =="1") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=6Z2mGj6qDVv4&format=png">'
-					else if(ch =="3") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=658&format=png">'
-					else if(ch =="4") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=650&format=png">'
+					if(ch =="1") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
+					else if(ch =="3") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					else if(ch =="4") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
 			if(item.category == 'POP'){
@@ -347,15 +347,15 @@ $.ajax({
 			}
 			
 			if(item.category == 'PTY'){
-				if(item.fcstValue == "1") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=656&format=png">'
-				else if(item.fcstValue == "2") mopty[1]+='<img src="https://img.icons8.com/pulsar-color/256/sleet.png">'
-				else if(item.fcstValue == "3") mopty[1]+='<img src="https://img.icons8.com/pulsar-color/256/winter.png">'
-				else if(item.fcstValue == "4") mopty[1]+='<img src="https://img.icons8.com/pulsar-color/256/heavy-rain.png">'			
+				if(item.fcstValue == "1") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
+				else if(item.fcstValue == "2") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
+				else if(item.fcstValue == "3") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
+				else if(item.fcstValue == "4") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=18593&format=png">'			
 				else{
 					console.log(ch+"ch")
-					if(ch =="1") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=6Z2mGj6qDVv4&format=png">'
-					else if(ch =="3") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=658&format=png">'
-					else if(ch =="4") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=650&format=png">'
+					if(ch =="1") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
+					else if(ch =="3") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					else if(ch =="4") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
 			if(item.category == 'POP'){
@@ -375,15 +375,15 @@ $.ajax({
 			}
 			
 			if(item.category == 'PTY'){
-				if(item.fcstValue == "1") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=656&format=png">'
-				else if(item.fcstValue == "2") nipty[1]+='<img src="https://img.icons8.com/pulsar-color/256/sleet.png">'
-				else if(item.fcstValue == "3") nipty[1]+='<img src="https://img.icons8.com/pulsar-color/256/winter.png">'
-				else if(item.fcstValue == "4") nipty[1]+='<img src="https://img.icons8.com/pulsar-color/256/heavy-rain.png">'			
+				if(item.fcstValue == "1") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
+				else if(item.fcstValue == "2") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
+				else if(item.fcstValue == "3") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
+				else if(item.fcstValue == "4") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=18593&format=png">'			
 				else{
 					console.log(ch+"ch")
-					if(ch =="1") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=6Z2mGj6qDVv4&format=png">'
-					else if(ch =="3") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=658&format=png">'
-					else if(ch =="4") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=650&format=png">'
+					if(ch =="1") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
+					else if(ch =="3") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					else if(ch =="4") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
 			if(item.category == 'POP'){
@@ -404,15 +404,15 @@ $.ajax({
 			}
 			
 			if(item.category == 'PTY'){
-				if(item.fcstValue == "1") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=656&format=png">'
-				else if(item.fcstValue == "2") mopty[2]+='<img src="https://img.icons8.com/pulsar-color/256/sleet.png">'
-				else if(item.fcstValue == "3") mopty[2]+='<img src="https://img.icons8.com/pulsar-color/256/winter.png">'
-				else if(item.fcstValue == "4") mopty[2]+='<img src="https://img.icons8.com/pulsar-color/256/heavy-rain.png">'			
+				if(item.fcstValue == "1") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
+				else if(item.fcstValue == "2") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
+				else if(item.fcstValue == "3") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
+				else if(item.fcstValue == "4") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=18593&format=png">'			
 				else{
 					console.log(ch+"ch")
-					if(ch =="1") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=6Z2mGj6qDVv4&format=png">'
-					else if(ch =="3") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=658&format=png">'
-					else if(ch =="4") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=650&format=png">'
+					if(ch =="1") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
+					else if(ch =="3") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					else if(ch =="4") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
 			if(item.category == 'POP'){
@@ -432,15 +432,15 @@ $.ajax({
 			}
 			
 			if(item.category == 'PTY'){
-				if(item.fcstValue == "1") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=656&format=png">'
-				else if(item.fcstValue == "2") nipty[2]+='<img src="https://img.icons8.com/pulsar-color/256/sleet.png">'
-				else if(item.fcstValue == "3") nipty[2]+='<img src="https://img.icons8.com/pulsar-color/256/winter.png">'
-				else if(item.fcstValue == "4") nipty[2]+='<img src="https://img.icons8.com/pulsar-color/256/heavy-rain.png">'			
+				if(item.fcstValue == "1") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
+				else if(item.fcstValue == "2") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
+				else if(item.fcstValue == "3") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
+				else if(item.fcstValue == "4") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=18593&format=png">'			
 				else{
 					console.log(ch+"ch")
-					if(ch =="1") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=6Z2mGj6qDVv4&format=png">'
-					else if(ch =="3") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=658&format=png">'
-					else if(ch =="4") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=650&format=png">'
+					if(ch =="1") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
+					else if(ch =="3") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					else if(ch =="4") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
 			if(item.category == 'POP'){

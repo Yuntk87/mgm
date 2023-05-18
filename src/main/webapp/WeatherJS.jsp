@@ -101,8 +101,8 @@ function successFunc(d) {
 	});
 	
 	for(let i=4; i<=10; i++){
-   	 	$('#mintmp'+i).html(mintmp[i]);
-   	 	$('#maxtmp'+i).html(maxtmp[i]);
+   	 	$('#mintmpp'+i).html(mintmp[i]);
+   	 	$('#maxtmpp'+i).html(maxtmp[i]);
 	}
 }
 
@@ -200,12 +200,12 @@ function sucFunc(d) {
 	});
 	
 	for(let i=4; i<=10; i++){
-   	 	$('#npop'+i).html(npop[i]);
-   	 	$('#pop'+i).html(pop[i]);
-	 	$('#nsky'+i).html(nsky[i]);
-	 	$('#sky'+i).html(sky[i]);
-	 	$('#npty'+i).html(npty[i]);
-	 	$('#pty'+i).html(bpty[i]);
+   	 	$('#npopp'+i).html(npop[i]);
+   	 	$('#popp'+i).html(pop[i]);
+	 	$('#nskyy'+i).html(nsky[i]);
+	 	$('#skyy'+i).html(sky[i]);
+	 	$('#nptyy'+i).html(npty[i]);
+	 	$('#ptyy'+i).html(bpty[i]);
 	}
 }
 
@@ -335,11 +335,11 @@ $.ajax({
 	  })
 	  
 	  for(let z=0; z<=2; z++){
-		  $('#mintmp'+z).html(mtmp[z]);
-		  $('#maxtmp'+z).html(ntmp[z]);
-		  $('#npty'+z).html(nipty[z]);
-		  $('#nsky'+z).html(nisky[z]);
-		  $('#npop'+z).html(nipop[z]);
+		  $('#mintmpp'+z).html(mtmp[z]);
+		  $('#maxtmpp'+z).html(ntmp[z]);
+		  $('#nptyy'+z).html(nipty[z]);
+		  $('#nskyy'+z).html(nisky[z]);
+		  $('#npopp'+z).html(nipop[z]);
 	  }
   }
 

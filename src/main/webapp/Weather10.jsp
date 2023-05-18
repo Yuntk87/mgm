@@ -83,60 +83,60 @@
     		<div class="bweather" style="border-top:4.5px solid lightgray;">
     			<p class="date"><%=nowDate %></p>
     			<div class="bbottom">
-    					<div id="npty0" class="bpty"></div>
-    					<div id="mintmp0" class="btmp"></div>/<div id="maxtmp0" class="btmp"></div>
-    					<div id="nsky0" class="sky"></div>
+    					<div id="nptyy0" class="bpty"></div>
+    					<div id="mintmpp0" class="btmp"></div>/<div id="maxtmpp0" class="btmp"></div>
+    					<div id="nskyy0" class="sky"></div>
     					<div class="bpop">
     						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-    						<div id="npop0"></div>
+    						<div id="npopp0"></div>
     					</div>
     			</div>
     		</div>
     		<div class="bweather">
     			<p class="date"><%=day1 %></p>
     			<div class="bbottom">
-    					<div id="npty1" class="bpty"></div>
-    					<div id="mintmp1" class="btmp"></div>/<div id="maxtmp1" class="btmp"></div>
-    					<div id="nsky1" class="sky"></div>
+    					<div id="nptyy1" class="bpty"></div>
+    					<div id="mintmpp1" class="btmp"></div>/<div id="maxtmpp1" class="btmp"></div>
+    					<div id="nskyy1" class="sky"></div>
     					<div class="bpop">
     						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-    						<div id="npop1"></div>
+    						<div id="npopp1"></div>
     					</div>
     			</div>
     		</div>
     		<div class="bweather">
     			<p class="date"><%=day2 %></p>
     			<div class="bbottom">
-    					<div id="npty2" class="bpty"></div>
-    					<div id="mintmp2" class="btmp"></div>/<div id="maxtmp2" class="btmp"></div>
-    					<div id="nsky2" class="sky"></div>
+    					<div id="nptyy2" class="bpty"></div>
+    					<div id="mintmpp2" class="btmp"></div>/<div id="maxtmpp2" class="btmp"></div>
+    					<div id="nskyy2" class="sky"></div>
     					<div class="bpop">
     						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-    						<div id="npop2"></div>
+    						<div id="npopp2"></div>
     					</div>
     			</div>
     		</div>
     		<div class="bweather">
     			<p class="date"><%=day3 %></p>
     			<div class="bbottom">
-    					<div id="npty4" class="bpty"></div>
-    					<div id="mintmp4" class="btmp"></div>/<div id="maxtmp4" class="btmp"></div>
-    					<div id="nsky4" class="sky"></div>
+    					<div id="nptyy4" class="bpty"></div>
+    					<div id="mintmpp4" class="btmp"></div>/<div id="maxtmpp4" class="btmp"></div>
+    					<div id="nskyy4" class="sky"></div>
     					<div class="bpop">
     						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-    						<div id="npop4"></div>
+    						<div id="npopp4"></div>
     					</div>
     			</div>
     		</div>
     		<div class="bweather">
     			<p class="date"><%=day4 %></p>
     			<div class="bbottom">
-    					<div id="npty5" class="bpty"></div>
-    					<div id="mintmp5" class="btmp"></div>/<div id="maxtmp5" class="btmp"></div>
-    					<div id="nsky5" class="sky"></div>
+    					<div id="nptyy5" class="bpty"></div>
+    					<div id="mintmpp5" class="btmp"></div>/<div id="maxtmpp5" class="btmp"></div>
+    					<div id="nskyy5" class="sky"></div>
     					<div class="bpop">
     						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-    						<div id="npop5"></div>
+    						<div id="npopp5"></div>
     					</div>
     			</div>
     		</div>
@@ -145,60 +145,60 @@
     		<div class="bweather" style="border-top:4.5px solid lightgray;">
     			<p class="date"><%=day5 %></p>
     			<div class="bbottom">
-    					<div id="npty6" class="bpty"></div>
-    					<div id="mintmp6" class="btmp"></div>/<div id="maxtmp6" class="btmp"></div>
-    					<div id="nsky6" class="sky"></div>
+    					<div id="nptyy6" class="bpty"></div>
+    					<div id="mintmpp6" class="btmp"></div>/<div id="maxtmpp6" class="btmp"></div>
+    					<div id="nskyy6" class="sky"></div>
     					<div class="bpop">
     						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-    						<div id="npop6"></div>
+    						<div id="npopp6"></div>
     					</div>
     			</div>
     		</div>
     		<div class="bweather">
     			<p class="date"><%=day6 %></p>
     			<div class="bbottom">
-    					<div id="npty7" class="bpty"></div>
-    					<div id="mintmp7" class="btmp"></div>/<div id="maxtmp7" class="btmp"></div>
-    					<div id="nsky7" class="sky"></div>
+    					<div id="nptyy7" class="bpty"></div>
+    					<div id="mintmpp7" class="btmp"></div>/<div id="maxtmpp7" class="btmp"></div>
+    					<div id="nskyy7" class="sky"></div>
     					<div class="bpop">
     						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-    						<div id="npop7"></div>
+    						<div id="npopp7"></div>
     					</div>
     			</div>
     		</div>
     		<div class="bweather">
     			<p class="date"><%=day7 %></p>
     				<div class="bbottom">
-    					<div id="pty8" class="bpty"></div>
+    					<div id="ptyy8" class="bpty"></div>
     					<div id="mintmp8" class="btmp"></div>/<div id="maxtmp8" class="btmp"></div>
-    					<div id="sky8" class="sky"></div>
+    					<div id="skyy8" class="sky"></div>
     					<div class="bpop">
     						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-    						<div id="pop8"></div>
+    						<div id="popp8"></div>
     					</div>
     				</div>
     		</div>
     		<div class="bweather">
     			<p class="date"><%=day8 %></p>
     				<div class="bbottom">
-    					<div id="pty9" class="bpty"></div>
-    					<div id="mintmp9" class="btmp"></div>/<div id="maxtmp9" class="btmp"></div>
-    					<div id="sky9" class="sky"></div>
+    					<div id="ptyy9" class="bpty"></div>
+    					<div id="mintmpp9" class="btmp"></div>/<div id="maxtmpp9" class="btmp"></div>
+    					<div id="skyy9" class="sky"></div>
     					<div class="bpop">
     						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-    						<div id="pop9"></div>
+    						<div id="popp9"></div>
     					</div>
     				</div>
     		</div>
     		<div class="bweather">
     			<p class="date"><%=day9 %></p>
     				<div class="bbottom">
-    					<div id="pty10" class="bpty"></div>
-    					<div id="mintmp10" class="btmp"></div>/<div id="maxtmp10" class="btmp"></div>
-    					<div id="sky10" class="sky"></div>
+    					<div id="ptyy10" class="bpty"></div>
+    					<div id="mintmpp10" class="btmp"></div>/<div id="maxtmpp10" class="btmp"></div>
+    					<div id="skyy10" class="sky"></div>
     					<div class="bpop">
     						<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png">
-    						<div id="pop10"></div>
+    						<div id="popp10"></div>
     					</div>
     				</div>
     		</div>
