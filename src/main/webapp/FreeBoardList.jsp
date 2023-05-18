@@ -61,7 +61,7 @@
 							<td width="4%;" style="font-size:14px;">${b.fbnum }.</td>
 							<td width="5%;"style="font-size:15px;">${b.category }</td>
 							<td></td>
-							<td rowspan="2" style="font-size:20px;"><a href='./FreeBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.fbnum }'>${b.title }</a></td>
+							<td rowspan="2" style="font-size:20px;"><a class="link" href='./FreeBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.fbnum }'>${b.title }</a></td>
 							<fmt:formatDate value="${today }" type="date" pattern="yyyy-MM-dd" var="now"/>
 							<fmt:formatDate value="${b.postDate }" type="date" pattern="yyyy-MM-dd" var="post"/>
 							<c:choose>

@@ -16,9 +16,10 @@
 <style>
 	.date{
     	text-align:center;
-    	line-height:65px;
+    	line-height:62px;
     	font-size:13px;
     	margin:0;
+    	width:40px;
     }
     .box{
     	display:flex;
@@ -30,7 +31,7 @@
     }
     .bweather{
     	width:405px;
-    	height:65px;
+    	height:62px;
     	display:flex;
     	justify-content:space-around;
     	border:4.5px solid lightgray;
@@ -42,15 +43,14 @@
     	display:flex;
     	justify-content:center;
     	width:330px;
-    	line-height:65px;
-    	margin-left:10px;
+    	line-height:62px;
     }
     .bpty{
     	width:50px;
     }
     .bpty img{
-    	width:40px;
-    	margin:12px 15px 0 0;
+    	width:35px;
+    	margin-top:14px;
     }
     .btmp{
     	width:40px;

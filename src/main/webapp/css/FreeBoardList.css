@@ -68,6 +68,10 @@ table a{
 	color:black;
 	text-decoration: none;
 }
+.link:hover {
+	font-weight:bold;
+	color: black;
+}
 .one{
 	background-color:lightgray;
 }
