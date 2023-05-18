@@ -13,6 +13,7 @@ table {
     text-align: center;
     width:1000px;
     margin:0 auto;
+    border-collapse : collapse;
 }
 select{
 	border:none;
