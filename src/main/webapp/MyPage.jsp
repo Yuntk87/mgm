@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/mypage2">
+    <link rel="stylesheet" href="./css/mypage2.css">
     <script src="https://kit.fontawesome.com/bb8da17f44.js" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <title>mypage</title>
@@ -36,19 +36,20 @@
  </div>
     <div class="main1">
         <div id="userImg">
-        	<img id="my-imge" src="./imges/${uto.level}.jpg">
+        	<img id="my-imge" src="./img/${uto.level}.jpg">
        	</div>
       
       
         
-        	<div id="info">
-       	 	${sessionScope.UserNickName }님 이 가입하신 정보입니다.<br>
+        	
+       	 	<div id="info">
+        	
           <ul>
-          
+          <li>${sessionScope.UserNickName }님 이 가입하신 정보입니다.</li>
           <li> 아이디 ${uto.id }</li> 
             <li>패스워드${uto.password }</li>
-            <li>닉네임 ${uto.nickName } lv.${uto.level}</li>
-    
+            <li>닉네임 ${uto.nickName } </li>
+            <li>lv.${uto.level}
            <li>이름 ${uto.name }</li> 
             <li>전화번호 ${uto.phone }</li>
            <li>주민번호 ${uto.pNumber }</li> 
@@ -59,13 +60,17 @@
        </div> 
        </div>
        
-<div class="data-container">
 
-<span class="btn"><a href="./update">수정하기</a></span>
-<span class="btn"><a href="./delete">탈퇴하기</a></span>
-</div>	
-      </div>
-    </li>
+
+<div class="data-container">
+  	<a id="bt1" href="./user?mode=Modify"class="button1">수정하기</a>
+	<a id="bt1" href="./user?mode=Withdrawal" class="button2">탈퇴하기</a> 
+	
+</div>
+  </div>
+  
+
+
         
 	
         
@@ -78,7 +83,7 @@
         
         
  <div class="box-wrap">
-   <div class="box">
+   <div class="boox">
          
      <p>자유게시판에 쓴 글</p>
    
@@ -96,9 +101,9 @@
 
      
    </div>
-   <div class="box">
+   <div class="boox">
        <p>내가 좋아하는 산  <i class="fa-solid fa-mountain"></i> </p>
-       ${mountainLists}
+      <p> ${mountainLists}</p>
      
     </div>
   </div>    
@@ -111,7 +116,7 @@
 
        
 
-<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./mypage2.js"></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./js/mypage2.js"></script>
 </body>
 
 </html>
