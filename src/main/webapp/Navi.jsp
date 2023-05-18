@@ -81,10 +81,10 @@
         
         <div class="modal">
  
-            <!-- 두 번째 Modal의 내용 -->
+<!--             두 번째 Modal의 내용 -->
             <div class="modal-content">
               <span class="close">&times;</span>
-<%--               <%@ include file="./LocationCheck.jsp" %> --%>
+              <%@ include file="./LocationCheck.jsp" %>
 				<c:import url="./ConfirmBoard.jsp" />
             </div>
         </div>
@@ -98,7 +98,7 @@
         
         <div class="modal">
  
-            <!-- 세 번째 Modal의 내용 -->
+<!--             세 번째 Modal의 내용 -->
             <div class="modal-content">
               <span class="close">&times;</span>
               <c:import url="./Weather10.jsp" />
