@@ -9,22 +9,28 @@ h2{
 h2 img{
 	width:5%;
 }
-
+a{
+	color:black;
+}
 table {
+    width:100%;
+    margin-top:20px;
     font-family: Arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
+    text-align:center;
 }
 table td, th{
-	border: 1px solid #dddddd;
+	border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
     padding: 8px;
 }
+    
 select{
-	border:none;
 	width:70px;
 	margin-right:30px;
 	margin-left:23px;
+	border:none;
 }
 span {
     color: black;
@@ -37,7 +43,6 @@ span {
 }
 #textSearch{
 	display:inline-block;
-	box-sizing: border-box;
  	border: 2px solid #ccc;
  	border-radius: 4px;
 }
@@ -47,30 +52,28 @@ span {
     padding-bottom:10px;
 }
 #textSearch input[type="text"]{
-	width: 900px;
- 	padding: 12px 20px;
- 	margin: 8px 0;
- 	border:none;
- 	outline:none;
+    width: 900px;
+    padding:12px 20px;
+    margin: 8px 0px;
+    border: none;
+    outline:none;
 }
-
 table a{
 	color:red;
 	text-decoration: none;
 }
-
+.check {
+	color:red;
+}
 #pg{
-	margin-top:20px;
 	text-align:center;
+	margin-top:20px;
 }
 #pg a{
 	text-decoration: none;
-	color:black;
 }
-a.check {
-	color:red;
-	font-weight: bold;
-}
+
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -141,5 +144,4 @@ a.check {
 }
 .master {
   display: none;
-  
 }

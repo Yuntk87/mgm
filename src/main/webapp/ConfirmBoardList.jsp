@@ -19,17 +19,17 @@
 	<div id="all" style="width: 60%; margin: 0 auto; margin-top: 85px;">
 		
 		<form id="search_form">
-						<select name="searchField">
-							<option value="id" ${param.searchField eq 'id'? "selected" : "" }>아이디</option>
-						</select>
-						<div id="textSearch">
-							<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" >
-							<button class="btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button>
-						</div>
+			<select name="searchField">
+				<option value="id" ${param.searchField eq 'id'? "selected" : "" }>아이디</option>
+			</select>
+			<div id="textSearch">
+				<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" >
+				<button class="btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button>
+			</div>
 		</form>
 		
 		
-		<table class="boardList" style="text-align:center; border:1px solid #dddddd">
+		<table class="boardList">
 			<tr>
 			    <th style="background-color:#fafafa; text-align:center;">번호</th>
 			    <th style="background-color:#fafafa; text-align:center;">아이디</th>
@@ -60,9 +60,11 @@
 									<td>${post }</td>
 								</c:otherwise>
 							</c:choose>
-							<td><a href="./ConfirmBoardDelete?num=${c.cd_num }" onclick="return confirm('정말 삭제하시겠습니까?');">삭제하기</a></td>
+							<td>
+								<a href="./ConfirmBoardDelete?num=${c.cd_num }" onclick="return confirm('정말 삭제하시겠습니까?');">삭제하기</a>
+							</td>
 						</tr>
-					</c:forEach>
+						</c:forEach>
 				</c:otherwise>
 			</c:choose>
 		</table>
@@ -80,33 +82,4 @@
 	</div>
 
 </body>
-<script>
-var requset=new XMLHttpRequest();
-
-
-function searchFunction(){
-	requset.open("post","./SearchServlate?nickName="+encodeURIComponent(document.getElementById("nickName").value),true);
-	requset.onreadystatechange=searchProcess;
-	requset.send(null)
-}
-
-function searchProcess(){
-	var table=document.getElementById("ajaxtable");
-	table.innerHTML="";
-	if(requset.readyState==4&&requset.status==200){
-		var object=eval('('+requset.responseText+')');
-		var result=object.result;
-		for(var i =0;i<result.length;i++){
-			var now=table.insertRow(0);
-			for(var j =0;j<result[i].length;j++){
-				var cell=now.insertCell(j);
-				cell.innerHTML=result[i][j].value;
-				console.log(cell.innerHTML=result[i][j].value);
-				
-			}
-			cell.innerHTML = '<a href="./delete?id='+result[i][0].value+'">삭제</a>'
-		}
-	}
-}
-</script>
 </html>

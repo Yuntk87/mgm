@@ -7,7 +7,7 @@ public class ConfirmBoardDto {
 	private int m_num;
 	private String id;
 	private Date postDate;
-	private String m_name; //join으로 산이름 출력용도
+	private String m_name;
 	
 	
 	public int getCd_num() {
@@ -55,7 +55,7 @@ public class ConfirmBoardDto {
 	
 	@Override
 	public String toString() {
-		return "ConfirmBoardDto [cd_num=" + cd_num + ", m_num=" + m_num + ", id=" + id + ", postDate=" + postDate + "]";
+		return "ConfirmBoardDto [cd_num=" + cd_num + ", m_num=" + m_num + ", id=" + id + ", postDate=" + postDate + ", m_name=" + m_name + "]";
 	}
 	
 }
