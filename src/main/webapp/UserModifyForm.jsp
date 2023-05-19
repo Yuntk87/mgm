@@ -299,9 +299,9 @@
 
 		<ul class="links">
 
-			<li><a href="#" id="signin">login</a></li>
+			<li><a href="./LoginForm.jsp" id="signin">login</a></li>
 
-			<li><a href="#" id="signup">join</a></li>
+			<li><a href="./RegisterForm.jsps" id="signup">join</a></li>
 
 			<li><a href="javascript:aa()" id="reset">RESET</a></li>
 

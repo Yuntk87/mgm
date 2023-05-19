@@ -103,7 +103,7 @@ public class UserController extends HttpServlet{
 		dao.close();
 		if(res!=0) {
 			System.out.println("회원수정 성공");
-			resp.sendRedirect("./login.jsp");
+			resp.sendRedirect("./LoginForm.jsp");
 		}
 		else {
 			System.out.println("회원수정 실패");

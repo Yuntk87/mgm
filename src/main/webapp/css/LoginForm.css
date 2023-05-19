@@ -82,7 +82,7 @@ form{
         font-family: 'Montserrat', sans-serif;
         
      }
-  .btn {
+  .bttn {
   border: none;
   display: block;
   text-align: center;
@@ -99,12 +99,12 @@ form{
   box-shadow: 0 5px 15px rgba(0,0,0,0.30);
 }
 
-.btn span {
+.bttn span {
   position: relative; 
   z-index: 1;
 }
 
-.btn:after {
+.bttn:after {
   content: "";
   position: absolute;
   left: 0;
@@ -118,7 +118,7 @@ form{
   transform: translateX(-98%) translateY(-25%) rotate(45deg);
 }
 
-.btn:hover:after {
+.bttn:hover:after {
   -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
   transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }

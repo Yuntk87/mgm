@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
  <title>로그인화면</title>
- <link href="./css/LoginForm.css" rel="stylesheet">
+ <link href="./css/LoginForm.css?v=1" rel="stylesheet">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -181,6 +181,8 @@ function aa(){
 
 </head>
 <body>
+<%@ include file="Navi.jsp" %>
+
   <div class="container">
     <!-- Heading -->
     <h1>login</h1>
@@ -188,7 +190,7 @@ function aa(){
     <!-- Links -->
     <ul class="links">
       <li>
-        <a href="#" id="signin">join</a>
+        <a href="./RegisterForm.jsp" id="signin">join</a>
       </li>
       <li>
         <a href="./ForgetId.jsp" id="signup">forget</a>
@@ -214,7 +216,7 @@ function aa(){
       
       <div class="button_container">
         
-        <button class="btn"><span>login</span></button>
+        <button class="bttn"><span>login</span></button>
    
       </div>
     </form>
