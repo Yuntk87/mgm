@@ -13,7 +13,7 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<link href="./css/RegisterForm.css?v=1" rel="stylesheet">
+<link href="./css/RegisterForm.css" rel="stylesheet">
 
 <head>
 
@@ -290,12 +290,13 @@
 </head>
 
 <body>
+
+<%@ include file="Navi.jsp" %>
 	<div class="container">
 
 	<div class="home">
     
-  <a href=./Main.jsp>
-   	<img src="./img/logo.jpg"></a>
+ 
 	<div><h1>join</h1></div>
     </div>
 
@@ -303,7 +304,7 @@
 
 		<ul class="links">
 
-			<li><a href="#" id="signin">login</a></li>
+			<li><a href="" id="signin">login</a></li>
 
 			<li><a href="#" id="signup">join</a></li>
 
@@ -395,7 +396,7 @@
 
 			<div class="button_container">
 
-				<button class="btn">
+				<button class="bttn">
 					<span>join</span>
 				</button>
 
