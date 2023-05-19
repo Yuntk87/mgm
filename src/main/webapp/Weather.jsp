@@ -165,23 +165,23 @@ function sucFunc(d) {
 			
 			if(apty[i].split(' ').length==2){
 	           	if(apty[i].split(' ')[1] == '비'){
-	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
+	        	   	mpty[i] += '<i class="fa-solid fa-umbrella"></i>'
 	           	}
 	           	if(apty[i].split(' ')[1] == '눈'){
-	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
+	        	   	mpty[i] += '<i class="fa-regular fa-snowflake"></i>'
 	           	}
 	           	if(apty[i].split(' ')[1] == '비/눈'){
-	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
+	        	   	mpty[i] += '<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
 	           	}
 	           	if(apty[i].split(' ')[1] == '소나기'){
-	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=18593&format=png">'
+	        	   	mpty[i] += '<i class="fa-solid fa-cloud-showers-heavy"></i>'
 	           	}
 	        }else{
 				if(apty[i].split(' ')[0] == '맑음'){
-					mpty[i] += '<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
+					mpty[i] += '<i class="fa-solid fa-sun"></i>'
 				}
 	           	if(apty[i].split(' ')[0] == '구름많음'){
-	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+	        	   	mpty[i] += '<i class="fa-solid fa-cloud-sun"></i>'
 	            }
 	           	if(apty[i].split(' ')[0] == '흐림'){
 	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
@@ -190,23 +190,23 @@ function sucFunc(d) {
 			
 			if(ppty[i].split(' ').length==2){
 				if(ppty[i].split(' ')[1] == '비'){
-					npty[i] += '<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
+					npty[i] += '<i class="fa-solid fa-umbrella"></i>'
 				}
 				if(ppty[i].split(' ')[1] == '눈'){
-					npty[i] += '<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
+					npty[i] += '<i class="fa-regular fa-snowflake"></i>'
 		        }
 				if(ppty[i].split(' ')[1] == '비/눈'){
-					npty[i] += '<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
+					npty[i] += '<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
 		        }
 				if(ppty[i].split(' ')[1] == '소나기'){
-					npty[i] += '<img src="https://img.icons8.com/?size=512&id=18593&format=png">'
+					npty[i] += '<i class="fa-solid fa-cloud-showers-heavy"></i>'
 		        }
 			}else{
 				if(ppty[i].split(' ')[0] == '맑음'){
-					npty[i] += '<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
+					npty[i] += '<i class="fa-solid fa-sun"></i>'
 				}
 				if(ppty[i].split(' ')[0] == '구름많음'){
-					npty[i] += '<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					npty[i] += '<i class="fa-solid fa-cloud-sun"></i>'
 		        }
 		        if(ppty[i].split(' ')[0] == '흐림'){
 					npty[i] += '<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
@@ -215,23 +215,23 @@ function sucFunc(d) {
 			
 			if(pty[i].split(' ').length==2){
 				if(pty[i].split(' ')[1] == '비'){
-					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
+					bpty[i] += '<i class="fa-solid fa-umbrella"></i>'
 				}
 				if(pty[i].split(' ')[1] == '눈'){
-					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
+					bpty[i] += '<i class="fa-regular fa-snowflake"></i>'
 		        }
 				if(pty[i].split(' ')[1] == '비/눈'){
-					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
+					bpty[i] += '<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
 		        }
 				if(ppty[i].split(' ')[1] == '소나기'){
-					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=18593&format=png">'
+					bpty[i] += '<i class="fa-solid fa-cloud-showers-heavy"></i>'
 		        }
 			}else{
 				if(pty[i].split(' ')[0] == '맑음'){
-					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
+					bpty[i] += '<i class="fa-solid fa-sun"></i>'
 				}
 				if(pty[i].split(' ')[0] == '구름많음'){
-					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					bpty[i] += '<i class="fa-solid fa-cloud-sun"></i>'
 		        }
 		        if(pty[i].split(' ')[0] == '흐림'){
 					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
@@ -289,14 +289,14 @@ $.ajax({
 			}
 			
 			if(item.category == 'PTY'){
-				if(item.fcstValue == "1") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
-				else if(item.fcstValue == "2") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
-				else if(item.fcstValue == "3") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
-				else if(item.fcstValue == "4") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=18593&format=png">'			
+				if(item.fcstValue == "1") mopty[0]+='<i class="fa-solid fa-umbrella"></i>'
+				else if(item.fcstValue == "2") mopty[0]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "3") mopty[0]+='<i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "4") mopty[0]+='<i class="fa-solid fa-cloud-showers-heavy"></i>'			
 				else{
 					console.log(ch+"ch")
-					if(ch =="1") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
-					else if(ch =="3") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					if(ch =="1") mopty[0]+='<i class="fa-solid fa-sun"></i>'
+					else if(ch =="3") mopty[0]+='<i class="fa-solid fa-cloud-sun"></i>'
 					else if(ch =="4") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
@@ -318,14 +318,14 @@ $.ajax({
 			}
 			
 			if(item.category == 'PTY'){
-				if(item.fcstValue == "1") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
-				else if(item.fcstValue == "2") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
-				else if(item.fcstValue == "3") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
-				else if(item.fcstValue == "4") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=18593&format=png">'			
+				if(item.fcstValue == "1") nipty[0]+='<i class="fa-solid fa-umbrella"></i>'
+				else if(item.fcstValue == "2") nipty[0]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "3") nipty[0]+='<i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "4") nipty[0]+='<i class="fa-solid fa-cloud-showers-heavy"></i>'			
 				else{
 					console.log(ch+"ch")
-					if(ch =="1") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
-					else if(ch =="3") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					if(ch =="1") nipty[0]+='<i class="fa-solid fa-sun"></i>'
+					else if(ch =="3") nipty[0]+='<i class="fa-solid fa-cloud-sun"></i>'
 					else if(ch =="4") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
@@ -347,14 +347,14 @@ $.ajax({
 			}
 			
 			if(item.category == 'PTY'){
-				if(item.fcstValue == "1") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
-				else if(item.fcstValue == "2") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
-				else if(item.fcstValue == "3") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
-				else if(item.fcstValue == "4") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=18593&format=png">'			
+				if(item.fcstValue == "1") mopty[1]+='<i class="fa-solid fa-umbrella"></i>'
+				else if(item.fcstValue == "2") mopty[1]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "3") mopty[1]+='<i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "4") mopty[1]+='<i class="fa-solid fa-cloud-showers-heavy"></i>'			
 				else{
 					console.log(ch+"ch")
-					if(ch =="1") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
-					else if(ch =="3") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					if(ch =="1") mopty[1]+='<i class="fa-solid fa-sun"></i>'
+					else if(ch =="3") mopty[1]+='<i class="fa-solid fa-cloud-sun"></i>'
 					else if(ch =="4") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
@@ -375,14 +375,14 @@ $.ajax({
 			}
 			
 			if(item.category == 'PTY'){
-				if(item.fcstValue == "1") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
-				else if(item.fcstValue == "2") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
-				else if(item.fcstValue == "3") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
-				else if(item.fcstValue == "4") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=18593&format=png">'			
+				if(item.fcstValue == "1") nipty[1]+='<i class="fa-solid fa-umbrella"></i>'
+				else if(item.fcstValue == "2") nipty[1]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "3") nipty[1]+='<i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "4") nipty[1]+='<i class="fa-solid fa-cloud-showers-heavy"></i>'			
 				else{
 					console.log(ch+"ch")
-					if(ch =="1") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
-					else if(ch =="3") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					if(ch =="1") nipty[1]+='<i class="fa-solid fa-sun"></i>'
+					else if(ch =="3") nipty[1]+='<i class="fa-solid fa-cloud-sun"></i>'
 					else if(ch =="4") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
@@ -404,14 +404,14 @@ $.ajax({
 			}
 			
 			if(item.category == 'PTY'){
-				if(item.fcstValue == "1") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
-				else if(item.fcstValue == "2") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
-				else if(item.fcstValue == "3") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
-				else if(item.fcstValue == "4") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=18593&format=png">'			
+				if(item.fcstValue == "1") mopty[2]+='<i class="fa-solid fa-umbrella"></i>'
+				else if(item.fcstValue == "2") mopty[2]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "3") mopty[2]+='<i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "4") mopty[2]+='<i class="fa-solid fa-cloud-showers-heavy"></i>'			
 				else{
 					console.log(ch+"ch")
-					if(ch =="1") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
-					else if(ch =="3") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					if(ch =="1") mopty[2]+='<i class="fa-solid fa-sun"></i>'
+					else if(ch =="3") mopty[2]+='<i class="fa-solid fa-cloud-sun"></i>'
 					else if(ch =="4") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
@@ -432,14 +432,14 @@ $.ajax({
 			}
 			
 			if(item.category == 'PTY'){
-				if(item.fcstValue == "1") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=9249&format=png">'
-				else if(item.fcstValue == "2") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=9265&format=png">'
-				else if(item.fcstValue == "3") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=9271&format=png">'
-				else if(item.fcstValue == "4") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=18593&format=png">'			
+				if(item.fcstValue == "1") nipty[2]+='<i class="fa-solid fa-umbrella"></i>'
+				else if(item.fcstValue == "2") nipty[2]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "3") nipty[2]+='<i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "4") nipty[2]+='<i class="fa-solid fa-cloud-showers-heavy"></i>'			
 				else{
 					console.log(ch+"ch")
-					if(ch =="1") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=9313&format=png">'
-					else if(ch =="3") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=9247&format=png">'
+					if(ch =="1") nipty[2]+='<i class="fa-solid fa-sun"></i>'
+					else if(ch =="3") nipty[2]+='<i class="fa-solid fa-cloud-sun"></i>'
 					else if(ch =="4") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
