@@ -30,7 +30,7 @@
             </c:if>
         </ul>
         <ul>
-        	<%@ include file="./Weather.jsp" %>
+  			<%@ include file="./Weather.jsp" %>
         </ul>
         <div class="navi_login">
             <c:choose>

@@ -84,10 +84,10 @@
 	cal10.setTime(day);
 	cal10.add(Calendar.DATE,10);
 	String day10 = sdf2.format(cal10.getTime());
-%>
- 
-<script>  
+	%>
 
+
+<script>
 $.ajax({
     url : "./Weather10tmp_Api.do",  // 요청 URL
     type : "get",                  // HTTP 메서드
@@ -101,17 +101,17 @@ $.ajax({
 });
 function successFunc(d) {
 	console.log(d)
-	var mintmp=[0,0,0,'','','','','','','',''];
-	var maxtmp=[0,0,0,'','','','','','','',''];
+	var mintmp=[0,0,0,0,'','','','','','',''];
+	var maxtmp=[0,0,0,0,'','','','','','',''];
 
 	$(d).find('item').each(function(index, item){
 		for(let i=4; i<=10; i++){
-			mintmp[i] +=$(this).find('taMin'+i).text()+'℃';
-			maxtmp[i] +=$(this).find('taMax'+i).text()+'℃';
+			mintmp[i] +=$(this).find('taMin'+i).text()+'°';
+			maxtmp[i] +=$(this).find('taMax'+i).text()+'°';
 		}
 	});
 	
-	for(let i=3; i<=10; i++){
+	for(let i=4; i<=10; i++){
    	 	$('#mintmp'+i).html(mintmp[i]);
    	 	$('#maxtmp'+i).html(maxtmp[i]);
 	}
@@ -136,14 +136,14 @@ $.ajax({
 });
 function sucFunc(d) {
 	console.log(d)
-	var mpop=[0,0,0,'','','','','','','',''];
-	var npop=[0,0,0,'','','','','','','',''];
+	var mpop=[0,0,0,0,'','','','','','',''];
+	var npop=[0,0,0,0,'','','','','','',''];
 	var pop=[0,0,0,0,0,0,0,0,'','',''];
-	var msky=[0,0,0,'','','','','','','',''];
-	var nsky=[0,0,0,'','','','','','','',''];
+	var msky=[0,0,0,0,'','','','','','',''];
+	var nsky=[0,0,0,0,'','','','','','',''];
 	var sky=[0,0,0,0,0,0,0,0,'','',''];
-	var mpty=[0,0,0,'','','','','','','',''];
-	var npty=[0,0,0,'','','','','','','',''];
+	var mpty=[0,0,0,0,'','','','','','',''];
+	var npty=[0,0,0,0,'','','','','','',''];
 	var bpty=[0,0,0,0,0,0,0,0,'','',''];
 	
 	let pty=[0,0,0,0,0,0,0,0,'','',''];
@@ -151,7 +151,7 @@ function sucFunc(d) {
 	let ppty = [0,0,0,'','','','','','','',''];
 
 	$(d).find('item').each(function(index, item){
-		for(let i=3; i<=10; i++){
+		for(let i=4; i<=10; i++){
 			mpop[i] +=$(this).find('rnSt'+i+'Am').text()+'%';
 			npop[i] +=$(this).find('rnSt'+i+'Pm').text()+'%';
 			pop[i] +=$(this).find('rnSt'+i).text()+'%';
@@ -184,7 +184,7 @@ function sucFunc(d) {
 	        	   	mpty[i] += '<i class="fa-solid fa-cloud-sun"></i>'
 	            }
 	           	if(apty[i].split(' ')[0] == '흐림'){
-	        	   	mpty[i] += '<i class="fa-solid fa-cloud"></i>'
+	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 	            }
 	        }
 			
@@ -209,7 +209,7 @@ function sucFunc(d) {
 					npty[i] += '<i class="fa-solid fa-cloud-sun"></i>'
 		        }
 		        if(ppty[i].split(' ')[0] == '흐림'){
-					npty[i] += '<i class="fa-solid fa-cloud"></i>'
+					npty[i] += '<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 		        }
 			}
 			
@@ -234,14 +234,14 @@ function sucFunc(d) {
 					bpty[i] += '<i class="fa-solid fa-cloud-sun"></i>'
 		        }
 		        if(pty[i].split(' ')[0] == '흐림'){
-					bpty[i] += '<i class="fa-solid fa-cloud"></i>'
+					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 		        }
 			}
 			
 		}
 	});
 	
-	for(let i=3; i<=10; i++){
+	for(let i=4; i<=10; i++){
    	 	$('#mpop'+i).html(mpop[i]);
    	 	$('#npop'+i).html(npop[i]);
    	 	$('#pop'+i).html(pop[i]);
@@ -272,13 +272,13 @@ $.ajax({
 	  var nipty = ['','',''];
 	  var nisky = ['','',''];
 	  var nipop = ['','',''];
-	  let no = d.response.body.items.item[7].fcstValue == "0";
+	  let ch="";
 	  
 	  $.each(d.response.body.items.item, function(index, item){
 		  //당일 오전 6시
 		if(item.fcstDate==<%=titleDate%> && item.fcstTime == '0600'){
 			if(item.category =='TMP'){
-				mtmp[0] +=item.fcstValue+'℃'
+				mtmp[0] +=item.fcstValue+'°'
 		  	}
 			
 			if(item.category == 'SKY'){
@@ -290,14 +290,14 @@ $.ajax({
 			
 			if(item.category == 'PTY'){
 				if(item.fcstValue == "1") mopty[0]+='<i class="fa-solid fa-umbrella"></i>'
-				else if(item.fcstValue == "2") mopty[0]+='<i class="fa-regular fa-snowflake"></i>'
-				else if(item.fcstValue == "3") mopty[0]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "2") mopty[0]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "3") mopty[0]+='<i class="fa-regular fa-snowflake"></i>'
 				else if(item.fcstValue == "4") mopty[0]+='<i class="fa-solid fa-cloud-showers-heavy"></i>'			
 				else{
 					console.log(ch+"ch")
 					if(ch =="1") mopty[0]+='<i class="fa-solid fa-sun"></i>'
 					else if(ch =="3") mopty[0]+='<i class="fa-solid fa-cloud-sun"></i>'
-					else if(ch =="4") mopty[0]+='<i class="fa-solid fa-cloud"></i>'
+					else if(ch =="4") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
 			
@@ -308,7 +308,7 @@ $.ajax({
 		  //당일 오후 3시
 		if(item.fcstDate==<%=titleDate%> && item.fcstTime == '1500'){
 			if(item.category =='TMP'){
-				ntmp[0] += item.fcstValue+'℃'
+				ntmp[0] += item.fcstValue+'°'
 		  	}
 			if(item.category == 'SKY'){
 				ch = item.fcstValue;
@@ -319,14 +319,14 @@ $.ajax({
 			
 			if(item.category == 'PTY'){
 				if(item.fcstValue == "1") nipty[0]+='<i class="fa-solid fa-umbrella"></i>'
-				else if(item.fcstValue == "2") nipty[0]+='<i class="fa-regular fa-snowflake"></i>'
-				else if(item.fcstValue == "3") nipty[0]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "2") nipty[0]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "3") nipty[0]+='<i class="fa-regular fa-snowflake"></i>'
 				else if(item.fcstValue == "4") nipty[0]+='<i class="fa-solid fa-cloud-showers-heavy"></i>'			
 				else{
 					console.log(ch+"ch")
 					if(ch =="1") nipty[0]+='<i class="fa-solid fa-sun"></i>'
 					else if(ch =="3") nipty[0]+='<i class="fa-solid fa-cloud-sun"></i>'
-					else if(ch =="4") nipty[0]+='<i class="fa-solid fa-cloud"></i>'
+					else if(ch =="4") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
 			if(item.category == 'POP'){
@@ -337,7 +337,7 @@ $.ajax({
 		  //다음날 오전 6시
 		if(item.fcstDate==<%=tomorrow%> && item.fcstTime == '0600'){
 			if(item.category =='TMP'){
-				mtmp[1] += item.fcstValue+'℃'
+				mtmp[1] += item.fcstValue+'°'
 		  	}
 			if(item.category == 'SKY'){
 				ch = item.fcstValue;
@@ -348,14 +348,14 @@ $.ajax({
 			
 			if(item.category == 'PTY'){
 				if(item.fcstValue == "1") mopty[1]+='<i class="fa-solid fa-umbrella"></i>'
-				else if(item.fcstValue == "2") mopty[1]+='<i class="fa-regular fa-snowflake"></i>'
-				else if(item.fcstValue == "3") mopty[1]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "2") mopty[1]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "3") mopty[1]+='<i class="fa-regular fa-snowflake"></i>'
 				else if(item.fcstValue == "4") mopty[1]+='<i class="fa-solid fa-cloud-showers-heavy"></i>'			
 				else{
 					console.log(ch+"ch")
 					if(ch =="1") mopty[1]+='<i class="fa-solid fa-sun"></i>'
 					else if(ch =="3") mopty[1]+='<i class="fa-solid fa-cloud-sun"></i>'
-					else if(ch =="4") mopty[1]+='<i class="fa-solid fa-cloud"></i>'
+					else if(ch =="4") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
 			if(item.category == 'POP'){
@@ -365,7 +365,7 @@ $.ajax({
 		  //다음날 오후 3시
 		if(item.fcstDate==<%=tomorrow%> && item.fcstTime == '1500'){
 			if(item.category =='TMP'){
-				ntmp[1] += item.fcstValue+'℃'
+				ntmp[1] += item.fcstValue+'°'
 		  	}
 			if(item.category == 'SKY'){
 				ch = item.fcstValue;
@@ -376,14 +376,14 @@ $.ajax({
 			
 			if(item.category == 'PTY'){
 				if(item.fcstValue == "1") nipty[1]+='<i class="fa-solid fa-umbrella"></i>'
-				else if(item.fcstValue == "2") nipty[1]+='<i class="fa-regular fa-snowflake"></i>'
-				else if(item.fcstValue == "3") nipty[1]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "2") nipty[1]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "3") nipty[1]+='<i class="fa-regular fa-snowflake"></i>'
 				else if(item.fcstValue == "4") nipty[1]+='<i class="fa-solid fa-cloud-showers-heavy"></i>'			
 				else{
 					console.log(ch+"ch")
 					if(ch =="1") nipty[1]+='<i class="fa-solid fa-sun"></i>'
 					else if(ch =="3") nipty[1]+='<i class="fa-solid fa-cloud-sun"></i>'
-					else if(ch =="4") nipty[1]+='<i class="fa-solid fa-cloud"></i>'
+					else if(ch =="4") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
 			if(item.category == 'POP'){
@@ -394,7 +394,7 @@ $.ajax({
 		  //모레 오전 6시
 		if(item.fcstDate==<%=after%> && item.fcstTime == '0600'){
 			if(item.category =='TMP'){
-				mtmp[2] += item.fcstValue+'℃'
+				mtmp[2] += item.fcstValue+'°'
 		  	}
 			if(item.category == 'SKY'){
 				ch = item.fcstValue;
@@ -405,14 +405,14 @@ $.ajax({
 			
 			if(item.category == 'PTY'){
 				if(item.fcstValue == "1") mopty[2]+='<i class="fa-solid fa-umbrella"></i>'
-				else if(item.fcstValue == "2") mopty[2]+='<i class="fa-regular fa-snowflake"></i>'
-				else if(item.fcstValue == "3") mopty[2]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "2") mopty[2]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "3") mopty[2]+='<i class="fa-regular fa-snowflake"></i>'
 				else if(item.fcstValue == "4") mopty[2]+='<i class="fa-solid fa-cloud-showers-heavy"></i>'			
 				else{
 					console.log(ch+"ch")
 					if(ch =="1") mopty[2]+='<i class="fa-solid fa-sun"></i>'
 					else if(ch =="3") mopty[2]+='<i class="fa-solid fa-cloud-sun"></i>'
-					else if(ch =="4") mopty[2]+='<i class="fa-solid fa-cloud"></i>'
+					else if(ch =="4") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
 			if(item.category == 'POP'){
@@ -422,7 +422,7 @@ $.ajax({
 		  //모레 오후 3시
 		if(item.fcstDate==<%=after%> && item.fcstTime == '1500'){
 			if(item.category =='TMP'){
-				ntmp[2] += item.fcstValue+'℃'
+				ntmp[2] += item.fcstValue+'°'
 		  	}
 			if(item.category == 'SKY'){
 				ch = item.fcstValue;
@@ -433,14 +433,14 @@ $.ajax({
 			
 			if(item.category == 'PTY'){
 				if(item.fcstValue == "1") nipty[2]+='<i class="fa-solid fa-umbrella"></i>'
-				else if(item.fcstValue == "2") nipty[2]+='<i class="fa-regular fa-snowflake"></i>'
-				else if(item.fcstValue == "3") nipty[2]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "2") nipty[2]+='<i class="fa-solid fa-cloud-rain"></i><i class="fa-regular fa-snowflake"></i>'
+				else if(item.fcstValue == "3") nipty[2]+='<i class="fa-regular fa-snowflake"></i>'
 				else if(item.fcstValue == "4") nipty[2]+='<i class="fa-solid fa-cloud-showers-heavy"></i>'			
 				else{
 					console.log(ch+"ch")
 					if(ch =="1") nipty[2]+='<i class="fa-solid fa-sun"></i>'
 					else if(ch =="3") nipty[2]+='<i class="fa-solid fa-cloud-sun"></i>'
-					else if(ch =="4") nipty[2]+='<i class="fa-solid fa-cloud"></i>'
+					else if(ch =="4") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
 				}
 			}
 			if(item.category == 'POP'){
@@ -498,21 +498,21 @@ $.ajax({
         			<div class="title fade2">
             			<div class="list">
             				<span class="date"><%=day3 %></span>
-                			<span id="mpty3" class="pty"></span>
-                			<span id="mintmp3" class="tmp"></span>
-                			<span>/</span>
-                			<span id="maxtmp3" class="tmp"></span>
-                			<span id="npty3" class="pty"></span>
-            			</div>
-        			</div>
-        			<div class="title fade2">
-               			<div class="list">
-               				<span class="date"><%=day4 %></span>
                 			<span id="mpty4" class="pty"></span>
                 			<span id="mintmp4" class="tmp"></span>
                 			<span>/</span>
                 			<span id="maxtmp4" class="tmp"></span>
                 			<span id="npty4" class="pty"></span>
+            			</div>
+        			</div>
+        			<div class="title fade2">
+               			<div class="list">
+               				<span class="date"><%=day4 %></span>
+                			<span id="mpty5" class="pty"></span>
+                			<span id="mintmp5" class="tmp"></span>
+                			<span>/</span>
+                			<span id="maxtmp5" class="tmp"></span>
+                			<span id="npty5" class="pty"></span>
             			</div>
         			</div>
     			</div>
