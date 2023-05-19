@@ -30,7 +30,7 @@
             </c:if>
         </ul>
         <ul>
-        	<%@ include file="./Weather.jsp" %>
+  			<%@ include file="./Weather.jsp" %>
         </ul>
         <div class="navi_login">
             <c:choose>
@@ -84,7 +84,6 @@
 <!--             두 번째 Modal의 내용 -->
             <div class="modal-content">
               <span class="close">&times;</span>
-              <%@ include file="./LocationCheck.jsp" %>
 				<c:import url="./ConfirmBoard.jsp" />
             </div>
         </div>
