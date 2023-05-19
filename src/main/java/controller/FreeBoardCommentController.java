@@ -96,8 +96,19 @@ public class FreeBoardCommentController extends HttpServlet{
 		
 		HttpSession session = req.getSession();
 		String commenter = "";
-//		if(session.getAttribute("UserNickName") != null) commenter = session.getAttribute("UserNickName").toString();
-		if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
+		
+		if("admin".equals(session.getAttribute("UserId"))) {
+			int num=0;
+			if(fbc_num != null) {
+				num = Integer.parseInt(fbc_num);
+			}
+			int res = dao.deleteNum(num);
+			if(res==1) fdao.updateCommentCnt(fb_num, -1);
+			dao.close();
+			fdao.close();
+			System.out.println("del");
+			
+		} else if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
 		
 		HashMap<String, String> param = new HashMap<String, String>();
 		param.put("fbc_num", fbc_num);

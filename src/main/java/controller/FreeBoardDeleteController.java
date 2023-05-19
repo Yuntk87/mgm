@@ -38,7 +38,7 @@ public class FreeBoardDeleteController extends HttpServlet{
 				
 				if(id == null || dto == null) {
 					JSFunction.alertBack(resp, "잘못된 접근입니다.");
-				} else if(id.equals(dto.getId())) {
+				} else if(id.equals(dto.getId()) || "admin".equals(id) ) {
 					res = dao.deleteView(fbnum);
 					dao.close();
 					if(res==1) {
