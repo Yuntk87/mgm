@@ -140,7 +140,7 @@ public class ConfirmDao extends JDBConnect {
 	public List<ConfirmBoardDto> selectList(Map<String, Object>map){
 		ArrayList<ConfirmBoardDto> fbl = new ArrayList<ConfirmBoardDto>();
 		ConfirmBoardDto dto = null;
-		String query = "SELECT*FROM confirm_board";
+		String query = "SELECT C.*, M.m_name FROM confirm_board C INNER JOIN mountain_board M ON C.m_num=M.m_num";
 		if(map.get("searchWord")!=null) {
 			query += " WHERE "+ map.get("searchField")+" "
 					+ " LIKE '%" + map.get("searchWord")+"%' ";
@@ -158,6 +158,7 @@ public class ConfirmDao extends JDBConnect {
 				dto.setM_num(rs.getInt("m_num"));
 				dto.setId(rs.getString("id"));
 				dto.setPostDate(rs.getTimestamp("postDate"));
+				dto.setM_name(rs.getString("m_name"));
 				fbl.add(dto);
 			}
 		}
@@ -167,5 +168,6 @@ public class ConfirmDao extends JDBConnect {
 		}
 		return fbl;
 	}
+
 	
 }
