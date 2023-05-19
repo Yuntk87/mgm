@@ -39,7 +39,7 @@
 				</div>
 				<div class="btnDiv">
 					<c:choose>
-						<c:when test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id || sessionScope.UserId eq 'master'}">
+						<c:when test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id || sessionScope.UserId eq 'admin'}">
 							<button type="button" class="myButton" onclick="location.href='./FreeBoardEdit${sc.getQueryString(param.page) }&num=${dto.fbnum }'">수정하기</button>
 							<button type="button" class="myButton" onclick="deletePost()">삭제하기</button>
 						</c:when>
