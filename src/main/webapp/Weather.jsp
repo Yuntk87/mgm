@@ -184,7 +184,7 @@ function sucFunc(d) {
 	        	   	mpty[i] += '<i class="fa-solid fa-cloud-sun"></i>'
 	            }
 	           	if(apty[i].split(' ')[0] == '흐림'){
-	        	   	mpty[i] += '<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
+	        	   	mpty[i] += '<i class="fa-solid fa-cloud"></i>'
 	            }
 	        }
 			
@@ -209,7 +209,7 @@ function sucFunc(d) {
 					npty[i] += '<i class="fa-solid fa-cloud-sun"></i>'
 		        }
 		        if(ppty[i].split(' ')[0] == '흐림'){
-					npty[i] += '<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
+					npty[i] += '<i class="fa-solid fa-cloud"></i>'
 		        }
 			}
 			
@@ -234,7 +234,7 @@ function sucFunc(d) {
 					bpty[i] += '<i class="fa-solid fa-cloud-sun"></i>'
 		        }
 		        if(pty[i].split(' ')[0] == '흐림'){
-					bpty[i] += '<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
+					bpty[i] += '<i class="fa-solid fa-cloud"></i>'
 		        }
 			}
 			
@@ -297,7 +297,7 @@ $.ajax({
 					console.log(ch+"ch")
 					if(ch =="1") mopty[0]+='<i class="fa-solid fa-sun"></i>'
 					else if(ch =="3") mopty[0]+='<i class="fa-solid fa-cloud-sun"></i>'
-					else if(ch =="4") mopty[0]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
+					else if(ch =="4") mopty[0]+='<i class="fa-solid fa-cloud"></i>'
 				}
 			}
 			
@@ -326,7 +326,7 @@ $.ajax({
 					console.log(ch+"ch")
 					if(ch =="1") nipty[0]+='<i class="fa-solid fa-sun"></i>'
 					else if(ch =="3") nipty[0]+='<i class="fa-solid fa-cloud-sun"></i>'
-					else if(ch =="4") nipty[0]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
+					else if(ch =="4") nipty[0]+='<i class="fa-solid fa-cloud"></i>'
 				}
 			}
 			if(item.category == 'POP'){
@@ -355,7 +355,7 @@ $.ajax({
 					console.log(ch+"ch")
 					if(ch =="1") mopty[1]+='<i class="fa-solid fa-sun"></i>'
 					else if(ch =="3") mopty[1]+='<i class="fa-solid fa-cloud-sun"></i>'
-					else if(ch =="4") mopty[1]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
+					else if(ch =="4") mopty[1]+='<i class="fa-solid fa-cloud"></i>'
 				}
 			}
 			if(item.category == 'POP'){
@@ -383,7 +383,7 @@ $.ajax({
 					console.log(ch+"ch")
 					if(ch =="1") nipty[1]+='<i class="fa-solid fa-sun"></i>'
 					else if(ch =="3") nipty[1]+='<i class="fa-solid fa-cloud-sun"></i>'
-					else if(ch =="4") nipty[1]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
+					else if(ch =="4") nipty[1]+='<i class="fa-solid fa-cloud"></i>'
 				}
 			}
 			if(item.category == 'POP'){
@@ -412,7 +412,7 @@ $.ajax({
 					console.log(ch+"ch")
 					if(ch =="1") mopty[2]+='<i class="fa-solid fa-sun"></i>'
 					else if(ch =="3") mopty[2]+='<i class="fa-solid fa-cloud-sun"></i>'
-					else if(ch =="4") mopty[2]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
+					else if(ch =="4") mopty[2]+='<i class="fa-solid fa-cloud"></i>'
 				}
 			}
 			if(item.category == 'POP'){
@@ -440,7 +440,7 @@ $.ajax({
 					console.log(ch+"ch")
 					if(ch =="1") nipty[2]+='<i class="fa-solid fa-sun"></i>'
 					else if(ch =="3") nipty[2]+='<i class="fa-solid fa-cloud-sun"></i>'
-					else if(ch =="4") nipty[2]+='<img src="https://img.icons8.com/?size=512&id=2897&format=png">'
+					else if(ch =="4") nipty[2]+='<i class="fa-solid fa-cloud"></i>'
 				}
 			}
 			if(item.category == 'POP'){

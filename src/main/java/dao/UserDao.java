@@ -60,6 +60,7 @@ public class UserDao extends JDBConnect{
 			}
 		} catch (SQLException e) {
 			System.out.println("회원조회중 오류발생");
+			System.out.println("회원조회중 오류발생");
 			e.printStackTrace();
 		}
 		return u;
