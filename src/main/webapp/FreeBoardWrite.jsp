@@ -122,6 +122,8 @@
 	<h3>자유 게시판 글쓰기 <img src="https://img.icons8.com/?size=512&id=47749&format=png"></h3>
 
 		<form id="write_board" action="./FreeBoardWrite" method="post" onsubmit="return formCheck(this)">
+			<input type="hidden" name="id" value="${sessionScope.UserId }">
+			<input type="hidden" name="nickName" value="${sessionScope.UserNickName }">
 			<div class="cate">
 				<select name="category">
 					<option value="산">산</option>
