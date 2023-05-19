@@ -44,7 +44,7 @@
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${boardLists }" var="b">
-						<tr class="lists" style="border-top:1px solid darkgray">
+						<tr style="border-top:1px solid darkgray">
 							<td width="5%">${b.mate_num }.</td>
 							<td width="8%">${b.m_name }</td>
 							<td rowspan="2" style="font-size:18px;"><a class="link" href='./MateBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.mate_num }&nickName=${b.id }'>${b.title }</a></td>
@@ -59,7 +59,7 @@
 								</c:otherwise>
 							</c:choose>
 						</tr>
-						<tr class="lists">
+						<tr class="last">
 							<td width="3%"><img src="https://img.icons8.com/?size=512&id=12438&format=png"></td>
 							<td width="3%">${b.id }</td>
 							<td width="3%"><img src="https://img.icons8.com/?size=512&id=lJUgtSWOeJR9&format=png"></td>
@@ -94,16 +94,34 @@
 		</table>
 	</div>
 <script>
-	$(".lists").hover(function(){
-	
-	      $(this).addClass("one")
-	      $(this).next().addClass("one")
-	
-	  }, function(){
-	
-	  	 $(this).removeClass("one")
-	      $(this).next().removeClass("one")
-	
+$(".boardList tr").hover(function(){
+
+	$(this).addClass("one")
+
+	if($(this).hasClass("last"))
+
+	$(this).prev().addClass("one")
+
+	else
+
+	$(this).next().addClass("one")
+
+	if($(this).hasClass("page_bar"))
+
+	$(this).removeClass("one")
+
+	}, function(){
+
+	$(this).removeClass("one")
+
+	if($(this).hasClass("last"))
+
+	$(this).prev().removeClass("one")
+
+	else
+
+	$(this).next().removeClass("one") 
+
 	});
 </script>
 <%@ include file="./Footer.jsp" %>
