@@ -84,7 +84,6 @@
 <!--             두 번째 Modal의 내용 -->
             <div class="modal-content">
               <span class="close">&times;</span>
-              <%@ include file="./LocationCheck.jsp" %>
 				<c:import url="./ConfirmBoard.jsp" />
             </div>
         </div>
