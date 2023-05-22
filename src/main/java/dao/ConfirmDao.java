@@ -10,6 +10,7 @@ import javax.servlet.ServletContext;
 import common.JDBConnect;
 import dto.ConfirmBoardDto;
 import dto.FreeBoardDto;
+import dto.UserDto;
 
 public class ConfirmDao extends JDBConnect {
 
@@ -140,7 +141,7 @@ public class ConfirmDao extends JDBConnect {
 	public List<ConfirmBoardDto> selectList(Map<String, Object>map){
 		ArrayList<ConfirmBoardDto> fbl = new ArrayList<ConfirmBoardDto>();
 		ConfirmBoardDto dto = null;
-		String query = "SELECT*FROM confirm_board";
+		String query = "SELECT C.*, M.m_name FROM confirm_board C INNER JOIN mountain_board M ON C.m_num=M.m_num";
 		if(map.get("searchWord")!=null) {
 			query += " WHERE "+ map.get("searchField")+" "
 					+ " LIKE '%" + map.get("searchWord")+"%' ";
@@ -158,6 +159,7 @@ public class ConfirmDao extends JDBConnect {
 				dto.setM_num(rs.getInt("m_num"));
 				dto.setId(rs.getString("id"));
 				dto.setPostDate(rs.getTimestamp("postDate"));
+				dto.setM_name(rs.getString("m_name"));
 				fbl.add(dto);
 			}
 		}
@@ -168,4 +170,31 @@ public class ConfirmDao extends JDBConnect {
 		return fbl;
 	}
 	
+	public ArrayList searchConfirm(String id){
+		String query = "SELECT C.*, M.m_name FROM confirm_board C INNER JOIN mountain_board M ON C.m_num=M.m_num WHERE id LIKE ?";
+		ArrayList<ConfirmBoardDto> confirmList=new ArrayList<ConfirmBoardDto>();
+		id = "%"+id+"%";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			ConfirmBoardDto dto = null;
+			while(rs.next()) {
+			    dto = new ConfirmBoardDto();
+				
+				dto.setCd_num(rs.getInt("cb_num"));
+				dto.setM_num(rs.getInt("m_num"));
+				dto.setId(rs.getString("id"));
+				dto.setPostDate(rs.getTimestamp("postDate"));
+				dto.setM_name(rs.getString("m_name"));
+				confirmList.add(dto);
+			}
+		}
+		catch(Exception e) {
+			System.out.println("인증게시판 아이디 검색 중 오류 발생");
+			e.printStackTrace();
+		}
+		return confirmList;
+	}
 }

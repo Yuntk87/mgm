@@ -7,6 +7,7 @@ public class ConfirmBoardDto {
 	private int m_num;
 	private String id;
 	private Date postDate;
+	private String m_name;
 	
 	
 	public int getCd_num() {
@@ -33,7 +34,12 @@ public class ConfirmBoardDto {
 	public void setPostDate(Date postDate) {
 		this.postDate = postDate;
 	}
-	
+	public String getM_name() {
+		return m_name;
+	}
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
 	
 	public ConfirmBoardDto() {
 		super();
@@ -49,7 +55,7 @@ public class ConfirmBoardDto {
 	
 	@Override
 	public String toString() {
-		return "ConfirmBoardDto [cd_num=" + cd_num + ", m_num=" + m_num + ", id=" + id + ", postDate=" + postDate + "]";
+		return "ConfirmBoardDto [cd_num=" + cd_num + ", m_num=" + m_num + ", id=" + id + ", postDate=" + postDate + ", m_name=" + m_name + "]";
 	}
 	
 }
