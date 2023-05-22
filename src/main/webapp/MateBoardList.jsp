@@ -21,7 +21,6 @@
         </div>
     </div>
 	<div id="all" style="width: 60%; margin: 0 auto; margin-top: 85px;">
-<!-- 		<h2><img src="https://img.icons8.com/?size=512&id=59040&format=png"> 메이트 게시판</h2> -->
 		<form id="search_form">
 			<table colspan="7" class="topTable">
 				<tr>
