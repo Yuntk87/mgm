@@ -9,6 +9,10 @@ function joinform_check() {
     var jibun = document.getElementById("sample4_jibunAddress");
     var nname = document.getElementById("nname");
     var agree = document.getElementById("agree");
+    var pwdCheck = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+
+	
+	  let regx2 = /^([0-9]){6}$/  //숫자만 입력하는 정규식
   
     if (id.value == "") {
         alert("이메일 주소를 입력하세요.");
@@ -22,52 +26,51 @@ function joinform_check() {
       alert("비밀번호를 입력하세요.");
       pwd.focus();
       return false;
-    };
+    }
   
     //비밀번호 영문자+숫자+특수조합(8~25자리 입력) 정규식
-    var pwdCheck = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
   
-    if (!pwdCheck.test(pwd.value)) {
+   	if (!pwdCheck.test(pwd.value)) {
       alert("비밀번호는 영문자+숫자+특수문자 조합으로 8~25자리 사용해야 합니다.");
       pwd.value="";
       pwd.focus();
       return false;
-    };
+    }
      
   
-    if(pnumber.value==""){
+     if(pnumber.value==""){
         alert("주민번호를 입력하세요.");
         pnumber.focus();
         return false;
-    };
-    if(pnumber2.value==""){
-        alert("성별은 선택해 주세요");
-        pnumber2.focus();
-        return false;
     }
-  
-      let regx = /^([0-4]){1}$/  
 
-      let regx2 = /^([0-9]){6}$/  //숫자만 입력하는 정규식
-//    console.log("=========="+reg.test(pnumber2.value)) 
-    console.log("=========="+reg.test(pnumber.value))
-    if (!regx.test(pnumber.value)) {
+  
+	  let regx = /^([0-4]){1}$/  
+    if (!regx2.test(pnumber.value)) {
+    console.log("=========="+regx.test(pnumber.value))
       alert("주민번호는 숫자만 입력할 수 있습니다.");
       pnumber.focus();
       return false;
     }
-//    if(!regx2.test(pnumber2.value)){
-//    alert("주민번호는 숫자만 입력할 수 있습니다.");
-//    pnumber2.focus();
-//    return false;
-//  }
-   
+	
+	myalert();
+	
   
-  
-    //입력 값 전송
-    document.joinform.submit(); 
 }
-  
+      function myalert(){
+        
+        Swal({
+            icon: 'success',
+            title: 'Alert가 실행되었습니다.',
+            text: '이곳은 내용이 나타나는 곳입니다.',
+
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.querySelector("#joinform").submit();
+            }
+        })
+
+    }
  
   
   //이메일 옵션 선택후 주소 자동 완성
