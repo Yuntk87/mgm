@@ -14,7 +14,7 @@
             <div class="header">
                 <h1 class="brand-title">MGM</h1>
                 <h2 class="brand-tagline">페이지소개</h2>
-    
+    <p></p>
             </div>
         </div>
         </div>
