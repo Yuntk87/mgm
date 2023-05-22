@@ -197,6 +197,7 @@ public class UserDao extends JDBConnect{
 				m.setPostDate(rs.getTimestamp(12));
 				userList.add(m);
 				
+				
 			}
 			
 		}catch(SQLException e) {

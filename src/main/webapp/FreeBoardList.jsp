@@ -20,7 +20,7 @@
    	<div style="width: 100%; position: relative;">
         <img style="opacity: 0.7;" src="https://source.unsplash.com/random/?valley" width="100%" height="560px" alt="">
         <div style="position: absolute; top: 300px; left: 0; right: 0;">
-            <h1 style="text-align: center; color: black; font-family: 'Oswald', sans-serif;">FREE BOARD</h1>
+            <h1 class="menuTitle">FREE BOARD</h1>
         </div>
     </div>
 	<div id="all" style="width: 60%; margin: 0 auto; margin-top: 85px;">
@@ -46,15 +46,6 @@
 		
 		
 		<table class="boardList">
-			<!-- <tr>
-				<th width="5%">번호</th>
-				<th width="10%">카테고리</th>
-				<th width="50%">제목</th>
-				<th width="10%">작성자</th>
-				<th width="10%">조회수</th>
-				<th width="10%">댓글수</th>
-				<th width="25%">등록날짜</th>
-			</tr> -->
 			<c:choose>
 				<c:when test="${empty boardLists }" >
 					<tr><td colspan="">등록 된 게시물이 없습니다.</td></tr>

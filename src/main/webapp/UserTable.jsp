@@ -1,7 +1,9 @@
+<%@page import="java.util.List"%>
 <%@page import="java.io.Console"%>
 <%@page import="dto.UserDto"%>
 <%@page import="dao.UserDao"%>
 <%@page import="java.util.ArrayList"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,9 +12,15 @@
 <meta charset="UTF-8">
 <title>UserTable</title>
 </head>
-
+<%
+	ServletContext sc = getServletContext();
+	UserDao userdao = new UserDao(sc);
+	ArrayList<UserDto> userList = userdao.selectAll();
+	System.out.print(userList);
+	userdao.close();
+%>
 <body>
-	<div class="search">
+	<div id="userSearch" class="search">
 		<div class="search-container">
 			<input class="form-control" id="nickName" onkeyup="searchFunction()"type="text" size="20" placeholder="닉네임 검색">
 		</div>
@@ -37,8 +45,9 @@
 		    <th style="background-color:#fafafa; text-align:center;">가입일자</th>
 		    <th style="background-color:#fafafa; text-align:center;">삭제</th>
 	    </tr>
+	    
 	    <tbody id="ajaxtable">
-	    <c:forEach items="${userList }" var="u">
+	    <c:forEach items="<%= userList %>" var="u">
 	        <tr>
 	        	<td>${u.user_num }</td>
 	      		<td>${u.id }</td>

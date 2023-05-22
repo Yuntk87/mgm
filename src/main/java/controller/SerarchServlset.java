@@ -46,10 +46,11 @@ import dao.UserDao;
 				result.append("{\"value\":\""+userList.get(i).getName()+"\"},");
 				result.append("{\"value\":\""+userList.get(i).getPhone()+"\"},");
 				result.append("{\"value\":\""+userList.get(i).getpNumber()+"\"},");
+				result.append("{\"value\":\""+userList.get(i).getGender()+"\"},");
 				result.append("{\"value\":\""+userList.get(i).getAddr1()+"\"},");
 				result.append("{\"value\":\""+userList.get(i).getAddr2()+"\"},");
+				result.append("{\"value\":\""+userList.get(i).getLevel()+"\"},");
 				result.append("{\"value\":\""+userList.get(i).getPostDate()+"\"}],");
-				
 			}
 			result.append("]}");
 		return result.toString();		

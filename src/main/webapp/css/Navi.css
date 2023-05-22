@@ -28,11 +28,7 @@ ul {
     margin-left: 60px;
     margin-right: 90px; 
 }
-.active {
-    font-weight: bold;
-    font-size: 40px;
-    margin-right: 180px;
-}
+
 .navi_menu li {
     margin: 0 20px;
 }
@@ -203,5 +199,12 @@ ul {
     transition: all 1s;
 }
 
-
+.menuTitle {
+	text-align: center;
+	color: white;
+	font-family: 'Oswald', sans-serif;
+	font-size:50px;
+	opacity: 0.8;
+	text-shadow: 2px 2px 2px gray;
+}
 

@@ -41,17 +41,20 @@ function searchProcess(){
 		var object=eval('('+requset.responseText+')');
 		var result=object.result;
 		for(var i =0;i<result.length;i++){
-			var now=table.insertRow(0);
+			var now=table.insertRow(i);
 			for(var j =0;j<result[i].length;j++){
 				var cell=now.insertCell(j);
 				cell.innerHTML=result[i][j].value;
-				console.log(cell.innerHTML=result[i][j].value);
 				
+				console.log(cell.innerHTML=result[i][j].value);
 			}
-			cell.innerHTML = '<a href="./delete?id='+result[i][0].value+'">삭제</a>'
+			var cell=now.insertCell();
+//			cell.innerHTML = '<a href="./delete?id='+result[i][0].value+'">삭제</a>'
+			cell.innerHTML = '<a href="./user?mode=del&userNum=' + result[i][0].value + '">삭제</a>'
 		}
 	}
 }
+
 
 //admin mountain
 	function formCheck(form) {

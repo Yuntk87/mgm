@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<div id="all" style="width: 60%; margin: 0 auto; margin-top: 85px;">
+	<div id="all" style="width: 100%; margin: 0 auto; margin-top: 85px;">
 		<form id="search_form">
 			<select name="searchField">
 				<option value="id" ${param.searchField eq 'id'? "selected" : "" }>아이디</option>
