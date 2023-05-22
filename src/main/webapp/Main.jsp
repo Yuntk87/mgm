@@ -1,7 +1,10 @@
+<%@page import="dto.MountainDto"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.MountainDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,6 +16,12 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
+<%
+	ServletContext sc = getServletContext();
+	MountainDao dao = new MountainDao(sc);
+	List<MountainDto> PopularList = dao.PopularList();
+	dao.close();
+%>
 <body>
 
 <%@ include file="./Navi.jsp" %>
@@ -37,8 +46,8 @@
 
 <div class="image1 scroll-img" style="margin-top: 10px;" >
   <div class="image1-box">
-    <h3 style="font-size: 40px; color: white; font-weight: bold;">MGM 사이트 인기순 </h3>
-    <button type="button" class="image1-box-btn">VIEW MORE</button>
+    <h3 style="font-size: 40px; color: white; font-weight: bold;">MGM 사이트 산 소개 </h3>
+    <button type="button" class="image1-box-btn"><a href='MountainList'>VIEW MORE</a></button>
   </div>
 </div>
 
@@ -46,56 +55,61 @@
       <h2>
         등산이 점점 좋아집니다. <br><br>
         MGM과 함께 <br><br>
-        <button type="button" class="image1-box-btn">VIEW MORE</button><br><br>
-        <img src="img/TeamPhoto.png" width="600px" height="250px" alt="">
+        <button type="button" class="image1-box-btn"><a href="HomepageIntroduction.jsp">VIEW MORE</a></button><br><br>
+        <img src="img/그림4.png" width="600px" height="250px" alt="">
         
       </h2>
     </div>
 
     <div class="image2 scroll-img">
       <div class="image2-box">
-        <h3 style="font-size: 40px; color: white; font-weight: bold;">MGM 사이트 난이도순 </h3>
-        <button type="button" class="image1-box-btn">VIEW MORE</button>
+        <h3 style="font-size: 40px; color: white; font-weight: bold;">MGM 사이트 게시판</h3>
+        <button type="button"  class="image1-box-btn"><a href='FreeBoardList'>VIEW MORE</a></button>
       </div>
     </div>
 
     <div style="margin: 0 auto; text-align: center;"><i style="font-size: 16px;" class="fa-solid fa-window-minimize"></i></div>
     <div style="margin: 0 auto; text-align: center;">
-      <h1>INSTAGRAM</h1>
-      <h4>@MGM_Mountain</h4>
+      <h1>POPULARITY MOUNTAIN</h1>
+      <h4>#FROM_MGM</h4>
     </div>
     
-    <div style="position: relative;">
-      <div style="position: absolute; width: 33.3%; padding: 10px; left: 0px; top: 0px;">
-        <img src="https://images.unsplash.com/photo-1516825994218-b2d93290b0fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" width="613px" height="500px" alt="">
-      </div>
-      <div style="position: absolute; width: 33.3%; padding: 10px; left: 635px; top: 0px;">
-        <img src="https://images.unsplash.com/photo-1467139701929-18c0d27a7516?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" width="613px" height="395px" alt="">
-      </div>
-      <div style="position: absolute; width: 33.3%; padding: 10px; left: 1270px; top: 0px;">
-        <img src="https://plus.unsplash.com/premium_photo-1676982101887-49bb12d8a104?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" width="613px" alt="">
-      </div>
-      <div style="    position: absolute; width: 33.3%; padding: 10px; left: 635px; top: 425px;">
-        <img src="https://images.unsplash.com/photo-1554710869-95f3df6a3197?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=677&q=80" width="613px" height="1075px" alt="">
-      </div>
-      <div style="position: absolute; width: 33.3%; padding: 10px; left: 0px; top: 521px;">
-        <img src="https://images.unsplash.com/photo-1623390003556-3ac0b6602dba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" width="613px" alt="">
-      </div>
-      <div style="position: absolute; width: 33.3%; padding: 10px; left: 1270px; top: 435px;">
-        <img src="https://images.unsplash.com/photo-1566371486037-6072a54daf1f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" width="613px" height="1065px" alt="">
-      </div>
-      <div style="position: absolute; width: 33.3%; padding: 10px; left: 0px; top: 999px;">
-        <img src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" width="100%" alt="">
-      </div>
-      <div style="position: absolute; width: 66.6%; padding: 10px; left: 635px; top: 1514px;">
-        <img src="https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" width="1250px" alt="">
-      </div>
+    <div class="popula_box">
+   		 <c:forEach items="<%=PopularList %>" var="b">
+    		<div class="popula_container">
+        		<img class="popula_image img">
+        		<div class="popula_overlay">
+		            <h1>${b.m_name }</h1>
+		            <h2>${b.m_addr_1 } ${b.m_addr_2 }</h2>
+		            <h3><i class="fa-solid fa-person-hiking"></i> : ${b.level }</h3>
+		            <h3><i class="fa-solid fa-heart"></i> : ${b.m_recommend }</h3>
+        		</div>
+    		</div>
+    	</c:forEach> 
     </div>
-</div>   
-    	<div style="height:2300px"></div>
-	
+    <div style="clear:both;"></div>
+</div>
+
+    	
+		
 		<%@ include file="./Footer.jsp" %>
 
+	
+   
+    
+	
+	
+		
+	
+	
+
+
+	
+
+
+
+ 
+    
   <script>
 
         let slideIndex = 0;
@@ -112,20 +126,23 @@
           slides[slideIndex-1].style.display = "block";
           setTimeout(showSlides, 2500); // Change image every 2 seconds
         }
-
-
-        var quickBox = $('.quick-menu');
-        var quick_top = 120; 
-        quickBox.css('top', $(window).height() );
-        $(document).ready(function(){
-        quickBox.animate( { "top": $(document).scrollTop() + quick_top +"px" },  100 );
-         $(window).scroll(function(){
-          quickBox.stop();
-          quickBox.animate( { "top": $(document).scrollTop() + quick_top + "px" }, 100 ); 
-         });
-        });
+	
+        const images = ["https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201811/11/13244af0-d127-4ae9-9c6b-fee3f14956f9.jpg",
+        		"https://www.jirisantour.com/images/homepage/www/kr/content/img_jirisanintroTop.jpg",
+        		"https://www.me.go.kr/home/file/preview.do?fileId=165713&fileSeq=1",
+        		"https://cdn.shanews.com/news/photo/201210/283693_25518_012.jpg",
+        		"https://www.hongcheon.go.kr/site/tour/images/contents/cts1816_img2-1.png",
+        		"https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/aYgW/image/UjSAV9d59wqQwyOyD04ggE96NUA.jpg",
+        		"https://www.cctoday.co.kr/news/photo/202011/2107124_554954_3800.jpg",
+        		"https://www.canews.kr/news/photo/201805/730_1010_4135.jpg",
+        		"https://image.newdaily.co.kr/site/data/img/2019/02/17/2019021700060_0.jpg"
+        		];
+        for(let i =0; i<document.getElementsByClassName('img').length; i++){
+            document.getElementsByClassName('img')[i].src = images[i]
+        }
        
         
+      
   </script>
 </body>
 </html>

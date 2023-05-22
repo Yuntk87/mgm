@@ -144,7 +144,7 @@
          $(d).find('item').each(function(index, item) {      
          	list+='<td>'+$(this).find('mntninfohght').text()+"m"+'</td>';
          	list+='<td>'+'</td>'
-         	list+='<td>'+$(this).find('mntninfodtlinfocont').text()+'</td>'    
+         	list+='<td>'+$(this).find('mntninfodtlinfocont').text().replaceAll("&lt;br /&gt;" , "")+'</td>'    
          });
          $('#minfo').html(list);
      }
