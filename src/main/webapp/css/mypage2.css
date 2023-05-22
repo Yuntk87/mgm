@@ -238,3 +238,18 @@ a.tab-link.is-active {
 #ttt div {
 	float:left;
 }
+div.rm{
+	width:80px;
+	height:80px;
+	position:relative;
+}
+span.rm{
+	position: absolute;
+    bottom: 31px;
+    left: 24px;
+    color: white;
+    font-size: 13px
+}
+#patchbox{
+	display: flex;
+}
