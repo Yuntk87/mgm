@@ -28,11 +28,7 @@ ul {
     margin-left: 60px;
     margin-right: 90px; 
 }
-.active {
-    font-weight: bold;
-    font-size: 40px;
-    margin-right: 180px;
-}
+
 .navi_menu li {
     margin: 0 20px;
 }
