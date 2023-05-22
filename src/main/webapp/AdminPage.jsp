@@ -24,13 +24,11 @@
 	
 	<div id="confirm" class="tabcontent">
 	  	<h2>confirm</h2>
-<%-- 		<%@include file="ConfirmBoardList.jsp" %> --%>
 		<c:import url="./ConfirmBoardList.jsp" />
 	</div>
 
 	<div id="mountain" class="tabcontent">
 		<h2>mountain</h2>
-<%-- 		<%@include file="MountainSearch_Register.jsp" %> --%>
 		<c:import url="./MountainSearch_Register.jsp" />
 	</div>
 	

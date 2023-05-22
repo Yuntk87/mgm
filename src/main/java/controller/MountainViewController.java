@@ -22,6 +22,9 @@ public class MountainViewController extends HttpServlet{
 			String snum = request.getParameter("m_num");
 			System.out.println(snum);
 			
+			//test
+			String mname = request.getParameter("m_name");
+			request.setAttribute("mname", mname);
 			
 			int num = Integer.parseInt(snum);
 			

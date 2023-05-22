@@ -303,7 +303,7 @@ public class UserDao extends JDBConnect{
 		HashMap<String, String> map = null;
 		
 		try {
-			String sql = "SELECT m_name FROM (SELECT m_num FROM confirm_board WHERE id=? GROUP BY m_num having count(*) > 5) c INNER JOIN mountain_board m ON c.m_num = m.m_num";
+			String sql = "SELECT m_name FROM (SELECT m_num FROM confirm_board WHERE id=? GROUP BY m_num having count(*) > 1) c INNER JOIN mountain_board m ON c.m_num = m.m_num";
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, id);
 			rs = psmt.executeQuery();

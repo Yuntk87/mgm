@@ -72,6 +72,12 @@
         
         <div class="content_box">
             <img src="https://source.unsplash.com/random/?mountain" width="100%" height="600px" alt="">
+            
+            <div>
+            	<input type="text" id="mname1" value="${mname }">
+            	<div id="minfo"></div>
+            </div>
+            
             <div class="btn-box">
 				<c:choose>
        				<c:when test="${res==1 }">
@@ -96,6 +102,35 @@
    
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+    
+    //산이름 검색하여 API 정보출력
+    window.onload=function() {
+		 let keyword = $("#mname1").val();
+		 console.log(keyword);
+   	     $.ajax({
+   	         url: "./api?keyword="+keyword, // 요청 URL
+   	         type: "get", // HTTP 메서드
+   	         dataType: "xml", // 응답 데이터 형식
+   	         success: sucFuncJson9, // 요청 성공 시 호출할 메서드 설정,
+   	         error: errFunc // 요청 실패 시 호출할 메서드 설정
+   	    });
+    };
+    
+     function sucFuncJson9(d) {
+         console.log(d)
+         var list = '';
+
+         $(d).find('item').each(function(index, item) {      
+         	list+='높이 : '+$(this).find('mntninfohght').text()+'m';
+         	list+='<p>'+$(this).find('mntninfodtlinfocont').text()+'</p>'    
+         });
+         $('#minfo').html(list);
+     }
+     // 실패 시 경고창을 띄워줍니다.
+     function errFunc(e) {
+         alert("실패: " + e.status);
+     }
+    
        
         $('.btn_like').click(function(){
   		if($(this).hasClass('btn_unlike')){

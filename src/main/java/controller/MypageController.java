@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -29,7 +30,9 @@ public class MypageController extends HttpServlet {
 		String id = session.getAttribute("UserId").toString();
 		UserDao dao = new UserDao(getServletContext());
 		UserDto dto = dao.selectUser(id);
+		List<HashMap<String, String>> RepeatMountainList = dao.RepeatMountain(id);
 		req.setAttribute("uto", dto);
+		req.setAttribute("RepeatMountain", RepeatMountainList);
 		
 		MateJoinDao mdao = new MateJoinDao(req.getServletContext());
 		List<MateJoinDto> cList = mdao.selectCalendar(id);

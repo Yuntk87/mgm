@@ -51,7 +51,7 @@
                             <p class="card-text"><i class="fa-solid fa-person-hiking"></i> : ${dto.level }</p>
                             <i class="fa-regular fa-eye"></i>
                             <span style="margin-left: 10px;">${dto.m_recommend}</span>
-                            <a href="./view?searchWord=${dto.m_name }&m_num=${dto.m_num}"><button class="view_btn">상세보기</button></a>
+                            <a href="./view?searchWord=${dto.m_name }&m_num=${dto.m_num}&m_name=${dto.m_name}"><button class="view_btn">상세보기</button></a>
                             
                         </div>
         			</c:forEach>
