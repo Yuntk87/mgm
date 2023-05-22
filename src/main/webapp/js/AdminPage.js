@@ -1,11 +1,10 @@
 //admin
- $(document).ready(function() {
-	 $(".check").click(function() {
-		 $("#tablinks1").trigger("click");
-	 });
+$(document).ready(function() {
+	$("#pg a").click(setTimeout(function() {
+		$("#tablinks1").trigger("click");
+	}),1000);	
+});
 	 
-	 
- });
  
 function openCity(evt, cityName) {
   var i, tabcontent, tablinks;

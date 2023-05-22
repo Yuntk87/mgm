@@ -17,7 +17,6 @@
 
 <body>
 	<div id="all" style="width: 60%; margin: 0 auto; margin-top: 85px;">
-		
 		<form id="search_form">
 			<select name="searchField">
 				<option value="id" ${param.searchField eq 'id'? "selected" : "" }>아이디</option>
@@ -40,7 +39,7 @@
 		    </tr>
 			<c:choose>
 				<c:when test="${empty boardLists }" >
-					<tr><td colspan="">등록 된 게시물이 없습니다.</td></tr>
+					<tr><td colspan="6">등록 된 게시물이 없습니다.</td></tr>
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${boardLists }" var="c">
