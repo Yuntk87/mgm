@@ -247,3 +247,11 @@ ul {
     color: #0CD1E4;
     transition: all 0.5s;
 }
+.menuTitle {
+	text-align: center;
+	color: white;
+	font-family: 'Oswald', sans-serif;
+	font-size:50px;
+	opacity: 0.8;
+	text-shadow: 2px 2px 2px gray;
+}

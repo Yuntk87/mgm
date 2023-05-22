@@ -19,12 +19,12 @@
 		   	<div style="width: 100%; position: relative;">
 		        <img style="opacity: 0.7;" src="https://source.unsplash.com/random/?valley" width="100%" height="560px" alt="">
 		        <div style="position: absolute; top: 300px; left: 0; right: 0;">
-		            <h1 style="text-align: center; color: black; font-family: 'Oswald', sans-serif;">CONFIRM</h1>
+		            <h1 class="menuTitle">CONFIRM</h1>
 		        </div>
 		    </div>
 	        <div class="navi">
 		        <ul class="navi_menu" >
-		            <li><a class="active" href="./Main.jsp">MGM</a></li>
+		            <li><a class="active" href="./Main.jsp" style="font-size: 40px">MGM</a></li>
 		            <li><a href="./HomepageIntroduction.jsp" >홈페이지 소개</a></li>
 		            <li><a href="./MountainList">산 소개</a></li>
 		            <li><a href="./FreeBoardList">자유 게시판</a></li>

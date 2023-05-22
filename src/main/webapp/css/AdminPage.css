@@ -7,9 +7,19 @@ table {
 .search {
   display: flex;
 }
+.tabcontent {
+	width:90%;
+	margin:0 auto;
+}
+#search_form {
+	text-align:center;
+}
+.search-container {
+	margin:0 auto;
+}
 
 #user input[type="text"] {
-  width: 1600px;
+  width: 1400px;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -147,3 +157,201 @@ table {
   from {opacity: 0;}
   to {opacity: 1;}
 }
+
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+ul {
+    list-style: none;
+}
+
+.navi {
+    width: 100%;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+.navi_menu {
+    display: flex;
+    align-items: center;
+    margin-left: 60px;
+    margin-right: 90px; 
+}
+
+.navi_menu li {
+    margin: 0 20px;
+}
+.navi_menu li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    margin-right: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+}
+.navi_menu a:hover {
+    color: #0CD1E4;
+    transition: all 0.5s;
+    
+}
+
+
+
+.navi_login {
+    display: flex;
+    align-items: center;
+}
+.navi_login a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    margin-right: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+}
+.navi_login a:hover {
+    color: #0CD1E4;
+    transition: all 0.5s;
+}   
+.master_menu {
+    position: fixed;
+    display: none;
+    top: 70px;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 60px;
+    z-index: 10;
+}
+.master_menu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    margin-right: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+}
+.master_menu a:hover{
+    color: #0CD1E4;
+    transition: all 0.5s;
+}
+
+
+.quick-menu {
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    position:absolute;
+    background-color: #1e3932;;
+    width:80px;
+    height: 420px;
+    right: 50px;
+    border-radius: 10px;
+    z-index: 10;
+    
+    
+  }
+  .quick-box {
+    text-align: center;
+  }
+  
+  .quick-box i{
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  }
+
+  .quick-box i {
+
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  margin:0
+  }
+
+  .quick-box {
+  margin-top: 40px;
+  }
+  
+  
+  .quick-btn {
+    position: absolute;
+    padding: 10px;
+    top: 150px;
+    right: -20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    z-index: 10;
+    
+    
+  }
+  .quick-btn i {
+    font-size: 35px;
+  }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; 
+    /* Could be more or less, depending on screen size */
+}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn {
+	width: 55px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.btn:hover {
+    background-color: #0CD1E4;
+    transition: all 1s;
+}
+
+
+

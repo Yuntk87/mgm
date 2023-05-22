@@ -17,7 +17,7 @@
    	<div style="width: 100%; position: relative;">
         <img style="opacity: 0.7;" src="https://source.unsplash.com/random/?valley" width="100%" height="560px" alt="">
         <div style="position: absolute; top: 300px; left: 0; right: 0;">
-            <h1 style="text-align: center; color: black; font-family: 'Oswald', sans-serif;">MATE BOARD</h1>
+            <h1 class="menuTitle">MATE BOARD</h1>
         </div>
     </div>
 	<div id="all" style="width: 60%; margin: 0 auto; margin-top: 85px;">
@@ -49,8 +49,8 @@
 				<c:otherwise>
 					<c:forEach items="${boardLists }" var="b">
 						<tr style="border-top:1px solid darkgray">
-							<td width="5%">${b.mate_num }.</td>
-							<td width="8%">${b.m_name }</td>
+							<td width="4%">${b.mate_num }.</td>
+							<td width="5%">${b.m_name }</td>
 							<td rowspan="2" style="font-size:18px;"><a class="link" href='./MateBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.mate_num }&nickName=${b.id }'>${b.title }</a></td>
 							<fmt:formatDate value="${today }" type="date" pattern="yyyy-MM-dd" var="now"/>
 							<fmt:formatDate value="${b.postDate }" type="date" pattern="yyyy-MM-dd" var="post"/>
@@ -64,11 +64,11 @@
 							</c:choose>
 						</tr>
 						<tr class="last">
-							<td width="3%"><img src="https://img.icons8.com/?size=512&id=12438&format=png"></td>
+							<td width="3%"><img style="width:50%;" src="https://img.icons8.com/?size=512&id=12438&format=png"></td>
 							<td width="3%">${b.id }</td>
-							<td width="3%"><img src="https://img.icons8.com/?size=512&id=lJUgtSWOeJR9&format=png"></td>
+							<td width="3%"><img style="width:70%;" src="https://img.icons8.com/?size=512&id=lJUgtSWOeJR9&format=png"></td>
 							<td width="3%">${b.viewCount }</td>
-							<td width="3%"><img src="https://img.icons8.com/?size=512&id=38977&format=png"></td>
+							<td width="3%"><img style="width:33%;" src="https://img.icons8.com/?size=512&id=38977&format=png"></td>
 							<td width="3%">${b.commentCount }</td>
 						</tr>					
 					</c:forEach>

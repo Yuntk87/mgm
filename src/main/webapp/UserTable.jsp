@@ -20,7 +20,7 @@
 	userdao.close();
 %>
 <body>
-	<div class="search">
+	<div id="userSearch" class="search">
 		<div class="search-container">
 			<input class="form-control" id="nickName" onkeyup="searchFunction()"type="text" size="20" placeholder="닉네임 검색">
 		</div>
