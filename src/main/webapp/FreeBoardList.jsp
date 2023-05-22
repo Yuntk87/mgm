@@ -17,9 +17,14 @@
 
 <body>
 <%@ include file="Navi.jsp" %>
-
+   	<div style="width: 100%; position: relative;">
+        <img style="opacity: 0.7;" src="https://source.unsplash.com/random/?valley" width="100%" height="560px" alt="">
+        <div style="position: absolute; top: 300px; left: 0; right: 0;">
+            <h1 style="text-align: center; color: black; font-family: 'Oswald', sans-serif;">FREE BOARD</h1>
+        </div>
+    </div>
 	<div id="all" style="width: 60%; margin: 0 auto; margin-top: 85px;">
-		<h2><img src="https://img.icons8.com/?size=512&id=59040&format=png"> 게시판</h2>
+<!-- 		<h2><img src="https://img.icons8.com/?size=512&id=59040&format=png"> 게시판</h2> -->
 		
 		<form id="search_form">
 			<table colspan="7" class="topTable">
