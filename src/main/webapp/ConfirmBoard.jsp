@@ -54,7 +54,6 @@
 		        <a href="#">회원 관리</a>
 		    </div>
 
-		    
 			<div id="ConfirmMain">
 			    <div id="searchDiv">
 			    	<h3>인증하기</h3><hr>
