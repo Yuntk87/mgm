@@ -1,8 +1,5 @@
 
 $(document).ready(function() {
-	if($(".tablinks:first") === true) {
-		$(".tablinks:first").trigger('click');		
-	};
 	
 	//봉우리 선택 시 위.경도 자동 가져오기
 	$("#listBox").on('change', function() {

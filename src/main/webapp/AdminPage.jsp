@@ -12,12 +12,10 @@
 <script src=./js/AdminPage.js></script>
 </head>
 <body>
-<%@ include file="Navi.jsp" %>
 	<div class="tab">
-	<p></p>
 	  <h1>관리자 페이지</h1>
 	  <button id="tablinks1" class="tablinks" onclick="openCity(event, 'confirm')">인증게시글 관리</button>
-	  <button id="tablinks2" class="tablinks" onclick="openCity(event, 'mountain')">산 관리</button>
+	  <button class="tablinks" onclick="openCity(event, 'mountain')">산 관리</button>
 	  <button class="tablinks" onclick="openCity(event, 'user')">회원 관리</button>
 	</div>
 	
