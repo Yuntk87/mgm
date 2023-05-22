@@ -53,30 +53,16 @@
             <li>성별 ${uto.gender }</li>
            <li>주소1 ${uto.addr1 }</li>
             <li>주소2 ${uto.addr2 }</li>
-            <li>
-	            	<c:forEach items="${RepeatMountain }" var="R">
-<%-- 	            		<span class="rm">${R.get('mname')}</span><img class="flag" src="https://www.emojiall.com/images/240/samsung/26f0-fe0f.png"> --%>
-<%-- 	            		<span class="rm">${R.get('mname')}</span><img class="flag" src="./img/Flag1.gif"> --%>
-<%-- 	            		<span class="rm">${R.get('mname')}⛰️</span> --%>
-						<span class="rm"><img class="Patch" src="./img/Patch1.png"></span>		
-	            	</c:forEach>
-            </li>
          </ul> 
        </div> 
        </div>
-       
-
-
 <div class="data-container">
   	<a id="bt1" href="./user?mode=Modify"class="button1">수정하기</a>
 	<a id="bt1" href="./user?mode=Withdrawal" class="button2">탈퇴하기</a> 
 	
 </div>
-	<div id="ttt">
-    	<c:forEach items="${RepeatMountain }" var="R">
-			<div class="rm"><img class="Patch" src="./img/Patch3.png"><br>&nbsp;&nbsp;&nbsp;&nbsp;${R.get('mname') }</div>			
-        </c:forEach>
-	</div>
+
+
   </div>
   
 
@@ -116,6 +102,26 @@
       <p> ${mountainLists}</p>
      
     </div>
+    <div class="boox">
+    <p>내가 모은 뱃지 </p>
+      <div id="patchbox">
+	            	<c:forEach items="${RepeatMountain }" var="R">
+
+						<div class="rm">
+							<img class="Patch" src="./img/patch.jpg">
+							<span class="rm">${R.get('mname')}</span>
+						</div>
+						
+								
+	            	</c:forEach>
+</div>
+    
+    
+    
+    </div>
+    
+    
+    
   </div>    
       </div>
       
