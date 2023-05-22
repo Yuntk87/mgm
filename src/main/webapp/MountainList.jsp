@@ -87,8 +87,7 @@
 
     <script>
         const images = ["mountain", "rocky mountains", "hill", "hanla mountain", "hiking", "mont blanc", "fuji mountain", "annapurna", "trekking", "Mount Everest"];
-        const random = Math.floor(Math.random() * images.length);
-        for(let i =0; i<document.getElementsByClassName('img').length; i++){
+        for(let i =1; i<document.getElementsByClassName('img').length; i++){
             document.getElementsByClassName('img')[i].src = "https://source.unsplash.com/random/300x300/?"+images[i]
         }
         
