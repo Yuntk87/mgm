@@ -30,11 +30,13 @@ body {
     margin: 0 auto;
     position: relative;
 }
+
 .btn-box {
     position: absolute;
     top: 0;
     right: 0;
 }
+
 
 
 .btn_like {

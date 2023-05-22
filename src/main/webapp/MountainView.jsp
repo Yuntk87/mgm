@@ -73,10 +73,7 @@
         <div class="content_box">
             <img src="https://source.unsplash.com/random/?mountain" width="100%" height="600px" alt="">
             
-            <div>
-            	<input type="text" id="mname1" value="${mname }">
-            	<div id="minfo"></div>
-            </div>
+            
             
             <div class="btn-box">
 				<c:choose>
@@ -95,6 +92,29 @@
        			</c:choose>
              </div>
         </div>
+        
+        <div class="info_box">
+            	<input type="hidden" id="mname1" value="${mname }">
+            	<table class="myTable">
+		            <tr class="header">
+			          	
+			            <th style="text-align: left;">
+			           		<p style="margin-left: 35px">높이<p>
+			            </th>
+
+			            <th style="text-align: left;">
+			              산 소개
+			            </th>
+		            </tr>
+		        </table>
+		        <table class="myTable">		 
+		                <tr class="header">
+		                    <th></th>
+		                    <th style="text-align: center;" id='minfo'></th> 
+		                    <th></th>           
+		               	</tr>       
+		    	</table>
+            </div>
     </div>
 	
 	<div style="height: 400px"></div>
@@ -104,24 +124,27 @@
     <script>
     
     //산이름 검색하여 API 정보출력
+
     window.onload=function() {
 		 let keyword = $("#mname1").val();
-   	     $.ajax({
-   	         url: "./api?keyword="+keyword, // 요청 URL
-   	         type: "get", // HTTP 메서드
-   	         dataType: "xml", // 응답 데이터 형식
-   	         success: sucFuncJson9, // 요청 성공 시 호출할 메서드 설정,
-   	         error: errFunc // 요청 실패 시 호출할 메서드 설정
-   	    });
-    };
+  	     $.ajax({
+  	         url: "./api?keyword="+keyword, // 요청 URL
+  	         type: "get", // HTTP 메서드
+  	         dataType: "xml", // 응답 데이터 형식
+  	         success: sucFuncJson10, // 요청 성공 시 호출할 메서드 설정,
+  	         error: errFunc // 요청 실패 시 호출할 메서드 설정
+  	    });
+   };
     
-     function sucFuncJson9(d) {
+    
+     function sucFuncJson10(d) {
          console.log(d)
          var list = '';
 
          $(d).find('item').each(function(index, item) {      
-         	list+='높이 : '+$(this).find('mntninfohght').text()+'m';
-         	list+='<p>'+$(this).find('mntninfodtlinfocont').text()+'</p>'    
+         	list+='<td>'+$(this).find('mntninfohght').text()+"m"+'</td>';
+         	list+='<td>'+'</td>'
+         	list+='<td>'+$(this).find('mntninfodtlinfocont').text()+'</td>'    
          });
          $('#minfo').html(list);
      }
