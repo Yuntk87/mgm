@@ -106,7 +106,6 @@
     //산이름 검색하여 API 정보출력
     window.onload=function() {
 		 let keyword = $("#mname1").val();
-		 console.log(keyword);
    	     $.ajax({
    	         url: "./api?keyword="+keyword, // 요청 URL
    	         type: "get", // HTTP 메서드

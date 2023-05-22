@@ -17,6 +17,7 @@
     
             </div>
         </div>
+        </div>
     
         <div class="content">
             <div>
@@ -78,19 +79,22 @@
                             <h2 class="post-title">개발자</h2>
 
                             <div class="deveoper">
-                                <a><img src="./img/tk.jpg"></a>
-                                <a><img src="./img/ay.jpg"></a>
-                                <a><img src="./img/sh.jpg"></a>
-                                <a><img src="./img/sb.jpg"></a>
+                                <img src="./img/tk.jpg">
+                                <img src="./img/ay.jpg">
+                                <img src="./img/sh.jpg">
+                                <img src="./img/sb.jpg">
                             </div>
                         </header>
     
                        
                     </section>
                 </div>
-    
-                <div class="footer">
-                </div>
-<%@ include file="./Footer.jsp" %>
+                
+               
+    	</div>
+    	</div>
+    	<div style="height: 900px"></div>
+<%@ include file="./Footer.jsp" %>         
+
 </body>
 </html>

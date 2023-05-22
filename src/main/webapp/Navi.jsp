@@ -19,7 +19,7 @@
 <body>
     <div class="navi">
         <ul class="navi_menu" >
-            <li><a class="active" href="./Main.jsp">MGM</a></li>
+            <li><a class="active" href="./Main.jsp" style="font-size: 40px">MGM</a></li>
             <li><a href="./HomepageIntroduction.jsp" >홈페이지 소개</a></li>
             <li><a href="./MountainList">산 소개</a></li>
             <li><a href="./FreeBoardList">자유 게시판</a></li>

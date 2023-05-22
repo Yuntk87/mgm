@@ -65,6 +65,7 @@
 		</form>
 		<%@ include file="./MateBoardComment.jsp" %>
 	</div>
+	<div style="height: 1000px"></div>
 <%@ include file="./Footer.jsp" %>
 
 </body>
