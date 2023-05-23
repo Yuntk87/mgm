@@ -14,9 +14,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/mypage2.css">
+    <link rel="stylesheet" href="./css/mypage2.css?v=1">
     <script src="https://kit.fontawesome.com/bb8da17f44.js" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/5.0.7/sweetalert2.min.css'>
     <title>mypage</title>
 
 
@@ -38,7 +40,10 @@
         <div id="userImg">
         	<img id="my-imge" src="./img/${uto.level}.jpg">
        	</div>
-
+      
+      
+        
+        	
        	 	<div id="info">
         	
           <ul>
@@ -53,16 +58,18 @@
             <li>성별 ${uto.gender }</li>
            <li>주소1 ${uto.addr1 }</li>
             <li>주소2 ${uto.addr2 }</li>
-         </ul> 
+         </ul>   
        </div> 
        </div>
+       
+
+
 <div class="data-container">
   	<a id="bt1" href="./user?mode=Modify"class="button1">수정하기</a>
-	<a id="bt1" href="./user?mode=Withdrawal" class="button2">탈퇴하기</a> 
 	
+	<button type="button" class="danger"> 탈퇴하기</button>
+ 
 </div>
-
-
   </div>
   
 
@@ -102,7 +109,7 @@
       <p> ${mountainLists}</p>
      
     </div>
-    <div class="boox">
+      <div class="boox">
     <p>내가 모은 뱃지 </p>
       <div id="patchbox">
 	            	<c:forEach items="${RepeatMountain }" var="R">
@@ -116,12 +123,6 @@
 	            	</c:forEach>
 </div>
     
-    
-    
-    </div>
-    
-    
-    
   </div>    
       </div>
       
@@ -131,7 +132,7 @@
    <span></span>
 
        
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/5.0.7/sweetalert2.min.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./js/mypage2.js"></script>
 </body>
 
