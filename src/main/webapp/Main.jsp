@@ -83,7 +83,7 @@
         		<div  style="overflow:hidden; width:500px; height:600px;" class="content" id="content${b.m_name }">
     
         		</div>
-<%--         		<img class="popula_image"  id="img${b.m_name }" src="" > --%>
+
         		<div class="popula_overlay">
 		            <h1>${b.m_name }</h1>
 		            <h2>${b.m_addr_1 } ${b.m_addr_2 }</h2>

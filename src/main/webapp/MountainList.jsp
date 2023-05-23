@@ -1,3 +1,6 @@
+<%@page import="dto.MountainDto"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.MountainDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,9 +13,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/09e1bc70db.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/MountainList.css">
+    <link rel="stylesheet" href="./css/MountainList.css?v=1">
     <title>Document</title>
 </head>
+<%
+	ServletContext sc = getServletContext();
+	MountainDao dao = new MountainDao(sc);
+	List<MountainDto> PopularList = dao.PopularList2();
+	String res = dao.PopularNameList2();
+	request.setAttribute("res", res);
+	dao.close();
+%>
 <body>
 
 <%@ include file="./Navi.jsp" %>   
@@ -45,11 +56,14 @@
         		<c:otherwise>
         			<c:forEach var="dto" items="${ mountainList }">
         				<div class="card">
-                            <a href="#"><img class="img"></a>
+        					<input type="hidden" class="query" value="${dto.m_name }">
+        					<div class="content" id="content${dto.m_name }">
+        					
+        					</div>
                             <h3 class="card-title"><i class="fa-solid fa-mountain"></i> : ${dto.m_name} </h3>
                             <p class="card-text"><i class="fa-solid fa-location-dot"></i> : ${dto.m_addr_1} ${dto.m_addr_2 }</p>
                             <p class="card-text"><i class="fa-solid fa-person-hiking"></i> : ${dto.level }</p>
-                            <i class="fa-regular fa-eye"></i>
+                            <i class="fa-solid fa-heart"></i>
                             <span style="margin-left: 10px;">${dto.m_recommend}</span>
                             <a href="./view?searchWord=${dto.m_name }&m_num=${dto.m_num}&m_name=${dto.m_name}"><button class="view_btn">상세보기</button></a>
                             
@@ -86,11 +100,30 @@
 
 
     <script>
-        const images = ["mountain", "rocky mountains", "hill", "hanla mountain", "hiking", "mont blanc", "fuji mountain", "annapurna", "trekking", "Mount Everest"];
-        for(let i =1; i<document.getElementsByClassName('img').length; i++){
-            document.getElementsByClassName('img')[i].src = "https://source.unsplash.com/random/300x300/?"+images[i]
-        }
-        
+    	let tmp = "${res}";
+    	console.log(tmp);
+		let mlist = tmp.split(' ');
+		window.onload= function(){ 
+		for(let i = 0; i<mlist.length; i++){
+           (function (i){ 
+        	   $.ajax({
+                type : "GET",            // HTTP method type(GET, POST) 형식이다.
+                url : "https://dapi.kakao.com/v2/search/image",      // 컨트롤러에서 대기중인 URL 주소이다.
+                dataTypee : 'json',
+                headers : {'Authorization': 'KakaoAK fcbb5e354414be93d5289d773b6993c5'},
+                data :  {'query':mlist[i], 'size':4},
+                success : function(res){ // 비동기통신의 성공일경우 success콜백으로 들어옵니다. 'res'는 응답받은 데이터이다.
+                	$.each(res.documents, function (z, search) {
+                		$("#content"+mlist[i]).append("<img width='300px;' height='400px;' alt='"+ mlist[i]+ "' src=" + search.image_url+" onerror='this.remove ? this.remove() : this.removeNode();' />")
+	                	console.log("#content"+mlist[i])
+                    });
+                },
+                error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+                    alert("통신 실패.")
+                }
+            });})(i);
+		}
+		}
         
     
         
