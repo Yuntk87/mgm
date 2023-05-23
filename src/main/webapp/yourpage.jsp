@@ -27,7 +27,7 @@
  </div>
     <div class="main1">
         <div id="userImg">
-        	<img src="./imges/${uto.level}.jpg">
+        	<img src="./img/${uto.level}.jpg">
        	</div>
        	<div id="info">
        	 	${uto.id}님 정보입니다.<br>

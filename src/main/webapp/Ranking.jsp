@@ -21,7 +21,11 @@
 <!--     <link rel="stylesheet" href="./css/Ranking.css"> -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <title>ranking</title>
-    <style>
+   	<style>
+	    a {
+	    	text-decoration: none;
+	    	color: black;
+	    }
     	#main {
     		width:600px;
     		height:300px;
@@ -83,7 +87,7 @@
 			<c:forEach var="user" items='<%=uList%>' varStatus="status">
 				<div class="rInfo">
 					<div>${status.count}</div>
-					<div>${user.nickName}</div>
+					<div><a href="./yourpage?id=${user.nickName}">${user.nickName}</a></div>
 					<div><span class="small">LV.${user.level}</span></div>
 				</div>
 			</c:forEach>
@@ -93,7 +97,7 @@
 			<c:forEach var="userM" items='<%=uListMonth%>' varStatus="status">
 				<div class="rInfo">
 					<div>${status.count}</div>
-					<div>${userM.get('id')}</div>
+					<div><a href="./yourpage?id=${user.nickName}">${userM.get('id')}</a></div>
 					<div><span class="small">${userM.get('count')}회</span></div>
 				</div>
 			</c:forEach>
