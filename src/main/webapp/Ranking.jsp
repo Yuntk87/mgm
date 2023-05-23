@@ -18,44 +18,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--     <link rel="stylesheet" href="./css/Ranking.css"> -->
+    <link rel="stylesheet" href="./css/Ranking.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <title>ranking</title>
-   	<style>
-	    a {
-	    	text-decoration: none;
-	    	color: black;
-	    }
-    	#main {
-    		width:600px;
-    		height:300px;
-    		margin:0 auto;
-    	}
-    	.r1 , .r2 {
-    		text-align:center;
-    		float: left;
-    		width:300px;
-    	}
-    	.small {
-    		font-size: 8px;
-    		color:darkgray;
-    	}
-    	.rInfo {
-    		height:50%;
-    		width:50%;
-    		margin: 0 auto;
-    		padding: 10px 30px 10px 30px;
-    		display:flex;
-    		justify-content: space-between;
-    		border-radius: 5px;
-    		transition: all 0.5s ease;
-    	}
-    	.rInfo:hover {
-			transform: scale( 2.0 );
-    		transform: rotateX( 360deg );
-    		box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.3);
-    	}
-    </style>
 </head>
 <%	
 	ServletContext sc = getServletContext();
@@ -81,28 +46,52 @@
 	dao.close();
 %>
 <body>
-	<div id="main">
-		<div class="r1">
+	<div id="rankingMain">
+	    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+	    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+	    
+		<div class="rbox fade">
 			<h3><img src="https://img.icons8.com/?size=512&id=zBIz5sCgi3aB&format=png" width="20px" height="20px"> 전체 유저랭킹</h3>
 			<c:forEach var="user" items='<%=uList%>' varStatus="status">
-				<div class="rInfo">
-					<div>${status.count}</div>
-					<div><a href="./yourpage?id=${user.nickName}">${user.nickName}</a></div>
-					<div><span class="small">LV.${user.level}</span></div>
-				</div>
+				<ul class="rInfo">
+					<li><a href="./yourpage?id=${user.nickName}"> <span class="rNum">${status.count}</span> ${user.nickName} <span class="small">LV.${user.level}</span></a></li>
+				</ul>
 			</c:forEach>
 		</div>
-		<div class="r2">
+		<div class="rbox fade">
 			<h3><img src="https://img.icons8.com/?size=512&id=zBIz5sCgi3aB&format=png" width="20px" height="20px"> <%=tmp1 %>월 유저랭킹</h3>
 			<c:forEach var="userM" items='<%=uListMonth%>' varStatus="status">
-				<div class="rInfo">
-					<div>${status.count}</div>
-					<div><a href="./yourpage?id=${user.nickName}">${userM.get('id')}</a></div>
-					<div><span class="small">${userM.get('count')}회</span></div>
-				</div>
+				<ul class="rInfo">
+					<li><a href="./yourpage?id=${user.nickName}"> <span class="rNum">${status.count}</span> ${userM.get('id')} <span class="small">${userM.get('count')}회</span></a></li>
+				</ul>
 			</c:forEach>
 		</div>
+		
 	</div>
-
 </body>
+<script>
+	let slideIndex = 1;
+	showSlides(slideIndex);
+	
+	// Next/previous controls
+	function plusSlides(n) {
+	  showSlides(slideIndex += n);
+	}
+	
+	// Thumbnail image controls
+	function currentSlide(n) {
+	  showSlides(slideIndex = n);
+	}
+	
+	function showSlides(n) {
+	  let i;
+	  let slides = document.getElementsByClassName("rbox");
+	  if (n > slides.length) {slideIndex = 1}
+	  if (n < 1) {slideIndex = slides.length}
+	  for (i = 0; i < slides.length; i++) {
+	    slides[i].style.display = "none";
+	  }
+	  slides[slideIndex-1].style.display = "block";
+	}
+</script>
 </html>

@@ -26,6 +26,8 @@
 	cal1.add(Calendar.DATE,1);
 	String tomorrow = sdf1.format(cal1.getTime());
 	String day1 = sdf2.format(cal1.getTime());
+	String day11 = sdf2.format(cal1.getFirstDayOfWeek());
+	
 	
 	Calendar cal2 = new GregorianCalendar(Locale.KOREA);
 	cal2.setTime(day);
@@ -76,7 +78,6 @@
 
 
 <script>
-
 $.ajax({
     url : "./Weather10tmp_Api.do",  // 요청 URL
     type : "get",                  // HTTP 메서드
@@ -202,8 +203,8 @@ function sucFunc(d) {
 	for(let i=4; i<=10; i++){
    	 	$('#npopp'+i).html(npop[i]);
    	 	$('#popp'+i).html(pop[i]);
-	 	$('#nskyy'+i).html(nsky[i]);
-	 	$('#skyy'+i).html(sky[i]);
+// 	 	$('#nskyy'+i).html("(" + nsky[i] + ")");
+// 	 	$('#skyy'+i).html("(" + sky[i] + ")");
 	 	$('#nptyy'+i).html(npty[i]);
 	 	$('#ptyy'+i).html(bpty[i]);
 	}
@@ -240,9 +241,9 @@ $.ajax({
 		  	}
 			if(item.category == 'SKY'){
 				ch = item.fcstValue;
-				if(item.fcstValue =="1") nisky[0]+='맑음'
-				if(item.fcstValue =="3") nisky[0]+='구름 많음'
-				if(item.fcstValue =="4") nisky[0]+='흐림'
+				if(item.fcstValue =="1") nisky[0]+='(맑음)'
+				if(item.fcstValue =="3") nisky[0]+='(구름 많음)'
+				if(item.fcstValue =="4") nisky[0]+='(흐림)'
 			}
 			
 			if(item.category == 'PTY'){
@@ -275,9 +276,9 @@ $.ajax({
 		  	}
 			if(item.category == 'SKY'){
 				ch = item.fcstValue;
-				if(item.fcstValue =="1") nisky[1]+='맑음'
-				if(item.fcstValue =="3") nisky[1]+='구름 많음'
-				if(item.fcstValue =="4") nisky[1]+='흐림'
+				if(item.fcstValue =="1") nisky[1]+='(맑음)'
+				if(item.fcstValue =="3") nisky[1]+='(구름 많음)'
+				if(item.fcstValue =="4") nisky[1]+='(흐림)'
 			}
 			
 			if(item.category == 'PTY'){
@@ -310,9 +311,9 @@ $.ajax({
 		  	}
 			if(item.category == 'SKY'){
 				ch = item.fcstValue;
-				if(item.fcstValue =="1") nisky[2]+='맑음'
-				if(item.fcstValue =="3") nisky[2]+='구름 많음'
-				if(item.fcstValue =="4") nisky[2]+='흐림'
+				if(item.fcstValue =="1") nisky[2]+='(맑음)'
+				if(item.fcstValue =="3") nisky[2]+='(구름 많음)'
+				if(item.fcstValue =="4") nisky[2]+='(흐림)'
 			}
 			
 			if(item.category == 'PTY'){

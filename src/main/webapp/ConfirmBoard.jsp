@@ -101,7 +101,7 @@
 		
 		<c:otherwise>
 			<div id="ConfirmMain2">
-			<h4><i class="fa-regular fa-map"></i>지도</h4>
+				<h4><i class="fa-regular fa-map"></i>지도</h4>
 				<div id="Location">
 					<div class="tab">
 						<button id="tablinks1" class="tablinks" onclick="opendiv(event, 'myPosition')">현재위치 보기</button>

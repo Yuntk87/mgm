@@ -39,9 +39,9 @@ function enterKey() {
 }
 
 // 웹소켓 서버에 연결됐을 때 실행
-webSocket.onopen = function(event) {   
-    chatWindow.innerHTML += " 서버에 연결되었습니다.<br/>";
-};
+// webSocket.onopen = function(event) {   
+//     chatWindow.innerHTML += " 서버에 연결되었습니다.<br/>";
+// };
 
 // 웹소켓이 닫혔을 때(서버와의 연결이 끊겼을 때) 실행
 webSocket.onclose = function(event) {
@@ -76,14 +76,14 @@ webSocket.onmessage = function(event) {
 </head>
 
 <body>  
-	<!-- 대화창 UI 구조 정의 --> 
-      <input type="text" id="chatId" value="${ sessionScope.UserNickName }" readonly />
-   
-    <div id="chatWindow"></div>
-    <div>
-        <input type="text" id="chatMessage" onkeyup="enterKey();">
-        <button id="sendBtn" onclick="sendMessage();">전송</button>
-    </div>   
-     <button id="closeBtn" onclick="disconnect();">채팅 종료</button> 
+	<div id="chatBox">
+	      <input type="text" id="chatId" value="${ sessionScope.UserNickName }" readonly />
+	    <div id="chatWindow"></div>
+	    <div>
+	        <input type="text" id="chatMessage" onkeyup="enterKey();">
+	        <button id="sendBtn" onclick="sendMessage();">전송</button>
+		    <button id="closeBtn" onclick="disconnect();">채팅 종료</button> 
+	    </div>   
+    </div>
 </body>
 </html>
