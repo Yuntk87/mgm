@@ -122,7 +122,7 @@
 	  
 	</script>
 
-<div style="height: 600px;"></div>
+<div style="height: 1000px;"></div>
 
 <%@ include file="./Footer.jsp" %>
 </body>
