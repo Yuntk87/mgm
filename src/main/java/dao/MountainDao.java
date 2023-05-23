@@ -266,7 +266,7 @@ public class MountainDao extends JDBConnect{
 	public List<MountainDto> PopularList(){
 		ArrayList<MountainDto> mbl = new ArrayList<MountainDto>();
 		MountainDto m = null;
-		String query = "SELECT * FROM mountain_board ORDER BY m_recommend DESC LIMIT 10";
+		String query = "SELECT * FROM mountain_board ORDER BY m_recommend DESC LIMIT 9";
 		try {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(query);
@@ -287,5 +287,23 @@ public class MountainDao extends JDBConnect{
 			e.printStackTrace();
 		}
 		return mbl;
+	}
+	
+	public String PopularNameList(){
+		String res = "";
+		String query = "SELECT m_name FROM mountain_board ORDER BY m_recommend DESC LIMIT 9";
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+				res += rs.getString("m_name")+" ";
+			} System.out.println(res);
+		}
+		catch(Exception e) {
+			System.out.println("산 인기순 조회 중 오류 발생");
+			e.printStackTrace();
+		}
+		return res;
 	}
 }

@@ -164,6 +164,16 @@
             }
         });
         
+        var quickBox = $('.quick-menu');
+        var quick_top = 250; 
+        quickBox.css('top', $(window).height() );
+        $(document).ready(function(){
+        quickBox.animate( { "top": $(document).scrollTop() + quick_top +"px" },  100 );
+         $(window).scroll(function(){
+          quickBox.stop();
+          quickBox.animate( { "top": $(document).scrollTop() + quick_top + "px" }, 100 ); 
+         });
+        });
         
         var quickBox2 = $('.quick-btn'); 
         var quick_top2 = 120;

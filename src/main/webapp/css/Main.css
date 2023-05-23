@@ -203,3 +203,9 @@ font-size: 1.1rem;
 	width: 100%;
 }
 
+.content{
+	overflow : hidden;
+	width:500px;
+	height:600px;
+}
+
