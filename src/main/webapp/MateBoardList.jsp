@@ -128,6 +128,7 @@ $(".boardList tr").hover(function(){
 
 	});
 </script>
+<div style="height: 400px"></div> 
 <%@ include file="./Footer.jsp" %>
 </body>
 </html>

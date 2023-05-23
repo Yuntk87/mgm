@@ -38,8 +38,6 @@
     <div class="mySlides fade">
       <img src="https://images.unsplash.com/photo-1627894485229-ff2c619723e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" style="width:100%">
     </div>
-
-	
 </div>
 
  <div style="margin: 0 auto; text-align: center;"><i style="font-size: 16px;" class="fa-solid fa-window-minimize"></i></div>
