@@ -216,6 +216,18 @@ a.tab-link.is-active {
 .boox p{
 	font-size: 14px;
 }
+
+.danger{
+	color: white;
+    background-color: red;
+    border: 2px solid gray;
+    text-align: center;
+    height: 49px;
+    width: 101px;
+    border-radius: 14px;
+    margin-bottom: 13px;
+	
+}
 @font-face {
     font-family: 'TTWanjudaedunsancheB';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2') format('woff2');

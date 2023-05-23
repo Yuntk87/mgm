@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 
 <html lang="ko">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 <script src="./js/RegisterForm.js"></script>
 
 <script
@@ -314,8 +316,7 @@
 
 		<!-- Form -->
 
-		<form id="joinform" action="./register" method="post"
-			onsubmit="return joinform_check()">
+		<form id="joinform" action="./register" method="post">
 
 			<div class="email">
 
@@ -396,7 +397,7 @@
 
 			<div class="button_container">
 
-				<button class="bttn">
+				<button class="bttn" type="button" onclick="joinform_check()">
 					<span>join</span>
 				</button>
 
@@ -422,7 +423,88 @@
 		</div>
 		</div>
 <script>
+function joinform_check() {
+	  
+    var id = document.getElementById("email1");
+    var pwd = document.getElementById("password");
+    var pnumber = document.getElementById("pNumber");
+    var gender= document.getElementById("gender")
+    var postnumber = document.getElementById("sample4_postcode");
+    var roadaddress = document.getElementById("sample4_roadAddress");
+    var jibun = document.getElementById("sample4_jibunAddress");
+    var nname = document.getElementById("nname");
+    var agree = document.getElementById("agree");
+    var pwdCheck = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
 
+	
+	  let regx2 = /^([0-9]){6}$/  //숫자만 입력하는 정규식
+  
+    if (id.value == "") {
+        alert("이메일 주소를 입력하세요.");
+        id.focus();
+        return false;
+      }
+     
+  
+  
+    if (pwd.value == "") {
+      alert("비밀번호를 입력하세요.");
+      pwd.focus();
+      return false;
+    }
+  
+    //비밀번호 영문자+숫자+특수조합(8~25자리 입력) 정규식
+  
+   	if (!pwdCheck.test(pwd.value)) {
+      alert("비밀번호는 영문자+숫자+특수문자 조합으로 8~25자리 사용해야 합니다.");
+      pwd.value="";
+      pwd.focus();
+      return false;
+    }
+     
+  
+     if(pnumber.value==""){
+        alert("주민번호를 입력하세요.");
+        pnumber.focus();
+        return false;
+    }
+
+  
+	  let regx = /^([0-4]){1}$/  
+    if (!regx2.test(pnumber.value)) {
+    console.log("=========="+regx.test(pnumber.value))
+      alert("주민번호는 숫자만 입력할 수 있습니다.");
+      pnumber.focus();
+      return false;
+    }
+	
+	myalert();
+	
+  
+}
+      function myalert(){
+        
+    	 Swal.fire({
+            icon: 'success',
+            title: '회원가입이 완료되었습니다.',
+            text: '환영합니다😁'
+        }).then((result) => {
+        	console.log("-------------")
+                document.querySelector("#joinform").submit();
+        })
+
+    }
+      //이메일 옵션 선택후 주소 자동 완성
+      function changeemail() {
+        var email_add = document.getElementById("email1");
+        var email_sel = document.getElementById("email2");
+      
+        //지금 골라진 옵션의 순서와 값 구하기
+        var idx = email_sel.options.selectedIndex;
+        var val = email_sel.options[idx].value;
+      
+        email_add.value = val;
+      }
 //닉네임 중복체크
 $("#nickNameChk").click(function() {
 	let nickName = $("#nname").val();
@@ -451,7 +533,13 @@ $("#nickNameChk").click(function() {
         error: function(request, status, error){ alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error) } // 에러가 발생했을 때, 호출될 함수
     }); // $.ajax()
 });
+
+
+
+
+
 </script>
+
 </body>
 
 </html>
