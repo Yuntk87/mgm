@@ -16,9 +16,8 @@ position: relative;
 }
 
 #wrapper{
-  height: auto;
-  min-height: 100%;
-  padding-bottom: 200px;
+ 
+  width: 100%;
 }
 
 
@@ -122,6 +121,10 @@ border:none;
 color: white;
 font-size: 24px;
 }
+.image1-box-btn a {
+	text-decoration: none;
+	color: white;
+}
 .image1-box-btn:hover {
 background-color: #0CD1E4;
 transition: all 1s;
@@ -154,3 +157,49 @@ font-size: 1.1rem;
 }
 
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+
+
+
+
+.popula_container {
+  position: relative;
+  width: 100%;
+  margin: 10px;
+  max-width: 500px;
+}
+
+.popula_image {
+  display: block;
+  width: 100%;
+  height: 600px;
+
+}
+
+.popula_overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); 
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  
+}
+
+.popula_container:hover .popula_overlay {
+  opacity: 1;
+}
+.popula_box {
+	display: flex;
+	flex-wrap: wrap;  
+    justify-content: center;
+	margin: 0 auto;
+	width: 100%;
+}
+
