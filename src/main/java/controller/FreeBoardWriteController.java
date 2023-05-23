@@ -47,7 +47,7 @@ public class FreeBoardWriteController extends HttpServlet{
 				System.out.println(category);
 				
 				FreeBoardDao dao = new FreeBoardDao(req.getServletContext());
-				FreeBoardDto dto = new FreeBoardDto(category, nickName, title, content);
+				FreeBoardDto dto = new FreeBoardDto(category, id, title, content, nickName);
 				System.out.println(dto);
 				int res = dao.insertWrite(dto);
 				
