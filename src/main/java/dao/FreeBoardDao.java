@@ -18,7 +18,7 @@ public class FreeBoardDao extends JDBConnect{
 
 	 public int insertWrite(FreeBoardDto dto) {
 		int res = 0;
-		String sql ="INSERT INTO free_board (category, id, title, content) VALUES (?, ?, ?, ?)";
+		String sql ="INSERT INTO free_board (category, id, title, content,nickName) VALUES (?, ?, ?, ?, ?)";
 		
 		try {
 			psmt = con.prepareStatement(sql);
@@ -26,6 +26,7 @@ public class FreeBoardDao extends JDBConnect{
 			psmt.setString(2,dto.getId());
 			psmt.setString(3, dto.getTitle());
 			psmt.setString(4, dto.getContent());
+			psmt.setString(5, dto.getNickName());
 			res = psmt.executeUpdate(); 
 		}
 			catch(SQLException e) { 
@@ -53,6 +54,7 @@ public class FreeBoardDao extends JDBConnect{
 					dto.setFbnum(rs.getInt("fb_num"));
 					dto.setCategory(rs.getString("category"));
 					dto.setId(rs.getString("id"));
+					dto.setNickName(rs.getString("nickName"));
 					dto.setTitle(rs.getString("title"));
 					dto.setContent(rs.getString("content"));
 					dto.setPostDate(rs.getTimestamp("postDate"));
@@ -176,6 +178,7 @@ public class FreeBoardDao extends JDBConnect{
 				dto.setFbnum(rs.getInt("fb_num"));
 				dto.setCategory(rs.getString("category"));
 				dto.setId(rs.getString("id"));
+				dto.setNickName(rs.getString("nickName"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
 				dto.setPostDate(rs.getTimestamp("postDate"));
@@ -207,6 +210,7 @@ public class FreeBoardDao extends JDBConnect{
 				dto.setFbnum(rs.getInt("fb_num"));
 				dto.setCategory(rs.getString("category"));
 				dto.setId(rs.getString("id"));
+				dto.setNickName(rs.getString("nickName"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
 				dto.setPostDate(rs.getTimestamp("postDate"));

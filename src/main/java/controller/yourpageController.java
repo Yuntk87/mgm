@@ -26,7 +26,7 @@ public class yourpageController extends HttpServlet  {
 		UserDto dto = dao.selectUser(id);
 		req.setAttribute("uto", dto);
 		
-		
+		System.out.println("uto : " + dto);
 		FreeBoardDao fdao = new FreeBoardDao(getServletContext());
 		List<FreeBoardDto> boardLists = fdao.selectListmp(id);
 		req.setAttribute("boardLists", boardLists);
