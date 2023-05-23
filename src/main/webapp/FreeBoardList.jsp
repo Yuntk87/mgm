@@ -121,7 +121,7 @@
 	  });
 	  
 	</script>
-
+<div style="height: 600px;"></div>
 <%@ include file="./Footer.jsp" %>
 </body>
 </html>
