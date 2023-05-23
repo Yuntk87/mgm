@@ -6,6 +6,13 @@ public class FreeBoardDto {
 	private int fbnum;
 	private String category;
 	private String id;
+	private String nickName;
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
 	private String title;
 	private String content;
 	private Date postDate;
@@ -74,14 +81,25 @@ public class FreeBoardDto {
 		this.title = title;
 		this.content = content;
 	}
-	
-	public FreeBoardDto(int fbnum, String category, String title, String content) {
+	public FreeBoardDto(String category, String id, String title, String content, String nickName) {
+		super();
+		this.category = category;
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.nickName = nickName;
+	}	
+	public FreeBoardDto(int fbnum, String category, String title, String content, String id, String nickName) {
 		super();
 		this.fbnum = fbnum;
 		this.category = category;
 		this.id = id;
 		this.title = title;
 		this.content = content;
+		this.nickName = nickName;
+	}
+	public FreeBoardDto(int fbnum, String category, String title, String content) {
+		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public String toString() {

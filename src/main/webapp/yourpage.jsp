@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/yourpage.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-    <title>mypage</title>
+    <title>yourpage</title>
 
 
 
@@ -22,12 +22,22 @@
 <body>
     <%@ include file="Navi.jsp" %>
  <div class="mypage">
+ 
+ 
     <h1>${uto.id} Page</h1>
     <h3>${uto.id}페이지</h3>
  </div>
     <div class="main1">
         <div id="userImg">
-        	<img src="./imges/${uto.level}.jpg">
+        
+ <c:choose>
+<c:when test="${uto==null}"> 
+<img src="./img/nno.jpg" style="width:300px; height:300px;">
+</c:when>
+<c:otherwise> <img src="./img/${uto.level}.jpg" >
+ </c:otherwise>
+</c:choose>
+        
        	</div>
        	<div id="info">
        	 	${uto.id}님 정보입니다.<br>
@@ -41,10 +51,11 @@
          </ul>   
         </div>
 	</div>
+	<h1>게시판에 작성한글</h1>
+   
  <div class="box-wrap">
    <div class="box">
-     <p>작성한글</p>
-   
+     
 <c:forEach var="board" items="${boardLists}">
 <ul>
  
