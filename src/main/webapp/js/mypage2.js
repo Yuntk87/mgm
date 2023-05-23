@@ -19,3 +19,19 @@ $(document).ready(function () {
   });
 });
 
+$('.danger').click(function(){
+  
+  swal({
+  title: '정말탈퇴하시겠습니까?',
+  text: "가입하신모든정보가 삭제됩니다",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: '탈퇴하기'
+}).then(function() {
+	location.href="./user?mode=Withdrawal"
+  
+})
+  
+})
