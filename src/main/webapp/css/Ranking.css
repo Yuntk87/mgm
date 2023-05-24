@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+#rankingMain {
+	width:300px;
+	height:300px;
+	margin: 0 auto;
+	margin-top: 50px;
+	padding:0;
+	position: relative;
+}
+   #rankingMain a {
+   	text-decoration: none;
+   	color: black;
+   }
+   #rankingMain li {
+   	list-style:none;
+   	padding:0;
+   	width:100%;
+   }
+   .rbox ul:nth-child(-n+4) {
+	background: rgba(205, 205, 235, 0.3);
+   }  
+   .rNum {
+   	margin-right:60px;
+   }
+   .small {
+   	margin-left:60px;
+   }
+  	.rbox {
+  		display: none;
+  		text-align:center;
+  		width:300px;
+  		margin:0 auto;
+  	}
+  	.small {
+  		font-size: 8px;
+  		color:darkgray;
+  	}
+  	.rInfo {
+  		margin: 0 auto;
+  		padding: 10px 30px 10px 30px;
+  		border-radius: 5px;
+  		transition: all 0.5s ease;
+  	}
+  	.rInfo:hover {
+	transform: scale( 2.0 );
+  		transform: rotateX( 360deg );
+  		box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.3);
+  	}
+   	
+#rankingMain .prev, #rankingMain .next {
+  cursor: pointer;
+  position: absolute;
+  top: -20px;
+  width: auto;
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+#rankingMain .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+#rankingMain .prev:hover, #rankingMain .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.rfade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+
