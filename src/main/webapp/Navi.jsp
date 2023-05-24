@@ -165,7 +165,7 @@
         });
         
         var quickBox = $('.quick-menu');
-        var quick_top = 250; 
+        var quick_top = 150; 
         quickBox.css('top', $(window).height() );
         $(document).ready(function(){
         quickBox.animate( { "top": $(document).scrollTop() + quick_top +"px" },  100 );
@@ -176,7 +176,7 @@
         });
         
         var quickBox2 = $('.quick-btn'); 
-        var quick_top2 = 120;
+        var quick_top2 = 330;
         quickBox2.css('top', $(window).height() );
         $(document).ready(function(){
         quickBox2.animate( { "top": $(document).scrollTop() + quick_top2 +"px" },  100 ); 
@@ -187,9 +187,12 @@
         });
 
         let slide = document.querySelector('.quick-menu');
+        let qbtn = document.querySelector('.quick-btn');
         function showHide() {
           if(slide.style.display=='none') {
             slide.style.display = 'flex';
+            qbtn.style.right="80px";
+            qbtn.innerHTML = ""
 
           } else {
             slide.style.display = 'none';
