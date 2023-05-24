@@ -160,7 +160,14 @@ font-size: 1.1rem;
 
 
 
-
+.popula_box {
+	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 0 auto;
+	width: 100%;
+}
 
 .popula_container {
   position: relative;
@@ -187,25 +194,11 @@ font-size: 1.1rem;
   opacity:0;
   color: white;
   font-size: 20px;
-  padding: 20px;
+  padding: 30px;
   text-align: center;
-  
 }
 
 .popula_container:hover .popula_overlay {
   opacity: 1;
-}
-.popula_box {
-	display: flex;
-	flex-wrap: wrap;  
-    justify-content: center;
-	margin: 0 auto;
-	width: 100%;
-}
-
-.content{
-	overflow : hidden;
-	width:500px;
-	height:600px;
 }
 
