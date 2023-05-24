@@ -19,9 +19,6 @@
 <%
 	ServletContext sc = getServletContext();
 	MountainDao dao = new MountainDao(sc);
-	List<MountainDto> PopularList = dao.PopularList2();
-	String res = dao.PopularNameList2();
-	request.setAttribute("res", res);
 	dao.close();
 %>
 <body>
