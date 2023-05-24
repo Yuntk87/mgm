@@ -64,7 +64,7 @@ public class MateBoardWriteController extends HttpServlet{
 					}				
 				}
 				MateBoardDao dao = new MateBoardDao(req.getServletContext());
-				MateBoardDto dto = new MateBoardDto(m_num, nickName, title, content, dDay, limit);
+				MateBoardDto dto = new MateBoardDto(m_num, id, title, content, dDay, limit, nickName);
 				System.out.println(dto);
 				
 				int res = dao.insertMateBoard(dto);

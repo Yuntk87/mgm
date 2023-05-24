@@ -70,7 +70,7 @@
 						</tr>
 						<tr class="last">
 							<td width="4%;"><img style="width:50%;" src="https://img.icons8.com/?size=512&id=12438&format=png"></td>
-							<td colspan="2" width="15%" style="text-align:left; font-size:15px; cursor:pointer;" onClick="location.href='/mgm1/yourpage?id=${b.id}'">${b.nickName }</td>
+							<td colspan="2" width="15%" style="text-align:left; font-size:15px; cursor:pointer;" onClick="location.href='./yourpage?id=${b.id}'">${b.nickName }</td>
 							<td width="3%"><img style="width:70%;" src="https://img.icons8.com/?size=512&id=lJUgtSWOeJR9&format=png"></td>
 							<td width="3%;" style="text-align:left;">${b.viewCount }</td>
 							<td width="6%;"><img style="width:33%;" src="https://img.icons8.com/?size=512&id=38977&format=png"> ${b.c_count }</td>
