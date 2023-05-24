@@ -45,7 +45,7 @@
         		<c:otherwise>
         			<c:forEach var="dto" items="${ mountainList }">
         				<div class="card">
-                            <a href="#"><img class="img"></a>
+                            <a href="#"><img class="mimg"></a>
                             <h3 class="card-title"><i class="fa-solid fa-mountain"></i> : ${dto.m_name} </h3>
                             <p class="card-text"><i class="fa-solid fa-location-dot"></i> : ${dto.m_addr_1} ${dto.m_addr_2 }</p>
                             <p class="card-text"><i class="fa-solid fa-person-hiking"></i> : ${dto.level }</p>
@@ -86,10 +86,11 @@
 
 
     <script>
-        const images = ["mountain", "rocky mountains", "hill", "hanla mountain", "hiking", "mont blanc", "fuji mountain", "annapurna", "trekking", "Mount Everest"];
-        for(let i =1; i<document.getElementsByClassName('img').length; i++){
-            document.getElementsByClassName('img')[i].src = "https://source.unsplash.com/random/300x300/?"+images[i]
-        }
+    const images = ["mountain", "rocky mountains", "hill", "hanla mountain", "hiking", "mont blanc", "fuji mountain", "annapurna", "trekking", "Mount Everest"];
+    
+    for(let i =0; i<document.getElementsByClassName('mimg').length; i++){
+        document.getElementsByClassName('mimg')[i].src = "https://source.unsplash.com/random/300x300/?"+images[i]
+    }
         
         
     
