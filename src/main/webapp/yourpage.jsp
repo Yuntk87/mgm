@@ -29,6 +29,7 @@
  </div>
     <div class="main1">
         <div id="userImg">
+
         
  <c:choose>
 <c:when test="${uto==null}"> 
@@ -38,6 +39,8 @@
  </c:otherwise>
 </c:choose>
         
+
+
        	</div>
        	<div id="info">
        	 	${uto.id}님 정보입니다.<br>
