@@ -2,10 +2,9 @@
 body {
     font-family: "Century Gothic", "Lato", sans-serif;
 }
-ul,
-ol {
-  margin-top: 0;
-  margin-bottom: 10px;
+.navi_menu {
+	margin-top: 16px;
+	margin-bottom: 16px;
 }
   
 span>a{
