@@ -13,21 +13,21 @@ span>a{
 	color:black;
 }
  
-   h1 {
+  .mypage h1 {
    
     font-size: 2rem;
     margin: 0;
     letter-spacing: 1rem;
     text-align: center;
   }
-  h3 {
+   .mypage h3 {
     font-size: 1rem;
     letter-spacing: 0.3rem;
     opacity: 0.6;
     text-align: center;
   }
   
-  img, #userImg{
+ #userImg img {
     width: 260px;
     height: 440px;
   }
@@ -197,8 +197,22 @@ a.tab-link.is-active {
   box-shadow:0 2px 3px 0px rgba(0,0,0,0.25);
   border-radius:3px;
   transition:.2s all; 
-  overflow: auto;
+   overflow-y: scroll;
 }
+
+.boox::-webkit-scrollbar {
+    width: 8px;  /* 스크롤바의 너비 */
+}
+
+.boox::-webkit-scrollbar-thumb {
+    height: 10%; /* 스크롤바의 길이 */
+    background: #d6d6d6; /* 스크롤바의 색상 */
+    
+    border-radius: 10px;
+}
+
+
+
 .box-wrap:hover .boox{
   filter:blur(3px);
   opacity:.5;

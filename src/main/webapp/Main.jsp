@@ -60,7 +60,7 @@
         등산이 점점 좋아집니다. <br><br>
         MGM과 함께 <br><br>
         <button type="button" class="image1-box-btn"><a href="HomepageIntroduction.jsp">VIEW MORE</a></button><br><br>
-        <img src="img/그림4.png" width="600px" height="250px" alt="">
+        <img src="img/team.jpg" width="700px" height="250px" alt="">
         
       </h2>
     </div>
