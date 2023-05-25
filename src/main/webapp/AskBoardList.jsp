@@ -14,10 +14,10 @@
 <body>
 	<%@ include file="Navi.jsp" %>
     <h2>Q&A</h2>
-	<div id="all" style="width: 70%; margin: 0 auto; margin-top:70px;">
+	<div id="all" style="width: 65%; margin: 0 auto; margin-top:70px;">
 		
 		<form id="search_form">
-			<div class="topTable">
+			<div class="topTable" <c:if test="${sessionScope.UserId != null && sessionScope.UserId != 'admin'}"> style="display:block;" </c:if>>
 				<c:if test="${sessionScope.UserId != null && sessionScope.UserId eq 'admin'}">
 					<div class="sh">
 						<select name="searchField">
@@ -63,6 +63,7 @@
 							<c:forEach items="${boardLists }" var="b">
 							<div <c:if test="${b.a_count eq 0 }"> class="no" </c:if> <c:if test="${b.a_count != 0 }"> class="yes" </c:if>>
 								<input type="hidden" name="num" value="${b.ask_num }">
+								<input type="hidden" name="num" value="${b.id }">
 									<div class="me">
 										<c:choose>
 											<c:when test="${b.a_count eq 0 }">
@@ -73,7 +74,7 @@
 											</c:otherwise>
 										</c:choose>
 										<div class="tt"><a href="#" class="tit" id ="${b.ask_num }" >${b.title }</a></div>
-										<div class="writer">${b.id }</div>
+										<div class="writer">${b.nickName }</div>
 										<div class="askdate"><fmt:formatDate value="${b.postDate }" type="time" pattern="yyyy-MM-dd" /></div>
 										<div class="del"><button class="deel" type="button" onclick="deletePost('./AskBoardDelete?num=${b.ask_num }')">삭제하기</button></div>
 									</div>
@@ -81,7 +82,9 @@
 										<div class="askcon">
 										<p>${b.content }</p>
 											<c:if test="${sessionScope.UserId != null && sessionScope.UserId eq 'admin'}">
-												<button class="reBttn" type="button" onclick="location.href='./AskCommentWrite?ask_num=${b.ask_num}'">답변하기</button>
+												<div class="write-btn">
+													<button class="reBttn" type="button" onclick="location.href='./AskCommentWrite?ask_num=${b.ask_num}'">답변하기</button>
+												</div>
 											</c:if>
 										</div>
 										<div class="commentAll">
@@ -93,7 +96,7 @@
 						</div>
 						<c:if test="${sessionScope.UserId != null && sessionScope.UserId != 'admin'}">
 							<div class="write-btn">
-								<button type="button" onclick="location.href='./AskBoardWrite${ph.sc.getQueryString(ph.sc.page) }'">문의하기</button>
+								<button class="wrBttn" type="button" onclick="location.href='./AskBoardWrite${ph.sc.getQueryString(ph.sc.page) }'">문의하기</button>
 							</div>
 						</c:if>
 						<div id="pg">
@@ -198,7 +201,7 @@
 			tmp += ' data-ask_num=' + comment.ask_num + '>'
 			tmp += '<div class="comTop" style="margin-top:20px;"><span class="commenter"> 담당자 : ' + comment.commenter + '</span>'
 			tmp += '<span class="c_postDate"> ' + comment.c_postDate + '</span></div>'
-			tmp += '<p class="comment"> ' + comment.comment + '</p>'
+			tmp += '<div class="comment"> ' + comment.comment + '</div>'
 			if(comment.commenter == "${sessionScope.UserId}" || "admin" == ("${sessionScope.UserId}")) {
 				tmp += '<div class="commentButton"><button class="modBtnb">수정</button>'
 				tmp += '<button class="delBtn">삭제</button></div>'

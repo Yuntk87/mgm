@@ -36,7 +36,7 @@
 				</div>
 			</div>
 			<div class="schedule">
-				<div>
+				<div style="line-height:28px;">
 					<fmt:formatDate value="${dto.dDay }" type="both" pattern="yyyy-MM-dd hh:mm:ss" var="dDay"/>
 					
 					<i class="fa-solid fa-calendar-days"></i> &nbsp;&nbsp;&nbsp; <b>장소 :</b> ${dto.m_name } &nbsp;&nbsp;&nbsp;&nbsp; <b>예정일 :</b> &nbsp;&nbsp;<span id="dDay">${dDay }</span>  &nbsp;&nbsp;&nbsp;&nbsp; <b>제한 인원 : </b>&nbsp;&nbsp;${dto.mateLimit } &nbsp;/&nbsp; <span id="cnt">${cnt }
@@ -44,17 +44,17 @@
 				<div class="btnDiv">
 					<c:choose>
 						<c:when test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id || sessionScope.UserId eq 'admin'}">
-							<button type="button" class="myButton" onclick="location.href='./MateBoardEdit${sc.getQueryString(param.page) }&num=${dto.mate_num }&mName=${dto.m_name }'">수정하기</button>
-							<button type="button" class="myButton" onclick="deletePost()">삭제하기</button>
+							<button type="button" class="boButton" onclick="location.href='./MateBoardEdit${sc.getQueryString(param.page) }&num=${dto.mate_num }&mName=${dto.m_name }'">수정하기</button>
+							<button type="button" class="boButton" onclick="deletePost()">삭제하기</button>
 						</c:when>
 						<c:when test="${mdto != null}">
-							<button id="joinBtn" type="button" class="myButton" type="button" >참가취소</button>
+							<button id="joinBtn" type="button" class="boButton" type="button" >참가취소</button>
 						</c:when>
 						<c:when test="${dto.mateLimit eq cnt}">
-							<button id="joinBtn" type="button" class="myButton" type="button" disabled>참가불가</button>
+							<button id="joinBtn" type="button" class="boButton" type="button" disabled>참가불가</button>
 						</c:when>
 						<c:otherwise>
-							<button id="joinBtn" type="button" class="myButton" type="button" >참가하기</button>
+							<button id="joinBtn" type="button" class="boButton" type="button" >참가하기</button>
 						</c:otherwise>
 					</c:choose>		
 				</div>

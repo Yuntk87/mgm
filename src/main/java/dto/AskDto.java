@@ -5,6 +5,8 @@ import java.util.Date;
 public class AskDto {
 	private int ask_num;
 	private String id;
+	private String nickName;
+	
 	private String title;
 	private String content;
 	private Date postDate;
@@ -68,20 +70,28 @@ public class AskDto {
 	public void setC_postDate(Date c_postDate) {
 		this.c_postDate = c_postDate;
 	}
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+	
 	public AskDto() {
 		super();
 	}
 	
-	public AskDto(String id, String title, String content) {
+	public AskDto(String id, String title, String content, String nickName) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
+		this.nickName = nickName;
 	}
 	@Override
 	public String toString() {
 		return "AskDto [ask_num=" + ask_num + ", id=" + id + ", title=" + title + ", content=" + content + ", postDate="
-				+ postDate + ", a_count=" + a_count + "]";
+				+ postDate + ", a_count=" + a_count + ", nickName=" + nickName + "]";
 	}
 	
 	

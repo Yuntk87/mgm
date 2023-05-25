@@ -67,7 +67,6 @@ public class FreeBoardUpdateController extends HttpServlet{
 			FreeBoardDao dao = new FreeBoardDao(req.getServletContext());
 			FreeBoardDto dto = new FreeBoardDto(fbnum, category, title, content);
 			dao.updateEdit(dto);
-			
 			resp.sendRedirect("./FreeBoardList");
 			dao.close();
 	}

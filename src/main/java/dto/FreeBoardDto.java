@@ -99,7 +99,11 @@ public class FreeBoardDto {
 		this.nickName = nickName;
 	}
 	public FreeBoardDto(int fbnum, String category, String title, String content) {
-		// TODO Auto-generated constructor stub
+		super();
+		this.fbnum = fbnum;
+		this.category = category;
+		this.title = title;
+		this.content = content;
 	}
 	@Override
 	public String toString() {

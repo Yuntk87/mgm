@@ -53,27 +53,27 @@
 				<c:otherwise>
 					<c:forEach items="${boardLists }" var="b">
 						<tr style="border-top:1px solid darkgray;">
-							<td width="4%;" style="font-size:14px;">${b.fbnum }.</td>
-							<td width="5%;"style="font-size:15px;">${b.category }</td>
-							<td></td>
-							<td rowspan="2" style="font-size:20px;"><a class="link" href='./FreeBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.fbnum }'>${b.title }</a></td>
+							<td width="4%;">${b.fbnum }.</td>
+							<td width="10%;">${b.category }</td>
+							<td rowspan="2" style="font-size:18px; height:55px;"><a class="link" href='./FreeBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.fbnum }'>${b.title }</a></td>
 							<fmt:formatDate value="${today }" type="date" pattern="yyyy-MM-dd" var="now"/>
 							<fmt:formatDate value="${b.postDate }" type="date" pattern="yyyy-MM-dd" var="post"/>
 							<c:choose>
 								<c:when test="${now eq post }">
-									<td width="15%;" colspan="3" style="font-size:15px;"><fmt:formatDate value="${b.postDate }" type="time" pattern="HH:mm" /></td>
+									<td colspan="4"><fmt:formatDate value="${b.postDate }" type="time" pattern="HH:mm" /></td>
 								</c:when>
 								<c:otherwise>
-									<td width="15%;" colspan="3" style="font-size:15px;">${post }</td>
+									<td colspan="4">${post }</td>
 								</c:otherwise>
 							</c:choose>
 						</tr>
 						<tr class="last">
-							<td width="4%;"><img style="width:50%;" src="https://img.icons8.com/?size=512&id=12438&format=png"></td>
-							<td colspan="2" width="15%" style="text-align:left; font-size:15px; cursor:pointer;" onClick="location.href='/mgm1/yourpage?id=${b.id}'">${b.nickName }</td>
+							<td width="3%;"><img style="width:50%;" src="https://img.icons8.com/?size=512&id=12438&format=png"></td>
+							<td width="3%" style="cursor:pointer;" onClick="location.href='./yourpage?id=${b.id}'">${b.nickName }</td>
 							<td width="3%"><img style="width:70%;" src="https://img.icons8.com/?size=512&id=lJUgtSWOeJR9&format=png"></td>
-							<td width="3%;" style="text-align:left;">${b.viewCount }</td>
-							<td width="6%;"><img style="width:33%;" src="https://img.icons8.com/?size=512&id=38977&format=png"> ${b.c_count }</td>
+							<td width="3%;">${b.viewCount }</td>
+							<td width="3%;"><img style="width:67%;" src="https://img.icons8.com/?size=512&id=38977&format=png"></td>
+							<td width="3%;">${b.c_count }</td>
 						</tr>
 					</c:forEach>
 						<tr class="page_bar">
@@ -122,7 +122,7 @@
 	  
 	</script>
 
-<div style="height: 1000px;"></div>
+<div style="height: 400px;"></div>
 
 <%@ include file="./Footer.jsp" %>
 </body>

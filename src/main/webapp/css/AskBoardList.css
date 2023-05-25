@@ -37,10 +37,10 @@ h2{
 	width:100px;
 }
 .writer{
-	width:150px;
+	width:120px;
 }
 .tt{
-	width:500px;
+	width:700px;
 	text-align:left;
 	margin-left: 20px;
 }
@@ -61,7 +61,7 @@ h2{
 }
 .reply{
 	display:none;
-	padding-left:111px;
+	padding-left:137px;
 	font-size:14px;
 	border-top:1px solid #eaeced;
 	background-color:#f7f8fa;
@@ -73,6 +73,7 @@ h2{
 }
 .askcon p{
 	margin:0;
+	font-size: 12px;
 }
 .one{
 	display:block;
@@ -89,7 +90,7 @@ select{
 	justify-content:space-between;
 	text-align:right;
 	height:80px;
-	padding: 0 8px 0 218px;
+	padding: 0 8px 0 153px;
 	margin-bottom: 70px;
 }
 .i-con {
@@ -127,6 +128,20 @@ select{
     text-align: right; 
 	margin: 10px 10px 10px 0;
 }
+.wrBttn{
+	background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    font-size: 12px;
+    width: 70px;
+    height: 25px;
+    cursor: pointer;
+}
+.wrBttn:hover{
+	background-color:darkgray;
+	border-color:darkgray;
+	color:white;
+}
 
 a{
 	color:black;
@@ -136,8 +151,6 @@ a:hover{
 	font-weight:bold;
 }
 .reBttn{
-	float:right;
-	margin-right:10px;
 	background: transparent;
     border: 1px solid #ccc;
     border-radius: 50px;
@@ -182,6 +195,7 @@ a:hover{
 		text-align: justify;
 		min-height:100px;
 		margin: 0;
+		padding-bottom: 10px;
 	}
 	.commentButton{
 		text-align:right;
