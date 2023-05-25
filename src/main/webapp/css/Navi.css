@@ -170,7 +170,7 @@ ul {
     border: 1px solid #888;
     border-radius:10px;
   	overflow-y:auto;
-  	width:50%;
+  	width:30%;
     /* Could be more or less, depending on screen size */
 }
 /* The Close Button */
