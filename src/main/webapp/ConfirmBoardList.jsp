@@ -9,14 +9,14 @@
 <title>ConfirmBoardList</title>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   
    <script src="https://kit.fontawesome.com/09e1bc70db.js" crossorigin="anonymous"></script>
-   <link rel="stylesheet" href="./css/ConfirmBoardList.css?v=1">
+   <link rel="stylesheet" href="./css/ConfirmBoardList.css">
    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 
 <body>
-	<div id="all" style="width: 100%; margin: 0 auto; margin-top: 85px;">
+<%@ include file="./AdminNavi.jsp" %>
+	<div id="confirmListBox">
 		<form id="search_form">
 			<select name="searchField">
 				<option value="id" ${param.searchField eq 'id'? "selected" : "" }>아이디</option>
@@ -69,13 +69,13 @@
 		</table>
 		<div id="pg">
 			<c:if test="${ph.showPrev }">
-				<a href="<c:url value='/admin${ph.sc.getQueryString(ph.beginPage-1) }' />">&laquo;</a>
+				<a href="<c:url value='/ConfirmBoardList${ph.sc.getQueryString(ph.beginPage-1) }' />">&laquo;</a>
 			</c:if>
 			<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }">
-				<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='/admin${ph.sc.getQueryString(i) }' />">${i }</a>
+				<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='/ConfirmBoardList${ph.sc.getQueryString(i) }' />">${i }</a>
 			</c:forEach>
 			<c:if test="${ph.showNext }">
-				<a href="<c:url value='/admin${ph.sc.getQueryString(ph.endPage+1) }' />">&raquo;</a>
+				<a href="<c:url value='/ConfirmBoardList${ph.sc.getQueryString(ph.endPage+1) }' />">&raquo;</a>
 			</c:if>
 		</div>
 	</div>
