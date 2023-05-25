@@ -32,11 +32,12 @@ public class AskBoardWriteController extends HttpServlet{
 
 			HttpSession session = req.getSession();
 			String id = (String)session.getAttribute("UserId");
+			String nickName = (String)session.getAttribute("UserNickName");
 			String title = req.getParameter("title");
 			String content = req.getParameter("content");
 			
 			AskDao dao = new AskDao(req.getServletContext());
-			AskDto dto = new AskDto(id, title, content);
+			AskDto dto = new AskDto(id, title, content, nickName);
 			System.out.println(dto);
 			int res = dao.insertWrite(dto);
 			

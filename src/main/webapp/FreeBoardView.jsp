@@ -31,7 +31,7 @@
 			</div>
 			<div class="profile">
 				<div class="profile1">
-<!-- 						<img src="https://cdn-icons-png.flaticon.com/128/6020/6020006.png"> -->
+						<img src="https://cdn-icons-png.flaticon.com/128/6020/6020006.png">
 						<span class="nickName" style="cursor:pointer;" onClick="location.href='./yourpage?id=${dto.id}'">${dto.nickName }</span>
 						<span class="lv">Lv.${udto.level }</span>
 						<fmt:formatDate value="${dto.postDate }" type="both" pattern="yyyy-MM-dd hh:mm" var="post"/>
@@ -40,8 +40,8 @@
 				<div class="btnDiv">
 					<c:choose>
 						<c:when test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id || sessionScope.UserId eq 'admin'}">
-							<button type="button" class="myButton" onclick="location.href='./FreeBoardEdit${sc.getQueryString(param.page) }&num=${dto.fbnum }'">수정하기</button>
-							<button type="button" class="myButton" onclick="deletePost()">삭제하기</button>
+							<button type="button" class="boButton" onclick="location.href='./FreeBoardEdit${sc.getQueryString(param.page) }&num=${dto.fbnum }'">수정하기</button>
+							<button type="button" class="boButton" onclick="deletePost()">삭제하기</button>
 						</c:when>
 					</c:choose>		
 				</div>

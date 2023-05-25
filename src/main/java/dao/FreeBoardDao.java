@@ -18,7 +18,7 @@ public class FreeBoardDao extends JDBConnect{
 
 	 public int insertWrite(FreeBoardDto dto) {
 		int res = 0;
-		String sql ="INSERT INTO free_board (category, id, title, content,nickName) VALUES (?, ?, ?, ?, ?)";
+		String sql ="INSERT INTO free_board (category, id, title, content, nickName) VALUES (?, ?, ?, ?, ?)";
 		
 		try {
 			psmt = con.prepareStatement(sql);
