@@ -65,7 +65,7 @@
 						</tr>
 						<tr class="last">
 							<td width="3%"><img style="width:50%;" src="https://img.icons8.com/?size=512&id=12438&format=png"></td>
-							<td width="3%" onClick="location.href='./yourpage?id=${b.id}'">${b.nickName }</td>
+							<td width="3%" onClick="location.href='./yourpage?id=${b.id}'" style="cursor:pointer;">${b.nickName }</td>
 							<td width="3%"><img style="width:70%;" src="https://img.icons8.com/?size=512&id=lJUgtSWOeJR9&format=png"></td>
 							<td width="3%">${b.viewCount }</td>
 							<td width="3%"><img style="width:33%;" src="https://img.icons8.com/?size=512&id=38977&format=png"></td>
