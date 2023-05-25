@@ -54,7 +54,7 @@
 	<h1>게시판에 작성한글</h1>
    
  <div class="box-wrap">
-   <div class="box">
+   <div class="boxx">
      
 <c:forEach var="board" items="${boardLists}">
 <ul>

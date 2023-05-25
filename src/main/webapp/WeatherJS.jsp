@@ -1,3 +1,5 @@
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="java.time.DayOfWeek"%>
 <%@page import="java.util.Locale"%>
 <%@page import="java.util.GregorianCalendar"%>
 <%@page import="java.util.Calendar"%>
@@ -11,7 +13,9 @@
 	SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMdd");
 	SimpleDateFormat sdf2 = new SimpleDateFormat("MM.dd");
 	
-	String titleDate = sdf1.format(today);
+    String[] week = {"일","월","화","수","목","금","토"};
+	
+    String titleDate = sdf1.format(today);
 	
 	Date day = null;
 	try {
@@ -20,6 +24,9 @@
 		e.printStackTrace();
 	}
 	String nowDate = sdf2.format(today);
+	Calendar cal0 = Calendar.getInstance();
+	cal0.setTime(today);
+	String yo0 = week[cal0.get(Calendar.DAY_OF_WEEK)-1];
 	
 	Calendar cal1 = new GregorianCalendar(Locale.KOREA);
 	cal1.setTime(day);
@@ -27,53 +34,62 @@
 	String tomorrow = sdf1.format(cal1.getTime());
 	String day1 = sdf2.format(cal1.getTime());
 	String day11 = sdf2.format(cal1.getFirstDayOfWeek());
-	
+	String yo1 = week[cal1.get(Calendar.DAY_OF_WEEK)-1];
 	
 	Calendar cal2 = new GregorianCalendar(Locale.KOREA);
 	cal2.setTime(day);
 	cal2.add(Calendar.DATE,2);
 	String after = sdf1.format(cal2.getTime());
 	String day2 = sdf2.format(cal2.getTime());
+	String yo2 = week[cal2.get(Calendar.DAY_OF_WEEK)-1];
 	
 	Calendar cal3 = new GregorianCalendar(Locale.KOREA);
 	cal3.setTime(day);
 	cal3.add(Calendar.DATE,3);
 	String day3 = sdf2.format(cal3.getTime());
+	String yo3 = week[cal3.get(Calendar.DAY_OF_WEEK)-1];
 
 	Calendar cal4 = new GregorianCalendar(Locale.KOREA);
 	cal4.setTime(day);
 	cal4.add(Calendar.DATE,4);
 	String day4 = sdf2.format(cal4.getTime());
+	String yo4 = week[cal4.get(Calendar.DAY_OF_WEEK)-1];
 	
 	Calendar cal5 = new GregorianCalendar(Locale.KOREA);
 	cal5.setTime(day);
 	cal5.add(Calendar.DATE,5);
 	String day5 = sdf2.format(cal5.getTime());
+	String yo5 = week[cal5.get(Calendar.DAY_OF_WEEK)-1];
 	
 	Calendar cal6 = new GregorianCalendar(Locale.KOREA);
 	cal6.setTime(day);
 	cal6.add(Calendar.DATE,6);
 	String day6 = sdf2.format(cal6.getTime());
+	String yo6 = week[cal6.get(Calendar.DAY_OF_WEEK)-1];
 	
 	Calendar cal7 = new GregorianCalendar(Locale.KOREA);
 	cal7.setTime(day);
 	cal7.add(Calendar.DATE,7);
 	String day7 = sdf2.format(cal7.getTime());
+	String yo7 = week[cal7.get(Calendar.DAY_OF_WEEK)-1];
 	
 	Calendar cal8 = new GregorianCalendar(Locale.KOREA);
 	cal8.setTime(day);
 	cal8.add(Calendar.DATE,8);
 	String day8 = sdf2.format(cal8.getTime());
+	String yo8 = week[cal8.get(Calendar.DAY_OF_WEEK)-1];
 	
 	Calendar cal9 = new GregorianCalendar(Locale.KOREA);
 	cal9.setTime(day);
 	cal9.add(Calendar.DATE,9);
 	String day9 = sdf2.format(cal9.getTime());
+	String yo9 = week[cal9.get(Calendar.DAY_OF_WEEK)-1];
 	
 	Calendar cal10 = new GregorianCalendar(Locale.KOREA);
 	cal10.setTime(day);
 	cal10.add(Calendar.DATE,10);
 	String day10 = sdf2.format(cal10.getTime());
+	String yo10 = week[cal10.get(Calendar.DAY_OF_WEEK)-1];
 	%>
 
 

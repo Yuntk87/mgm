@@ -180,9 +180,8 @@ String clist = (String)request.getAttribute("number");
                 let nowColumn = nowRow.insertCell();        // 새 열을 추가하고
 
                 let newDIV = document.createElement("p");
-                newDIV.innerHTML = leftPad(nowDay.getDate());        // 추가한 열에 날짜 입력
+                newDIV.innerHTML = leftPad(nowDay.getDate());        // 추가한 열에 날짜 입력       // 추가한 열에 날짜 입력
                 nowColumn.appendChild(newDIV);
-                
                 
                 /* mate_Date.forEach(item => function(item, index){
                 	
@@ -193,9 +192,11 @@ String clist = (String)request.getAttribute("number");
                 	
                 	if(item == String(nowMonth.getFullYear())+String(leftPad(nowMonth.getMonth()+1))+String(leftPad(nowDay.getDate()))){
                 		
+
                 		newDIV.style.background="red";
     					newDIV.style.color="white";
-    					
+
+
     					
     					newDIV.addEventListener("click",(event)=>{
     						list(index);

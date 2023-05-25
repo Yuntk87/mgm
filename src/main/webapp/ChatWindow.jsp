@@ -82,7 +82,7 @@ webSocket.onmessage = function(event) {
 	    <div>
 	        <input type="text" id="chatMessage" onkeyup="enterKey();">
 	        <button id="sendBtn" onclick="sendMessage();">전송</button>
-		    <button id="closeBtn" onclick="disconnect();">채팅 종료</button> 
+		    <button id="closeBtn" onclick="disconnect();">종료</button> 
 	    </div>   
     </div>
 </body>

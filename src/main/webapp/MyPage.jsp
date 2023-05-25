@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./css/mypage2.css?v=1">
     <script src="https://kit.fontawesome.com/bb8da17f44.js" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/5.0.7/sweetalert2.min.css'>
     <title>mypage</title>
 

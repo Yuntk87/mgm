@@ -4,49 +4,47 @@
 	.date{
     	text-align:center;
     	line-height:62px;
-    	font-size:13px;
+    	font-size:15px;
+    	font-weight:bold;
     	margin:0;
-    	width:20px;
     }
-    #left{
-    	margin-right:10px;
-    }
-   	#wtop {
-		width:100%;
-		display:flex;
-		justify-content: center;
-		margin-bottom:50px;
-	}
    	#wtop span {
 		text-align: center;
+		margin-right:10px;
+		line-height:60px;
 	}
-   	#wtop > div:first-child {
-		margin-left:80px;
+	#wtop span:last-child {
+		margin-right:0;
 	}
-    #wtop .bweather{
-    	width:310px;
-    	height:60px;
-    	display:flex;
-    	justify-content:space-around;
-    	border:1px solid lightgray;
+    #wtop {
+    	width:100%;
+    	padding:10px;
+    	border-bottom:1px solid lightgray;
     	border-radius:5px;
-    	box-shadow: 2px 2px 2px 2px gray;
+    	box-shadow: 1px 1px 1px 1px gray;
     	margin:5px;
+    	text-align:center;
     }
-    #wtop .bbottom{
+    #wtop .bweather {
     	display:flex;
-    	justify-content:center;
-    	width:250px;
-    	line-height:62px;
+    	justify-content: center;
     }
+    .wtopdiv {
+    	margin-right:20px;
+    }
+    .wtopdiv #mintmpp0, .wtopdiv #maxtmpp0 {
+    	font-size:25px;
+    	line-height:60px;
+    }
+    
     .bpty{
     	width:20px;
     }
-    .bpty img{
-		width:20px;
-		height:20px;
-		vertical-align:middle;
+    .bweather img{
+		width:50px;
+		height:50px;
 		margin:0;
+		vertical-align:middle;
     }
     .btmp{
     	width:35px;
@@ -63,29 +61,16 @@
     .npopp {
     	font-size:10px;
     }
-    
-    #wtop .bpop{
-    	display:flex;
-    	justify-content:center;
-    	width:60px;
-    	font-size:14px;
-    }
-    #wtop .bpop img{
-    	width:25px;
-    	height:25px;
-    	margin:22px 5px 0 0;
-    }
-	#wtop .bweather {
-		float:left; 
-	}
-	#wtop::after {
-		content: '';
-		display: block;
-		clear: both;
-	}
+	
 	
 	#wbottom {
+		width:100%;
+    	padding:10px;
+    	margin:5px;
 		text-align:center;
+	}
+	#wbottom span {
+		margin-right:30px;
 	}
 	#wbottom img{
 		width:20px;
@@ -93,23 +78,19 @@
 		margin:0;
 		vertical-align:middle;
 	}
-	#wbottom .bpop {
-		display: inline-block;
-	}
 	#wbottom ul {
 		list-style:none;
-		width:120px;
 		display: inline-block;
-		border-right:1px solid lightgray;
 		padding-left:0; margin-left:0;
 	}
-	#wbottom ul:last-child {
+	#wbottom li:last-child {
 		border:none;
 	}
 	#wbottom li {
 		width:100%;
-		height:30px;
+		height:50px;
 		line-height:30px;
 		text-align:center;
+		border-bottom:1px solid lightgray;
 	}
     

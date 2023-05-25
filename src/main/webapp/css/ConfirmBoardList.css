@@ -1,33 +1,45 @@
-body {
-    /* background-image: url(https://littlerobin.nz/wp-content/uploads/2021/10/P6200152.jpg);
-    background-repeat: no-repeat;
-    background-size: cover; */
+
+#confirmListBox {
+	width:80%;
+	margin:0 auto;
+	margin-top: 200px;
 }
-a{
+
+#confirmListBox h2{
+	padding-left:80px;
+}
+#confirmListBox h2 img{
+	width:5%;
+}
+#confirmListBox a{
 	color:black;
 }
-table {
+#confirmListBox table {
     width:100%;
     margin-top:20px;
     font-family: Arial, sans-serif;
     border-collapse: collapse;
     text-align:center;
 }
-table td, th{
+#confirmListBox table td, th{
 	border-width: 1px;
     border-style: solid;
     border-color: rgb(221, 221, 221);
     padding: 8px;
 }
     
-select{
+#confirmListBox select{
 	width:70px;
 	margin-right:30px;
 	margin-left:23px;
 	border:none;
 }
-span {
+#confirmListBox span {
     color: black;
+}
+#search_form {
+	width:80%;
+	margin:0 auto;
 }
 .i-con {
     color:darkgray;
@@ -56,7 +68,7 @@ table a{
 	color:red;
 	text-decoration: none;
 }
-.check {
+#pg .check {
 	color:red;
 }
 #pg{
@@ -65,77 +77,4 @@ table a{
 }
 #pg a{
 	text-decoration: none;
-}
-
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: gray;
-    height: 60px;
-    padding: 8px 12px;
-    top:0;
-}
-.navbar_logo i {
-    font-size: 20px;
-    color: 	green;
-    margin-left: 20px;
-    
-}
-.navbar_logo a {
-    font-size: 20px;
-    margin-left: 10px;
-    color: white;
-    font-weight: bold;
-    font-family: 'Noto Sans KR', sans-serif;
-    text-decoration: none;
-}
-.navbar_logo a:hover {
-  text-decoration: underline;
-  color: white;
-}
-.navbar_menu {
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-    
-}
-.navbar_menu li {
-    padding: 8px 12px;
-    margin-left: 100px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 18px;
-    color:white;
-    
-}
-.navbar_menu a {
-  text-decoration: none;
-  color: white;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-.navbar_menu a:hover {
-    text-decoration: underline;
-    color: white;
-}
-.navbar_login {
-    display: flex;
-    list-style: none;
-    font-size: 18px;
-}
-.navbar_login li {
-    list-style: none;
-    padding: 8px 12px;
-    font-family: 'Noto Sans KR', sans-serif;
-}
-.navbar_login a {
-  text-decoration: none;
-  color: white;
-}
-.navbar_login a:hover {
-    text-decoration: underline;
-    color: white;
-}
-.master {
-  display: none;
 }

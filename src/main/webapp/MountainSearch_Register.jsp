@@ -1,14 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="ko">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MountainSearch_Register</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://kit.fontawesome.com/09e1bc70db.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./css/MountainSearch_Register.css">
+<script src=./js/MountainSearch_Register.js></script>
   </head>
   <body>
-	  <div class="container">
+  <%@ include file="./AdminNavi.jsp" %>
+	  <div class="mcontainer">
 		<div class="search-bar">
 			<form class="d-flex" >
 				<input class="form-control me-2" id="keyword" type="search" placeholder="산 검색" aria-label="Search">

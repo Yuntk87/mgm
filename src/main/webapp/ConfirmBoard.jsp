@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>confirmBoard</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/a8d8408c2e.js" crossorigin="anonymous"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgWjfRDY2JDCNcxaKgoNBenu5o1POdE_c&callback=initMap&region=kr"></script>
@@ -17,7 +20,7 @@
 	<c:choose>
 		<c:when test="${not empty mode && mode eq 'confirm'}">
 		   	<div style="width: 100%; position: relative;">
-		        <img style="opacity: 0.7;" src="https://source.unsplash.com/random/?valley" width="100%" height="560px" alt="">
+		        <img style="opacity: 0.7;" src="./img/page_bg5.jpg" width="100%" height="560px" alt="">
 		        <div style="position: absolute; top: 300px; left: 0; right: 0;">
 		            <h1 class="menuTitle">CONFIRM</h1>
 		        </div>

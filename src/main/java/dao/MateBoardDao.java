@@ -23,7 +23,7 @@ public class MateBoardDao extends JDBConnect {
 
 	public int insertMateBoard (MateBoardDto m) {
 		int res=0;
-		String sql = "INSERT INTO mate_board(m_num, id, title, content, dDay, mateLimit) values(?,?,?,?,?,?)";
+		String sql = "INSERT INTO mate_board(m_num, id, title, content, dDay, mateLimit, nickName) values(?,?,?,?,?,?,?)";
 		
 		try {
 			psmt = con.prepareStatement(sql);
@@ -33,6 +33,7 @@ public class MateBoardDao extends JDBConnect {
 			psmt.setString(4, m.getContent());
 			psmt.setTimestamp(5, new Timestamp(m.getdDay().getTime()));
 			psmt.setInt(6, m.getMateLimit());
+			psmt.setString(7, m.getNickName());
 			res = psmt.executeUpdate();			
 		}
 		catch(Exception e) {
@@ -73,17 +74,18 @@ public class MateBoardDao extends JDBConnect {
 			
 			if(rs.next()) {
 				m = new MateBoardDto();
-				m.setMate_num(rs.getInt(1));
-				m.setM_num(rs.getInt(2));
-				m.setId(rs.getString(3));
-				m.setTitle(rs.getString(4));
-				m.setContent(rs.getString(5));
-				m.setdDay(rs.getTimestamp(6));
-				m.setMateLimit(rs.getInt(7));
-				m.setViewCount(rs.getInt(8));
-				m.setCommentCount(rs.getInt(9));
-				m.setPostDate(rs.getTimestamp(10));
-				m.setM_name(rs.getString(11));
+				m.setMate_num(rs.getInt("mate_num"));
+				m.setM_num(rs.getInt("m_num"));
+				m.setId(rs.getString("id"));
+				m.setNickName(rs.getString("nickName"));
+				m.setTitle(rs.getString("title"));
+				m.setContent(rs.getString("content"));
+				m.setdDay(rs.getTimestamp("dDay"));
+				m.setMateLimit(rs.getInt("mateLimit"));
+				m.setViewCount(rs.getInt("viewcount"));
+				m.setCommentCount(rs.getInt("commentCount"));
+				m.setPostDate(rs.getTimestamp("postDate"));
+				m.setM_name(rs.getString("m_name"));
 				return m;
 			}
 		}
@@ -148,17 +150,18 @@ public class MateBoardDao extends JDBConnect {
 			
 			while(rs.next()) {
 				m = new MateBoardDto();
-				m.setMate_num(rs.getInt(1));
-				m.setM_num(rs.getInt(2));
-				m.setId(rs.getString(3));
-				m.setTitle(rs.getString(4));
-				m.setContent(rs.getString(5));
-				m.setdDay(rs.getTimestamp(6));
-				m.setMateLimit(rs.getInt(7));
-				m.setViewCount(rs.getInt(8));
-				m.setCommentCount(rs.getInt(9));
-				m.setPostDate(rs.getTimestamp(10));
-				m.setM_name(rs.getString(11));
+				m.setMate_num(rs.getInt("mate_num"));
+				m.setM_num(rs.getInt("m_num"));
+				m.setId(rs.getString("id"));
+				m.setNickName(rs.getString("nickName"));
+				m.setTitle(rs.getString("title"));
+				m.setContent(rs.getString("content"));
+				m.setdDay(rs.getTimestamp("dDay"));
+				m.setMateLimit(rs.getInt("mateLimit"));
+				m.setViewCount(rs.getInt("viewcount"));
+				m.setCommentCount(rs.getInt("commentCount"));
+				m.setPostDate(rs.getTimestamp("postDate"));
+				m.setM_name(rs.getString("m_name"));
 				mbs.add(m);
 			}
 			
@@ -237,13 +240,15 @@ public class MateBoardDao extends JDBConnect {
 					dto.setMate_num(rs.getInt("mate_num"));
 					dto.setM_num(rs.getInt("m_num"));
 					dto.setId(rs.getString("id"));
+					dto.setNickName(rs.getString("nickName"));
 					dto.setTitle(rs.getString("title"));
 					dto.setContent(rs.getString("content"));
 					dto.setdDay(rs.getTimestamp("dDay"));
 					dto.setMateLimit(rs.getInt("mateLimit"));
-					dto.setViewCount(rs.getInt("viewCount"));
+					dto.setViewCount(rs.getInt("count"));
 					dto.setCommentCount(rs.getInt("commentCount"));
 					dto.setPostDate(rs.getTimestamp("postDate"));
+					dto.setM_name(rs.getString("m_name"));
 				}
 			}
 			catch(SQLException e) {

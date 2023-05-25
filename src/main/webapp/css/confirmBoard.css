@@ -142,7 +142,7 @@
 		font-family:Arial;
 		font-size:15px;
 		font-weight:bold;
-		padding:6px 24px;
+		padding:6px 10px;
 	}
 	.myButton:hover {
 		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);

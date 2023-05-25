@@ -19,7 +19,7 @@
 
     <div style="width: 100%;">
     	<div style="width: 100%; position: relative;">
-            <img style="opacity: 0.7;" src="https://source.unsplash.com/random/?valley" width="100%" height="560px" alt="">
+            <img style="opacity: 0.7;" src="./img/page_bg1.jpg" width="100%" height="560px" alt="">
             <div style="position: absolute; top: 300px; left: 0; right: 0;">
                 <h1 class="menuTitle">MOUNTAIN</h1>
             </div>
@@ -46,10 +46,10 @@
         			<c:forEach var="dto" items="${ mountainList }">
         				<div class="card">
                             <a href="#"><img class="mimg"></a>
-                            <h3 class="card-title"><i class="fa-solid fa-mountain"></i> : ${dto.m_name} </h3>
+                            <h3 class="card-title"><i class="fa-solid fa-mountain-sun"></i> : ${dto.m_name} </h3>
                             <p class="card-text"><i class="fa-solid fa-location-dot"></i> : ${dto.m_addr_1} ${dto.m_addr_2 }</p>
                             <p class="card-text"><i class="fa-solid fa-person-hiking"></i> : ${dto.level }</p>
-                            <i class="fa-regular fa-eye"></i>
+                            <i class="fa-regular fa-thumbs-up"></i>
                             <span style="margin-left: 10px;">${dto.m_recommend}</span>
                             <a href="./view?searchWord=${dto.m_name }&m_num=${dto.m_num}&m_name=${dto.m_name}"><button class="view_btn">상세보기</button></a>
                             
@@ -86,7 +86,7 @@
 
 
     <script>
-    const images = ["mountain", "rocky mountains", "hill", "hanla mountain", "hiking", "mont blanc", "fuji mountain", "annapurna", "trekking", "Mount Everest"];
+    const images = ["mountain", "rocky mountains", "hill", "hanla mountain", "hiking", "highlands", "fuji mountain", "annapurna", "trekking", "Mount Everest"];
     
     for(let i =0; i<document.getElementsByClassName('mimg').length; i++){
         document.getElementsByClassName('mimg')[i].src = "https://source.unsplash.com/random/300x300/?"+images[i]
