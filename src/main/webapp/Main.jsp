@@ -28,6 +28,9 @@
 <body>
 
 <%@ include file="./Navi.jsp" %>
+
+
+
 <div id="wrapper">
 <div class="slideshow-container">
     <div class="mySlides fade">
@@ -90,7 +93,7 @@
     		</a>
     	</c:forEach> 
     </div>
-  
+    
    
 </div>
 

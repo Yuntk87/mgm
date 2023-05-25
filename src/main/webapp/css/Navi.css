@@ -90,23 +90,55 @@ ul {
 
 
 .quick-menu {
-    display: none;
+	display: block;
     align-items: center;
     flex-direction: column;
     position:absolute;
-    background-color: #1e3932;;
-    width:80px;
-    height: 420px;
-    right: 0;
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    width:60px;
+    height: 400px;
+    right: -65px;
+   	border-radius: 10px;
     z-index: 10;
+    transition: 0.5s;
+
+ }
+ .quick-btn-box{
+	position: absolute;
+    left: -25px;
+    top: 150px;
+    border: none;
     
-    
-  }
+    z-index: 10;
+    height: 80px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  
+}
+.q-box-btn {
+	height: 80px;
+	border: none;
+	background-color: rgba(0,0,0,0.4);
+	border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+}
+
   .quick-box {
     text-align: center;
   }
+  .quick-text {
+  	position: absolute;
+  	top:0;
+  	width: 60px;
+  	height: 25px;
+  	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  	background-color: rgba(0,0,0,0.5);
   
+  	margin: 0 auto;
+  	text-align: center;
+  }
   .quick-box i{
   text-align: center;
   color: white;
@@ -119,7 +151,7 @@ ul {
   text-decoration: none;
   color: white;
   font-size: 20px;
-  margin:0
+
   }
 
   .quick-box {
@@ -127,19 +159,20 @@ ul {
   }
   
   
-  .quick-btn {
-    position: absolute;
-    padding: 10px;
-    top: 150px;
-    right: -20px;
-    border: none;
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    z-index: 10;
+/*   .quick-btn { */
+/*     position: absolute; */
+/*     padding: 10px; */
+/*     top: 150px; */
+/*    	right: 0px; */
+/*     border: none; */
+/*     cursor: pointer; */
+/*     background-color: rgba(0, 0, 0, 0.1); */
+/*  	width:60px; */
+/*     z-index: 10; */
+/*     transition: 0.5s; */
+/*     border-radius: 10px; */
     
-    
-  }
+/*   } */
   .quick-btn i {
     font-size: 35px;
   }

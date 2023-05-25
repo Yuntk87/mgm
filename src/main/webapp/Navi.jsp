@@ -53,7 +53,20 @@
     
     
     
-    <div class="quick-menu" id="quick">
+    
+    
+    <div class="quick-menu" id="quick" >
+    
+    
+    	<div class="quick-btn-box">
+        	<button class="q-box-btn" ><i class="fa-solid fa-angles-left" style="color: white;"></i></button>
+        </div>
+        
+        
+    	<div class="quick-text">
+    		<span style="font-family: 'Oswald', sans-serif; color:white;">Quick</span>
+    	</div>
+    	
         <div class="quick-box">
           <i class="fa-solid fa-comment"></i><br>
 		  <input type="hidden" value=${sessionScope.UserNickName } id="chatId"/>   
@@ -73,8 +86,11 @@
               </c:choose>        
             </div>
         </div>
+        
+        
      
         <div class="quick-box">
+        
           <i class="fa-solid fa-location-dot"></i><br>
           <button class="btn">Map</button>
         </div>
@@ -120,9 +136,7 @@
         
      </div>
      
-     <button type="button" onclick="showHide()" class="quick-btn" >
-         <i class="fa-solid fa-arrow-left"></i>
-     </button>
+
 
 	<script src=./js/QuickMenu.js></script>
     
@@ -154,15 +168,7 @@
             
         });
        
-        $('.master').on('click', function() {
-            if($('.master_menu').css('display') == 'none') {
-                $('.master_menu').css('transition', 'all 1s')
-                $('.master_menu').css('display', 'block');
-            } else {
-                $('.master_menu').css('transition', 'all 1s')
-                $('.master_menu').css('display', 'none');
-            }
-        });
+
         
         var quickBox = $('.quick-menu');
         var quick_top = 250; 
@@ -175,8 +181,8 @@
          });
         });
         
-        var quickBox2 = $('.quick-btn'); 
-        var quick_top2 = 120;
+        var quickBox2 = $('.q-box-btn'); 
+        var quick_top2 = 150;
         quickBox2.css('top', $(window).height() );
         $(document).ready(function(){
         quickBox2.animate( { "top": $(document).scrollTop() + quick_top2 +"px" },  100 ); 
@@ -185,17 +191,24 @@
           quickBox2.animate( { "top": $(document).scrollTop() + quick_top2 + "px" }, 100 );
          });
         });
+      
 
-        let slide = document.querySelector('.quick-menu');
-        function showHide() {
-          if(slide.style.display=='none') {
-            slide.style.display = 'flex';
-
-          } else {
-            slide.style.display = 'none';
-          }
-        }
        
+
+		
+        $(document).ready(function(){
+        	  textchange = true;
+        	  $('.q-box-btn').click(function(){
+        	    if(textchange){
+        	      textchange = false;
+        	      $('.quick-menu').css("right", "0px");
+        	    }else{
+        	      textchange = true;
+        	      $('.quick-menu').css("right", "-60px");
+        	    }
+        	    
+        	  })
+        	})
         
     </script>
 
