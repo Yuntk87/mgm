@@ -40,6 +40,7 @@ public class AskCommentController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String temp = req.getParameter("ask_num");
+		String nickName = req.getParameter("nickName");
 		System.out.println(temp+"------------------------");
 		int ask_num = 0;
 		if(temp!=null) ask_num = Integer.parseInt(temp);

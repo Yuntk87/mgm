@@ -30,6 +30,7 @@
 		width:98%;
 		min-height: 500px;
 		resize:none;
+		padding:20px 0;
 	}
 	input {
 		margin-left:5px;
@@ -48,14 +49,11 @@
 	}
 	.title1 {
 		text-align:left;
-		font-weight: bold;
-		font-size: 26px;
 		margin-bottom: 10px;
 		border: 1px solid lightgray;
-		line-height:12px;
 	}
 	.title1 input {
-		width:100%;
+		width:96%;
 		padding: 11px 12px 10px;
 		height:45px;
 	}
@@ -92,8 +90,9 @@
 	.content {
 		min-height: 500px;
 		border: 1px solid lightgray;
+		margin-bottom:20px;
 	}
-	.myButton {
+	.boButton {
 		box-shadow:inset 0px 1px 0px 0px #ffffff;
 		background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
 		background-color:#ededed;
@@ -107,13 +106,12 @@
 		font-weight:bold;
 		padding:5px 10px;
 		margin-right: 2px;
-		margin-top:10px;
 	}
-	.myButton:hover {
+	.boButton:hover {
 		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
 		background-color:#dfdfdf;
 	}
-	.myButton:active {
+	.boButton:active {
 		position:relative;
 		top:1px;
 	}
@@ -167,9 +165,9 @@
 				<textarea type="text" name="content">${ dto.content}</textarea>
 			</div>
 			<div class="btnDiv">
-				<button type="button" class="myButton" onclick="editPost()">작성완료</button>
-				<button type="reset" class="myButton">다시입력</button>
-				<button type="button" class="myButton" onclick="location.href='./FreeBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
+				<button type="button" class="boButton" onclick="editPost()">작성완료</button>
+				<button type="reset" class="boButton">다시입력</button>
+				<button type="button" class="boButton" onclick="location.href='./FreeBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
 			</div>
 		</form>
 	</div>

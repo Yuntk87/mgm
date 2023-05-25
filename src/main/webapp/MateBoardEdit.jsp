@@ -34,13 +34,6 @@
 	<div id="edit_box">		
 		<h2>메이트게시판 수정하기</h2>	
 		<hr>
-		<div class="searchDiv">
-			<div class="searchDiv1">
-			</div>
-			<div class="searchDiv2">
-				<a href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'><i class="fa-solid fa-list"> 목록보기</i></a>
-			</div>
-		</div>
 		<form name="editFrm" action="./MateBoardEdit" method="post" onsubmit="return formCheck(this)">
 			<div class="content">
 				<input type="hidden" name="num" value="${dto.mate_num }">
@@ -74,9 +67,9 @@
 				<textarea id="wcontent" type="text" name="content">${dto.content }</textarea>	
 				
 				<div id="btnBox">
-					<div class="wbtns">
-						<button type="button" class="myButton" onclick="editPost()">작성완료</button>
-						<button type="reset" class="myButton">다시입력</button>
+					<button type="button" class="boButton" onclick="editPost()">작성완료</button>
+					<button type="reset" class="boButton">다시입력</button>
+					<button type="button" class="boButton" onclick="location.href='./MateBoardList?page=${empty param.page? '1' : param.page}&pageSize=${param.pageSize }&searchWord=${param.searchWord }&searchField=${param.searchField }'">목록보기</button>
 				</div>
 			</div>
 		</form>
