@@ -17,7 +17,7 @@
 		margin-right:0;
 	}
     #wtop {
-    	width:100%;
+    	width:95%;
     	padding:10px;
     	border-bottom:1px solid lightgray;
     	border-radius:5px;
@@ -64,13 +64,19 @@
 	
 	
 	#wbottom {
-		width:100%;
+		width:95%;
     	padding:10px;
     	margin:5px;
 		text-align:center;
 	}
 	#wbottom span {
 		margin-right:30px;
+	}
+	#wbottom .date {
+		margin-right:80px;
+	}
+	#wbottom .npopp {
+		margin-right:80px;
 	}
 	#wbottom img{
 		width:20px;

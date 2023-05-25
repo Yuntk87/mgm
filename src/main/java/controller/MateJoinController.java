@@ -38,7 +38,6 @@ public class MateJoinController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		PrintWriter out = resp.getWriter();
-		System.out.println("qwwwwwwwwwww");
 
 		String jid = null;
 		if(session.getAttribute("UserId") != null) {
@@ -57,7 +56,6 @@ public class MateJoinController extends HttpServlet{
 		}
 		
 		String temp3 = req.getParameter("dDay");
-		System.out.println("tttttt" + temp3);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date dDay = null;
 		if(temp3 != null) {
