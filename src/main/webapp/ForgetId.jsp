@@ -10,6 +10,7 @@
 <script src="https://kit.fontawesome.com/bb8da17f44.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<%@ include file="Navi.jsp" %>
 <!-- partial:index.partial.html -->
 <div class="container">
   <div class="welcome">
@@ -20,7 +21,7 @@
             <input type="text" name="id2" id="id2" placeholder="아이디" required>
             <input type="text" name="phone2" id="phone2" placeholder="핸드폰번호" required>
             <input type="text" name="name2" id="name2" placeholder="이름" required>
-          <button class="button submit">찾기 </button>
+          <button class="buttonn submit">찾기 </button>
         </form>
       </div>
       <div class="signin">
@@ -30,30 +31,30 @@
             <input type="text" name="phone" id="phone" placeholder="핸드폰번호" required>
           
 
-          <button class="button submit">찾기</button>
+          <button class="buttonn submit">찾기</button>
         </form>
       </div>
     </div>
     <div class="leftbox">
-      <h2 class="title"><span>find</span><br>password</h2>
+      <h2 class="titlee"><span>find</span><br>password</h2>
       <p class="desc"><br>  <span>아이디 <br>핸드폰번호 <br>이름</span>으로 찾을수 있습니다</p>
       <div class="icon" ><i class="fa-solid fa-unlock-keyhole"></i></div>
       <p class="account"></p>
-      <button class="button" id="signin">아이디찾기</button>
+      <button class="buttonn" id="signin">아이디찾기</button>
     </div>
     <div class="rightbox">
-      <h2 class="title"><span>find</span><br>ID</h2>
+      <h2 class="titlee"><span>find</span><br>ID</h2>
       <p class="desc"> <span>이름과<br>핸드폰번호</span>로<br> 찾을 수 있습니다</p>
       <div class="icon" ><i class="fa-solid fa-key"></i></div>
       <p class="account"></p>
-      <button class="button" id="signup">비밀번호찾기 </button>
+      <button class="buttonn" id="signup">비밀번호찾기 </button>
     </div>
   </div>
  </div>
 
 </div>
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><script  src="./Forget.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><script  src="./js/Forget.js"></script>
 
 </body>
 </html>

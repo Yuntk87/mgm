@@ -64,7 +64,7 @@ h1 {
   letter-spacing: 8px;
 }
 
-.title {
+.titlee {
  font-family: 'Montserrat', sans-serif;
   color: #8E9AAF;
   
@@ -105,13 +105,13 @@ span {
   
  
 }
-i{
+.icon i{
     font-size: 75px;
     color: #8E9AAF;
 }
 
 
-button {
+.buttonn {
   padding: 12px;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
@@ -122,13 +122,13 @@ button {
   outline: none;
   display: block;
 }
-button:hover {
+.buttonn:hover {
   background: #EAC7CC;
   color: #f6f6f6;
   transition: background-color 1s ease-out;
 }
 
-.button {
+.buttonn {
   margin-top: 3%;
   background: #f6f6f6;
   color: #ce7d88;
