@@ -6,24 +6,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>AskBoardList</title>
 <link rel="stylesheet" href="./css/AskBoardList.css">
 <script src="https://kit.fontawesome.com/09e1bc70db.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
-    <div id="qa">
-    	<h2>Q&A</h2>
-	</div>
-	<div id="all" style="width: 1000px; margin: 0 auto;">
+	<%@ include file="Navi.jsp" %>
+    <h2>Q&A</h2>
+	<div id="all" style="width: 70%; margin: 0 auto; margin-top:70px;">
 		
 		<form id="search_form">
 			<div class="topTable">
-				<select id="rep" name="rep">
-					<option value="">--선택--</option>
-					<option value="wait">답변대기</option>
-					<option value="complete">답변완료</option>
-				</select>
 				<c:if test="${sessionScope.UserId != null && sessionScope.UserId eq 'admin'}">
 					<div class="sh">
 						<select name="searchField">
@@ -32,11 +26,15 @@
 						</select>
 						<div id="textSearch">
 							<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" >
-							<button class="btn" style="height: 25px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button>
+							<button class="btn"><i class="fa-solid fa-magnifying-glass i-con"></i></button>
 						</div>
 					</div>
 				</c:if>
-				
+				<select id="rep" name="rep">
+					<option value="">--선택--</option>
+					<option value="wait">답변대기</option>
+					<option value="complete">답변완료</option>
+				</select>
 			</div>
 		</form>
 		<div class="boardList">
@@ -58,7 +56,7 @@
 							<div class="ask">답변상태</div>
 							<div class="tt" style="text-align:center;">제목</div>
 							<div class="writer">작성자</div>
-							<div class="date">작성일</div>
+							<div class="askdate">작성일</div>
 							<div class="del">삭제</div>
 						</div>
 						<div id="M">
@@ -76,8 +74,8 @@
 										</c:choose>
 										<div class="tt"><a href="#" class="tit" id ="${b.ask_num }" >${b.title }</a></div>
 										<div class="writer">${b.id }</div>
-										<div class="date"><fmt:formatDate value="${b.postDate }" type="time" pattern="yyyy-MM-dd" /></div>
-										<div class="del"><button type="button" onclick="deletePost('./AskBoardDelete?num=${b.ask_num }')">삭제하기</button></div>
+										<div class="askdate"><fmt:formatDate value="${b.postDate }" type="time" pattern="yyyy-MM-dd" /></div>
+										<div class="del"><button class="deel" type="button" onclick="deletePost('./AskBoardDelete?num=${b.ask_num }')">삭제하기</button></div>
 									</div>
 									<div class="reply" id="reply${ b.ask_num}">
 										<div class="askcon">
@@ -202,7 +200,7 @@
 			tmp += '<span class="c_postDate"> ' + comment.c_postDate + '</span></div>'
 			tmp += '<p class="comment"> ' + comment.comment + '</p>'
 			if(comment.commenter == "${sessionScope.UserId}" || "admin" == ("${sessionScope.UserId}")) {
-				tmp += '<div class="myButton"><button class="modBtnb">수정</button>'
+				tmp += '<div class="commentButton"><button class="modBtnb">수정</button>'
 				tmp += '<button class="delBtn">삭제</button></div>'
 			}
 			tmp += '</div>'

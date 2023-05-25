@@ -8,15 +8,18 @@
 <meta charset="UTF-8">
 <title>AskCommentEdit</title>
 <style>
-	#edit_Frm {
+	#write_box {
 		width:80%;
 		font-family: 'Noto Sans KR', sans-serif;
  		text-align:center;
 		margin:0 auto;
-		margin-top: 100px;
+		margin-top: 150px;
 		border:1px solid lightgray;
 		border-radius : 5px;
-		padding: 20px;
+		padding: 0 20px 20px 20px;
+	}
+	h3{
+		margin-bottom:30px;
 	}
 	textarea, input {
 		vertical-align: middle;
@@ -27,6 +30,7 @@
 		width:98%;
 		min-height: 500px;
 		resize: none;
+		padding-top: 15px;
 	}
 	input {
 		margin-left:5px;
@@ -84,6 +88,7 @@
 </style>
 </head>
 <body>
+<%@ include file="Navi.jsp" %>
 <script>
 	function formCheck(frm) {
 		if(frm.content.value.trim() == "") {
@@ -96,7 +101,7 @@
 	
 </script>
 	<div id="write_box">
-	<h3>답변하기</h3>
+	<h3>수정하기</h3>
 
 		<form id="edit_Frm" action="./AskCommentEdit" method="post" onsubmit="return formCheck(this)">
 			<input type="hidden" name="ac_num" value="${dto.ac_num }">

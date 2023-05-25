@@ -3,22 +3,14 @@ body {
     background-repeat: no-repeat;
     background-size: cover; */
 }
-#qa{
-	margin:0 auto;
-	background-color:lightsteelblue;
-	width:1000px;
-	height:200px;
-}
-#qa h2{
-	text-align:center;
-	color:black;
-	font-family: 'Oswald', sans-serif;
-}
 h2{
-	padding-left:80px;
+	text-align:center;
+	margin-top: 140px;
 }
+
 #rep{
 	height:33px;
+	margin-top:23px;
 }
 #T{
 	display:flex;
@@ -45,18 +37,27 @@ h2{
 	width:100px;
 }
 .writer{
-	width:130px;
+	width:150px;
 }
 .tt{
-	width:420px;
+	width:500px;
 	text-align:left;
 	margin-left: 20px;
 }
-.date{
-	width:110px;
+.askdate{
+	width:130px;
 }
 .del{
 	width:90px;
+}
+.deel{
+	border:none;
+	background:transparent;
+	cursor:pointer;
+}
+.deel:hover{
+	color:red;
+	font-weight:bold;
 }
 .reply{
 	display:none;
@@ -81,13 +82,15 @@ li{
 }
 select{
 	border:none;
+	outline: none;
 }
 .topTable{
 	display:flex;
 	justify-content:space-between;
 	text-align:right;
 	height:80px;
-	padding: 15px 8px 0 15px;
+	padding: 0 8px 0 218px;
+	margin-bottom: 70px;
 }
 .i-con {
     color:darkgray;
@@ -97,8 +100,9 @@ select{
 }
 #textSearch{
 	display:inline-block;
-	border:2px solid gray;
+	border:2px solid #ccc;
 	border-radius:10px;
+	margin-top:10px;
 }
 .search {
     display: flex;
@@ -109,12 +113,13 @@ select{
     background-color: transparent;
     border:none;
     padding-bottom:10px;
+    padding-right:10px;
 }
 #search {
-    width: 170px;
-    margin-left: 10px;
+    width: 750px;
+    padding:12px 20px;
+    margin: 8px 0;
     border: none;
-    color:black;
     outline:none;
 }
 
@@ -133,6 +138,18 @@ a:hover{
 .reBttn{
 	float:right;
 	margin-right:10px;
+	background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    font-size: 12px;
+    width: 70px;
+    height: 25px;
+    cursor: pointer;
+}
+.reBttn:hover{
+	background-color:darkgray;
+	border-color:darkgray;
+	color:white;
 }
 
 #pg{
@@ -166,17 +183,26 @@ a:hover{
 		min-height:100px;
 		margin: 0;
 	}
-	.myButton{
+	.commentButton{
 		text-align:right;
 		margin-right:10px;
 		padding-bottom:5px;
 	}
-	/* .delBtn, .modBtnb{
-		float:right;
-		margin-right:10px;
-	} */
+	.delBtn, .modBtnb{
+	    background: transparent;
+	    border: 1px solid #ccc;
+	    border-radius: 50px;
+	    font-size: 12px;
+	    width: 40px;
+	    height: 35px;
+	    cursor: pointer;
+	}
 	.modBtnb{
 		margin-right:5px;
+	}
+	.delBtn:hover, .modBtnb:hover{
+		background-color:lightblue;
+		border-color:lightblue;
 	}
 	.c_postDate {
 		margin-top:10px;

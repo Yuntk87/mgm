@@ -27,6 +27,7 @@
 		width:98%;
 		min-height: 500px;
 		resize: none;
+		padding-top: 15px;
 	}
 	input {
 		margin-left:5px;
