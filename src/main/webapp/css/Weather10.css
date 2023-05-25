@@ -19,7 +19,7 @@
     #wtop {
     	width:100%;
     	padding:10px;
-    	border:1px solid lightgray;
+    	border-bottom:1px solid lightgray;
     	border-radius:5px;
     	box-shadow: 1px 1px 1px 1px gray;
     	margin:5px;
@@ -66,9 +66,6 @@
 	#wbottom {
 		width:100%;
     	padding:10px;
-    	border:1px solid lightgray;
-    	border-radius:5px;
-    	box-shadow: 1px 1px 1px 1px gray;
     	margin:5px;
 		text-align:center;
 	}
