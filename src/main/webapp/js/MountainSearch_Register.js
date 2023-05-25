@@ -1,11 +1,4 @@
-//admin
-//$(document).ready(function() {
-//	$("#pg a").click(setTimeout(function() {
-//		$("#tablinks1").trigger("click");
-//	}),1000);	
-//});
-	 
- 
+
 //admin mountain
 	function formCheck(form) {
 		if (form.m_name.value.trim() == "") {

@@ -12,6 +12,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
+ <%@ include file="./AdminNavi.jsp" %>
     <div id="qa">
     	<h2>Q&A</h2>
 	</div>
