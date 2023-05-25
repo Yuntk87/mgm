@@ -129,7 +129,7 @@ $(".boardList tr").hover(function(){
 	});
 </script>
 
-<div style="height: 400px;"></div>
+<div style="height: 1000px;"></div>
 
 
 
