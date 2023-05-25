@@ -39,6 +39,7 @@
                     <a class="link" href="./register" >회원가입</a>
                    </c:when>
                    <c:otherwise>
+                       <a class='link' href='./AskBoardList'>문의</a>
                        <a class='link' href='./mypage'>회원정보</a>
                        <a class='link' href='./logout'>로그아웃</a>
                   </c:otherwise>
