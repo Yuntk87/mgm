@@ -17,7 +17,7 @@
 	<c:choose>
 		<c:when test="${not empty mode && mode eq 'confirm'}">
 		   	<div style="width: 100%; position: relative;">
-		        <img style="opacity: 0.7;" src="https://source.unsplash.com/random/?valley" width="100%" height="560px" alt="">
+		        <img style="opacity: 0.7;" src="./img/page_bg5.jpg" width="100%" height="560px" alt="">
 		        <div style="position: absolute; top: 300px; left: 0; right: 0;">
 		            <h1 class="menuTitle">CONFIRM</h1>
 		        </div>
