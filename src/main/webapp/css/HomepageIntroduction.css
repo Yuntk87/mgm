@@ -1,6 +1,6 @@
 @charset "UTF-8";
 * {
-    padding:0;
+ 
     box-sizing: border-box;
  }  
 body {
@@ -23,6 +23,7 @@ h3 {
 .sidebar {
     background: rgb(61, 79, 93);
     color: #fff;
+    width: 230px;
 }
 
 .brand-title,
@@ -95,7 +96,7 @@ h3 {
     
 }
 .deveoper img {
-    height: 100px;
-    width: 100px;
+    height: 250px;
+    width: 250px;
 
 }
