@@ -41,7 +41,7 @@ public class UserController extends HttpServlet{
 			dao.delete(userNum);
 			dao.close();
 			
-			resp.sendRedirect("./admin");
+			resp.sendRedirect("./UserTable.jsp");
 			
 		} else if("Withdrawal".equals(mode)) {
 			System.out.println("email: "+id);
