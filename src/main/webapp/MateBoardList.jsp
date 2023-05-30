@@ -22,13 +22,13 @@
     </div>
 	<div id="all" style="width: 60%; margin: 0 auto; margin-top: 85px;">
 		<form id="search_form">
-			<table colspan="7" class="topTable">
+			<table colspan="8" class="topTable">
 				<tr>
 					<td>
 						<select name="searchField">
 							<option value="title" ${param.searchField eq 'title'? "selected" : "" }>제목</option>
 							<option value="content" ${param.searchField eq 'content'? "selected" : "" } >내용</option>
-							<option value="m_name" ${param.searchField eq 'category'? "selected" : "" } >산이름</option>
+							<option value="m_name" ${param.searchField eq 'm_name'? "selected" : "" } >산이름</option>
 							<option value="id" ${param.searchField eq 'id'? "selected" : "" }>작성자</option>
 						</select>
 						<div id="textSearch">
@@ -36,7 +36,13 @@
 							<button class="btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button>
 						</div>
 					</td>
-				</tr>		
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" id="joinCheck" name="joinCheck" value="0" ${param.joinCheck eq '0'? "checked" : "" }>
+						<label for="joinCheck" style="font-size:5px; position:relative; top:-1.5px;">참가가능만 보기</label>
+					</td>
+				</tr>	
 			</table>
 		</form>
 		
@@ -44,7 +50,7 @@
 		<table class="boardList">
 			<c:choose>
 				<c:when test="${empty boardLists }" >
-					<tr><td colspan="7">등록 된 게시물이 없습니다.</td></tr>
+					<tr><td colspan="8">등록 된 게시물이 없습니다.</td></tr>
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${boardLists }" var="b">
@@ -57,9 +63,11 @@
 							<c:choose>
 								<c:when test="${now eq post }">
 									<td colspan="4"><fmt:formatDate value="${b.postDate }" type="time" pattern="HH:mm" /></td>
+									<td rowspan="2" width="1%" style="font-size:5px; ${b.joinCheck eq 0? "background-color:rgba(48, 102, 71, 0.9)" : "background-color:rgba(241, 105, 81, 0.9)"}"></td>
 								</c:when>
 								<c:otherwise>
 									<td colspan="4">${post }</td>
+									<td rowspan="2" width="1%" style="font-size:5px; ${b.joinCheck eq 0? "background-color:rgba(48, 102, 71, 0.9)" : "background-color:rgba(241, 105, 81, 0.9)"}"></td>
 								</c:otherwise>
 							</c:choose>
 						</tr>
@@ -70,18 +78,19 @@
 							<td width="3%">${b.viewCount }</td>
 							<td width="3%"><img style="width:67%;" src="https://img.icons8.com/?size=512&id=38977&format=png"></td>
 							<td width="3%">${b.commentCount }</td>
+<%-- 							<td width="1%" style="font-size:5px;">${b.joinCheck eq 0? '🟢' : '🔴'}</td> --%>
 						</tr>					
 					</c:forEach>
 						<tr>
 							<td colspan="7">
 								<c:if test="${ph.showPrev }">
-									<a href="<c:url value='/MateBoardList${ph.sc.getQueryString(ph.beginPage-1) }' />">&laquo;</a>
+									<a href="<c:url value='./MateBoardList${ph.sc.getQueryString(ph.beginPage-1) }&joinCheck=${param.joinCheck }' />">&laquo;</a>
 								</c:if>
 								<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }">
-									<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='/MateBoardList${ph.sc.getQueryString(i) }' />">${i }</a>
+									<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='./MateBoardList${ph.sc.getQueryString(i) }&joinCheck=${param.joinCheck }' />">${i }</a>
 								</c:forEach>
 								<c:if test="${ph.showNext }">
-									<a href="<c:url value='/MateBoardList${ph.sc.getQueryString(ph.endPage+1) }' />">&raquo;</a>
+									<a href="<c:url value='./MateBoardList${ph.sc.getQueryString(ph.endPage+1) }&joinCheck=${param.joinCheck }' />">&raquo;</a>
 								</c:if>
 							</td>
 						</tr>
