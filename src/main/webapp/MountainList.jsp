@@ -24,19 +24,44 @@
                 <h1 class="menuTitle">MOUNTAIN</h1>
             </div>
         </div>
-        <form method="GET">
-	        <table class="myTable" style="margin-top: 150px;">
-	            <tr class="header">
-	              <th>
-	                <select name="searchField"> 
-	                    <option value="m_name"  ${"m_name" eq param.searchField? "selected" : "" } >산이름</option> 
-	                </select>
-	                <input type="text" name="searchWord" id="search" value="${empty param.searchWord ? '' : param.searchWord }">
-	               	<button class="fa-lg fa-sharp fa-solid fa-magnifying-glass border-none" id="sBtn" >검색</button>
-	              </th>
-	            </tr>
-	        </table>
-        </form>
+<!--         <form method="GET"> -->
+<!-- 	        <table class="myTable" style="margin-top: 150px;"> -->
+<!-- 	            <tr class="header"> -->
+<!-- 	              <th> -->
+<!-- 	                <select name="searchField">  -->
+<%-- 	                    <option value="m_name"  ${"m_name" eq param.searchField? "selected" : "" } >산이름</option>  --%>
+<!-- 	                </select> -->
+<%-- 	                <input type="text" name="searchWord" id="search" value="${empty param.searchWord ? '' : param.searchWord }"> --%>
+<!-- 	               	<button class="fa-lg fa-sharp fa-solid fa-magnifying-glass border-none" id="sBtn" >검색</button> -->
+<!-- 	              </th> -->
+<!-- 	            </tr> -->
+<!-- 	        </table> -->
+<!--         </form> -->
+
+
+
+			<form id="search_form">
+				<table  class="topTable" >
+					<tr>
+						<td>
+							<select name="searchField">
+								<option value="m_name"  ${"m_name" eq param.searchField? "selected" : "" } >산이름</option>
+							</select>
+							<div id="textSearch">
+								<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" >
+								<button class="btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button>
+							</div>
+						</td>
+					</tr>		
+				</table>
+			</form>
+
+
+
+
+
+
+
         <div class="list_row">
         	<c:choose>
         		<c:when test="${empty mountainList }">
@@ -73,7 +98,7 @@
 
 
         <table class="myTable">
-            <tr class="header">
+            <tr class="header" style="background-color: #aeaeae;">
                 <th colspan="6" style="text-align: center; color: white;" >
 	        		<c:if test="${ph.showPrev }" >
 	        			<a href ="<c:url value='/MountainList${ph.sc.getQueryString(ph.beginPage-1)}'/>" >&laquo;</a>
