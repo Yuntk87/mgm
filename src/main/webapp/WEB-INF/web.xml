@@ -42,7 +42,7 @@
 </context-param>
 <context-param>
 	<param-name>MySqlPwd</param-name>
-	<param-value>0684</param-value>
+	<param-value>8011</param-value>
 </context-param>
 
 <context-param>

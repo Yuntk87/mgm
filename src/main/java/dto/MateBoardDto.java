@@ -16,6 +16,7 @@ public class MateBoardDto {
 	private Date postDate;
 	private int commentCount;
 	private String nickName;
+	private int joinCheck;
 	private String m_name; // join으로 산이름 출력용도
 	
 	
@@ -91,6 +92,14 @@ public class MateBoardDto {
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
 	}
+	public int getJoinCheck() {
+		return joinCheck;
+	}
+	public void setJoinCheck(int joinCheck) {
+		this.joinCheck = joinCheck;
+	}
+	
+	
 	public MateBoardDto() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -125,13 +134,17 @@ public class MateBoardDto {
 		this.mateLimit = mateLimit;
 		this.nickName = nickName;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "MateBoardDto [mate_num=" + mate_num + ", m_num=" + m_num + ", id=" + id + ", title=" + title
 				+ ", content=" + content + ", dDay=" + dDay + ", mateLimit=" + mateLimit + ", viewCount=" + viewCount
-				+ ", postDate=" + postDate + ", commentCount=" + commentCount + ", nickName=" + nickName + ", m_name="
-				+ m_name + "]";
+				+ ", postDate=" + postDate + ", commentCount=" + commentCount + ", nickName=" + nickName
+				+ ", joinCheck=" + joinCheck + ", m_name=" + m_name + "]";
 	}
+
+	
 
 	
 	
