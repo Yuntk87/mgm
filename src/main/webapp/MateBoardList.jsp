@@ -62,10 +62,12 @@
 							<fmt:formatDate value="${b.postDate }" type="date" pattern="yyyy-MM-dd" var="post"/>
 							<c:choose>
 								<c:when test="${now eq post }">
-									<td colspan="5"><fmt:formatDate value="${b.postDate }" type="time" pattern="HH:mm" /></td>
+									<td colspan="4"><fmt:formatDate value="${b.postDate }" type="time" pattern="HH:mm" /></td>
+									<td rowspan="2" width="1%" style="font-size:5px; ${b.joinCheck eq 0? "background-color:rgba(48, 102, 71, 0.9)" : "background-color:rgba(241, 105, 81, 0.9)"}"></td>
 								</c:when>
 								<c:otherwise>
-									<td colspan="5">${post }</td>
+									<td colspan="4">${post }</td>
+									<td rowspan="2" width="1%" style="font-size:5px; ${b.joinCheck eq 0? "background-color:rgba(48, 102, 71, 0.9)" : "background-color:rgba(241, 105, 81, 0.9)"}"></td>
 								</c:otherwise>
 							</c:choose>
 						</tr>
@@ -76,7 +78,7 @@
 							<td width="3%">${b.viewCount }</td>
 							<td width="3%"><img style="width:67%;" src="https://img.icons8.com/?size=512&id=38977&format=png"></td>
 							<td width="3%">${b.commentCount }</td>
-							<td width="3%" style="font-size:5px;">${b.joinCheck eq 0? '🟢' : '🔴'}</td>
+<%-- 							<td width="1%" style="font-size:5px;">${b.joinCheck eq 0? '🟢' : '🔴'}</td> --%>
 						</tr>					
 					</c:forEach>
 						<tr>

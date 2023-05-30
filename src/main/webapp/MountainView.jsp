@@ -22,7 +22,7 @@
         <div style="width: 100%; position: relative;">
             <img style="opacity: 0.6;" src="./img/page_bg8.jpg" width="100%" height="500px" alt="">
             <div style="position: absolute; top: 300px; left: 0; right: 0;">
-                <h1 style="text-align: center; color: black; font-family: 'Oswald', sans-serif;"">VIEW</h1>
+                <h1 class="menuTitle">VIEW</h1>
             </div>
         </div>
         <table class="myTable" style="margin-top: 150px;">
