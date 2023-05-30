@@ -40,7 +40,14 @@
         <div class="list_row">
         	<c:choose>
         		<c:when test="${empty mountainList }">
-        			<h1>등록된 게시물이 없습니다.</h1>
+        			<table class="myTable">
+			            <tr class="header">
+			              <th style="text-align:center;">
+			              	<h1>등록된 게시물이 없습니다.</h1>
+			              </th>
+			            </tr>
+			        </table>
+        			
         		</c:when>
         		<c:otherwise>
         			<c:forEach var="dto" items="${ mountainList }">
@@ -69,13 +76,13 @@
             <tr class="header">
                 <th colspan="6" style="text-align: center; color: white;" >
 	        		<c:if test="${ph.showPrev }" >
-	        			<a href ="<c:url value='/list${ph.sc.getQueryString(ph.beginPage-1)}'/>" >&laquo;</a>
+	        			<a href ="<c:url value='/MountainList${ph.sc.getQueryString(ph.beginPage-1)}'/>" >&laquo;</a>
 	       			</c:if>
 	        		<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }">
-	        			<a href ="<c:url value='/list${ph.sc.getQueryString(i)}'/>" >${i }</a>
+	        			<a href ="<c:url value='/MountainList${ph.sc.getQueryString(i)}'/>" >${i }</a>
 	        		</c:forEach>
 	        		<c:if test="${ph.showNext }" >
-	        			<a href ="<c:url value='/list${ph.sc.getQueryString(ph.endPage+1)}'/>" >&raquo;</a>
+	        			<a href ="<c:url value='/MountainList${ph.sc.getQueryString(ph.endPage+1)}'/>" >&raquo;</a>
 	        		</c:if>
 	        	</th>
             </tr>
