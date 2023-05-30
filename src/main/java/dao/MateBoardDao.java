@@ -85,6 +85,7 @@ public class MateBoardDao extends JDBConnect {
 				m.setViewCount(rs.getInt("viewcount"));
 				m.setCommentCount(rs.getInt("commentCount"));
 				m.setPostDate(rs.getTimestamp("postDate"));
+				m.setJoinCheck(rs.getInt("joinCheck"));
 				m.setM_name(rs.getString("m_name"));
 				return m;
 			}
@@ -139,10 +140,19 @@ public class MateBoardDao extends JDBConnect {
 		String sql = "SELECT m.*, b.m_name FROM mate_board m INNER JOIN mountain_board b ON m.m_num = b.m_num ";
 		if(map.get("searchWord") != null) {
 			sql += " WHERE " + map.get("searchField") + " "
-					+ " LIKE '%" + map.get("searchWord") + "%'"; 
+					+ " LIKE '%" + map.get("searchWord") + "%'";
+			if(map.get("joinCheck") != "") {
+				sql += " AND joinCheck=" + map.get("joinCheck");
+			}
+		} else {
+			if(map.get("joinCheck") != "") {
+				sql += " WHERE joinCheck=" + map.get("joinCheck");
+			}			
 		}
+		
 		sql += " ORDER BY mate_num DESC ";
 		sql += "LIMIT " + map.get("offset")+","+map.get("pageSize");
+		System.out.println(sql);
 
 		try {
 			stmt = con.createStatement();
@@ -162,6 +172,7 @@ public class MateBoardDao extends JDBConnect {
 				m.setCommentCount(rs.getInt("commentCount"));
 				m.setPostDate(rs.getTimestamp("postDate"));
 				m.setM_name(rs.getString("m_name"));
+				m.setJoinCheck(rs.getInt("joinCheck"));
 				mbs.add(m);
 			}
 			
@@ -175,12 +186,11 @@ public class MateBoardDao extends JDBConnect {
 	
 	public int selectCount(Map<String, Object>map) {
 		int totalCount = 0;
-		String sql = "SELECT COUNT(*) FROM mate_board";
+		String sql = "SELECT COUNT(*) FROM mate_board m INNER JOIN mountain_board b ON m.m_num = b.m_num";
 		if(map.get("searchWord") != null) {
 			sql += " WHERE " + map.get("searchField") + " "
 					+ " LIKE '%" + map.get("searchWord") + "%'"; 
 		}
-		System.out.print(sql);
 		
 		try {
 			stmt = con.createStatement();
@@ -249,6 +259,7 @@ public class MateBoardDao extends JDBConnect {
 					dto.setCommentCount(rs.getInt("commentCount"));
 					dto.setPostDate(rs.getTimestamp("postDate"));
 					dto.setM_name(rs.getString("m_name"));
+					dto.setJoinCheck(rs.getInt("joinCheck"));
 				}
 			}
 			catch(SQLException e) {
@@ -271,5 +282,24 @@ public class MateBoardDao extends JDBConnect {
 				e.printStackTrace();
 			}
 			return res;
+	}
+	 
+	public int updateJoinCheck(int mateNum, int checkNum) {
+		int res=0;
+		String sql = "UPDATE mate_board SET joinCheck=? WHERE mate_num=?";
+		
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setInt(1, checkNum);
+			psmt.setInt(2, mateNum);
+			res = psmt.executeUpdate();	
 		}
+		catch(Exception e) {
+			System.out.println("메이트게시글 참가가능 여부 수정 중 예외 발생");
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	
 }
