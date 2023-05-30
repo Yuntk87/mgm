@@ -35,8 +35,7 @@ public class MountainListController extends HttpServlet{
 		Map<String, String> param = new HashMap<String, String>();
 		String searchField = request.getParameter("searchField");
 		String searchWord = request.getParameter("searchWord");
-		System.out.println(searchField);
-		System.out.println(searchWord);
+
 		int pageSize = Integer.parseInt(request.getServletContext().getInitParameter("PageSize"));
 		
 		SearchCondition sc = null;

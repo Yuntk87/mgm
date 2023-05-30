@@ -18,6 +18,7 @@
 		width:98%;
 		min-height: 500px;
 		resize:none;
+		padding:20px 0;
 	}
 	input {
 		margin-left:5px;
@@ -97,7 +98,7 @@
 	.profile2 i:hover {
 		color: black;
 	}
-	.myButton {
+	.boButton {
 		box-shadow:inset 0px 1px 0px 0px #ffffff;
 		background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
 		background-color:#ededed;
@@ -112,11 +113,11 @@
 		padding:5px 10px;
 		margin-right: 2px;
 	}
-	.myButton:hover {
+	.boButton:hover {
 		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
 		background-color:#dfdfdf;
 	}
-	.myButton:active {
+	.boButton:active {
 		position:relative;
 		top:1px;
 	}

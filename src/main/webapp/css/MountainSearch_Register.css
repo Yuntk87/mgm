@@ -1,267 +1,45 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url(https://littlerobin.nz/wp-content/uploads/2021/10/P6200152.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-h1 {
-    text-align: center;
-}
-ul {
-    list-style: none;
-}
-img {
-    width: 50%;
-    height: 400px
-}
-span {
-	font-size: 30px
-}
-i {
-	font-size: 30px
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    height: 60px;
-    padding: 8px 12px;
-    
-}
-
-.navbar_logo i {
-    font-size: 20px;
-    color: 	green;
-    margin-left: 20px;
-    
-}
-.navbar_logo a {
-    font-size: 20px;
-    margin-left: 10px;
-    color: white;
-    font-weight: bold;
-    font-family: 'Noto Sans KR', sans-serif;
-    text-decoration: none;
-}
-.navbar_logo a:hover {
-  text-decoration: underline;
-  color: white;
-}
-.navbar_menu {
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-    
-}
-.navbar_menu li {
-    padding: 8px 12px;
-    margin-left: 100px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 18px;
-    color:white;
-    
-}
-.navbar_menu a {
-  text-decoration: none;
-  color: white;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-.navbar_menu a:hover {
-    text-decoration: underline;
-    color: white;
-}
-.navbar_login {
-    display: flex;
-    list-style: none;
-    font-size: 18px;
-}
-.navbar_login li {
-    list-style: none;
-    padding: 8px 12px;
-    font-family: 'Noto Sans KR', sans-serif;
-}
-.navbar_login a {
-  text-decoration: none;
-  color: white;
-}
-.navbar_login a:hover {
-    text-decoration: underline;
-    color: white;
-}
-.master {
-  display: none;
-}
-
-
-
-
-
-
-
-
-
-
-
-.container {
-    margin-top: 20px;
-    width: 100vw;
-   
-}
-.search-bar {
-    margin: 0 auto;
-    width: 70vw;
-    
-}
-
-.card {
-    margin-top: 40px;
-    width: 70vw;
-    height: 70vh;
-    
-}
-.card-body {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  	background-color: lightgray;
-}
-.result {
-	max-height:300px;
-	text-overflow: ellipsis;
-}
-
-
-
-
-.menu {
-    margin-top: 20px;
-    height: 100px;
-    width: 70vw;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-}
-.list-group-item {
-    background-color: lightgray;
-}
-.d-flex {
-    margin: 0 auto;
-    margin-bottom: 30px;
-}
-
-
-
-
-
-.btn_like {
-    position: relative;
-    margin: 10px auto;
-    display: block;
-    width: 80px;
-    height: 80px;
-    border: 1px solid #DD5D54;
-    border-radius: 44px;
-    font-family: notokr-bold,sans-serif;
-    font-size: 14px;
-    line-height: 16px;
-    background-color: white;
-    color: #DD5D54;
-    transition: border .2s ease-out,box-shadow .1s ease-out,background-color .4s ease-out;
-    cursor: pointer;
-  }
-  
-  .btn_like:hover {
-    border: 1px solid rgba(228,89,89,0.3);
-    background-color: rgba(228,89,89,0.02);
-  }
-  
-  .btn_unlike .img_emoti {
-      background-position: -30px -120px;
-  }
-  
-  .img_emoti {
-      display: inline-block;
-      overflow: hidden;
-      font-size: 0;
-      line-height: 0;
-      background: url(https://mk.kakaocdn.net/dn/emoticon/static/images/webstore/img_emoti.png?v=20180410) no-repeat;
-      text-indent: -9999px;
-      vertical-align: top;
-      width: 20px;
-      height: 17px;
-      margin-top: 1px;
-      background-position: 0px -120px;
-      text-indent: 0;
-  }
-  
-  .btn_like .ani_heart_m {
-      margin: -63px 0 0 -63px;
-  }
-  
-  .ani_heart_m {
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 125px;
-      height: 125px;
-      margin: -63px 0 0 -63px;
-      pointer-events: none;
-  }
-  
-  .ani_heart_m.hi {
-      background-image: url(https://t1.daumcdn.net/cfile/tistory/99ADD94D5B1E40A319?original);
-      -webkit-background-size: 9000px 125px;
-      background-size: 9000px 125px;
-      animation: on_m 1.06s steps(72);
-  }
-  
-  .ani_heart_m.bye {
-      background-image: url(https://t1.daumcdn.net/cfile/tistory/99C2A03F5B1E3E7529?original);
-      -webkit-background-size: 8250px 125px;
-      background-size: 8250px 125px;
-      animation: off_m 1.06s steps(66);
-  }
-  
-  @keyframes on_m {
-    from { background-position: 0 }
-    to { background-position: -9000px }
-  }
-  
-  @keyframes off_m {
-    from { background-position: 0 }
-    to { background-position: -8250px }
-  }
-
-  
-  
-  
-  
-  
-  
-  form {
-        width: 70vw;
-        margin: 0 auto;
-       
-        
-    }
-    td {
-        height: 80px;
-    }
-  
-    input {
-    	
-        width: 100px;
-        border: none;
-    }
-    button {
-        border: none;
-        border-radius: 5px;
-        background-color: white;
-    }
-    button:hover {
-        text-decoration: underline;
-    }
+	.mcontainer {
+		width:80%;
+		margin:0 auto;
+		margin-top: 200px;
+	}
+	.card {
+		display:none;
+	}
+	.search-bar {
+	    margin: 0 auto;
+	    width: 70vw; 
+	}
+	#keyword {
+		width:50%;
+		margin-bottom:30px;
+		border:none;
+		border-bottom: 1px solid lightgray;
+	}
+	.search-bar {
+		text-align:center;	
+	}
+	#mTable {
+		widht:100%;
+		margin:0 auto;
+		border:1px solid lightgray;
+	}
+	#mTable td {
+		text-align:center;
+		border:1px solid lightgray;
+	}
+	#mountain form {
+		width: 70vw;
+		margin: 0 auto;  
+	}
+	#mountaintd {
+		height: 80px;
+	}
+	#mountain button {
+		border: none;
+		border-radius: 5px;
+		background-color: white;
+	}
+	#mountain button:hover {
+		text-decoration: underline;
+	}

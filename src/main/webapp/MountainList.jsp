@@ -24,32 +24,64 @@
                 <h1 class="menuTitle">MOUNTAIN</h1>
             </div>
         </div>
-        <form method="GET">
-	        <table class="myTable" style="margin-top: 150px;">
-	            <tr class="header">
-	              <th>
-	                <select name="searchField"> 
-	                    <option value="m_name"  ${"m_name" eq param.searchField? "selected" : "" } >산이름</option> 
-	                </select>
-	                <input type="text" name="searchWord" id="search" value="${empty param.searchWord ? '' : param.searchWord }">
-	               	<button class="fa-lg fa-sharp fa-solid fa-magnifying-glass border-none" id="sBtn" >검색</button>
-	              </th>
-	            </tr>
-	        </table>
-        </form>
+<!--         <form method="GET"> -->
+<!-- 	        <table class="myTable" style="margin-top: 150px;"> -->
+<!-- 	            <tr class="header"> -->
+<!-- 	              <th> -->
+<!-- 	                <select name="searchField">  -->
+<%-- 	                    <option value="m_name"  ${"m_name" eq param.searchField? "selected" : "" } >산이름</option>  --%>
+<!-- 	                </select> -->
+<%-- 	                <input type="text" name="searchWord" id="search" value="${empty param.searchWord ? '' : param.searchWord }"> --%>
+<!-- 	               	<button class="fa-lg fa-sharp fa-solid fa-magnifying-glass border-none" id="sBtn" >검색</button> -->
+<!-- 	              </th> -->
+<!-- 	            </tr> -->
+<!-- 	        </table> -->
+<!--         </form> -->
+
+
+
+			<form id="search_form">
+				<table  class="topTable" >
+					<tr>
+						<td>
+							<select name="searchField">
+								<option value="m_name"  ${"m_name" eq param.searchField? "selected" : "" } >산이름</option>
+							</select>
+							<div id="textSearch">
+								<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" >
+								<button class="btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button>
+							</div>
+						</td>
+					</tr>		
+				</table>
+			</form>
+
+
+
+
+
+
+
         <div class="list_row">
         	<c:choose>
         		<c:when test="${empty mountainList }">
-        			<h1>등록된 게시물이 없습니다.</h1>
+        			<table class="myTable">
+			            <tr class="header">
+			              <th style="text-align:center;">
+			              	<h1>등록된 게시물이 없습니다.</h1>
+			              </th>
+			            </tr>
+			        </table>
+        			
         		</c:when>
         		<c:otherwise>
         			<c:forEach var="dto" items="${ mountainList }">
         				<div class="card">
                             <a href="#"><img class="mimg"></a>
-                            <h3 class="card-title"><i class="fa-solid fa-mountain"></i> : ${dto.m_name} </h3>
+                            <h3 class="card-title"><i class="fa-solid fa-mountain-sun"></i> : ${dto.m_name} </h3>
                             <p class="card-text"><i class="fa-solid fa-location-dot"></i> : ${dto.m_addr_1} ${dto.m_addr_2 }</p>
                             <p class="card-text"><i class="fa-solid fa-person-hiking"></i> : ${dto.level }</p>
-                            <i class="fa-regular fa-eye"></i>
+                            <i class="fa-regular fa-thumbs-up"></i>
                             <span style="margin-left: 10px;">${dto.m_recommend}</span>
                             <a href="./view?searchWord=${dto.m_name }&m_num=${dto.m_num}&m_name=${dto.m_name}"><button class="view_btn">상세보기</button></a>
                             
@@ -66,16 +98,16 @@
 
 
         <table class="myTable">
-            <tr class="header">
+            <tr class="header" style="background-color: #aeaeae;">
                 <th colspan="6" style="text-align: center; color: white;" >
 	        		<c:if test="${ph.showPrev }" >
-	        			<a href ="<c:url value='/list${ph.sc.getQueryString(ph.beginPage-1)}'/>" >&laquo;</a>
+	        			<a href ="<c:url value='/MountainList${ph.sc.getQueryString(ph.beginPage-1)}'/>" >&laquo;</a>
 	       			</c:if>
 	        		<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }">
-	        			<a href ="<c:url value='/list${ph.sc.getQueryString(i)}'/>" >${i }</a>
+	        			<a href ="<c:url value='/MountainList${ph.sc.getQueryString(i)}'/>" >${i }</a>
 	        		</c:forEach>
 	        		<c:if test="${ph.showNext }" >
-	        			<a href ="<c:url value='/list${ph.sc.getQueryString(ph.endPage+1)}'/>" >&raquo;</a>
+	        			<a href ="<c:url value='/MountainList${ph.sc.getQueryString(ph.endPage+1)}'/>" >&raquo;</a>
 	        		</c:if>
 	        	</th>
             </tr>
@@ -86,7 +118,7 @@
 
 
     <script>
-    const images = ["mountain", "rocky mountains", "hill", "hanla mountain", "hiking", "mont blanc", "fuji mountain", "annapurna", "trekking", "Mount Everest"];
+    const images = ["mountain", "rocky mountains", "hill", "hanla mountain", "hiking", "highlands", "fuji mountain", "annapurna", "trekking", "Mount Everest"];
     
     for(let i =0; i<document.getElementsByClassName('mimg').length; i++){
         document.getElementsByClassName('mimg')[i].src = "https://source.unsplash.com/random/300x300/?"+images[i]

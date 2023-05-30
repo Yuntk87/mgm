@@ -20,7 +20,7 @@
     <div style="width: 100%;">
     	<input id="boardNum" type="hidden" value="${mountainList.m_num }">
         <div style="width: 100%; position: relative;">
-            <img style="opacity: 0.6;" src="https://source.unsplash.com/random/?mountain" width="100%" height="500px" alt="">
+            <img style="opacity: 0.6;" src="./img/page_bg8.jpg" width="100%" height="500px" alt="">
             <div style="position: absolute; top: 300px; left: 0; right: 0;">
                 <h1 style="text-align: center; color: black; font-family: 'Oswald', sans-serif;"">VIEW</h1>
             </div>

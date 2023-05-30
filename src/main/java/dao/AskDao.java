@@ -17,13 +17,14 @@ public class AskDao extends JDBConnect{
 	
 	public int insertWrite(AskDto dto) {
 		int res = 0;
-		String sql ="INSERT INTO ask_board (id, title, content) VALUES (?, ?, ?)";
+		String sql ="INSERT INTO ask_board (id, title, content, nickName) VALUES (?, ?, ?, ?)";
 		
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1,dto.getId());
 			psmt.setString(2, dto.getTitle());
 			psmt.setString(3, dto.getContent());
+			psmt.setString(4, dto.getNickName());
 			res = psmt.executeUpdate(); 
 		}
 			catch(SQLException e) { 
@@ -49,6 +50,7 @@ public class AskDao extends JDBConnect{
 					dto.setContent(rs.getString("content"));
 					dto.setPostDate(rs.getTimestamp("postDate"));
 					dto.setA_count(rs.getInt("a_count"));
+					dto.setNickName(rs.getString("nickName"));
 				}
 			}
 			catch(SQLException e) {
@@ -132,6 +134,7 @@ public class AskDao extends JDBConnect{
 					dto.setContent(rs.getString("content"));
 					dto.setPostDate(rs.getTimestamp("postDate"));
 					dto.setA_count(rs.getInt("a_count"));
+					dto.setNickName(rs.getString("nickName"));
 					fbl.add(dto);
 				}
 			}
@@ -156,7 +159,8 @@ public class AskDao extends JDBConnect{
 					dto.setTitle(rs.getString("title"));
 					dto.setContent(rs.getString("content"));
 					dto.setPostDate(rs.getTimestamp("postDate"));
-					dto.setA_count(rs.getInt("a_count")); 
+					dto.setA_count(rs.getInt("a_count"));
+					dto.setNickName(rs.getString("nickName"));
 					mylist.add(dto);
 				}
 			}

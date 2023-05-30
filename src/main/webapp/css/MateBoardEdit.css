@@ -11,18 +11,20 @@
 		border: 1px solid lightgray;
 	}
 	#wtitle {
-		width: 100%;
+		width: 98%;
 		margin-bottom:10px;
+		height:45px;
+    	padding: 11px 20px 10px;
 	}
 	#wcontent {
-		width: 100%;
+		width: 97%;
 		height: 500px;
+		padding: 20px;
+		resize:none;
+		margin-bottom:20px;
 	}
 	#btnBox {
-		display:flex;
-	}
-	.wbtns {
-		margin-left:auto;
+		text-align:center;
 	}
 	.searchDiv {
 		display:flex;
@@ -58,15 +60,12 @@
 		display: inline-block;
 		margin-right: 20px;
 	}
-	.listBtn {
-		margin-right:0;
-	}
 	.mInfo {
 		margin-right:30px;
 		font-size:12px;
 		color: darkgray;
 	}
-	.myButton {
+	.boButton {
 		box-shadow:inset 0px 1px 0px 0px #ffffff;
 		background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
 		background-color:#ededed;
@@ -81,11 +80,11 @@
 		padding:5px 10px;
 		margin-right: 2px;
 	}
-	.myButton:hover {
+	.boButton:hover {
 		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
 		background-color:#dfdfdf;
 	}
-	.myButton:active {
+	.boButton:active {
 		position:relative;
 		top:1px;
 	}
