@@ -75,12 +75,18 @@
 <%@ include file="Navi.jsp" %>
 <script>
 	function formCheck(frm) {
+		change();
 		if(frm.content.value.trim() == "") {
 			alert("내용을 입력하세요.");
 			frm.content.focus();
 			return false;
 		}
 		return true;
+	}
+	function change(){
+ 		var str = $('#wcontent').val();
+		str = str.replaceAll('\n', '<br/>');
+		$('#wcontent').val(str);
 	}
 	
 </script>
