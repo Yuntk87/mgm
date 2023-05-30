@@ -15,9 +15,9 @@
  <link rel="stylesheet" href="./css/MateBoardWrite.css">
 </head>
 <%
-	Date today = new Date();
+	Date mToday = new Date();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-	String now = sdf.format(today);	
+	String now = sdf.format(mToday);	
 %>
 <body>
 <script>
