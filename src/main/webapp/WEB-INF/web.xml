@@ -42,7 +42,7 @@
 </context-param>
 <context-param>
 	<param-name>MySqlPwd</param-name>
-	<param-value>8011</param-value>
+	<param-value>0684</param-value>
 </context-param>
 
 <context-param>
@@ -51,7 +51,7 @@
 </context-param>
 <context-param>
 	<param-name>NaviSize</param-name>
-	<param-value>5</param-value>
+	<param-value>5</param-value> 
 </context-param>
 
 <session-config>

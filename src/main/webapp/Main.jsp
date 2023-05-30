@@ -81,15 +81,17 @@
     <div class="popula_box">
    		 <c:forEach items="<%=PopularList %>" var="b">
    		 	 <a href="./view?searchWord=${b.m_name }&m_num=${b.m_num}&m_name=${b.m_name}">
-    		 <div class="popula_container" >
-				<img class="img popula_image" style="width:500px; height:600px;" src="" >
-        		<div class="popula_overlay">
-		            <h1>${b.m_name }</h1>
-		            <h2>${b.m_addr_1 } ${b.m_addr_2 }</h2>
-		            <h3><i class="fa-solid fa-person-hiking"></i> : ${b.level }</h3>
-		            <h3><i class="fa-solid fa-heart"></i> : ${b.m_recommend }</h3>
-        		</div>
-    		</div>
+	    		 <div class="popula_container" >
+					
+						<img class="img popula_image" style="width:500px; height:600px;" src="" >
+					
+	        		<div class="popula_overlay">
+			            <h1>${b.m_name }</h1>
+			            <h2>${b.m_addr_1 } ${b.m_addr_2 }</h2>
+			            <h3><i class="fa-solid fa-person-hiking"></i> : ${b.level }</h3>
+			            <h3><i class="fa-solid fa-heart"></i> : ${b.m_recommend }</h3>
+	        		</div>
+	    		</div>
     		</a>
     	</c:forEach> 
     </div>
@@ -139,7 +141,10 @@
           setTimeout(showSlides, 2500); // Change image every 2 seconds
         }
 	
+    
+
         
+
   </script>
        
 <%--        		let tmp = "${res}"; --%>
