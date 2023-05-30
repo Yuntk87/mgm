@@ -149,4 +149,37 @@ public class MateJoinDao extends JDBConnect{
 		}
 		return mbs;
 	}
+	
+	public ArrayList<MateJoinDto> selectMateJoin(String id) {
+		String query = "select m.d_day, mb.m_name , group_concat(m.j_id)"
+				+ "	from mate_board_join as m"
+				+ "    INNER JOIN mountain_board as mb"
+				+ "    ON m.m_num=mb.m_num"
+				+ "    where id=?"
+				+ "    group by m.d_day , m.m_num;";
+		ArrayList<MateJoinDto> mates = new ArrayList<MateJoinDto>();
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, id);	
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				MateJoinDto m  = new MateJoinDto();
+				m.setM_name(rs.getString(2));
+				m.setjId(rs.getString(3));
+				m.setdDay(rs.getTimestamp(1));
+				mates.add(m);
+				System.out.println("조회 목록 : " + m);
+			}	
+		}
+		catch (Exception e) {
+			System.out.println("마이페이지 matejoin등록중 오류발생");
+			e.printStackTrace();
+		}
+		return mates;
+	}		
+				
+	
+		
+	
 }

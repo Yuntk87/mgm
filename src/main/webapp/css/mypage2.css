@@ -60,7 +60,7 @@ span>a{
   #bt1{
 	transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
 	display: block;
-	margin: -8px 115px 5px -35px;
+	margin: -8px 115px 5px 0px;
 	
 	text-decoration: none;
 	border-radius: 14px;
@@ -246,6 +246,7 @@ a.tab-link.is-active {
     width: 101px;
     border-radius: 14px;
     margin-bottom: 13px;
+    cursor: pointer;
 	
 }
 @font-face {
@@ -285,3 +286,6 @@ span.rm{
 #patchbox{
 	display: flex;
 }
+
+
+

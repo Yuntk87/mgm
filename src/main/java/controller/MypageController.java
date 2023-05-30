@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -15,9 +16,11 @@ import com.google.gson.Gson;
 
 import dao.ConfirmDao;
 import dao.FreeBoardDao;
+import dao.MateBoardDao;
 import dao.MateJoinDao;
 import dao.UserDao;
 import dto.FreeBoardDto;
+import dto.MateBoardDto;
 import dto.MateJoinDto;
 import dto.UserDto;
 
@@ -56,8 +59,15 @@ public class MypageController extends HttpServlet {
 		
 		req.setAttribute("mountainLists", res);
 		
+		MateJoinDao mjdao=new MateJoinDao(getServletContext());
+		System.out.println("id:" + id);
+		ArrayList<MateJoinDto> mjlist= mjdao.selectMateJoin(id);
+		req.setAttribute("mjlist",mjlist);
+		
 		
 		req.getRequestDispatcher("./MyPage.jsp").forward(req, resp);
+		
+		
 		
 	}
 
