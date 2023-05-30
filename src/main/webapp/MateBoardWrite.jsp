@@ -1,3 +1,6 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -11,6 +14,11 @@
  <script src="https://kit.fontawesome.com/a8d8408c2e.js" crossorigin="anonymous"></script>
  <link rel="stylesheet" href="./css/MateBoardWrite.css">
 </head>
+<%
+	Date today = new Date();
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+	String now = sdf.format(today);	
+%>
 <body>
 <script>
 	function formCheck(frm) {
@@ -67,7 +75,7 @@
 						</select>
 					</div>
 					<div>
-						날짜 : <input type="datetime-local" name="dDay" required>
+						날짜 : <input type="datetime-local" name="dDay" min="<%=now %>" required>
 					</div>
 				</div>
 
