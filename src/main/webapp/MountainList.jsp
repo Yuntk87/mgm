@@ -75,6 +75,7 @@
         			
         		</c:when>
         		<c:otherwise>
+        			
         			<c:forEach var="dto" items="${ mountainList }">
         				<div class="card">
                             <a href="#"><img class="mimg"></a>
@@ -87,6 +88,11 @@
                             
                         </div>
         			</c:forEach>
+        			
+					<c:forEach begin="1" end="${size }">
+       				<div class="card">
+      				</div>                    
+					</c:forEach>
         		</c:otherwise>
         	</c:choose>  
         </div>

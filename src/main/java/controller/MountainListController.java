@@ -66,6 +66,8 @@ public class MountainListController extends HttpServlet{
 		
 		request.setAttribute("ph", ph);
 		request.setAttribute("mountainList", mountainList);
+		request.setAttribute("size", (int)(Math.ceil(mountainList.size()/10.0)*10)-mountainList.size());
+		System.out.println("size : " + ((Math.ceil(mountainList.size()/10.0)*10)-mountainList.size()));
 		
 		dao.close();
 		
