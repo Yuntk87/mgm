@@ -1,6 +1,6 @@
 
 .weather {
-    width: 250px;
+    width: 350px;
     height: 70px;
    
  
@@ -10,7 +10,8 @@
 }
 .list span {
 	line-height: 70px;
-	font-size: 14px;
+	font-size: 18px;
 	color: white;
+	word-spacing:10px;
 	font-family: 'Oswald', sans-serif;
 }
