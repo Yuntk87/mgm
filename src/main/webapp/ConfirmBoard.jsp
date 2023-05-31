@@ -19,42 +19,13 @@
 <body>
 	<c:choose>
 		<c:when test="${not empty mode && mode eq 'confirm'}">
+			<%@include file="./ConfirmBoardNavi.jsp" %>
+			
 		   	<div style="width: 100%; position: relative;">
 		        <img style="opacity: 0.7;" src="./img/page_bg5.jpg" width="100%" height="560px" alt="">
 		        <div style="position: absolute; top: 300px; left: 0; right: 0;">
 		            <h1 class="menuTitle">CONFIRM</h1>
 		        </div>
-		    </div>
-	        <div class="navi">
-		        <ul class="navi_menu" >
-		            <li><a class="active" href="./Main.jsp" style="font-size: 40px">MGM</a></li>
-		            <li><a href="./HomepageIntroduction.jsp" >홈페이지 소개</a></li>
-		            <li><a href="./MountainList">산 소개</a></li>
-		            <li><a href="./FreeBoardList">자유 게시판</a></li>
-		            <li><a href="./MateBoardList">메이트 게시판</a></li>
-		            <li><a href="./ConfirmBoard?mode=confirm">인증 게시판</a></li>
-		            <c:if test="${not empty sessionScope.UserId && sessionScope.UserId eq 'admin'}">
-		            	<li><a href="./admin" class="master">관리자</a></li>
-		            </c:if>
-		        </ul>
-		        <ul>
-		        </ul>
-		        <div class="navi_login">
-		            <c:choose>
-		                <c:when test="${empty sessionScope.UserId }" >
-		                    <a class='link' href='./login'>로그인</a>
-		                    <a class="link" href="./register" >회원가입</a>
-		                   </c:when>
-		                   <c:otherwise>
-		                       <a class='link' href='./mypage'>회원정보</a>
-		                       <a class='link' href='./logout'>로그아웃</a>
-		                  </c:otherwise>
-		            </c:choose>
-		        </div>
-    		</div>
-		    <div class="master_menu">
-		        <a href="#">산 관리</a>
-		        <a href="#">회원 관리</a>
 		    </div>
 
 			<div id="ConfirmMain">

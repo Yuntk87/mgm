@@ -23,9 +23,6 @@
    .rNum {
    	margin-right:60px;
    }
-   .small {
-   	margin-left:60px;
-   }
   	.rbox {
   		display: none;
   		text-align:center;
@@ -47,6 +44,25 @@
   		transform: rotateX( 360deg );
   		box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.3);
   	}
+  	
+   	.rInfo div {
+   		display:inline-block;
+   	}
+   	.rInfo li {
+   		padding:0;
+   	}
+   	.rInfo div:nth-child(1) {
+   		width:10%;
+   		margin-right:50px;
+   	}
+   	.rInfo div:nth-child(2) {
+   		width:30%;
+   		margin-right:50px;
+   		font-weight:bold;
+   	}
+   	.rInfo div:nth-child(3) {
+   		width:10%;
+   	}
    	
 #rankingMain .prev, #rankingMain .next {
   cursor: pointer;

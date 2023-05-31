@@ -23,7 +23,9 @@ import javax.servlet.http.HttpSession;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import dao.MateBoardDao;
 import dao.MateJoinDao;
+import dto.MateBoardDto;
 import dto.MateJoinDto;
 
 @WebServlet("/MateJoin")
@@ -38,7 +40,6 @@ public class MateJoinController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		PrintWriter out = resp.getWriter();
-		System.out.println("qwwwwwwwwwww");
 
 		String jid = null;
 		if(session.getAttribute("UserId") != null) {
@@ -57,7 +58,6 @@ public class MateJoinController extends HttpServlet{
 		}
 		
 		String temp3 = req.getParameter("dDay");
-		System.out.println("tttttt" + temp3);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date dDay = null;
 		if(temp3 != null) {
@@ -75,6 +75,10 @@ public class MateJoinController extends HttpServlet{
 		int cnt = dao.count(mateNum);
 		req.setAttribute("cnt", cnt);
 		
+		MateBoardDao mdao = new MateBoardDao(getServletContext());
+		MateBoardDto mdto = mdao.selectView(mateNum);
+		int mateLimit = mdto.getMateLimit();
+
 		List<String> mList = dao.selectJId(jid);
 		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMdd");
 		
@@ -107,6 +111,13 @@ public class MateJoinController extends HttpServlet{
 			resp.setContentType("application/json; charset=utf-8");
 			out.println(sObject.toJSONString());
 		}
+		
+		if(cnt >= mateLimit) {
+			mdao.updateJoinCheck(mateNum, 1);
+		} else {
+			mdao.updateJoinCheck(mateNum, 0);
+		}
+		mdao.close();
 
 	}
 	
