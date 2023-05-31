@@ -44,7 +44,7 @@
 			<div class="searchDiv1">
 				<form id="mSearch" action="./mountain" method="post">
 					<input type="hidden" name="mode" value="write">
-					<input type="text" name="mName" value="${dto.m_name }" placeholder="산을 검색하세요">
+					<input type="text" name="mName" value="${dto.m_name }" style="height:20px;" placeholder="산을 검색하세요">
 					<button type="submit" id="mSearchBtn" class="myButton">검색</button>
 				</form>
 			</div>
@@ -81,8 +81,8 @@
 
 
 			
-				<input id="wtitle" type="text" name="title" placeholder="제목"><br>
-				<textarea id="wcontent" name="content"></textarea>		
+				<input id="wtitle" type="text" name="title" placeholder="제목을 입력해 주세요"><br>
+				<textarea id="wcontent" name="content" placeholder="내용을 입력해 주세요"></textarea>		
 				
 				<div id="btnBox">
 					<div class="wbtns">

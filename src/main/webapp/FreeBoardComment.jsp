@@ -76,29 +76,29 @@
 			let fb_num = $(this).parent().attr('data-fb_num');
 			
 			$(".mod", $(this).parent()).append('<input class="form-control" type="text" name="recomment" id="recomment">');
-			$(".mod", $(this).parent()).append('<button class="btn btn-default myButton" type="button" id="modBtn">등록</button>');
+			$(".mod", $(this).parent()).append('<button class="btn btn-default myButton" type="button" id="modBtnN">등록</button>');
 			$(".mod", $(this).parent()).append('<button class="btn btn-default myButton" type="button" id="modBtnC">취소</button>');
 			$('input[name=recomment]').val($('span.comment', $(this).parent()).text());
-			$("#modBtn").attr('data-fbc_num', fbc_num);
+			$("#modBtnN").attr('data-fbc_num', fbc_num);
 		});
 		
 		//수정취소 클릭
 		$("#commentList").on("click", "#modBtnC", function() {
 			let del = $("#recomment").detach();
-			let btn = $("#modBtn").detach();
+			let btn = $("#modBtnN").detach();
 			let btnc = $("#modBtnC").detach();
 		});			
 		
 		//수정등록 클릭
-		$("#commentList").on("click", "#modBtn", function() {
+		$("#commentList").on("click", "#modBtnN", function() {
 			let comment = $("input[name=recomment]").val();
 			if(comment.trim() == '') {
 				alert("입력해주세요.");
 				return;
 			}
-			let fbc_num = $("#modBtn").attr('data-fbc_num');
+			let fbc_num = $("#modBtnN").attr('data-fbc_num');
 			let del = $("#recomment").detach();
-			let btn = $("#modBtn").detach();
+			let btn = $("#modBtnN").detach();
 			
 			$.ajax({
 				type: 'POST',

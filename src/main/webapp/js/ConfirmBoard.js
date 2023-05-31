@@ -143,6 +143,7 @@ $(function() {
 		
 		let myLocation = document.getElementById('mLocation').value;
 		let mLocation = document.getElementById('myLocation').value;
+
 		$.ajax({
 			url: "./distance?myLocation="+myLocation+"&mLocation="+mLocation,
 			type: "get",
@@ -153,10 +154,12 @@ $(function() {
 				
 				if(res > 1.5) {
 					alert((res>=1)? "목적지 까지"+res+"km 남았습니다." : "목적지 까지"+(res*100)+"m 남았습니다.");
+					$("#BetweenDistance").html((res>=1)? "목적지 까지"+res+"km 남았습니다." : "목적지 까지"+(res*100)+"m 남았습니다.");
 					result = "<button type='button' id='confirmBtn' class='myButton' disabled >등록불가</button>";
 					$("#mBtn").detach();
 				} else if(res < 1.5) {
 					alert((res>=1)? "목적지 까지"+res+"km 남았습니다." : "목적지 까지"+(res*100)+"m 남았습니다.");
+					$("#BetweenDistance").html((res>=1)? "목적지 까지"+res+"km 남았습니다." : "목적지 까지"+(res*100)+"m 남았습니다.");
 					result = "<button type='submit' id='confirmBtn' class='myButton'>등록가능</button>";
 					$("#mBtn").detach();
 				} else {

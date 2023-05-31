@@ -22,6 +22,9 @@
 		width: 100%;
 		color: black;
 	}
+	.clist {
+		padding-left: 0px;
+	}
 	.clist li{
 		border-bottom: 1px solid lightgray;
 		padding:10px;
@@ -55,13 +58,27 @@
 		color:#999;
 	}
 	.mod {
-		width:100%;
-		margin-top:20px;
+	    width: 100%;
+	    margin-top: 35px;
+	    display: flex;
+	    justify-content: center;
 	}
-	.mod input {
+	.mod button {
+	    width: 40px;
+		margin-top:0;
+	    font-size: 10px;
+    	padding: 2px;
+	}
+	.modDiv1 {
 		width:80%;
+	}
+	.form-control {
+		width:95%;
 		margin-right:20px;
 		height: 20px;
 		border: 1px solid black;
+	}
+	.coSend {
+		margin-top: 40px;
 	}
 	
