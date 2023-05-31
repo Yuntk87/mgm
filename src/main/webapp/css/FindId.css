@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.title {
+.titlee {
  font-family: 'Montserrat', sans-serif;
   color: #8E9AAF;
   line-height: 1.1em;
@@ -13,16 +13,14 @@
 
 .desc {
   margin-top: -8px;
-}
-
-
-p {
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.7em;
   letter-spacing: 2px;
   color: #8E9AAF;
   text-align: center;
 }
+
+
 
 span {
   color: #EAC7CC;
@@ -38,7 +36,7 @@ span {
   
  
 }
-i{
+.icon i{
     font-size: 50px;
     color: #8E9AAF;
      position: absolute;
@@ -52,34 +50,33 @@ i{
 
 
 
-button {
+.buttonn {
   padding: 12px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Msontserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 11px;
   border-radius: 10px;
   margin: auto;
   outline: none;
-  display: block;
+  display: block; 
+   margin-top: 3%;
+  background: #f6f6f6;
+  color: #ce7d88;
+  border: solid 1px #EAC7CC;
 }
-button:hover {
+.buttonn:hover {
   background: #EAC7CC;
   color: #f6f6f6;
   transition: background-color 1s ease-out;
 }
 
-.button {
-  margin-top: 3%;
-  background: #f6f6f6;
-  color: #ce7d88;
-  border: solid 1px #EAC7CC;
-}
+
 .rightbox{
 	
 	
    border:solid 1px #f6f6f6;
-   margin: auto;
+   margin: 200px auto;
    width: 491px;
    height: 360px;
 }
