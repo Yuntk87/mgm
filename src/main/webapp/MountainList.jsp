@@ -68,7 +68,7 @@
         			<table class="myTable">
 			            <tr class="header">
 			              <th style="text-align:center;">
-			              	<h1>등록된 게시물이 없습니다.</h1>
+			              	<h1 style="font-family: 'LINESeedKR-Bd';">등록된 게시물이 없습니다.</h1>
 			              </th>
 			            </tr>
 			        </table>
@@ -79,11 +79,9 @@
         			<c:forEach var="dto" items="${ mountainList }">
         				<div class="card">
                             <a href="#"><img class="mimg"></a>
-                            <h3 class="card-title"><i class="fa-solid fa-mountain-sun"></i> : ${dto.m_name} </h3>
-                            <p class="card-text"><i class="fa-solid fa-location-dot"></i> : ${dto.m_addr_1} ${dto.m_addr_2 }</p>
-                            <p class="card-text"><i class="fa-solid fa-person-hiking"></i> : ${dto.level }</p>
-                            <i class="fa-regular fa-thumbs-up"></i>
-                            <span style="margin-left: 10px;">${dto.m_recommend}</span>
+                            <h2 class="card-title"><i class="fa-solid fa-mountain-sun"></i> ${dto.m_name} </h2>
+                            <p class="card-text"><i class="fa-solid fa-location-dot"></i> ${dto.m_addr_1} ${dto.m_addr_2 }</p>
+                            <p class="card-text"><i class="fa-solid fa-person-hiking"></i> ${dto.level }<i class="fa-regular fa-thumbs-up" style="margin-left: 40px;"></i> ${dto.m_recommend}</p>   
                             <a href="./view?searchWord=${dto.m_name }&m_num=${dto.m_num}&m_name=${dto.m_name}"><button class="view_btn">상세보기</button></a>
                             
                         </div>

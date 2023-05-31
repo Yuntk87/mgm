@@ -123,3 +123,24 @@ body {
     top: 30px;
     right: 80px;
   }
+
+.table_title {
+	font-family: 'LINESeedKR-Bd';
+}  
+.table_contnent {
+	font-family: 'BMHANNAAir';
+}
+  
+  
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BMHANNAAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

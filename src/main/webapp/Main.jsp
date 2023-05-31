@@ -56,7 +56,7 @@
 </div>
 
     <div class="text ">
-      <h2>
+      <h2 style="font-family: 'Oswald', sans-serif;">
         등산이 점점 좋아집니다. <br><br>
         MGM과 함께 <br><br>
         <button type="button" class="image1-box-btn"><a href="HomepageIntroduction.jsp" style="font-family: 'Oswald', sans-serif;">VIEW MORE</a></button><br><br>
