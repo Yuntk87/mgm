@@ -61,11 +61,6 @@
         MGM과 함께 <br><br>
         <button type="button" class="image1-box-btn"><a href="HomepageIntroduction.jsp" style="font-family: 'Oswald', sans-serif;">VIEW MORE</a></button><br><br>
         <img src="img/team.jpg" width="700px" height="250px" alt="">
-
-        <button type="button" class="image1-box-btn"><a href="HomepageIntroduction.jsp">VIEW MORE</a></button><br><br>
-        <img src="img/team.jpg" width="600px" height="200px" alt="">
-
-        
       </h2>
     </div>
 
