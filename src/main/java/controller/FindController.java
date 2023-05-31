@@ -28,12 +28,14 @@ public class FindController extends HttpServlet {
 		if(id==null) {
 			String script=""
 					+"<script>"
-					+"alert('아이디찾기에 실패하였습니다');"
-					+" location.href='./login.jsp';"
+					+"alert('가입된ID가 없습니다');"
+					+" location.href='./ForgetId.jsp';"
 					+"</script>";
-		}
-		System.out.println("id=" + id );
-		req.getRequestDispatcher("./FindId.jsp").forward(req, resp);
+			resp.setContentType("text/html; charset=utf-8");
+			resp.getWriter().print(script);
+			System.out.println("id=" + id );
+			
+		}else req.getRequestDispatcher("./FindId.jsp").forward(req, resp);
 		
 		}else {
 			
@@ -47,13 +49,15 @@ public class FindController extends HttpServlet {
 			if(pwd==null) {
 				String script=""
 						+"<script>"
-						+"alert('비밀번호찾기에 실패하였습니다');"
-						+" location.href='./login.jsp';"
+						+"alert('가입된 비밀번호가 없습니다');"
+						+" location.href='./ForgetId.jsp';"
 						+"</script>";
+				resp.setContentType("text/html; charset=utf-8");
+				resp.getWriter().print(script);
+				
 			}
-			System.out.println("pwd=" + pwd );
-			
-			req.getRequestDispatcher("./findPwd.jsp").forward(req, resp);
+			//System.out.println("pwd=" + pwd );
+			else req.getRequestDispatcher("./findPwd.jsp").forward(req, resp);
 		}
 	}
 	

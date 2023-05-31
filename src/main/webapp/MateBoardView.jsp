@@ -43,8 +43,13 @@
 				<div class="btnDiv">
 					<c:choose>
 						<c:when test="${sessionScope.UserId != null && sessionScope.UserId eq dto.id || sessionScope.UserId eq 'admin'}">
-							<button type="button" class="boButton" onclick="location.href='./MateBoardEdit${sc.getQueryString(param.page) }&num=${dto.mate_num }&mName=${dto.m_name }'">수정하기</button>
-							<button type="button" class="boButton" onclick="deletePost()">삭제하기</button>
+							<c:if test="${dto.joinCheck eq '2'}">
+								<button type="button" class="boButton" onclick="deletePost()">삭제하기</button>
+							</c:if>
+							<c:if test="${dto.joinCheck ne '2'}">
+								<button type="button" class="boButton" onclick="location.href='./MateBoardEdit${sc.getQueryString(param.page) }&num=${dto.mate_num }&mName=${dto.m_name }'">수정하기</button>
+								<button type="button" class="boButton" onclick="deletePost()">삭제하기</button>
+							</c:if>
 						</c:when>
 						<c:when test="${dto.joinCheck eq '2'}">
 							<button id="joinBtn" type="button" class="boButton" type="button" disabled>지난 일정입니다</button>

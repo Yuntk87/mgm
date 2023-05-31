@@ -34,6 +34,7 @@ body {
 	display:inline-block;
 	border:2px solid gray;
 	border-radius:10px;
+	line-height: 52px;
 }
 .search {
     display: flex;
@@ -43,7 +44,6 @@ body {
 .btn {
     background-color: white;
     border:none;
-    padding-bottom:10px;
 }
 #search {
     width: 170px;

@@ -78,13 +78,15 @@ public class MateBoardListController extends HttpServlet{
 				req.setAttribute("today", today);
 				
 				for(MateBoardDto tt : boardLists) {
-					SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-					String tem1 = sdf.format(tt.getPostDate());
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHH");
+					String tem1 = sdf.format(tt.getdDay());
 					String tem2 = sdf.format(today);
 					int todayNum = Integer.parseInt(tem2);
 					int postNum = Integer.parseInt(tem1);
 					if(todayNum > postNum) {
 						dao.updateJoinCheck(tt.getMate_num(), 2);
+					} else {
+						dao.updateJoinCheck(tt.getMate_num(), 0);
 					}
 				}
 				
