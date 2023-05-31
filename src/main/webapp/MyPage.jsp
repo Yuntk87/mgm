@@ -64,11 +64,13 @@
        
 
 
-<div class="data-container">
+<div class="data-container"> 
+    <a id="bt1" href= "./AskBoardWrite.jsp"class="button1">문의하기</a>
   	<a id="bt1" href="./user?mode=Modify"class="button1">수정하기</a>
+  	
 	
 	<button type="button" class="danger"> 탈퇴하기</button>
- 
+
 </div>
   </div>
   
@@ -88,7 +90,7 @@
  <div class="box-wrap">
    <div class="boox">
          
-     <p>자유게시판에 쓴 글</p>
+     <p>자유게시판에 쓴 글 <i class="fa-solid fa-pen"></i></p>
    
 <c:forEach var="board" items="${boardLists}">
 <ul>
@@ -110,7 +112,7 @@
      
     </div>
       <div class="boox">
-    <p>내가 모은 뱃지 </p>
+    <p>내가 모은 뱃지 <i class="fa-regular fa-thumbs-up"></i> </p>
       <div id="patchbox">
 	            	<c:forEach items="${RepeatMountain }" var="R">
 
@@ -123,8 +125,30 @@
 	            	</c:forEach>
 </div>
     
-  </div>    
-      </div>
+  </div> 
+  
+
+     
+      </div> 
+       <div class="boox">
+  
+  <p>나의 등산메이트 <i class="fa-solid fa-person-hiking"></i></p>
+
+  
+  <c:forEach items="${mjlist}" var="mj">
+<ul>
+ 
+   
+    <li>
+    장소 : ${mj.m_name }<br>
+    신청한 메이트 : ${mj.jId }<br>
+    날짜 : ${mj.dDay }
+   
+   </li>
+  
+ </ul>
+</c:forEach>
+  </div>
       
   </li>
   </ul>
