@@ -50,32 +50,31 @@
 
 <div class="image1 scroll-img" style="margin-top: 10px;" >
   <div class="image1-box">
-    <h3 style="font-size: 40px; color: white; font-weight: bold;">MGM 사이트 산 소개 </h3>
-    <button type="button" class="image1-box-btn"><a href='MountainList'>VIEW MORE</a></button>
+    <h3 style="font-size: 40px; color: white; font-weight: bold; font-family: 'Oswald', sans-serif;">MGM 사이트 산 소개 </h3>
+    <button type="button" class="image1-box-btn"><a href='MountainList' style="font-family: 'Oswald', sans-serif;">VIEW MORE</a></button>
   </div>
 </div>
 
     <div class="text ">
-      <h2>
+      <h2 style="font-family: 'Oswald', sans-serif;">
         등산이 점점 좋아집니다. <br><br>
         MGM과 함께 <br><br>
-        <button type="button" class="image1-box-btn"><a href="HomepageIntroduction.jsp">VIEW MORE</a></button><br><br>
-        <img src="img/team.jpg" width="600px" height="200px" alt="">
-        
+        <button type="button" class="image1-box-btn"><a href="HomepageIntroduction.jsp" style="font-family: 'Oswald', sans-serif;">VIEW MORE</a></button><br><br>
+        <img src="img/team.jpg" width="700px" height="250px" alt="">
       </h2>
     </div>
 
     <div class="image2 scroll-img">
       <div class="image2-box">
-        <h3 style="font-size: 40px; color: white; font-weight: bold;">MGM 사이트 게시판</h3>
-        <button type="button"  class="image1-box-btn"><a href='FreeBoardList'>VIEW MORE</a></button>
+        <h3 style="font-size: 40px; color: white; font-weight: bold; font-family: 'Oswald', sans-serif;">MGM 사이트 게시판</h3>
+        <button type="button"  class="image1-box-btn"><a href='FreeBoardList' style="font-family: 'Oswald', sans-serif;">VIEW MORE</a></button>
       </div>
     </div>
 
     <div style="margin: 0 auto; text-align: center;"><i style="font-size: 16px;" class="fa-solid fa-window-minimize"></i></div>
     <div style="margin: 0 auto; text-align: center;">
-      <h1>POPULARITY MOUNTAIN</h1>
-      <h4>#FROM_MGM</h4>
+      <h1 style="font-family: 'Oswald', sans-serif;">POPULARITY MOUNTAIN</h1>
+      <h4 style="font-family: 'Oswald', sans-serif;">#FROM_MGM</h4>
     </div>
     
     <div class="popula_box">

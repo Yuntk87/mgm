@@ -149,7 +149,6 @@
 					</select>
 				</div>
 				<div class="profile1">
-						<img src="https://cdn-icons-png.flaticon.com/128/6020/6020006.png">
 						<span class="nickName" style="cursor:pointer;" onClick="location.href='/mgm1/yourpage?id=${dto.id}'">${dto.id }</span>
 						<span class="lv">Lv.${udto.level }</span>
 						<fmt:formatDate value="${dto.postDate }" type="both" pattern="yyyy-MM-dd hh:mm" var="post"/>

@@ -28,22 +28,22 @@
         <table class="myTable" style="margin-top: 150px;">
             <tr class="header">
               <th style="text-align: left;">
-                <p>상세보기(페이지)</p>
+                <p class="table_title">상세보기(페이지)</p>
               </th>
               <th style="text-align: right;">
-                <a href="./MountainList">목록보기</a>
+                <a class="table_title" href="./MountainList">목록보기</a>
               </th>
             </tr>
         </table>
         <table class="myTable">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">이름</th>
-                    <th scope="col">주소_1</th>
-                    <th scope="col">주소_2</th>
-                    <th scope="col">레벨</th>
-                    <th scope="col">좋아요</th>
+                    <th class="table_title" scope="col">#</th>
+                    <th class="table_title" scope="col">이름</th>
+                    <th class="table_title" scope="col">주소_1</th>
+                    <th class="table_title" scope="col">주소_2</th>
+                    <th class="table_title" scope="col">레벨</th>
+                    <th class="table_title" scope="col">좋아요</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,12 +58,12 @@
                 	</c:when>
                 	<c:otherwise>
                 			<tr>
-                				<td>${mountainList.m_num }</td>
-                				<td>${mountainList.m_name }</td>
-                				<td>${mountainList.m_addr_1 }</td>
-                				<td>${mountainList.m_addr_2 }</td>
-                				<td>${mountainList.level }</td>
-                				<td id="likeNum">${mountainList.m_recommend }</td>
+                				<td class="table_contnent">${mountainList.m_num }</td>
+                				<td class="table_contnent">${mountainList.m_name }</td>
+                				<td class="table_contnent">${mountainList.m_addr_1 }</td>
+                				<td class="table_contnent">${mountainList.m_addr_2 }</td>
+                				<td class="table_contnent">${mountainList.level }</td>
+                				<td class="table_contnent" id="likeNum">${mountainList.m_recommend }</td>
                 			</tr>
                 	</c:otherwise>
                 </c:choose>
@@ -98,11 +98,11 @@
             	<table class="myTable">
 		            <tr class="header">
 			          	
-			            <th style="text-align: left;">
+			            <th class="table_title" style="text-align: left;">
 			           		<p style="margin-left: 35px">높이<p>
 			            </th>
 
-			            <th style="text-align: left;">
+			            <th class="table_title" style="text-align: left;">
 			              산 소개
 			            </th>
 		            </tr>
@@ -110,7 +110,7 @@
 		        <table class="myTable">		 
 		                <tr class="header">
 		                    <th></th>
-		                    <th style="text-align: center;" id='minfo'></th> 
+		                    <th class="table_contnent" style="text-align: center;" id='minfo'></th> 
 		                    <th></th>           
 		               	</tr>       
 		    	</table>

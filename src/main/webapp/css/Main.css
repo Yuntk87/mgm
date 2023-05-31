@@ -198,11 +198,13 @@ font-size: 1.1rem;
   padding: 30px;
   text-align: center;
   bottom: -340px;
- 
 }
 
 .popula_container:hover .popula_overlay {
   opacity: 1;
   bottom:0;
 }
+
+
+
 
