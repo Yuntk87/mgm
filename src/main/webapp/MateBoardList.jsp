@@ -50,7 +50,7 @@
 		<table class="boardList">
 			<c:choose>
 				<c:when test="${empty boardLists }" >
-					<tr><td colspan="8">등록 된 게시물이 없습니다.</td></tr>
+					<tr class="zero"><td colspan="8">등록 된 게시물이 없습니다.</td></tr>
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${boardLists }" var="b">
@@ -110,31 +110,22 @@
 $(".boardList tr").hover(function(){
 
 	$(this).addClass("one")
-
 	if($(this).hasClass("last"))
-
-	$(this).prev().addClass("one")
-
+		$(this).prev().addClass("one")
 	else
-
-	$(this).next().addClass("one")
+		$(this).next().addClass("one")
 
 	if($(this).hasClass("page_bar"))
-
-	$(this).removeClass("one")
-
-	}, function(){
-
-	$(this).removeClass("one")
-
-	if($(this).hasClass("last"))
-
-	$(this).prev().removeClass("one")
-
-	else
-
-	$(this).next().removeClass("one") 
-
+		$(this).removeClass("one")
+		
+	if($(this).hasClass("zero"))
+		$(this).removeClass("one")
+}, function(){
+		$(this).removeClass("one")
+		if($(this).hasClass("last"))
+			$(this).prev().removeClass("one")
+		else
+			$(this).next().removeClass("one")
 	});
 </script>
 
