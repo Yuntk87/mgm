@@ -10,8 +10,8 @@
 </head>
 <body>
 	<div class="commentAll">
+		<h2>댓글</h2>
 		<div id="commentList"></div>
-		<h2>댓글쓰기</h2>
 		<div class="coSend">
 			<input type="text" name="comment" id="comment" placeholder="댓글입력">
 			<button id="coSendBtn" class="myButton" type="button">등록</button>
@@ -75,30 +75,29 @@
 			let matec_num = $(this).parent().attr('data-matec_num');
 			let mate_num = $(this).parent().attr('data-mate_num');
 			
-			$(".mod", $(this).parent()).append('<input class="form-control" type="text" name="recomment" id="recomment">');
-			$(".mod", $(this).parent()).append('<button class="btn btn-default myButton" type="button" id="modBtn">등록</button>');
-			$(".mod", $(this).parent()).append('<button class="btn btn-default myButton" type="button" id="modBtnC">취소</button>');
+			$(".mod", $(this).parent()).append('<div class="modDiv1"><input class="form-control" type="text" name="recomment" id="recomment"></div>');
+			$(".mod", $(this).parent()).append('<div class="modDiv2"><button class="btn btn-default myButton" type="button" id="modBtnN">등록</button><button class="btn btn-default myButton" type="button" id="modBtnC">취소</button></div>');
 			$('input[name=recomment]').val($('span.comment', $(this).parent()).text());
-			$("#modBtn").attr('data-matec_num', matec_num);
+			$("#modBtnN").attr('data-matec_num', matec_num);
 		});
 		
 		//수정취소 클릭
 		$("#commentList").on("click", "#modBtnC", function() {
 			let del = $("#recomment").detach();
-			let btn = $("#modBtn").detach();
+			let btn = $("#modBtnN").detach();
 			let btnc = $("#modBtnC").detach();
 		});			
 		
 		//수정등록 클릭
-		$("#commentList").on("click", "#modBtn", function() {
+		$("#commentList").on("click", "#modBtnN", function() {
 			let comment = $("input[name=recomment]").val();
 			if(comment.trim() == '') {
 				alert("입력해주세요.");
 				return;
 			}
-			let matec_num = $("#modBtn").attr('data-matec_num');
+			let matec_num = $("#modBtnN").attr('data-matec_num');
 			let del = $("#recomment").detach();
-			let btn = $("#modBtn").detach();
+			let btn = $("#modBtnN").detach();
 			
 			$.ajax({
 				type: 'POST',

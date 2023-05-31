@@ -71,6 +71,7 @@
 	.profile {
 		display: flex;
 		justify-content: space-between;
+		line-height: 60px;
 	}
 	.profile span {
 		margin-right: 10px;

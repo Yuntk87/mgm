@@ -57,7 +57,7 @@
 						<tr style="border-top:1px solid darkgray">
 							<td width="4%">${b.mate_num }.</td>
 							<td width="10%">${b.m_name }</td>
-							<td rowspan="2" style="font-size:18px; height:55px;"><a class="link" href='./MateBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.mate_num }&nickName=${b.id }'>${b.title }</a></td>
+							<td rowspan="2" style="font-size:18px; height:55px;"><a class="link" href='./MateBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.mate_num }&nickName=${b.nickName }'>${b.title }</a></td>
 							<fmt:formatDate value="${today }" type="date" pattern="yyyy-MM-dd" var="now"/>
 							<fmt:formatDate value="${b.postDate }" type="date" pattern="yyyy-MM-dd" var="post"/>
 							<c:choose>
