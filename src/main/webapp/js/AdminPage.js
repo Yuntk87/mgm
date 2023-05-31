@@ -95,8 +95,20 @@
                 });
             });
         });
+        $(function() {
+            $('#searchBtn').click(function() {
+                let keyword = $('#keyword').val();
+                $.ajax({
+                    url: "./api?keyword="+keyword, // 요청 URL
+                    type: "get", // HTTP 메서드
+                    dataType: "xml", // 응답 데이터 형식
+                    success: sucFuncJson6, // 요청 성공 시 호출할 메서드 설정,
+                    error: errFunc // 요청 실패 시 호출할 메서드 설정
+                });
+            });
+        });
 		function sucFuncJson1(d) {
-            console.log(d)
+
             var list = '';       
             $(d).find('item').each(function(index, item) {
 				list+='<h2>'+$(this).find('mntnnm').text()+'</h2>'; //산명
@@ -113,7 +125,7 @@
 		
         // 검색 성공 시 결과를 화면에 뿌려줍니다.
         function sucFuncJson2(d) {
-            console.log(d)
+ 
             var list = '';
        
             $(d).find('item').each(function(index, item) {               
@@ -132,7 +144,7 @@
         }
      // 검색 성공 시 결과를 화면에 뿌려줍니다.
         function sucFuncJson3(d) {
-            console.log(d)
+ 
             var list = '';
          
             $(d).find('item').each(function(index, item) {         
@@ -146,12 +158,13 @@
         }
      // 검색 성공 시 결과를 화면에 뿌려줍니다.
         function sucFuncJson4(d) {
-            console.log(d)
+
             var list = '';
    
             $(d).find('item').each(function(index, item) {      
             	list+='높이 : '+$(this).find('mntninfohght').text()+'m'; //산높이      
             });
+          
             $('.resultHeight').html(list);
         }
         // 실패 시 경고창을 띄워줍니다.
@@ -161,13 +174,44 @@
         
      // 검색 성공 시 결과를 화면에 뿌려줍니다.
         function sucFuncJson5(d) {
-            console.log(d)
+
             var list = '';
 
             $(d).find('item').each(function(index, item) {
             	list+= '산코드 : ' + $(this).find('mntnid').text() ; //산코드             
             });
             $('.resultCode').html(list);
+        }
+        // 실패 시 경고창을 띄워줍니다.
+        function errFunc(e) {
+            alert("실패: " + e.status);
+        }
+        
+         function sucFuncJson6(d) {
+       
+            var list = '';
+			var temp = '';
+            $(d).find('item').each(function(index, item) {
+            	list+= '산코드 : ' + $(this).find('mntnid').text() ; //산코드             
+            	temp = $(this).find('mntninfohght').text().split(' : ');
+            	console.log(temp[0])
+            });
+            if(temp[0] < 400) {
+				$('input[name=level]').attr('value', 1);
+			} 
+			else if(temp[0] < 600) {
+				$('input[name=level]').attr('value', 2);
+			}
+			else if(temp[0] < 800) {
+				$('input[name=level]').attr('value', 3);
+			}
+			else if(temp[0] < 1000) {
+				$('input[name=level]').attr('value', 4);
+			}
+			else {
+				$('input[name=level]').attr('value', 5);
+			}
+			
         }
         // 실패 시 경고창을 띄워줍니다.
         function errFunc(e) {

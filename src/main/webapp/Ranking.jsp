@@ -54,7 +54,11 @@
 			<h3><img src="https://img.icons8.com/?size=512&id=zBIz5sCgi3aB&format=png" width="20px" height="20px"> 전체 유저랭킹</h3>
 			<c:forEach var="user" items='<%=uList%>' varStatus="status">
 				<ul class="rInfo">
-					<li><a href="./yourpage?id=${user.nickName}"> <span class="rNum">${status.count}</span> ${user.nickName} <span class="small">LV.${user.level}</span></a></li>
+					<li>
+						<div><span class="rNum">${status.count}</span></div>
+						<div><a href="./yourpage?id=${user.nickName}"> ${user.nickName} </a></span></div>
+						<div><span class="small">LV.${user.level}</span></div>
+					</li>
 				</ul>
 			</c:forEach>
 		</div>
@@ -62,7 +66,11 @@
 			<h3><img src="https://img.icons8.com/?size=512&id=zBIz5sCgi3aB&format=png" width="20px" height="20px"> <%=tmp1 %>월 유저랭킹</h3>
 			<c:forEach var="userM" items='<%=uListMonth%>' varStatus="status">
 				<ul class="rInfo">
-					<li><a href="./yourpage?id=${user.nickName}"> <span class="rNum">${status.count}</span> ${userM.get('id')} <span class="small">${userM.get('count')}회</span></a></li>
+					<li>
+						<div><span class="rNum">${status.count}</span></div>
+						<div><a href="./yourpage?id=${user.nickName}">${userM.get('id')} </a></span></div>
+						<div><span class="small">${userM.get('count')}회</span></div>
+					</li>
 				</ul>
 			</c:forEach>
 		</div>

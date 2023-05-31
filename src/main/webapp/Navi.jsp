@@ -59,7 +59,7 @@
     
     
     	<div class="quick-btn-box">
-        	<button class="q-box-btn" ><i class="fa-solid fa-angles-left" style="color: white;"></i></button>
+        	<button class="q-box-btn" ><i class="fa-solid fa-angles-right right-btn" style="color:white;"></i><i class="fa-solid fa-angles-left left-btn" style="color: white;"></i></button>
         </div>
         
         
@@ -198,13 +198,20 @@
 		
         $(document).ready(function(){
         	  textchange = true;
+        	  $('.right-btn').css("display","none");
         	  $('.q-box-btn').click(function(){
+        		
         	    if(textchange){
         	      textchange = false;
         	      $('.quick-menu').css("right", "0px");
+        	      $('.right-btn').css("display", "block");
+        	      $('.left-btn').css("display", "none");
+//         	      $('.quick-btn-box').html("<button class='q-box-btn'><i class='fa-solid fa-angles-right' style='white;'></i></button>")
         	    }else{
         	      textchange = true;
         	      $('.quick-menu').css("right", "-60px");
+        	      $('.right-btn').css("display", "none");
+        	      $('.left-btn').css("display", "block");
         	    }
         	    
         	  })
