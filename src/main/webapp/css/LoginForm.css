@@ -73,7 +73,7 @@ form{
         max-width:680px;
         height:50px;
         margin:0 auto;
-        border-radius:8px;
+        border-radius:3px;
         border:none;
         background: rgba(#0f132a,.1);
         color : rgba(#0f132a,.3);
@@ -82,6 +82,31 @@ form{
         font-family: 'Montserrat', sans-serif;
         
      }
+     
+     input:focus {
+  color:#f15e5e;
+  outline: none;
+  border-bottom: 1px solid rgba(050,087,127);
+  font-size: 18px;
+ 
+}
+.input__block  i{
+position: absolute;	
+left: 90%;
+top: 27px;
+ color:gray;
+ opacity: 0.6;
+	
+}
+
+.input__block  i:hover{
+	opacity: 1;
+	 cursor: pointer;
+}
+
+
+
+     
   .bttn {
   border: none;
   display: block;

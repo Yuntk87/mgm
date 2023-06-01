@@ -10,7 +10,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
- 
+ <script src="https://kit.fontawesome.com/bb8da17f44.js" crossorigin="anonymous"></script>
 <script src = "https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 <!-- 네이버 스크립트 -->
@@ -177,6 +177,22 @@ function aa(){
   $("#frm-reset")[0].reset();
 }
  
+ ///비밀번호 눈 
+$(document).ready(function(){
+    $('.input__block  i').on('click',function(){
+        $('input').toggleClass('active');
+        if($('input').hasClass('active')){
+            $(this).attr('class',"fa fa-eye fa-lg")
+            .prev('input').attr('type',"text");
+        }else{
+            $(this).attr('class',"fa fa-eye-slash fa-lg")
+            .prev('input').attr('type','password');
+        }
+    });
+});
+
+ 
+ 
 </script>
 
 </head>
@@ -210,7 +226,8 @@ function aa(){
       </div>
   
       <div class="input__block">
-         <input type="password" placeholder="Password" class="input" id="password" name="pass"/>
+         <input type="password" placeholder="Password" class="input" id="password" name="pass"/> <i class="fa fa-eye-slash fa-lg"></i>
+        
       </div>
       
       

@@ -50,8 +50,8 @@ h3 {
 }
 
 .content {
-    padding: 2em 1em 0;
-    margin-top: 250px;
+    padding: 0em 1em 0;
+    margin-top: 200px;
 }
 
 .post {
@@ -79,7 +79,7 @@ h3 {
 
 @media (min-width: 48em) {
     .content {
-        padding: 2em 3em 0;
+       
         margin-left: 25%;
     }
     

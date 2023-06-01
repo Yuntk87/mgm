@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 <script src="./js/RegisterForm.js"></script>
-
+<script src="https://kit.fontawesome.com/bb8da17f44.js" crossorigin="anonymous"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -341,7 +341,7 @@
 			<div class="input__block">
 
 				<input type="password" placeholder="Password" class="input"
-					id="password" name="password" />
+					id="password" name="password" /><i class="fa fa-eye-slash fa-lg"></i>
 
 			</div>
 
@@ -534,6 +534,18 @@ $("#nickNameChk").click(function() {
     }); // $.ajax()
 });
 
+$(document).ready(function(){
+    $('.input__block  i').on('click',function(){
+        $('input').toggleClass('active');
+        if($('input').hasClass('active')){
+            $(this).attr('class',"fa fa-eye fa-lg")
+            .prev('input').attr('type',"text");
+        }else{
+            $(this).attr('class',"fa fa-eye-slash fa-lg")
+            .prev('input').attr('type','password');
+        }
+    });
+});
 
 
 

@@ -69,6 +69,29 @@ form{
         font-size:14px;
         font-family: 'Montserrat', sans-serif;
      }
+     
+  input:focus {
+  color:#f15e5e;
+  outline: none;
+  border-bottom: 1px solid rgba(050,087,127);
+  font-size: 18px;
+ 
+}
+ .input__block  i{
+position: absolute;	
+left: 90%;
+top: 27px;
+ color:gray;
+ opacity: 0.6;
+	
+}
+
+.input__block  i:hover{
+	opacity: 1;
+	 cursor: pointer;
+}
+     
+     
   .bttn {
   border: none;
   display: block;
