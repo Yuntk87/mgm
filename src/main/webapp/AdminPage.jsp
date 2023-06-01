@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="./css/AdminPage.css">
 <script src=./js/AdminPage.js></script>
 </head>
-<body>
+<body> 
 <%@ include file="./AdminNavi.jsp" %>
 <div class="mcontainer">
 		<div class="search-bar">

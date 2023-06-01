@@ -48,7 +48,7 @@
 		<table class="boardList">
 			<c:choose>
 				<c:when test="${empty boardLists }" >
-					<tr><td colspan="">등록 된 게시물이 없습니다.</td></tr>
+					<tr id="zero"><td colspan="">등록 된 게시물이 없습니다.</td></tr>
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${boardLists }" var="b">
@@ -111,6 +111,9 @@
 	       	 	
 			if($(this).hasClass("page_bar"))
 	       	 	$(this).removeClass("one")
+	       	 	
+	       	if($(this).hasClass("zero"))
+				$(this).removeClass("one")
 	    }, function(){
 	    	 $(this).removeClass("one")
 	        if($(this).hasClass("last"))
