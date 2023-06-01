@@ -74,8 +74,11 @@ public class AskBoardListController extends HttpServlet{
 					Date today = new Date();
 					req.setAttribute("today", today);
 					dao.close();
-				
-				req.getRequestDispatcher("./AskBoardList.jsp").forward(req, resp);
+				if("admin".equals(id)) {
+					req.getRequestDispatcher("./AdminAskBoardList.jsp").forward(req, resp);
+				} else {
+					req.getRequestDispatcher("./AskBoardList.jsp").forward(req, resp);
+				}
 
 		} else {
 			req.getRequestDispatcher("./LoginForm.jsp").forward(req, resp);

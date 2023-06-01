@@ -14,7 +14,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
-	<%@ include file="AdminNavi.jsp" %>
+	<%@ include file="Navi.jsp" %>
     <h2>Q&A</h2>
 	<div id="all" style="width: 65%; margin: 0 auto; margin-top:70px;">
 		
