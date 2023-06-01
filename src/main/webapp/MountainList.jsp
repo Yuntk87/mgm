@@ -40,21 +40,7 @@
 
 
 
-			<form id="search_form">
-				<table  class="topTable" >
-					<tr>
-						<td>
-							<select name="searchField">
-								<option value="m_name"  ${"m_name" eq param.searchField? "selected" : "" } >산이름</option>
-							</select>
-							<div id="textSearch">
-								<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" >
-								<button class="btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button>
-							</div>
-						</td>
-					</tr>		
-				</table>
-			</form>
+			
 
 
 
@@ -101,8 +87,8 @@
 
 
 
-        <table class="myTable">
-            <tr class="header" style="background-color: #aeaeae;">
+        <table class="myTable" style="background-color: #f9f9f9;">
+            <tr class="header">
                 <th colspan="6" style="text-align: center; color: white;" >
 	        		<c:if test="${ph.showPrev }" >
 	        			<a href ="<c:url value='/MountainList${ph.sc.getQueryString(ph.beginPage-1)}'/>" >&laquo;</a>
@@ -115,6 +101,18 @@
 	        		</c:if>
 	        	</th>
             </tr>
+            <tr>
+            	<th style="text-align: center;">
+            		<select name="searchField">
+						<option value="m_name"  ${"m_name" eq param.searchField? "selected" : "" } >산이름</option>
+						<option value="level" ${"level" eq param.searchField? "selected" : "" }>난이도</option>
+					</select>
+					<div id="textSearch">
+						<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" >
+						<button class="page_btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button>
+					</div>
+            	</th>
+            </tr>
         </table>
     </div>
     <div style="height: 400px"></div>
@@ -122,7 +120,7 @@
 
 
     <script>
-    const images = ["mountain", "rocky mountains", "hill", "hanla mountain", "hiking", "highlands", "fuji mountain", "annapurna", "trekking", "Mount Everest"];
+    const images = ["mountain", "rocky mountains", "hill", "hanla mountain", "hiking", "highlands", "fuji mountain", "annapurna", "trekking", "Everest"];
     
     for(let i =0; i<document.getElementsByClassName('mimg').length; i++){
         document.getElementsByClassName('mimg')[i].src = "https://source.unsplash.com/random/300x300/?"+images[i]
