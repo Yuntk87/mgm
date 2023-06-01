@@ -38,7 +38,7 @@
 				<div style="line-height:28px;">
 					<fmt:formatDate value="${dto.dDay }" type="both" pattern="yyyy-MM-dd hh:mm:ss" var="dDay"/>
 					
-					<i class="fa-solid fa-calendar-days"></i> &nbsp;&nbsp;&nbsp; <b>장소 :</b> ${dto.m_name } &nbsp;&nbsp;&nbsp;&nbsp; <b>예정일 :</b> &nbsp;&nbsp;<span id="dDay">${dDay }</span>  &nbsp;&nbsp;&nbsp;&nbsp; <b>제한 인원 : </b>&nbsp;&nbsp;${dto.mateLimit } &nbsp;/&nbsp; <span id="cnt">${cnt }
+					<i class="fa-solid fa-calendar-days">일정</i> &nbsp;&nbsp;&nbsp; <b>장소 :</b> ${dto.m_name } &nbsp;&nbsp;&nbsp;&nbsp; <b>예정일 :</b> &nbsp;&nbsp;<span id="dDay">${dDay }</span>  &nbsp;&nbsp;&nbsp;&nbsp; <b>제한 인원 : </b>&nbsp;&nbsp;${dto.mateLimit } &nbsp;/&nbsp; <span id="cnt">${cnt }
 				</div>
 				<div class="btnDiv">
 					<c:choose>

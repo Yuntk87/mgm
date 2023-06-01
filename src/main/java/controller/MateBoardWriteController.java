@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,7 @@ import common.JSFunction;
 import dao.ConfirmDao;
 import dao.FreeBoardDao;
 import dao.MateBoardDao;
+import dao.MountainDao;
 import dto.ConfirmBoardDto;
 import dto.FreeBoardDto;
 import dto.MateBoardDto;
@@ -47,10 +49,15 @@ public class MateBoardWriteController extends HttpServlet{
 				
 				HttpSession session = req.getSession();
 				String id = (String)session.getAttribute("UserId");
-				String nickName = req.getParameter("nickName");
+				String nickName =(String)session.getAttribute("UserNickName");
 				String title = req.getParameter("title");
 				String content = req.getParameter("content");
-				int limit = Integer.parseInt(req.getParameter("limit"));
+				
+				String temp0 = req.getParameter("limit");
+				int limit=0;
+				if(temp0 != null) {
+					limit = Integer.parseInt(temp0);
+				}
 	
 				String temp1 = req.getParameter("dDay");
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");

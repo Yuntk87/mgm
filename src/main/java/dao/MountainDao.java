@@ -180,6 +180,33 @@ public class MountainDao extends JDBConnect{
 		return mbl;
 	}
 	
+	public List<MountainDto> selectListName(String mName){
+		ArrayList<MountainDto> mbl = new ArrayList<MountainDto>();
+		MountainDto m = null;
+		String query = "SELECT * FROM mountain_board WHERE m_name LIKE ?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, "%" + mName + "%");	
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+			    m = new MountainDto();
+				m.setM_num(rs.getInt("m_num"));
+				m.setM_name(rs.getString("m_name"));
+				m.setM_addr_1(rs.getString("m_addr_1"));
+				m.setM_addr_2(rs.getString("m_addr_2"));
+				m.setLevel(rs.getInt("level"));
+				m.setM_recommend(rs.getInt("m_recommend"));
+				mbl.add(m);
+			}
+		}
+		catch(Exception e) {
+			System.out.println("산 전체 이름 조회 중 오류 발생");
+			e.printStackTrace();
+		}
+		return mbl;
+	}
+	
 	
 	public int selectCount(Map<String, String>map) {
 		int totalCount = 0;

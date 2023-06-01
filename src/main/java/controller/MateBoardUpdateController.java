@@ -40,8 +40,10 @@ public class MateBoardUpdateController extends HttpServlet{
 			MateBoardDto dto = dao.selectView(num);
 			req.setAttribute("dto", dto);
 			
+			
 			HttpSession session = req.getSession();
 			String id = session.getAttribute("UserId").toString();
+			String nickName = session.getAttribute("UserNickName").toString();
 			
 			if(!id.equals(dto.getId())) {
 				JSFunction.alertBack(resp, "작성자 본인만 수정할 수 있습니다.");
@@ -54,10 +56,18 @@ public class MateBoardUpdateController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String temp1 = req.getParameter("mNum");
+		int mNum = 0;
+		if(temp1 == null) {
+			JSFunction.alertLocation(resp, "잘못된 접근입니다.", "./MateBoardList");
+			return;
+		} else {
+			mNum = Integer.parseInt(temp1);
+		}
+		
 		String snum = req.getParameter("num");
-	
 		int mateNum = 0;
-		System.out.println(snum);
 		if(snum==null) {
 			JSFunction.alertLocation(resp, "잘못된 접근입니다.", "./MateBoardList");
 			return;
@@ -90,7 +100,7 @@ public class MateBoardUpdateController extends HttpServlet{
 		}
 		
 		MateBoardDao dao = new MateBoardDao(req.getServletContext());
-		MateBoardDto dto = new MateBoardDto(mateNum, title, content, dDay, mateLimit);
+		MateBoardDto dto = new MateBoardDto(mateNum, mNum, title, content, dDay, mateLimit);
 		dao.updateEdit(dto);
 		dao.close();
 		
