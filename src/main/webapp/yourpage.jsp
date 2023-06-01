@@ -21,56 +21,56 @@
 
 <body>
     <%@ include file="Navi.jsp" %>
- <div class="mypage">
- 
- 
-    <h1>${uto.id} Page</h1>
-    <h3>${uto.id}페이지</h3>
- </div>
+    <div class="mypage">
+
+
+        <h1>${uto.id} Page</h1>
+        <h3>${uto.id}페이지</h3>
+    </div>
     <div class="main1">
         <div id="userImg">
-        
- <c:choose>
-<c:when test="${uto==null}"> 
-<img src="./img/nno.jpg" style="width:300px; height:300px;">
-</c:when>
-<c:when test="${uto.id=='admin'}">
-<img src="./img/admin.jpg" style="width:300px; height:300px;">
-</c:when>
-<c:otherwise> <img src="./img/${uto.level}.jpg" >
- </c:otherwise>
-</c:choose>
-        
-       	</div>
-       	<div id="info">
-       	 	${uto.id}님 정보입니다.<br>
-          <ul>
-          
-          <li> 아이디 ${uto.id }</li> 
-           <li>닉네임 ${uto.nickName }</li>
-           <li>레벨 ${uto.level}
-           <li>이름 ${uto.name }</li> 
-          <li>성별 ${uto.gender }</li>
-         </ul>   
+
+            <c:choose>
+                <c:when test="${uto==null}">
+                    <img src="./img/nno.jpg" style="width:300px; height:300px;">
+                </c:when>
+                <c:when test="${uto.id=='admin'}">
+                    <img src="./img/admin.jpg" style="width:300px; height:300px;">
+                </c:when>
+                <c:otherwise> <img src="./img/${uto.level}.jpg">
+                </c:otherwise>
+            </c:choose>
+
         </div>
-	</div>
-	<h1>게시판에 작성한글</h1>
-   
- <div class="box-wrap">
-   <div class="boxx">
-     
-<c:forEach var="board" items="${boardLists}">
-<ul>
- 
-   
-    <li>제목 ${board.title }<br>
-    내용 ${board.content }<br>
-   작성일 ${board.postDate }</li>
-  
- </ul>
-</c:forEach>         
-           
-     </div>
+        <div id="info">
+            ${uto.id}님 정보입니다.<br>
+            <ul>
+
+                <li> 아이디 ${uto.id }</li>
+                <li>닉네임 ${uto.nickName }</li>
+                <li>레벨 ${uto.level}
+                <li>이름 ${uto.name }</li>
+                <li>성별 ${uto.gender }</li>
+            </ul>
+        </div>
+    </div>
+    <h1>게시판에 작성한글</h1>
+
+    <div class="box-wrap">
+        <div class="boxx">
+
+            <c:forEach var="board" items="${boardLists}">
+                <ul>
+
+
+                    <li>제목 ${board.title }<br>
+                        내용 ${board.content }<br>
+                        작성일 ${board.postDate }</li>
+
+                </ul>
+            </c:forEach>
+
+        </div>
 
 </body>
 
