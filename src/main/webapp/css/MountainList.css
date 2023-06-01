@@ -48,6 +48,7 @@ body {
     color: white;
     height: 38px;
 
+
 }
 #search {
     width: 199px;
@@ -75,7 +76,7 @@ body {
 	width:300px;
 	height:502px;
     max-width: 300px;
-    margin: 10px auto;
+    margin: 50px auto;
     text-align: center;
   }
   

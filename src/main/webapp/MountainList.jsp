@@ -109,7 +109,7 @@
 					</select>
 					<div id="textSearch">
 						<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" >
-						<button class="page_btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button>
+						<button class="page_btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con" style="color: white;"></i></button>
 					</div>
             	</th>
             </tr>
