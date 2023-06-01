@@ -115,9 +115,11 @@ public class MateBoardDto {
 		this.mateLimit = mateLimit;
 	}
 	
-	public MateBoardDto(int mate_num, String title, String content, Date dDay, int mateLimit) {
+
+	public MateBoardDto(int mate_num, int m_num, String title, String content, Date dDay, int mateLimit) {
 		super();
 		this.mate_num = mate_num;
+		this.m_num = m_num;
 		this.title = title;
 		this.content = content;
 		this.dDay = dDay;

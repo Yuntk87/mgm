@@ -99,7 +99,7 @@ public class MateBoardDao extends JDBConnect {
 	
 	
 	public int updateEdit(MateBoardDto dto) {
-			String sql = "UPDATE mate_board SET dDay=?, mateLimit=?, title=?, content=? WHERE mate_num=?";
+			String sql = "UPDATE mate_board SET dDay=?, mateLimit=?, title=?, content=?, m_num=? WHERE mate_num=?";
 			int res = 0;
 			try {
 				psmt = con.prepareStatement(sql);
@@ -107,7 +107,8 @@ public class MateBoardDao extends JDBConnect {
 				psmt.setInt(2, dto.getMateLimit());
 				psmt.setString(3, dto.getTitle());
 				psmt.setString(4, dto.getContent());
-				psmt.setInt(5, dto.getMate_num());
+				psmt.setInt(5, dto.getM_num());
+				psmt.setInt(6, dto.getMate_num());
 				
 				res = psmt.executeUpdate();
 			}
