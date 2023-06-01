@@ -34,6 +34,9 @@
 <c:when test="${uto==null}"> 
 <img src="./img/nno.jpg" style="width:300px; height:300px;">
 </c:when>
+<c:when test="${uto.id=='admin'}">
+<img src="./img/admin.jpg" style="width:300px; height:300px;">
+</c:when>
 <c:otherwise> <img src="./img/${uto.level}.jpg" >
  </c:otherwise>
 </c:choose>
