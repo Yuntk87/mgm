@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -54,6 +56,7 @@
 					<c:otherwise>
 						<div id="T">
 							<div class="ask">답변상태</div>
+							<div class="new"></div>
 							<div class="tt" style="text-align:center;">제목</div>
 							<div class="writer">작성자</div>
 							<div class="askdate">작성일</div>
@@ -73,9 +76,20 @@
 												<div class="ask">답변완료</div>
 											</c:otherwise>
 										</c:choose>
+										<fmt:formatDate value="${b.postDate }" type="time" pattern="yyyy-MM-dd" var="post"/>
+										<fmt:formatDate value="${today }" type="date" pattern="yyyy-MM-dd" var="now"/>
+										<c:choose>
+											<c:when test="${now eq post }">
+												<div class="new"><img width="100%" style="margin-top:3px;" src="./img/new.png"></div>
+											</c:when>
+											<c:otherwise>
+												<div class="new"></div>
+											</c:otherwise>
+										</c:choose>
 										<div class="tt"><a href="#" class="tit" id ="${b.ask_num }" >${b.title }</a></div>
 										<div class="writer">${b.nickName }</div>
-										<div class="askdate"><fmt:formatDate value="${b.postDate }" type="time" pattern="yyyy-MM-dd" /></div>
+										
+										<div class="askdate">${post }</div>
 										<div class="del"><button class="deel" type="button" onclick="deletePost('./AskBoardDelete?num=${b.ask_num }')">삭제하기</button></div>
 									</div>
 									<div class="reply" id="reply${ b.ask_num}">

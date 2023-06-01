@@ -30,11 +30,16 @@ h2{
 	display:flex;
 	justify-content:space-between;
 	text-align:center;
-	padding:16px 0;
+	padding:5px 0;
 	font-size:13px;
+	height:45px;
+	line-height:45px;
 }
 .ask{
-	width:100px;
+	width:80px;
+}
+.new{
+	width:40px;
 }
 .writer{
 	width:120px;
@@ -42,7 +47,6 @@ h2{
 .tt{
 	width:700px;
 	text-align:left;
-	margin-left: 20px;
 }
 .askdate{
 	width:130px;
