@@ -62,6 +62,9 @@ span {
     height: 36px;
     font-size: 11px;
 }
+#joinCheck {
+	vertical-align: middle;
+}
 
 .bottomTable{
 	text-align:right;

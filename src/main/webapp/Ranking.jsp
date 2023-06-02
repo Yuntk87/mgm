@@ -1,3 +1,5 @@
+<%@page import="dto.MountainDto"%>
+<%@page import="dao.MountainDao"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
@@ -21,12 +23,14 @@
     <link rel="stylesheet" href="./css/Ranking.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <title>ranking</title>
+
 </head>
 <%	
 	ServletContext sc = getServletContext();
 	UserDao dao = new UserDao(sc);
 	ArrayList<UserDto> uList = dao.userRanking();
-	
+	MountainDao mdao = new MountainDao(sc);
+	List<HashMap<String, String>> mList = mdao.ConfirmPopularNameList();
 	
 	LocalDate now = LocalDate.now();
 
@@ -36,16 +40,18 @@
     String month = tmp1<10?  "0"+tmp1 : tmp1+"";
     cal.set(cal.DAY_OF_MONTH,1);
 	String maxDay = Integer.toString(cal.getActualMaximum(Calendar.DAY_OF_MONTH));
-    
-
 // 	String firstDay =  year + month + 1;
 //     String lastDay = year + month + maxDay;
+
+// 테스트용 날짜
     String firstDay = "20230401";
 	String lastDay = "20230430";
+	
 	List<HashMap<String, String>> uListMonth = dao.userRankingMonth(firstDay, lastDay);
 	dao.close();
 %>
 <body>
+	<h1 class="qTitle">랭킹</h1>
 	<div id="rankingMain">
 	    <a class="prev" onclick="RankingplusSlides(-1)">&#10094;</a>
 	    <a class="next" onclick="RankingplusSlides(1)">&#10095;</a>
@@ -70,6 +76,18 @@
 						<div><span class="rNum">${status.count}</span></div>
 						<div><a href="./yourpage?id=${user.nickName}">${userM.get('id')} </a></span></div>
 						<div><span class="small">${userM.get('count')}회</span></div>
+					</li>
+				</ul>
+			</c:forEach>
+		</div>
+		<div class="rbox rfade">
+			<h3><img src="https://img.icons8.com/?size=512&id=zBIz5sCgi3aB&format=png" width="20px" height="20px"> 가장 많이 오른 산</h3>
+			<c:forEach var="mList" items='<%=mList%>' varStatus="status">
+				<ul class="rInfo">
+					<li>
+						<div><span class="rNum">${status.count}</span></div>
+						<div><a href="./view?m_num=${mList.get('mNum')}&m_name=${mList.get('mName')}">${mList.get('mName')} </a></span></div>
+						<div><span class="small">${mList.get('cnt')}회</span></div>
 					</li>
 				</ul>
 			</c:forEach>

@@ -3,6 +3,7 @@ package dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -332,6 +333,29 @@ public class MountainDao extends JDBConnect{
 			e.printStackTrace();
 		}
 		return res;
+	}
+	
+	public List<HashMap<String, String>> ConfirmPopularNameList(){
+		List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
+		HashMap<String, String> map = null;
+		String query = "SELECT m.m_num,m.m_name,COUNT(*) FROM confirm_board c LEFT OUTER JOIN mountain_board m ON m.m_num = c.m_num GROUP BY c.m_num ORDER BY COUNT(*) DESC LIMIT 5";
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+				map = new HashMap<String, String>();
+				map.put("mNum",Integer.toString(rs.getInt(1)));
+				map.put("mName",rs.getString(2));
+				map.put("cnt",Integer.toString(rs.getInt(3)));
+				mList.add(map);
+			}
+		}
+		catch(Exception e) {
+			System.out.println("산 인기순 조회 중 오류 발생");
+			e.printStackTrace();
+		}
+		return mList;
 	}
 
 }

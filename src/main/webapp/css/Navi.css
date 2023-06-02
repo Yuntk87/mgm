@@ -203,6 +203,7 @@ ul {
     padding: 20px;
     border: 1px solid #888;
     border-radius:10px;
+  	overflow-x:hidden;
   	overflow-y:auto;
   	width:30%;
     /* Could be more or less, depending on screen size */

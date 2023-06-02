@@ -16,7 +16,17 @@
 <%@ include file="./WeatherJS.jsp" %>
 <body>
     <div class="wbox">
-   		<h1>주간 예보</h1>
+    	<div class="qTitle">
+	   		<h1>주간 예보</h1>
+	 		<div class="help-tip">
+				<p>
+					<img src="https://img.icons8.com/?size=512&id=6Z2mGj6qDVv4&format=png"> 맑음<br>
+					<img src="https://img.icons8.com/?size=512&id=658&format=png"> 구름많음<br>
+					<img src="https://img.icons8.com/?size=512&id=650&format=png"> 흐림<br>
+					<img src="https://img.icons8.com/?size=512&id=fhVv1TTyMSI1&format=png"> 강우 확률<br>
+				</p>
+			</div>
+    	</div>
     	<div id="wtop">
     		<div class="bweather">
     			<div class="wtopdiv">
