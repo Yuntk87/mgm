@@ -12,69 +12,10 @@
 <meta charset="UTF-8">
 <title>UserTable</title>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<link rel="stylesheet" href="./css/UserTable.css">
 <script src=./js/UserTable.js></script>
 <style>
-#user {
-	width:80%;
-	margin: 0  auto;
-	margin-top:200px;
-}
-#user input[type="text"] {
-  width: 1000px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-}
 
-#user button {
-  width: 200px;
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin:9px;
-}
-
-#user button:hover {
-  background-color: #45a049;
-}
-
-#user table {
-  font-family: Arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 20px;
-}
-
-#user td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-#user th {
-  background-color: #dddddd;
-  color: #333;
-  font-weight: bold;
-}
-.search {
-  display: flex;
-}
-.tabcontent {
-	width:90%;
-	margin:0 auto;
-}
-#search_form {
-	text-align:center;
-}
-.search-container {
-	margin:0 auto;
-}
 </style>
 </head>
 <%

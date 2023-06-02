@@ -1,4 +1,10 @@
 @charset "UTF-8";
+	body {
+		font-family: 'Pretendard-Regular';
+	}
+	button {
+		font-family: 'Pretendard-Regular';
+	}
 	#ConfirmMain {
 		width: 80%;
 		margin: 0 auto;

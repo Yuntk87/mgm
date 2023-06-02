@@ -1,4 +1,6 @@
-
+body {
+	font-family: 'Pretendard-Regular';
+}
 #confirmListBox {
 	width:80%;
 	margin:0 auto;
@@ -17,7 +19,6 @@
 #confirmListBox table {
     width:100%;
     margin-top:20px;
-    font-family: Arial, sans-serif;
     border-collapse: collapse;
     text-align:center;
 }

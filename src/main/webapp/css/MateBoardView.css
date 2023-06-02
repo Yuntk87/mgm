@@ -1,4 +1,7 @@
-
+	body {
+		font-family: 'Pretendard-Regular';
+	}
+	
 	#view_box {
 		width:80%;
 		font-family: 'Noto Sans KR', sans-serif;
