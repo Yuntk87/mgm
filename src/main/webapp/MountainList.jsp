@@ -24,19 +24,7 @@
                 <h1 class="menuTitle">MOUNTAIN</h1>
             </div>
         </div>
-<!--         <form method="GET"> -->
-<!-- 	        <table class="myTable" style="margin-top: 150px;"> -->
-<!-- 	            <tr class="header"> -->
-<!-- 	              <th> -->
-<!-- 	                <select name="searchField">  -->
-<%-- 	                    <option value="m_name"  ${"m_name" eq param.searchField? "selected" : "" } >산이름</option>  --%>
-<!-- 	                </select> -->
-<%-- 	                <input type="text" name="searchWord" id="search" value="${empty param.searchWord ? '' : param.searchWord }"> --%>
-<!-- 	               	<button class="fa-lg fa-sharp fa-solid fa-magnifying-glass border-none" id="sBtn" >검색</button> -->
-<!-- 	              </th> -->
-<!-- 	            </tr> -->
-<!-- 	        </table> -->
-<!--         </form> -->
+
 
 
 
@@ -86,35 +74,59 @@
 
 
 
-
+		
         <table class="myTable" style="background-color: #f9f9f9;">
             <tr class="header">
-                <th colspan="6" style="text-align: center; color: white;" >
+                <th colspan="7" style="text-align: center; height:40px;" >
 	        		<c:if test="${ph.showPrev }" >
 	        			<a href ="<c:url value='/MountainList${ph.sc.getQueryString(ph.beginPage-1)}'/>" >&laquo;</a>
 	       			</c:if>
 	        		<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }">
-	        			<a href ="<c:url value='/MountainList${ph.sc.getQueryString(i)}'/>" >${i }</a>
+	        			<a class='${ph.sc.page==i? "check" : "" }' href ="<c:url value='/MountainList${ph.sc.getQueryString(i)}'/>" >${i }</a>
 	        		</c:forEach>
 	        		<c:if test="${ph.showNext }" >
 	        			<a href ="<c:url value='/MountainList${ph.sc.getQueryString(ph.endPage+1)}'/>" >&raquo;</a>
 	        		</c:if>
 	        	</th>
             </tr>
-            <tr>
-            	<th style="text-align: center;">
-            		<select name="searchField">
-						<option value="m_name"  ${"m_name" eq param.searchField? "selected" : "" } >산이름</option>
-						<option value="level" ${"level" eq param.searchField? "selected" : "" }>난이도</option>
-					</select>
-					<div id="textSearch">
-						<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" >
-						<button class="page_btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con" style="color: white;"></i></button>
-					</div>
-            	</th>
-            </tr>
-        </table>
-    </div>
+         </table>
+         <form method="GET">
+	        <table class="myTable" style="background-color: #f9f9f9;">
+	            <tr class="header">
+	              <th style="text-align: center; height:50px;">
+	                <select name="searchField"> 
+	                    <option value="m_name"  ${"m_name" eq param.searchField? "selected" : "" } >산이름</option> 
+	                    <option value="level" ${"level" eq param.searchField? "selected" : "" }>난이도</option> 
+	                </select>
+	                <div id="textSearch">
+	                	<input type="text" name="searchWord" id="search" value="${empty param.searchWord ? '' : param.searchWord }">
+	               		<button class="page_btn"  ><i class="fa-solid fa-magnifying-glass i-con" style="color: white;"></i></button>
+	                </div>
+	              </th>
+	            </tr>
+	        </table>
+         </form>
+         
+         
+         
+         
+<!--         <form method="GET"> -->
+<!--          <table> -->
+<!--             <tr> -->
+<!--             	<th style="text-align: center; height:50px;"> -->
+<!--             		<select name="searchField"> -->
+<%-- 						<option value="m_name"  ${"m_name" eq param.searchField? "selected" : "" } >산이름</option> --%>
+<%-- 						<option value="level" ${"level" eq param.searchField? "selected" : "" }>난이도</option> --%>
+<!-- 					</select> -->
+<!-- 					<div id="textSearch"> -->
+<%-- 						<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" > --%>
+<!-- 						<button type="button" class="page_btn"><i class="fa-solid fa-magnifying-glass i-con" style="color: white;"></i></button> -->
+<!-- 					</div> -->
+<!--             	</th> -->
+<!--             </tr> -->
+<!--         </table> -->
+<!--         </form> -->
+    </div>`
     <div style="height: 400px"></div>
 	<%@ include file="./Footer.jsp" %>
 

@@ -16,7 +16,9 @@ table {
     border-collapse : collapse;
 }
 select{
-	border:none;
+	height: 40px;
+	border: 0.5px solid lightgray;
+	outline: none;
 }
 .topTable{
 	text-align:right;
@@ -32,26 +34,40 @@ span {
 	color:black;
 }
 #textSearch{
-	display:inline-block;
-	border:2px solid gray;
-	border-radius:10px;
-	line-height: 52px;
+	display: inline-block;
+    /* border: 2px solid gray; */
+    border-radius: 10px;
 }
 .search {
     display: flex;
     justify-content: end;
     align-items: center;
 }
-.btn {
-    background-color: white;
-    border:none;
+.page_btn {
+    width: 65px;
+    border: 0.5px solid lightgray;
+    border-left: none;
+    margin-left: -7px;
+    background-color: lightgray;
+    color: white;
+    height: 40px;
+    cursor: pointer;
 }
 #search {
-    width: 170px;
-    margin-left: 10px;
-    border: none;
-    color:black;
-    outline:none;
+    width: 199px;
+    /* margin-left: 10px; */
+    border: 0.5px solid lightgray;
+    color: black;
+    outline: none;
+    height: 36px;
+    font-size: 11px;
+}
+.page_handler {
+	width: 90%;
+	height:80px;
+	background-color: #f9f9f9;
+	margin: 0 auto;
+	text-align: center;
 }
 
 .bottomTable{

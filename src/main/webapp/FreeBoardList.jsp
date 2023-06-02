@@ -25,24 +25,24 @@
     </div>
 	<div id="all" style="width: 60%; margin: 0 auto; margin-top: 85px;">
 		
-		<form id="search_form">
-			<table colspan="7" class="topTable">
-				<tr>
-					<td>
-						<select name="searchField">
-							<option value="title" ${param.searchField eq 'title'? "selected" : "" }>제목</option>
-							<option value="content" ${param.searchField eq 'content'? "selected" : "" } >내용</option>
-							<option value="category" ${param.searchField eq 'category'? "selected" : "" } >카테고리</option>
-							<option value="id" ${param.searchField eq 'id'? "selected" : "" }>작성자</option>
-						</select>
-						<div id="textSearch">
-							<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" >
-							<button class="btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button>
-						</div>
-					</td>
-				</tr>		
-			</table>
-		</form>
+<!-- 		<form id="search_form"> -->
+<!-- 			<table colspan="7" class="topTable"> -->
+<!-- 				<tr> -->
+<!-- 					<td> -->
+<!-- 						<select name="searchField"> -->
+<%-- 							<option value="title" ${param.searchField eq 'title'? "selected" : "" }>제목</option> --%>
+<%-- 							<option value="content" ${param.searchField eq 'content'? "selected" : "" } >내용</option> --%>
+<%-- 							<option value="category" ${param.searchField eq 'category'? "selected" : "" } >카테고리</option> --%>
+<%-- 							<option value="id" ${param.searchField eq 'id'? "selected" : "" }>작성자</option> --%>
+<!-- 						</select> -->
+<!-- 						<div id="textSearch"> -->
+<%-- 							<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" > --%>
+<!-- 							<button class="btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button> -->
+<!-- 						</div> -->
+<!-- 					</td> -->
+<!-- 				</tr>		 -->
+<!-- 			</table> -->
+<!-- 		</form> -->
 		
 		
 		<table class="boardList">
@@ -76,19 +76,20 @@
 							<td width="3%;">${b.c_count }</td>
 						</tr>
 					</c:forEach>
-						<tr class="page_bar">
-							<td colspan="7">
-								<c:if test="${ph.showPrev }">
-									<a href="<c:url value='/FreeBoardList${ph.sc.getQueryString(ph.beginPage-1) }' />">&laquo;</a>
-								</c:if>
-								<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }">
-									<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='/FreeBoardList${ph.sc.getQueryString(i) }' />">${i }</a>
-								</c:forEach>
-								<c:if test="${ph.showNext }">
-									<a href="<c:url value='/FreeBoardList${ph.sc.getQueryString(ph.endPage+1) }' />">&raquo;</a>
-								</c:if>
-							</td>
-						</tr>
+<!-- 						<tr class="page_bar"> -->
+<!-- 							<td colspan="7"> -->
+<%-- 								<c:if test="${ph.showPrev }"> --%>
+<%-- 									<a href="<c:url value='/FreeBoardList${ph.sc.getQueryString(ph.beginPage-1) }' />">&laquo;</a> --%>
+<%-- 								</c:if> --%>
+<%-- 								<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }"> --%>
+<%-- 									<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='/FreeBoardList${ph.sc.getQueryString(i) }' />">${i }</a> --%>
+<%-- 								</c:forEach> --%>
+<%-- 								<c:if test="${ph.showNext }"> --%>
+<%-- 									<a href="<c:url value='/FreeBoardList${ph.sc.getQueryString(ph.endPage+1) }' />">&raquo;</a> --%>
+<%-- 								</c:if> --%>
+<!-- 							</td> -->
+<!-- 						</tr> -->
+						
 				</c:otherwise>
 			</c:choose>
 		</table>
@@ -100,6 +101,43 @@
 				</td>
 			</tr>
 		</table>
+		
+		
+		
+		<table class="myTable" style="background-color: #f9f9f9;">
+            <tr class="header">
+                <th colspan="7" style="text-align: center; height:40px;" >
+	        		<c:if test="${ph.showPrev }" >
+	        			<a href ="<c:url value='/FreeBoardList${ph.sc.getQueryString(ph.beginPage-1)}'/>" >&laquo;</a>
+	       			</c:if>
+	        		<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }">
+	        			<a class='${ph.sc.page==i? "check" : "" }' href ="<c:url value='/FreeBoardList${ph.sc.getQueryString(i)}'/>" >${i }</a>
+	        		</c:forEach>
+	        		<c:if test="${ph.showNext }" >
+	        			<a href ="<c:url value='/FreeBoardList${ph.sc.getQueryString(ph.endPage+1)}'/>" >&raquo;</a>
+	        		</c:if>
+	        	</th>
+            </tr>
+        </table>
+        <form method="GET">
+	        <table class="myTable" style="background-color: #f9f9f9;">
+	            <tr class="header">
+	              <th style="text-align: center; height:50px;">
+	                <select name="searchField"> 
+	                    <option value="title" ${param.searchField eq 'title'? "selected" : "" }>제목</option>
+						<option value="content" ${param.searchField eq 'content'? "selected" : "" } >내용</option>
+						<option value="category" ${param.searchField eq 'category'? "selected" : "" } >카테고리</option>
+						<option value="id" ${param.searchField eq 'id'? "selected" : "" }>작성자</option>
+	                </select>
+	                <div id="textSearch">
+	                	<input type="text" name="searchWord" id="search" value="${empty param.searchWord ? '' : param.searchWord }">
+	               		<button class="page_btn"  ><i class="fa-solid fa-magnifying-glass i-con" style="color: white;"></i></button>
+	                </div>
+	              </th>
+	            </tr>
+	        </table>
+         </form>
+        
 	</div>
 	<script>
 	  $(".boardList tr").hover(function(){
