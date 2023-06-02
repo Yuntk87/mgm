@@ -39,6 +39,18 @@ public class FreeBoardListController extends HttpServlet{
 				Map<String, Object> param = new HashMap<String, Object>();
 				String searchField = req.getParameter("searchField");
 				String searchWord = req.getParameter("searchWord");
+				String sortField = req.getParameter("sortField");
+				
+				if(sortField != null) {
+					if(sortField.equals("postDateDESC")) {
+						sortField = "postDate DESC";
+					} else {
+						sortField = req.getParameter("sortField");
+					}
+				} else {
+					sortField = "1";
+				}
+				
 				int pageSize = Integer.parseInt(req.getServletContext().getInitParameter("PageSize"));
 				
 				SearchCondition sc = null;
@@ -61,10 +73,12 @@ public class FreeBoardListController extends HttpServlet{
 				ph = new PageHandler(totalCount, sc);
 				param.put("offset", sc.getOffset(page));
 				param.put("pageSize", pageSize);
+				param.put("sortField", sortField);
 				
 				List<FreeBoardDto> boardLists = dao.selectList(param);
 				req.setAttribute("ph", ph);
 				req.setAttribute("boardLists", boardLists);
+				req.setAttribute("sortField", sortField);
 				
 				Date today = new Date();
 				req.setAttribute("today", today);

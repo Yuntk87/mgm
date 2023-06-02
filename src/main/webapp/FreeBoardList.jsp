@@ -13,6 +13,7 @@
    <script src="https://kit.fontawesome.com/09e1bc70db.js" crossorigin="anonymous"></script>
    <link rel="stylesheet" href="./css/FreeBoardList.css?v=1">
    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+   <script src="./js/BoardList.js"></script>
 </head>
 
 <body>
@@ -28,8 +29,15 @@
 		<form id="search_form">
 			<table colspan="7" class="topTable">
 				<tr>
+					<td style="width:15%;">
+						<select name="sortField"  onchange="ordersF(this.value)">
+							<option value="postDateDESC" ${param.sortField eq 'postDate DESC'? "selected" : "" }>최신순</option>
+							<option value="postDate" ${param.sortField eq 'postDate'? "selected" : "" }>작성일자순</option>
+							<option value="title" ${param.sortField eq 'title'? "selected" : "" }>제목순</option>
+						</select>
+					</td>
 					<td>
-						<select name="searchField">
+						<select id="searchField" name="searchField">
 							<option value="title" ${param.searchField eq 'title'? "selected" : "" }>제목</option>
 							<option value="content" ${param.searchField eq 'content'? "selected" : "" } >내용</option>
 							<option value="category" ${param.searchField eq 'category'? "selected" : "" } >카테고리</option>
@@ -82,7 +90,14 @@
 									<a href="<c:url value='/FreeBoardList${ph.sc.getQueryString(ph.beginPage-1) }' />">&laquo;</a>
 								</c:if>
 								<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }">
-									<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='/FreeBoardList${ph.sc.getQueryString(i) }' />">${i }</a>
+									<c:choose>
+										<c:when test="${not empty sortField}" >
+											<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='./FreeBoardList${ph.sc.getQueryString(i) }&sortField=${sortField }' />">${i }</a>
+										</c:when>
+										<c:otherwise>
+											<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='./FreeBoardList${ph.sc.getQueryString(i) }' />">${i }</a>
+										</c:otherwise>
+									</c:choose>
 								</c:forEach>
 								<c:if test="${ph.showNext }">
 									<a href="<c:url value='/FreeBoardList${ph.sc.getQueryString(ph.endPage+1) }' />">&raquo;</a>
@@ -101,29 +116,6 @@
 			</tr>
 		</table>
 	</div>
-	<script>
-	  $(".boardList tr").hover(function(){
-	        $(this).addClass("one")
-	        if($(this).hasClass("last"))
-	       	 	$(this).prev().addClass("one")
-	        else
-	       	 	$(this).next().addClass("one")
-	       	 	
-			if($(this).hasClass("page_bar"))
-	       	 	$(this).removeClass("one")
-	       	 	
-	       	if($(this).hasClass("zero"))
-				$(this).removeClass("one")
-	    }, function(){
-	    	 $(this).removeClass("one")
-	        if($(this).hasClass("last"))
-	       	 	$(this).prev().removeClass("one")
-	        else
-	       	 	$(this).next().removeClass("one")	    	  
-
-	  });
-	  
-	</script>
 
 <div style="height: 400px;"></div>
 

@@ -1,5 +1,6 @@
     .wbox{
 		margin-top:50px;
+		text-align:center;
     }
 	.date{
     	text-align:center;
@@ -59,7 +60,10 @@
     	text-align: center;
     }
     .npopp {
+    	display:inline-block;
+    	width:20px;
     	font-size:10px;
+    	
     }
 	
 	
