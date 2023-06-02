@@ -10,8 +10,11 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <script src="https://kit.fontawesome.com/09e1bc70db.js" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
    <link rel="stylesheet" href="./css/MateBoard.css">
+   <script src="./js/BoardList.js"></script>
 </head>
+
 <body>
 <%@ include file="Navi.jsp" %>
    	<div style="width: 100%; position: relative;">
@@ -21,30 +24,35 @@
         </div>
     </div>
 	<div id="all" style="width: 60%; margin: 0 auto; margin-top: 85px;">
-<!-- 		<form id="search_form"> -->
-<!-- 			<table colspan="8" class="topTable"> -->
-<!-- 				<tr> -->
-<!-- 					<td> -->
-<!-- 						<select name="searchField"> -->
-<%-- 							<option value="title" ${param.searchField eq 'title'? "selected" : "" }>제목</option> --%>
-<%-- 							<option value="content" ${param.searchField eq 'content'? "selected" : "" } >내용</option> --%>
-<%-- 							<option value="m_name" ${param.searchField eq 'm_name'? "selected" : "" } >산이름</option> --%>
-<%-- 							<option value="id" ${param.searchField eq 'id'? "selected" : "" }>작성자</option> --%>
-<!-- 						</select> -->
-<!-- 						<div id="textSearch"> -->
-<%-- 							<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" > --%>
-<!-- 							<button class="btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button> -->
-<!-- 						</div> -->
-<!-- 					</td> -->
-<!-- 				</tr> -->
-<!-- 				<tr> -->
-<!-- 					<td> -->
-<%-- 						<input type="checkbox" id="joinCheck" name="joinCheck" value="0" ${param.joinCheck eq '0'? "checked" : "" }> --%>
-<!-- 						<label for="joinCheck" style="font-size:5px; position:relative; top:-1.5px;">참가가능만 보기</label> -->
-<!-- 					</td> -->
-<!-- 				</tr>	 -->
-<!-- 			</table> -->
-<!-- 		</form> -->
+		<form id="search_form">
+			<table class="topTable">
+				<tr>
+					<td style="width:15%;">
+						<input type="checkbox" id="joinCheck" name="joinCheck" value="0" ${param.joinCheck eq '0'? "checked" : "" } onclick="joinChk()">
+						<label for="joinCheck" style="font-size:5px; position:relative; top:-1.5px;">참가가능만 보기</label>
+					</td>
+					<td style="width:15%;">
+						<select id="sortField" name="sortField"  onchange="orders(this.value)">
+							<option value="postDateDESC" ${param.sortField eq 'postDate DESC'? "selected" : "" }>최신순</option>
+							<option value="postDate" ${param.sortField eq 'postDate'? "selected" : "" }>작성일자순</option>
+							<option value="title" ${param.sortField eq 'title'? "selected" : "" }>제목순</option>
+						</select>
+					</td>
+					<td>
+						<select id="searchField" name="searchField">
+							<option value="title" ${param.searchField eq 'title'? "selected" : "" }>제목</option>
+							<option value="content" ${param.searchField eq 'content'? "selected" : "" } >내용</option>
+							<option value="m_name" ${param.searchField eq 'm_name'? "selected" : "" } >산이름</option>
+							<option value="id" ${param.searchField eq 'id'? "selected" : "" }>작성자</option>
+						</select>
+						<div id="textSearch">
+							<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" >
+							<button class="btn" style="height: 38px;"><i class="fa-solid fa-magnifying-glass i-con"></i></button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
 		
 		
 		<table class="boardList">
@@ -78,22 +86,8 @@
 							<td width="3%">${b.viewCount }</td>
 							<td width="3%"><img style="width:67%;" src="https://img.icons8.com/?size=512&id=38977&format=png"></td>
 							<td width="3%">${b.commentCount }</td>
-<%-- 							<td width="1%" style="font-size:5px;">${b.joinCheck eq 0? '🟢' : '🔴'}</td> --%>
 						</tr>					
 					</c:forEach>
-<!-- 						<tr> -->
-<!-- 							<td colspan="7"> -->
-<%-- 								<c:if test="${ph.showPrev }"> --%>
-<%-- 									<a href="<c:url value='./MateBoardList${ph.sc.getQueryString(ph.beginPage-1) }&joinCheck=${param.joinCheck }' />">&laquo;</a> --%>
-<%-- 								</c:if> --%>
-<%-- 								<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }"> --%>
-<%-- 									<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='./MateBoardList${ph.sc.getQueryString(i) }&joinCheck=${param.joinCheck }' />">${i }</a> --%>
-<%-- 								</c:forEach> --%>
-<%-- 								<c:if test="${ph.showNext }"> --%>
-<%-- 									<a href="<c:url value='./MateBoardList${ph.sc.getQueryString(ph.endPage+1) }&joinCheck=${param.joinCheck }' />">&raquo;</a> --%>
-<%-- 								</c:if> --%>
-<!-- 							</td> -->
-<!-- 						</tr> -->
 				</c:otherwise>
 			</c:choose>
 		</table>
@@ -113,7 +107,14 @@
 	        			<a href ="<c:url value='/MateBoardList${ph.sc.getQueryString(ph.beginPage-1)}'/>" >&laquo;</a>
 	       			</c:if>
 	        		<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }">
-	        			<a class='${ph.sc.page==i? "check" : "" }' href ="<c:url value='/MateBoardList${ph.sc.getQueryString(i)}'/>" >${i }</a>
+						<c:choose>
+							<c:when test="${not empty sortField}" >
+								<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='./MateBoardList${ph.sc.getQueryString(i) }${not empty joinCheck? "&joinCheck=0" : "" }&sortField=${sortField }' />">${i }</a>
+							</c:when>
+							<c:otherwise>
+								<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='./MateBoardList${ph.sc.getQueryString(i) }${not empty joinCheck? "&joinCheck=0" : "" }' />">${i }</a>
+							</c:otherwise>
+						</c:choose>
 	        		</c:forEach>
 	        		<c:if test="${ph.showNext }" >
 	        			<a href ="<c:url value='/MateBoardList${ph.sc.getQueryString(ph.endPage+1)}'/>" >&raquo;</a>
@@ -143,32 +144,8 @@
 		
 		
 	</div>
-<script>
-$(".boardList tr").hover(function(){
-
-	$(this).addClass("one")
-	if($(this).hasClass("last"))
-		$(this).prev().addClass("one")
-	else
-		$(this).next().addClass("one")
-
-	if($(this).hasClass("page_bar"))
-		$(this).removeClass("one")
-		
-	if($(this).hasClass("zero"))
-		$(this).removeClass("one")
-}, function(){
-		$(this).removeClass("one")
-		if($(this).hasClass("last"))
-			$(this).prev().removeClass("one")
-		else
-			$(this).next().removeClass("one")
-	});
-</script>
 
 <div style="height: 1000px;"></div>
-
-
 
 <%@ include file="./Footer.jsp" %>
 </body>

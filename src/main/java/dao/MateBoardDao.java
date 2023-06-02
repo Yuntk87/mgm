@@ -151,8 +151,12 @@ public class MateBoardDao extends JDBConnect {
 			}			
 		}
 		
-		sql += " ORDER BY mate_num DESC ";
-		sql += "LIMIT " + map.get("offset")+","+map.get("pageSize");
+		if(map.get("sortField") != null) {
+			sql += " ORDER BY " + map.get("sortField");		
+		} else {
+			sql += " ORDER BY mate_num DESC";	
+		}
+		sql += " LIMIT " + map.get("offset")+","+map.get("pageSize");
 		System.out.println(sql);
 
 		try {
@@ -205,6 +209,28 @@ public class MateBoardDao extends JDBConnect {
 		}
 		return totalCount;
 	}
+	
+	public int selectCountJoinCheck(Map<String, Object>map) {
+		int totalCount = 0;
+		String sql = "SELECT COUNT(*) FROM mate_board m INNER JOIN mountain_board b ON m.m_num = b.m_num WHERE joinCheck=0";
+		
+		if(map.get("searchWord") != null) {
+			sql += " AND " + map.get("searchField") + " "
+					+ " LIKE '%" + map.get("searchWord") + "%'"; 
+		}
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			rs.next();
+			totalCount = rs.getInt(1);
+		}
+		catch(Exception e) {
+			System.out.print("메이트게시물 수를 구하는 중 예외 발생");
+			e.printStackTrace();
+		}
+		return totalCount;
+	}
+	
 	
 	public int updateViewCnt(int num) {
 		int res=0;

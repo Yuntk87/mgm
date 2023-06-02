@@ -40,10 +40,19 @@ public class MateBoardListController extends HttpServlet{
 				Map<String, Object> param = new HashMap<String, Object>();
 				String searchField = req.getParameter("searchField");
 				String searchWord = req.getParameter("searchWord");
-				String joinCheck = ""; 
-				if(req.getParameter("joinCheck") != null) {
-					joinCheck = req.getParameter("joinCheck");
-				};
+				String sortField = req.getParameter("sortField");
+				
+				if(sortField != null) {
+					if(sortField.equals("postDateDESC")) {
+						sortField = "postDate DESC";
+					} else {
+						sortField = req.getParameter("sortField");
+					}
+				} else {
+					sortField = null;
+				}
+				
+
 				
 				int pageSize = Integer.parseInt(req.getServletContext().getInitParameter("PageSize"));
 				
@@ -64,14 +73,25 @@ public class MateBoardListController extends HttpServlet{
 				}
 				
 				int totalCount = dao.selectCount(param);
+				
+				String joinCheck = ""; 
+				if(req.getParameter("joinCheck") != null) {
+					joinCheck = req.getParameter("joinCheck");
+					totalCount = dao.selectCountJoinCheck(param);
+				}
+				
 				ph = new PageHandler(totalCount, sc);
 				param.put("offset", sc.getOffset(page));
 				param.put("pageSize", pageSize);
 				param.put("joinCheck", joinCheck);
+				param.put("sortField", sortField);
 				
 				List<MateBoardDto> boardLists = dao.selectList(param);
+				
 				req.setAttribute("ph", ph);
 				req.setAttribute("boardLists", boardLists);
+				req.setAttribute("joinCheck", joinCheck);
+				req.setAttribute("sortField", sortField);
 				
 				
 				Date today = new Date();
