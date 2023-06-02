@@ -33,6 +33,8 @@ public class LoginController extends HttpServlet{
 					check = "checked";
 				}
 			}
+			
+			
 		}
 		req.setAttribute("rememberId", rememberId);
 		req.setAttribute("check", check);

@@ -142,13 +142,16 @@
 
 
         }
-
+//reset버튼 클릭시 from에 입력된0번째가 RESET될수있게함
         function aa() {
 
             $("#frm-reset")[0].reset();
         }
 
-        ///비밀번호 눈 
+      ///비밀번호 보여주는 눈 클릭했을때 
+        //active클래스를 붙이고 만약 active 클래스가 있으면
+        //클릭한 속성값을 변경시켜 icon을 변경하고,
+        //클릭아이콘의 이전인 input의 타입을 text로 변경하여 비밀번호가 보일수있게함 
         $(document).ready(function() {
             $('.input__block  i').on('click', function() {
                 $('input').toggleClass('active');
