@@ -40,7 +40,7 @@
   		transition: all 0.5s ease;
   	}
   	.rInfo:hover {
-	transform: scale( 2.0 );
+		transform: scale( 2.0 );
   		transform: rotateX( 360deg );
   		box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.3);
   	}

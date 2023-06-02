@@ -13,10 +13,13 @@
 	#wtitle {
 		width: 100%;
 		margin-bottom:10px;
+		height: 45px;
 	}
 	#wcontent {
 		width: 100%;
 		height: 500px;
+		resize:none;
+		padding:20px 0;
 	}
 	#btnBox {
 		display:flex;
@@ -24,39 +27,33 @@
 	.wbtns {
 		margin-left:auto;
 	}
-	.searchDiv {
-		display:flex;
-		justify-content: space-between;
-	}
-	.searchDiv input {
-		width:90%;
-	}
-	.searchDiv i {
-		color:lightgray;
-	}
-	.searchDiv i:hover {
-		color:black;
-	}
-	.searchDiv1 {
-		width:60%;
-	}
-	.searchDiv1 input {
-		border: none;
- 		border-bottom: 1px solid lightgray;
-	}
 	.content i {
 		color:black;
+	}
+	.content i:hover {
+		cursor:pointer;
+		transform: scale( 1.1 );
 	}
 	.content table{
 		margin-top: 40px;
 		margin-bottom: 40px;
 	}
 	#scheduleBox {
-		margin: 50px auto;
-	}	
+	    display: flex;
+	    justify-content: space-between;
+	    border-top: 1px solid lightgray;
+	    border-bottom: 1px solid lightgray;
+	    padding-top: 10px;
+	    padding-bottom: 10px;
+	    line-height: 60px;
+	    margin:40px auto;
+	}
 	#scheduleBox div {
 		display: inline-block;
 		margin-right: 20px;
+	}
+	.sbSpan {
+		margin-right:30px;
 	}
 	.mInfo {
 		margin-right:30px;
@@ -64,19 +61,19 @@
 		color: darkgray;
 	}
 	.myButton {
-		box-shadow:inset 0px 1px 0px 0px #ffffff;
-		background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
-		background-color:#ededed;
-		border-radius:6px;
-		border:1px solid #dcdcdc;
-		display:inline-block;
-		cursor:pointer;
-		color:#777777;
-		font-family:Arial;
-		font-size:12px;
-		font-weight:bold;
-		padding:5px 10px;
-		margin-right: 2px;
+		box-shadow: inset 0px 1px 0px 0px #ffffff;
+	    background: linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	    background-color: #ededed;
+	    border-radius: 6px;
+	    border: 1px solid #dcdcdc;
+	    display: inline-block;
+	    cursor: pointer;
+	    color: #777777;
+	    font-family: Arial;
+	    font-size: 12px;
+	    font-weight: bold;
+	    padding: 5px 10px;
+	    margin-right: 2px;
 	}
 	.myButton:hover {
 		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
@@ -85,4 +82,60 @@
 	.myButton:active {
 		position:relative;
 		top:1px;
+	}
+	#mSearchBtn {
+		font-size:10px;
+	}
+	
+
+	.searchDiv {
+	    display: none;
+	    position: fixed;
+	    z-index: 1;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    height: 100%;
+	    overflow: auto;
+	    background-color: rgba(0,0,0,0.5); 
+	}
+	.searchDiv1 {
+	    background-color: #fefefe;
+	    margin: 15% auto; 
+	    padding: 20px;
+	    border: 1px solid #888;
+	    border-radius:10px;
+	  	overflow-y:auto;
+	  	width:30%;
+	  	box-shadow: 1px 1px 8px 0px black;
+	  	text-align:center;
+	}
+
+	.searchDiv1 div {
+		margin-bottom: 30px;
+	}
+	.searchDiv1 div:last-child {
+		margin-top: 50px;
+		margin-bottom: 0;
+	}
+	#MTable {
+		width:90%;
+		margin:0 auto;	
+	}
+	#MTable th {
+		width:30%;
+	}
+	#limitVal {
+		width: 30%;
+		margin-right:50px;
+	}
+	#scheduleBtn {
+		margin-right:5px;
+	}
+	#mountainName {
+		height:20px; 
+		width: 85%;
+	}
+	#dDayVal {
+		width:35%;
 	}

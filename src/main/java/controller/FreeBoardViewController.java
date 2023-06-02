@@ -13,16 +13,20 @@ import common.SearchCondition;
 import dao.ConfirmDao;
 import dao.FreeBoardDao;
 import dao.MateBoardDao;
+import dao.UserDao;
 import dto.ConfirmBoardDto;
 import dto.FreeBoardDto;
 import dto.MateBoardDto;
+import dto.UserDto;
 
 @WebServlet("/FreeBoardView")
 public class FreeBoardViewController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+			
+		
+			String nickName = req.getParameter("nickName");
 			String temp = req.getParameter("num");
 			int num = 0;
 			if(temp != null) {
@@ -33,6 +37,10 @@ public class FreeBoardViewController extends HttpServlet{
 			dao.updateViewCount(num);
 			FreeBoardDto dto = dao.selectView(num);
 			req.setAttribute("dto", dto);
+			
+			UserDao udao = new UserDao(getServletContext());
+			UserDto udto = udao.selectUserNickname(nickName);
+			req.setAttribute("udto", udto);
 			
 			int page = Integer.parseInt(req.getParameter("page"));
 			int pageSize = Integer.parseInt(req.getParameter("pageSize"));

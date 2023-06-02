@@ -12,7 +12,7 @@
 	    <div id="layout" class="pure-g">
         <div class="sidebar">
             <div class="header">
-                <h1 class="brand-title">MGM</h1>
+                <h1 class="brand-title" style="font-family: 'Oswald', sans-serif;">MGM</h1>
                 <h2 class="brand-tagline">페이지소개</h2>
     <p></p>
             </div>

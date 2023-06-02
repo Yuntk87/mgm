@@ -50,14 +50,14 @@
 		<table class="boardList">
 			<c:choose>
 				<c:when test="${empty boardLists }" >
-					<tr><td colspan="8">등록 된 게시물이 없습니다.</td></tr>
+					<tr class="zero"><td colspan="8">등록 된 게시물이 없습니다.</td></tr>
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${boardLists }" var="b">
 						<tr style="border-top:1px solid darkgray">
 							<td width="4%">${b.mate_num }.</td>
 							<td width="10%">${b.m_name }</td>
-							<td rowspan="2" style="font-size:18px; height:55px;"><a class="link" href='./MateBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.mate_num }&nickName=${b.id }'>${b.title }</a></td>
+							<td rowspan="2" style="font-size:18px; height:55px;"><a class="link" href='./MateBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.mate_num }&nickName=${b.nickName }'>${b.title }</a></td>
 							<fmt:formatDate value="${today }" type="date" pattern="yyyy-MM-dd" var="now"/>
 							<fmt:formatDate value="${b.postDate }" type="date" pattern="yyyy-MM-dd" var="post"/>
 							<c:choose>
@@ -110,31 +110,22 @@
 $(".boardList tr").hover(function(){
 
 	$(this).addClass("one")
-
 	if($(this).hasClass("last"))
-
-	$(this).prev().addClass("one")
-
+		$(this).prev().addClass("one")
 	else
-
-	$(this).next().addClass("one")
+		$(this).next().addClass("one")
 
 	if($(this).hasClass("page_bar"))
-
-	$(this).removeClass("one")
-
-	}, function(){
-
-	$(this).removeClass("one")
-
-	if($(this).hasClass("last"))
-
-	$(this).prev().removeClass("one")
-
-	else
-
-	$(this).next().removeClass("one") 
-
+		$(this).removeClass("one")
+		
+	if($(this).hasClass("zero"))
+		$(this).removeClass("one")
+}, function(){
+		$(this).removeClass("one")
+		if($(this).hasClass("last"))
+			$(this).prev().removeClass("one")
+		else
+			$(this).next().removeClass("one")
 	});
 </script>
 

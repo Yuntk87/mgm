@@ -1,5 +1,6 @@
 body {
-	font-family: 'Noto Sans KR', sans-serif;
+/* 	font-family: 'Noto Sans KR', sans-serif; */
+	font-family: 'LINESeedKR-Bd';
 }
 h2{
 	padding-left:80px;
@@ -98,4 +99,23 @@ table a{
 }
 .check {
 	color:red;
+}
+
+@font-face {
+    font-family: 'BMHANNAPro';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BMHANNAAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
 }

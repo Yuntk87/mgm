@@ -97,16 +97,16 @@
 				    <div id="searchDiv" class="tabcontent">
 			 	        <input type="hidden" id="myLocation" name="myLocation" value=""/>
 			 	        
-			            <input type="text" id="mname" name="mName" placeholder="산 이름을 검색하세요." />
+			            <input type="text" id="mname" name="mName" placeholder="산 이름 검색" />
 			            <button type="button" id="searchBtn" class="myButton">검색 요청</button>	  
 						<select id="listBox" name="listName"></select>
 						
 			        	<button type="button" id="myLocationBtn" class="myLocationBtn myButton" onclick="myLocations()">현재위치 확인</button>
 			            <input type="hidden" id="mLocation" name="mLocation" value=""/>
-			
 			        	<button id="mBtn" type="button" class="myButton">지도 검색</button>
 				    </div>
 				</div>
+	            <span id="BetweenDistance"></span>
 				<div id="map" class='qmap' style="width:100%; height: 30vh;"></div>
 			</div>
 			<script>

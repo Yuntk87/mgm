@@ -48,14 +48,14 @@
 		<table class="boardList">
 			<c:choose>
 				<c:when test="${empty boardLists }" >
-					<tr><td colspan="">등록 된 게시물이 없습니다.</td></tr>
+					<tr id="zero"><td colspan="">등록 된 게시물이 없습니다.</td></tr>
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${boardLists }" var="b">
 						<tr style="border-top:1px solid darkgray;">
 							<td width="4%;">${b.fbnum }.</td>
 							<td width="10%;">${b.category }</td>
-							<td rowspan="2" style="font-size:18px; height:55px;"><a class="link" href='./FreeBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.fbnum }'>${b.title }</a></td>
+							<td rowspan="2" style="font-size:18px; height:55px;"><a class="link" href='./FreeBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.fbnum }&nickName=${b.nickName }'>${b.title }</a></td>
 							<fmt:formatDate value="${today }" type="date" pattern="yyyy-MM-dd" var="now"/>
 							<fmt:formatDate value="${b.postDate }" type="date" pattern="yyyy-MM-dd" var="post"/>
 							<c:choose>
@@ -111,6 +111,9 @@
 	       	 	
 			if($(this).hasClass("page_bar"))
 	       	 	$(this).removeClass("one")
+	       	 	
+	       	if($(this).hasClass("zero"))
+				$(this).removeClass("one")
 	    }, function(){
 	    	 $(this).removeClass("one")
 	        if($(this).hasClass("last"))
