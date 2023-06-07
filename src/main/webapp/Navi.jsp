@@ -77,8 +77,12 @@
               <span class="close">&times;</span>
               <c:choose>
                   <c:when test="${empty sessionScope.UserNickName}">
-                      <p>*로그인이 필요한 기능입니다*</p>
-                      <a href="./login">로그인으로 이동</a>
+                  	  <div class="loginlink">
+                  	  	   로그인이 필요한 기능입니다
+                	  </div>
+                      <div class="loginlink">
+	                      <a href="./login" style="font-size:14px;">로그인으로 이동 <i class="fa-solid fa-right-to-bracket"></i></a>
+                      </div>
                   </c:when>
                   <c:otherwise>
                       <%@ include file="./ChatWindow.jsp" %>

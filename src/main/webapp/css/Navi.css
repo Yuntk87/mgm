@@ -9,7 +9,10 @@ body {
 ul {
     list-style: none;
 }
-
+a {
+	text-decoration: none;
+	color:black;
+}
 .navi {
     width: 100%;
     height: 70px;
@@ -252,3 +255,8 @@ ul {
     font-style: normal;
 }
 
+.loginlink {
+	width:50%;
+	margin:10px auto;
+	text-align:center;
+}
