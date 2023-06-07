@@ -175,7 +175,7 @@ ul {
     list-style: none;
 }
 
-.navi {
+#c-board .navi {
     width: 100%;
     height: 70px;
     background-color: rgba(0, 0, 0, 0.5);
@@ -188,7 +188,7 @@ ul {
     width: 100%;
     z-index: 10;
 }
-.navi_menu {
+#c-board .navi_menu {
     display: flex;
     align-items: center;
     margin-left: 60px;
@@ -199,10 +199,10 @@ ul {
     font-size: 40px;
     margin-right: 180px;
 }
-.navi_menu li {
+#c-board .navi_menu li {
     margin: 0 20px;
 }
-.navi_menu li a {
+#c-board .navi_menu li a {
     text-decoration: none;
     font-size: 18px;
     color: white;
@@ -210,7 +210,7 @@ ul {
     font-family: 'Oswald', sans-serif;
     font-weight: bold;
 }
-.navi_menu a:hover {
+#c-board .navi_menu a:hover {
     color: #0CD1E4;
     transition: all 0.5s;
     
@@ -218,11 +218,11 @@ ul {
 
 
 
-.navi_login {
+#c-board .navi_login {
     display: flex;
     align-items: center;
 }
-.navi_login a {
+#c-board .navi_login a {
     text-decoration: none;
     font-size: 18px;
     color: white;
@@ -230,11 +230,11 @@ ul {
     font-family: 'Oswald', sans-serif;
     font-weight: bold;
 }
-.navi_login a:hover {
+#c-board .navi_login a:hover {
     color: #0CD1E4;
     transition: all 0.5s;
 }   
-.master_menu {
+#c-board .master_menu {
     position: fixed;
     display: none;
     top: 70px;
@@ -245,7 +245,7 @@ ul {
     line-height: 60px;
     z-index: 10;
 }
-.master_menu a {
+#c-board .master_menu a {
     text-decoration: none;
     font-size: 18px;
     color: white;
@@ -253,11 +253,11 @@ ul {
     font-family: 'Oswald', sans-serif;
     font-weight: bold;
 }
-.master_menu a:hover{
+#c-board .master_menu a:hover{
     color: #0CD1E4;
     transition: all 0.5s;
 }
-.menuTitle {
+#c-board .menuTitle {
 	text-align: center;
 	color: white;
 	font-family: 'Oswald', sans-serif;

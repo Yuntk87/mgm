@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div class="navi">
+    <div class="navi" id="c-board">
         <ul class="navi_menu" >
             <li><a class="active" href="./Main.jsp" style="font-size: 40px">MGM</a></li>
             <li><a href="./HomepageIntroduction.jsp" >홈페이지 소개</a></li>
