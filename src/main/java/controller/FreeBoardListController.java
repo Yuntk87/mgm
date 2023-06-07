@@ -47,8 +47,6 @@ public class FreeBoardListController extends HttpServlet{
 					} else {
 						sortField = req.getParameter("sortField");
 					}
-				} else {
-					sortField = "1";
 				}
 				
 				int pageSize = Integer.parseInt(req.getServletContext().getInitParameter("PageSize"));

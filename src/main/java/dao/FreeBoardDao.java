@@ -170,9 +170,10 @@ public class FreeBoardDao extends JDBConnect{
 		if(map.get("sortField") != null) {
 			query += " ORDER BY " + map.get("sortField");	
 		} else {
-			query += " ORDER BY fb_num DESC";	
+			query += " ORDER BY fb_num DESC";
 		}
 		query += " LIMIT " + map.get("offset")+","+map.get("pageSize");
+		System.out.println(query);
 		try {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(query);
