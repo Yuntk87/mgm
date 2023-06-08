@@ -7,10 +7,11 @@ body {
      padding-top:60px;        
   
   }
-span>a{
+a {
 	text-decoration-line: none;
 	color:black;
 }
+
  
    h1 {
    
@@ -46,12 +47,14 @@ span>a{
     height:45px;
     margin: 20px;
   }
-  li{list-style:none;
+ #info li, .box-wrap li {
+ 	list-style:none;
     padding: 7px 0px 5px 5px;
     margin-bottom: 5px;
     border-bottom: 1px solid #efefef;
     font-size: 12px;
 }
+
   
 
   
