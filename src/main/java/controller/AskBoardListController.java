@@ -57,28 +57,33 @@ public class AskBoardListController extends HttpServlet{
 				HttpSession session = req.getSession();
 				String id = session.getAttribute("UserId").toString();
 				
-				int totalCount = dao.selectCount(param);
-				ph = new PageHandler(totalCount, sc);
-				param.put("offset", sc.getOffset(page));
-				param.put("pageSize", pageSize);
+				
+				
+				Date today = new Date();
+				req.setAttribute("today", today);
 				
 				if(!id.equals("admin")) {
+					int totalCount = dao.selectMyCount(id);
+					ph = new PageHandler(totalCount, sc);
+					
 					List<AskDto> boardLists = dao.selectMyList(id);
 					req.setAttribute("ph", ph);
 					req.setAttribute("boardLists", boardLists);
+					req.getRequestDispatcher("./AskBoardList.jsp").forward(req, resp);
+					dao.close();
 				}else {
+					int totalCount = dao.selectCount(param);
+					ph = new PageHandler(totalCount, sc);
+					param.put("offset", sc.getOffset(page));
+					param.put("pageSize", pageSize);
+					
 					List<AskDto> boardLists = dao.selectList(param);
 					req.setAttribute("ph", ph);
 					req.setAttribute("boardLists", boardLists);
-				}
-					Date today = new Date();
-					req.setAttribute("today", today);
-					dao.close();
-				if("admin".equals(id)) {
-					req.getRequestDispatcher("./AdminAskBoardList.jsp").forward(req, resp);
-				} else {
 					req.getRequestDispatcher("./AskBoardList.jsp").forward(req, resp);
+					dao.close();
 				}
+					
 
 		} else {
 			req.getRequestDispatcher("./LoginForm.jsp").forward(req, resp);

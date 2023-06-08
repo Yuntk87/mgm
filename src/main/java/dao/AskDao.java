@@ -111,6 +111,25 @@ public class AskDao extends JDBConnect{
 			return totalCount;
 		}
 		
+	 
+	 public int selectMyCount(String id) {
+			int totalCount=0;
+			
+			String sql = "SELECT COUNT(*) FROM ask_board WHERE id=?";
+			try {
+				psmt = con.prepareStatement(sql);
+				psmt.setString(1, id);
+				rs = psmt.executeQuery();
+				rs.next();
+				totalCount = rs.getInt(1);
+			}
+			catch(Exception e) {
+				System.out.println("나의 문의게시물 수를 구하는 중 예외 발생");
+				e.printStackTrace();
+			}
+			return totalCount;
+		}
+	 
 		public List<AskDto> selectList(Map<String, Object>map){
 			ArrayList<AskDto> fbl = new ArrayList<AskDto>();
 			AskDto dto = null;

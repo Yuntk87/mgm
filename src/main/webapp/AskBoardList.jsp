@@ -116,13 +116,13 @@
 						<div id="pg">
 							<p>
 								<c:if test="${ph.showPrev }">
-									<a href="<c:url value='/AskBoardAllList${ph.sc.getQueryString(ph.beginPage-1) }' />">&laquo;</a>
+									<a href="<c:url value='/AskBoardList${ph.sc.getQueryString(ph.beginPage-1) }' />">&laquo;</a>
 								</c:if>
 								<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }">
-									<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='/AskBoardAllList${ph.sc.getQueryString(i) }' />">${i }</a>
+									<a class='${ph.sc.page==i? "check" : "" }' href="<c:url value='/AskBoardList${ph.sc.getQueryString(i) }' />">${i }</a>
 								</c:forEach>
 								<c:if test="${ph.showNext }">
-									<a href="<c:url value='/AskBoardAllList${ph.sc.getQueryString(ph.endPage+1) }' />">&raquo;</a>
+									<a href="<c:url value='/AskBoardList${ph.sc.getQueryString(ph.endPage+1) }' />">&raquo;</a>
 								</c:if>
 							</p>
 						</div>
