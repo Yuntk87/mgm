@@ -1,0 +1,115 @@
+package dao;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletContext;
+
+import org.apache.catalina.tribes.transport.RxTaskPool;
+
+import common.JDBConnect;
+import dto.NoteDto;
+import dto.UserDto;
+
+public class NoteDao extends JDBConnect{
+	public NoteDao(ServletContext application) {
+		super(application);
+	}
+
+	public int insertNote(NoteDto n) {
+		int res=0;
+		String sql="insert into note(senders,recipients,content) values(?,?,?)";
+		try {
+			psmt=con.prepareStatement(sql);
+			psmt.setString(1,n.getSenders());
+			psmt.setString(2,n.getRecipients());
+			psmt.setString(3,n.getContent());
+			res=psmt.executeUpdate();
+		}catch (SQLException e) {
+			System.out.println("쪽지 입력중 오류발생");
+			e.printStackTrace();
+		}return res;
+				    
+	}  	
+	
+	public ArrayList<NoteDto> selectAll(String nickName){
+		ArrayList<NoteDto> nList = new ArrayList<NoteDto>();
+		try {
+			String sql = "select * from note where recipients=? AND delWaiting=0";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, nickName);
+			rs=psmt.executeQuery();
+			NoteDto n = null;
+			
+			while(rs.next()) {
+				n = new NoteDto();
+				n.setNote_num(rs.getInt("note_num"));
+				n.setSenders(rs.getString("senders"));
+				n.setRecipients(rs.getString("recipients"));
+				n.setContent(rs.getString("content"));
+				n.setSendDate(rs.getTimestamp("sendDate"));
+				n.setReadCheck(rs.getInt("readCheck"));
+				n.setDelWaiting(rs.getInt("delWaiting"));
+				System.out.println(n);
+				nList.add(n);
+			}
+		} catch (SQLException e) {
+			System.out.println("쪽지 조회중 오류발생");
+			e.printStackTrace();
+		}
+		return nList;
+	}
+	
+
+	public int delete(String nickName) {
+		int result = 0;
+		try {
+			
+			String sql = "DELETE FROM note WHERE recipients=?";
+			psmt = con.prepareStatement(sql); 
+			psmt.setString(1, nickName);
+			result = psmt.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public int updateReadChk(String nickName) {
+		int res = 0;
+		String sql = "UPDATE note SET readCheck = readCheck+1 WHERE recipients=?";
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, nickName);
+			res = psmt.executeUpdate();	
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("읽은메세지 수정오류");
+		} return res;
+	}
+
+	public int updateDelWaiting(String nickName, int num) {
+		int res = 0;
+		String sql = "UPDATE note SET delWaiting = delWaiting+? WHERE recipients=?";
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setInt(1, num);
+			psmt.setString(2, nickName);
+			res = psmt.executeUpdate();	
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("휴지통 이동 오류");
+		} return res;
+	}
+	
+}
+	    
+	
+	
+	
+	
+	
