@@ -17,6 +17,13 @@ import dto.NoteDto;
 public class NoteWriteController extends HttpServlet{
 
 	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String recipients = req.getParameter("recipients");
+		req.setAttribute("recipients", recipients);
+		req.getRequestDispatcher("./NoteWrite.jsp").forward(req, resp);
+	}
+
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		
@@ -29,7 +36,7 @@ public class NoteWriteController extends HttpServlet{
 		NoteDto dto = new NoteDto(senderString,recipients,content);
 		int res = dao.insertNote(dto);
 		if(res==1) {
-			resp.sendRedirect("./FreeBoardList");
+			resp.sendRedirect("./noteList");
 		} else {
 			JSFunction.alertBack(resp, "쪽지 보내기 실패");
 		}

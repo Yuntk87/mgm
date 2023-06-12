@@ -26,7 +26,9 @@ public class NoteListController extends HttpServlet{
 		NoteDao dao = new NoteDao(getServletContext());
 		
 		List<NoteDto> noteLists = dao.selectAll(recipients);
+		List<NoteDto> noteListsDel = dao.selectAllDel(recipients);
 		req.setAttribute("noteLists", noteLists);
+		req.setAttribute("noteListsDel", noteListsDel);
 		
 		dao.close();
 		

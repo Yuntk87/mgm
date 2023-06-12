@@ -5,11 +5,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Note List</title>
 <style>
-	.noteTitle {
-		display:inline-block;
-		width:50px;
+	#noteList_box {
+		width:80%;
+		margin:0 auto;
+	}
+	table {
+		width:100%;
+		
+		border-collapse: collapse;
+	}
+	th, td {
+		border:1px solid black;
 		overflow:hidden;
 		text-overflow: ellipsis;
 	}
@@ -17,11 +25,61 @@
 </head>
 <body>
 	<div id="noteList_box">
-		<c:forEach items="${noteLists }" var="n">
-			<div>${n.senders }</div>
-			<div><p><a class="noteTitle" href="./NoteView.jsp">${n.content }</a></p></div>
-			<div>${n.sendDate }</div>	
-		</c:forEach>
+		<div id="noteList">
+			<table>
+				<tr>
+					<th width="2%"></th>
+					<th width="10%">보낸사람</th>
+					<th width="60%">내용</th>
+					<th width="20%">날짜</th>
+				</tr>
+				<c:choose>
+					<c:when test="${empty noteLists }">
+						<tr>
+							<th colspan="4">받은 쪽지가 없습니다</th>
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${noteLists }" var="n">
+							<tr>
+								<td><input type="checkbox" value="${n.note_num }"></td>
+								<td>${n.senders }</td>
+								<td><p><a class="noteTitle" href="./noteView?noteNum=${n.note_num }">${n.content }</a></p></td>
+								<td>${n.sendDate }</td>
+							</tr>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+			</table>
+		</div>
+		<div id="noteListDel">
+			<table>
+				<tr>
+					<th width="2%"></th>
+					<th width="10%">보낸사람</th>
+					<th width="60%">내용</th>
+					<th width="20%">날짜</th>
+				</tr>
+				<c:choose>
+					<c:when test="${empty noteListsDel }">
+						<tr>
+							<th colspan="4">휴지통이 비어있습니다</th>
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${noteListsDel }" var="nd">
+							<tr>
+								<td><input type="checkbox" value="${nd.note_num }"></td>
+								<td>${nd.senders }</td>
+								<td><p><a class="noteTitle" href="./noteView?noteNum=${nd.note_num }">${nd.content }</a></p></td>
+								<td>${nd.sendDate }</td>
+							</tr>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+			</table>
+		</div>
+		
 	</div>
 </body>
 </html>

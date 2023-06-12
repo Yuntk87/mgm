@@ -12,6 +12,7 @@ import javax.servlet.ServletContext;
 import org.apache.catalina.tribes.transport.RxTaskPool;
 
 import common.JDBConnect;
+import dto.FreeBoardDto;
 import dto.NoteDto;
 import dto.UserDto;
 
@@ -54,7 +55,6 @@ public class NoteDao extends JDBConnect{
 				n.setSendDate(rs.getTimestamp("sendDate"));
 				n.setReadCheck(rs.getInt("readCheck"));
 				n.setDelWaiting(rs.getInt("delWaiting"));
-				System.out.println(n);
 				nList.add(n);
 			}
 		} catch (SQLException e) {
@@ -63,6 +63,61 @@ public class NoteDao extends JDBConnect{
 		}
 		return nList;
 	}
+	
+	public ArrayList<NoteDto> selectAllDel(String nickName){
+		ArrayList<NoteDto> nList = new ArrayList<NoteDto>();
+		try {
+			String sql = "select * from note where recipients=? AND delWaiting=1";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, nickName);
+			rs=psmt.executeQuery();
+			NoteDto n = null;
+			
+			while(rs.next()) {
+				n = new NoteDto();
+				n.setNote_num(rs.getInt("note_num"));
+				n.setSenders(rs.getString("senders"));
+				n.setRecipients(rs.getString("recipients"));
+				n.setContent(rs.getString("content"));
+				n.setSendDate(rs.getTimestamp("sendDate"));
+				n.setReadCheck(rs.getInt("readCheck"));
+				n.setDelWaiting(rs.getInt("delWaiting"));
+				nList.add(n);
+			}
+		} catch (SQLException e) {
+			System.out.println("쪽지 조회중 오류발생");
+			e.printStackTrace();
+		}
+		return nList;
+	}
+	
+	
+	 public NoteDto selectView(int num) {
+		 	NoteDto n = null;
+			
+			String sql = "SELECT * FROM note WHERE note_num=?";
+			
+			try {
+				psmt = con.prepareStatement(sql);
+				psmt.setInt(1, num);
+				rs = psmt.executeQuery();
+				if(rs.next()) {
+					n = new NoteDto();
+					n.setNote_num(rs.getInt("note_num"));
+					n.setSenders(rs.getString("senders"));
+					n.setRecipients(rs.getString("recipients"));
+					n.setContent(rs.getString("content"));
+					n.setSendDate(rs.getTimestamp("sendDate"));
+					n.setReadCheck(rs.getInt("readCheck"));
+					n.setDelWaiting(rs.getInt("delWaiting"));
+				}
+			}
+			catch(SQLException e) {
+				System.out.println("쪽지 조회 중 예외 발생");
+				e.printStackTrace();
+			}
+			return n;
+		}
 	
 
 	public int delete(String nickName) {
@@ -79,12 +134,12 @@ public class NoteDao extends JDBConnect{
 		return result;
 	}
 	
-	public int updateReadChk(String nickName) {
+	public int updateReadChk(int noteNum) {
 		int res = 0;
-		String sql = "UPDATE note SET readCheck = readCheck+1 WHERE recipients=?";
+		String sql = "UPDATE note SET readCheck = readCheck+1 WHERE note_num=?";
 		try {
 			psmt = con.prepareStatement(sql);
-			psmt.setString(1, nickName);
+			psmt.setInt(1, noteNum);
 			res = psmt.executeUpdate();	
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -92,13 +147,14 @@ public class NoteDao extends JDBConnect{
 		} return res;
 	}
 
-	public int updateDelWaiting(String nickName, int num) {
+	public int updateDelWaiting(int noteNum, int num) {
 		int res = 0;
-		String sql = "UPDATE note SET delWaiting = delWaiting+? WHERE recipients=?";
+		String sql = "UPDATE note SET delWaiting = delWaiting+? WHERE note_num=?";
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setInt(1, num);
-			psmt.setString(2, nickName);
+			psmt.setInt(2, noteNum);
+			System.out.println(sql);
 			res = psmt.executeUpdate();	
 		} catch(Exception e) {
 			e.printStackTrace();

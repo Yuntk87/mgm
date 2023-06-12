@@ -9,7 +9,8 @@
 <body>
 	<div id="note_box">
 		<form id="noteWrt" action="./noteWrite" method="post">
-			<input type="text" name="recipients" value="qwer" readonly>받는사람
+		
+			<input type="text" name="recipients" value="${recipients }" readonly>받는사람
 			<textarea name="content"></textarea>
 			<button type="submit">전송</button><button type="reset">다시작성</button>
 		</form>
