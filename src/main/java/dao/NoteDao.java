@@ -163,7 +163,7 @@ public class NoteDao extends JDBConnect{
 	
 	public int ReadChk(String nickName) {
 		int res = 0;
-		String sql = "SELECT COUNT(*) FROM note WHERE recipients=? AND readCheck = 0";
+		String sql = "SELECT COUNT(*) FROM note WHERE recipients=? AND readCheck = 0 AND delWaiting = 0";
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, nickName);

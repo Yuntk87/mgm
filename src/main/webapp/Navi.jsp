@@ -138,6 +138,10 @@
             </div>
         </div>
         
+        <div class="quick-box">
+            <i class="fa-solid fa-envelope"></i><br>
+            <a id="abtn" href="./noteList" type="button">Note</a>
+        </div>
      </div>
      
 

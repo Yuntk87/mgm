@@ -20,9 +20,9 @@ public class NoteListController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
+		String mode = req.getParameter("mode");
 		
-//		String recipients = session.getAttribute("UserNickName").toString();
-		String recipients = "qwer";
+		String recipients = session.getAttribute("UserNickName").toString();
 		NoteDao dao = new NoteDao(getServletContext());
 		
 		List<NoteDto> noteLists = dao.selectAll(recipients);
@@ -33,8 +33,9 @@ public class NoteListController extends HttpServlet{
 		int cnt = dao.ReadChk(recipients);
 		req.setAttribute("cnt", cnt);
 		dao.close();
-		
-		req.getRequestDispatcher("./NoteList.jsp").forward(req, resp);
+		if("Recycle".equals(mode)) {
+			req.getRequestDispatcher("./NoteRecycleList.jsp").forward(req, resp);
+		} else req.getRequestDispatcher("./NoteList.jsp").forward(req, resp);
 	}
 
 	
