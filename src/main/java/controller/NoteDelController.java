@@ -28,9 +28,33 @@ public class NoteDelController extends HttpServlet{
 		if(res==1) {
 			resp.sendRedirect("./noteList");
 		} else {
-			JSFunction.alertBack(resp, "쪽지 보내기 실패");
+			JSFunction.alertBack(resp, "쪽지 삭제 실패");
 		}
 		dao.close();
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String mode = req.getParameter("mode");
+		NoteDao dao = new NoteDao(getServletContext());
+		String[] noteNum = req.getParameterValues("inputNoteNum");
+		
+		if(mode!=null && "Recycle".equals(mode)) {
+			if(noteNum != null) {
+				for(int i=0; i<noteNum.length; i++) {
+					dao.updateDelWaiting(Integer.parseInt(noteNum[i]), 1);
+				}
+				resp.sendRedirect("./noteList");
+			}
+		} else {
+			if(noteNum != null) {
+				for(int i=0; i<noteNum.length; i++) {
+					dao.delete(Integer.parseInt(noteNum[i]));
+				}
+				resp.sendRedirect("./noteList");
+			}
+		}
+		
 	}
 	
 	

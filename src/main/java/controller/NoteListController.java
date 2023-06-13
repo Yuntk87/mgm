@@ -30,6 +30,8 @@ public class NoteListController extends HttpServlet{
 		req.setAttribute("noteLists", noteLists);
 		req.setAttribute("noteListsDel", noteListsDel);
 		
+		int cnt = dao.ReadChk(recipients);
+		req.setAttribute("cnt", cnt);
 		dao.close();
 		
 		req.getRequestDispatcher("./NoteList.jsp").forward(req, resp);

@@ -9,6 +9,7 @@
 	#noteView_box {
 		width:80%;
 		margin:0 auto;
+		margin-top:100px;
 	}
 	.noteViewHead table {
 		border-top:1px solid lightgray;
@@ -18,6 +19,7 @@
 </style>
 </head>
 <body>
+
 	<div id="noteView_box">
 		<h3>쪽지 읽기</h3>
 		<div class="noteViewHead">

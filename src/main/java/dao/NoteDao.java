@@ -120,23 +120,23 @@ public class NoteDao extends JDBConnect{
 		}
 	
 
-	public int delete(String nickName) {
-		int result = 0;
+	public int delete(int noteNum) {
+		int res = 0;
 		try {
 			
-			String sql = "DELETE FROM note WHERE recipients=?";
+			String sql = "DELETE FROM note WHERE note_num=?";
 			psmt = con.prepareStatement(sql); 
-			psmt.setString(1, nickName);
-			result = psmt.executeUpdate();
+			psmt.setInt(1, noteNum);
+			res = psmt.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return result;
+		return res;
 	}
 	
 	public int updateReadChk(int noteNum) {
 		int res = 0;
-		String sql = "UPDATE note SET readCheck = readCheck+1 WHERE note_num=?";
+		String sql = "UPDATE note SET readCheck = 1 WHERE note_num=?";
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setInt(1, noteNum);
@@ -149,16 +149,33 @@ public class NoteDao extends JDBConnect{
 
 	public int updateDelWaiting(int noteNum, int num) {
 		int res = 0;
-		String sql = "UPDATE note SET delWaiting = delWaiting+? WHERE note_num=?";
+		String sql = "UPDATE note SET delWaiting = ? WHERE note_num=?";
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setInt(1, num);
 			psmt.setInt(2, noteNum);
-			System.out.println(sql);
 			res = psmt.executeUpdate();	
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("휴지통 이동 오류");
+		} return res;
+	}
+	
+	public int ReadChk(String nickName) {
+		int res = 0;
+		String sql = "SELECT COUNT(*) FROM note WHERE recipients=? AND readCheck = 0";
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, nickName);
+			rs=psmt.executeQuery();	
+			
+			if(rs.next()) {
+				res = rs.getInt(1);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("읽은메세지 카운트 오류");
 		} return res;
 	}
 	
