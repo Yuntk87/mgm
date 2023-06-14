@@ -21,6 +21,11 @@ public class NoteDao extends JDBConnect{
 		super(application);
 	}
 
+	public NoteDao() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public int insertNote(NoteDto n) {
 		int res=0;
 		String sql="insert into note(senders,recipients,content) values(?,?,?)";
@@ -41,6 +46,33 @@ public class NoteDao extends JDBConnect{
 		ArrayList<NoteDto> nList = new ArrayList<NoteDto>();
 		try {
 			String sql = "select * from note where recipients=? AND delWaiting=0";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, nickName);
+			rs=psmt.executeQuery();
+			NoteDto n = null;
+			
+			while(rs.next()) {
+				n = new NoteDto();
+				n.setNote_num(rs.getInt("note_num"));
+				n.setSenders(rs.getString("senders"));
+				n.setRecipients(rs.getString("recipients"));
+				n.setContent(rs.getString("content"));
+				n.setSendDate(rs.getTimestamp("sendDate"));
+				n.setReadCheck(rs.getInt("readCheck"));
+				n.setDelWaiting(rs.getInt("delWaiting"));
+				nList.add(n);
+			}
+		} catch (SQLException e) {
+			System.out.println("쪽지 조회중 오류발생");
+			e.printStackTrace();
+		}
+		return nList;
+	}
+	
+	public ArrayList<NoteDto> selectAllSendList(String nickName){
+		ArrayList<NoteDto> nList = new ArrayList<NoteDto>();
+		try {
+			String sql = "select * from note where senders=?";
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, nickName);
 			rs=psmt.executeQuery();

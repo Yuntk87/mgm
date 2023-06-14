@@ -27,8 +27,7 @@ public class NoteWriteController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		
-//		String senderString = session.getAttribute("UserNickName").toString();
-		String senderString = "qwes";
+		String senderString = session.getAttribute("UserNickName").toString();
 		String recipients = req.getParameter("recipients");
 		String content = req.getParameter("content");
 		

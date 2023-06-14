@@ -13,8 +13,8 @@
 		<div class="sidenav">
 			<a href="./noteList"><i class="fa-regular fa-envelope"></i> 쪽지함</a>
 			<a href="./noteWrite"><i class="fa-regular fa-envelope"></i> 쪽지보내기</a>
-			<a href="./noteList?mode=Recycle"><i class="fa-regular fa-trash-can"></i> 휴지통</a>
-<!-- 			<a href="#clients">Clients</a> -->
+			<a href="./noteList?mode=sendList"><i class="fa-regular fa-envelope"></i> 보낸쪽지함</a>
+			<a href="./noteList?mode=recycle"><i class="fa-regular fa-trash-can"></i> 휴지통</a>
 		</div>
 	</div>
 </body>

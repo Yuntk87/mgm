@@ -1,3 +1,4 @@
+<%@page import="dao.NoteDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -30,7 +31,7 @@
             </c:if>
         </ul>
         <ul>
-<%--   			<%@ include file="./Weather.jsp" %> --%>
+  			<%@ include file="./Weather.jsp" %>
         </ul>
         <div class="navi_login">
             <c:choose>
@@ -120,7 +121,7 @@
 <!--             세 번째 Modal의 내용 -->
             <div class="modal-content">
               <span class="close">&times;</span>
-<%--               <c:import url="./Weather10.jsp" /> --%>
+              <c:import url="./Weather10.jsp" />
             </div>
           </div>
 

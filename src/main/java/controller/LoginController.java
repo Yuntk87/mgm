@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.NoteDao;
 import dao.UserDao;
 import dto.UserDto;
 
@@ -33,9 +34,8 @@ public class LoginController extends HttpServlet{
 					check = "checked";
 				}
 			}
-			
-			
 		}
+
 		req.setAttribute("rememberId", rememberId);
 		req.setAttribute("check", check);
 		req.getRequestDispatcher("./LoginForm.jsp").forward(req, resp);
