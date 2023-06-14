@@ -117,7 +117,7 @@
 		comments.forEach(function(comment) {
 			tmp += '<li data-matec_num=' + comment.matec_num
 			tmp += ' data-mate_num=' + comment.mate_num + '>'
-			tmp += '<span class="commenter"> ' + comment.commenter + '</span> : '
+			tmp += '<span class="commenter"><a href="./yourpage?id=' + comment.commenter + '">' + comment.commenter + '</a></span> : '
 			tmp += '<span class="comment"> ' + comment.comment + '</span><br>'
 			tmp += '<span class="postDate"> ' + comment.postDate + '</span>'
 			if(comment.commenter == "${sessionScope.UserId}" || "admin" == ("${sessionScope.UserId}")) {

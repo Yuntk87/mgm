@@ -12,6 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/yourpage.css">
+    <script src="https://kit.fontawesome.com/09e1bc70db.js" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <title>yourpage</title>
 
@@ -46,7 +47,7 @@
             ${uto.id}님 정보입니다.<br>
             <ul>
 
-                <li> 아이디 ${uto.id }</li>
+                <li> 아이디 ${uto.id } <a href="./noteWrite?recipients=${uto.nickName }"><i class="fa-regular fa-envelope"></i></a></li>
                 <li>닉네임 ${uto.nickName }</li>
                 <li>레벨 ${uto.level}
                 <li>이름 ${uto.name }</li>

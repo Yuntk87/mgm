@@ -14,7 +14,6 @@
    <link rel="stylesheet" href="./css/MateBoard.css">
    <script src="./js/BoardList.js"></script>
 </head>
-
 <body>
 <%@ include file="Navi.jsp" %>
    	<div style="width: 100%; position: relative;">
@@ -81,7 +80,17 @@
 						</tr>
 						<tr class="last">
 							<td width="3%"><img style="width:50%;" src="https://img.icons8.com/?size=512&id=12438&format=png"></td>
-							<td width="3%" style="cursor:pointer;" onClick="location.href='./yourpage?id=${b.id}'">${b.nickName }</td>
+<%-- 							<td width="3%" style="cursor:pointer;" onClick="location.href='./yourpage?id=${b.id}'">${b.nickName }</td> --%>
+							<td width="3%" class="subTd" style="cursor:pointer; position:relative;">
+								${b.nickName }
+								<div class="subMenu">
+									<ul>
+										<li><a href="./yourpage?id=${b.id}">프로필</a></li>
+										<li><a href="./noteWrite?recipients=${b.nickName }">쪽지보내기</a></li>
+									</ul>
+								</div>
+							</td>
+							
 							<td width="3%"><img style="width:70%;" src="https://img.icons8.com/?size=512&id=lJUgtSWOeJR9&format=png"></td>
 							<td width="3%">${b.viewCount }</td>
 							<td width="3%"><img style="width:67%;" src="https://img.icons8.com/?size=512&id=38977&format=png"></td>
@@ -149,4 +158,19 @@
 
 <%@ include file="./Footer.jsp" %>
 </body>
+<script>
+	$(document).ready(function() {
+		
+		$(".subTd").on("click", function(e) {
+			$(this).children(".subMenu").toggleClass('son');
+		});
+
+        $(document).mouseup(function (e){
+            if($(".subTd").has(e.target).length==0) {
+                $(".subMenu").removeClass('son');
+            } 
+        });
+		
+	});
+</script>
 </html>
