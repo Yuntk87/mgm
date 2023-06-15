@@ -79,7 +79,7 @@ webSocket.onmessage = function(event) {
 	<div id="chatBox">
 	      <input type="text" id="chatId" value="${ sessionScope.UserNickName }" readonly />
 	    <div id="chatWindow"></div>
-	    <div>
+	    <div id="chatWindowBtn">
 	        <input type="text" id="chatMessage" onkeyup="enterKey();">
 	        <button id="sendBtn" onclick="sendMessage();">전송</button>
 		    <button id="closeBtn" onclick="disconnect();">종료</button> 
