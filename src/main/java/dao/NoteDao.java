@@ -45,7 +45,7 @@ public class NoteDao extends JDBConnect{
 	public ArrayList<NoteDto> selectAll(String nickName){
 		ArrayList<NoteDto> nList = new ArrayList<NoteDto>();
 		try {
-			String sql = "select * from note where recipients=? AND delWaiting=0";
+			String sql = "select * from note where recipients=? AND delWaiting=0 ORDER BY note_num DESC";
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, nickName);
 			rs=psmt.executeQuery();
@@ -72,7 +72,7 @@ public class NoteDao extends JDBConnect{
 	public ArrayList<NoteDto> selectAllSendList(String nickName){
 		ArrayList<NoteDto> nList = new ArrayList<NoteDto>();
 		try {
-			String sql = "select * from note where senders=?";
+			String sql = "select * from note where senders=? ORDER BY note_num DESC";
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, nickName);
 			rs=psmt.executeQuery();
@@ -96,10 +96,11 @@ public class NoteDao extends JDBConnect{
 		return nList;
 	}
 	
+	
 	public ArrayList<NoteDto> selectAllDel(String nickName){
 		ArrayList<NoteDto> nList = new ArrayList<NoteDto>();
 		try {
-			String sql = "select * from note where recipients=? AND delWaiting=1";
+			String sql = "select * from note where recipients=? AND delWaiting=1 ORDER BY note_num DESC";
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, nickName);
 			rs=psmt.executeQuery();

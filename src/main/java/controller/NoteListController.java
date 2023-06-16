@@ -37,6 +37,8 @@ public class NoteListController extends HttpServlet{
 			int cnt = dao.ReadChk(recipients);
 			req.setAttribute("cnt", cnt);
 			dao.close();
+			
+			//mode 쿼리값에 따라 forward 되는 페이지 변경
 			if("recycle".equals(mode)) {
 				req.getRequestDispatcher("./NoteRecycleList.jsp").forward(req, resp);
 			} else if("sendList".equals(mode)) {

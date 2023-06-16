@@ -39,6 +39,7 @@
 				            <th>내위치 확인</th>
 				            <th>등록확인</th>
 			        	</tr>
+
 			        	<tr>
 			        		<td>
 				           		<input type="text" id="mname" name="mName" placeholder="산 이름을 검색하세요." />
@@ -72,7 +73,7 @@
 			    </div>
 		    </div>
 		</c:when>
-		
+
 		<c:otherwise>
 			<div id="ConfirmMain2">
 				<h4><i class="fa-regular fa-map"></i>지도</h4>

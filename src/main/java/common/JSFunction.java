@@ -61,6 +61,7 @@ public class JSFunction {
 		catch (Exception e) {}
 	}
 	
+	//로그인 체크
 	public static boolean loginChk(HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		if(session.getAttribute("UserId") != null) {

@@ -16,6 +16,7 @@ public class NoteDelController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//휴지통으로 이동
 		String tmp = req.getParameter("noteNum");
 		int noteNum = 0;
 		if(tmp != null) {
@@ -39,7 +40,8 @@ public class NoteDelController extends HttpServlet{
 		NoteDao dao = new NoteDao(getServletContext());
 		String[] noteNum = req.getParameterValues("inputNoteNum");
 		
-		if(mode!=null && "Recycle".equals(mode)) {
+		//mode 쿼리값을 받아 Recycle 이면 휴지통으로 아니면 삭제
+		if(mode!=null && "recycle".equals(mode)) {
 			if(noteNum != null) {
 				for(int i=0; i<noteNum.length; i++) {
 					dao.updateDelWaiting(Integer.parseInt(noteNum[i]), 1);

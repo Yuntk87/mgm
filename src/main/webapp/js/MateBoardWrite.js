@@ -28,6 +28,7 @@
 		return true;
 	}
 	
+	//산 검색 시 해당 산 DB자료 출력
     function mSearch(){
     	let mName = $('#mountainName').val();
  	   	$.ajax({

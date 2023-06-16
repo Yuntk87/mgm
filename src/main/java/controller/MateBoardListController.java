@@ -103,6 +103,8 @@ public class MateBoardListController extends HttpServlet{
 					String tem2 = sdf.format(today);
 					int todayNum = Integer.parseInt(tem2);
 					int postNum = Integer.parseInt(tem1);
+					
+					//일정,제한인원 비교하여 참가 가능여부 리턴값 부여
 					if(todayNum > postNum) {
 						dao.updateJoinCheck(tt.getMate_num(), 2);
 					} else {

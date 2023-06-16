@@ -137,7 +137,7 @@ function myLocations1() {
 }
 
 
-		//위치정보 계산하여 등록버튼 출력
+//위치정보 계산하여 등록버튼 출력
 $(function() {
 	$("#mBtn").click(function() {
 		

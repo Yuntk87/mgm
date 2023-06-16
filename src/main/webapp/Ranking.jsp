@@ -25,7 +25,8 @@
     <title>ranking</title>
 
 </head>
-<%	
+<%
+//전체유제 레벨별 랭킹, 인증 횟수에 대한 산 랭킹, 해당 월을 출력하여 그달에 대한 랭킹 출력	
 	ServletContext sc = getServletContext();
 	UserDao dao = new UserDao(sc);
 	ArrayList<UserDto> uList = dao.userRanking();
@@ -40,9 +41,10 @@
     String month = tmp1<10?  "0"+tmp1 : tmp1+"";
     cal.set(cal.DAY_OF_MONTH,1);
 	String maxDay = Integer.toString(cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+
+
 // 	String firstDay =  year + month + 1;
 //     String lastDay = year + month + maxDay;
-
 // 테스트용 날짜
     String firstDay = "20230401";
 	String lastDay = "20230430";

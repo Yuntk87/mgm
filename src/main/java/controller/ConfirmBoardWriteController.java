@@ -56,10 +56,9 @@ public class ConfirmBoardWriteController extends HttpServlet{
 				if(id != null) {
 					ConfirmDao dao = new ConfirmDao(req.getServletContext());
 					ConfirmBoardDto dto = new ConfirmBoardDto(m_num, id);
-					System.out.println(dto);
 					res = dao.insertConfirmBoard(dto);
 					UserDao udao = new UserDao(getServletContext());
-					int res1 = udao.updateLevel(id, 1);
+					int res1 = udao.updateLevel(id, 1); //글 개수에 따라 유저 레벨업
 					udao.close();
 					dao.close();
 				}

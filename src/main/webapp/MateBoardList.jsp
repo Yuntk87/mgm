@@ -67,6 +67,7 @@
 							<td rowspan="2" style="font-size:18px; height:55px;"><a class="link" href='./MateBoardView${ph.sc.getQueryString(ph.sc.page) }&num=${b.mate_num }&nickName=${b.nickName }'>${b.title }</a></td>
 							<fmt:formatDate value="${today }" type="date" pattern="yyyy-MM-dd" var="now"/>
 							<fmt:formatDate value="${b.postDate }" type="date" pattern="yyyy-MM-dd" var="post"/>
+							
 							<c:choose>
 								<c:when test="${now eq post }">
 									<td colspan="4"><fmt:formatDate value="${b.postDate }" type="time" pattern="HH:mm" /></td>
@@ -77,10 +78,10 @@
 									<td rowspan="2" width="1%" style="font-size:5px; ${b.joinCheck eq 0? "background-color:rgba(48, 102, 71, 0.9)" : "background-color:rgba(241, 105, 81, 0.9)"}"></td>
 								</c:otherwise>
 							</c:choose>
+
 						</tr>
 						<tr class="last">
 							<td width="3%"><img style="width:50%;" src="https://img.icons8.com/?size=512&id=12438&format=png"></td>
-<%-- 							<td width="3%" style="cursor:pointer;" onClick="location.href='./yourpage?id=${b.id}'">${b.nickName }</td> --%>
 							<td width="3%" class="subTd" style="cursor:pointer; position:relative;">
 								${b.nickName }
 								<div class="subMenu">

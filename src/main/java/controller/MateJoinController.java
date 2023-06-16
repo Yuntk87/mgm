@@ -72,12 +72,12 @@ public class MateJoinController extends HttpServlet{
 		
 		MateJoinDao dao = new MateJoinDao(getServletContext());
 		MateJoinDto dto = dao.selectMateBoardJoin(mateNum, jid);
-		int cnt = dao.count(mateNum);
+		int cnt = dao.count(mateNum); //현재 참가인원 카운트
 		req.setAttribute("cnt", cnt);
 		
 		MateBoardDao mdao = new MateBoardDao(getServletContext());
 		MateBoardDto mdto = mdao.selectView(mateNum);
-		int mateLimit = mdto.getMateLimit();
+		int mateLimit = mdto.getMateLimit(); //제한인원 
 
 		List<String> mList = dao.selectJId(jid);
 		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMdd");
@@ -85,6 +85,7 @@ public class MateJoinController extends HttpServlet{
 
 		JSONObject sObject = new JSONObject();
 		
+		//예정일과 기정 참가일정 비교하여 참가버튼 on/off
 		if(dto == null) {
 			if(ScheduleChk(mList,temp3) == 0) {
 				dto = new MateJoinDto(mateNum, id, mNum, dDay, jid);
@@ -112,6 +113,7 @@ public class MateJoinController extends HttpServlet{
 			out.println(sObject.toJSONString());
 		}
 		
+		//제한인원 초과 시 체크넘버 변경
 		if(cnt >= mateLimit) {
 			mdao.updateJoinCheck(mateNum, 1);
 		} else {
@@ -121,6 +123,7 @@ public class MateJoinController extends HttpServlet{
 
 	}
 	
+	//일정 비교 함수
 	public int ScheduleChk(List<String> mList, String dDay) {
 		int res=0;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
