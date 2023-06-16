@@ -71,11 +71,11 @@
 							<c:choose>
 								<c:when test="${now eq post }">
 									<td colspan="4"><fmt:formatDate value="${b.postDate }" type="time" pattern="HH:mm" /></td>
-									<td rowspan="2" width="1%" style="font-size:5px; ${b.joinCheck eq 0? "background-color:rgba(48, 102, 71, 0.9)" : "background-color:rgba(241, 105, 81, 0.9)"}"></td>
+									<td rowspan="2" width="1%"><i class="fa-solid fa-users" style="color:${b.joinCheck eq 0? "green" : "red"};"></i></td>
 								</c:when>
 								<c:otherwise>
 									<td colspan="4">${post }</td>
-									<td rowspan="2" width="1%" style="font-size:5px; ${b.joinCheck eq 0? "background-color:rgba(48, 102, 71, 0.9)" : "background-color:rgba(241, 105, 81, 0.9)"}"></td>
+									<td rowspan="2" width="1%"><i class="fa-solid fa-users" style="color:${b.joinCheck eq 0? "green" : "red"};"></i></td>
 								</c:otherwise>
 							</c:choose>
 

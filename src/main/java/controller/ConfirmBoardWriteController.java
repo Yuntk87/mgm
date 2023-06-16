@@ -64,7 +64,7 @@ public class ConfirmBoardWriteController extends HttpServlet{
 				}
 	
 				if(res==1) {
-					resp.sendRedirect("./Navi.jsp");
+					resp.sendRedirect("./Main.jsp");
 				} else {
 					JSFunction.alertBack(resp, "글쓰기 실패");
 				}
