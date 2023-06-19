@@ -64,7 +64,7 @@
 
 
                     <div class="data-container">
-                        <a id="bt1" href="./AskBoardWrite.jsp" class="button1">문의하기</a>
+                        <a id="bt1" href="./AskBoardList" class="button1">문의하기</a>
                         <a id="bt1" href="./user?mode=Modify" class="button1">수정하기</a>
 
 

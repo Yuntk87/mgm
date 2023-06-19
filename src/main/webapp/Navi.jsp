@@ -37,7 +37,7 @@
             <c:choose>
                 <c:when test="${empty sessionScope.UserId }" >
                     <a class='link' href='./login'>로그인</a>
-                    <a class="link" href="./register" >회원가입</a>
+                    <a class="link" href="./checkbox.jsp" >회원가입</a>
                    </c:when>
                    <c:otherwise>
                        <a class='link' href='./mypage'>회원정보</a>

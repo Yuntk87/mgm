@@ -52,6 +52,11 @@
 				<c:choose>
 					<c:when test="${empty boardLists }" >
 						<div>등록 된 게시물이 없습니다.</div>
+						<c:if test="${sessionScope.UserId != null && sessionScope.UserId != 'admin'}">
+							<div class="write-btn">
+								<button class="wrBttn" type="button" onclick="location.href='./AskBoardWrite${ph.sc.getQueryString(ph.sc.page) }'">문의하기</button>
+							</div>
+						</c:if>
 					</c:when>
 					<c:otherwise>
 						<div id="T">
