@@ -147,7 +147,7 @@
         
 	</div>
 
-<div style="height: 400px;"></div>
+<div style="height: 1000px;"></div>
 
 <%@ include file="./Footer.jsp" %>
 </body>

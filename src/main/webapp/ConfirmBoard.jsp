@@ -117,5 +117,8 @@
 			</script>
 		</c:otherwise>
 	</c:choose>
+<div style="height: 1000px;"></div>
+
+<%@ include file="./Footer.jsp" %>
 </body>
 </html>
