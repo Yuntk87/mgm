@@ -86,7 +86,8 @@
                       </div>
                   </c:when>
                   <c:otherwise>
-                      <%@ include file="./ChatWindow.jsp" %>
+<%--                       <%@ include file="./ChatWindow.jsp" %> --%>
+             		 <iframe src="https://service.dongledongle.com/tekang135" frameborder="0" width="100%" height="500"></iframe>
                   </c:otherwise>
               </c:choose>        
             </div>
@@ -136,7 +137,6 @@
 	        <div class="modal-content">
               <span class="close">&times;</span>
               <c:import url="./Ranking.jsp" />
-              <iframe src="https://service.dongledongle.com/tekang135" frameborder="0" width="100%" height="500"></iframe>
             </div>
         </div>
         
