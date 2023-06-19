@@ -166,7 +166,7 @@ form {
 input {
   background:rgba(050,120,145);
   width: 65%;
-  color:rgba(050,120,145);
+  color: white;
   border: none;
   border-bottom: 1px solid rgba(246, 246, 246, 0.5);
   padding: 9px;
@@ -179,7 +179,7 @@ input::placeholder {
   font-weight: 100;
 }
 input:focus {
-  color:rgba(050,120,145);
+  color: white;
   outline: none;
   border-bottom: 1.2px solid rgba(050,087,127);
   font-size: 1em;
