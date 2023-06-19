@@ -40,21 +40,25 @@ public class NoteDelController extends HttpServlet{
 		NoteDao dao = new NoteDao(getServletContext());
 		String[] noteNum = req.getParameterValues("inputNoteNum");
 		
-		//mode 쿼리값을 받아 Recycle 이면 휴지통으로 아니면 삭제
-		if(mode!=null && "recycle".equals(mode)) {
-			if(noteNum != null) {
-				for(int i=0; i<noteNum.length; i++) {
-					dao.updateDelWaiting(Integer.parseInt(noteNum[i]), 1);
+		if(mode!=null && noteNum != null) {
+			//mode 쿼리값을 받아 Recycle 이면 휴지통으로 아니면 삭제
+			if("recycle".equals(mode)) {
+				if(noteNum != null) {
+					for(int i=0; i<noteNum.length; i++) {
+						dao.updateDelWaiting(Integer.parseInt(noteNum[i]), 1);
+					}
+					resp.sendRedirect("./noteList");
 				}
-				resp.sendRedirect("./noteList");
+			} else {
+				if(noteNum != null) {
+					for(int i=0; i<noteNum.length; i++) {
+						dao.delete(Integer.parseInt(noteNum[i]));
+					}
+					resp.sendRedirect("./noteList");
+				}
 			}
 		} else {
-			if(noteNum != null) {
-				for(int i=0; i<noteNum.length; i++) {
-					dao.delete(Integer.parseInt(noteNum[i]));
-				}
-				resp.sendRedirect("./noteList");
-			}
+			resp.sendRedirect("./noteList");
 		}
 		
 	}

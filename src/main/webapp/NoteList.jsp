@@ -16,7 +16,7 @@
 		<div class="noteList">
 		<h2><i class="fa-regular fa-envelope"></i> 쪽지함</h2>
 		<p>읽지 않은 메세지 ${cnt }</p>
-			<form id="noteRecycleform" action="./noteDel?mode=Recycle" method="post">
+			<form id="noteRecycleform" action="./noteDel?mode=recycle" method="post">
 				<table>
 					<tr>
 						<input name="RecycleBtn" type="submit" value="휴지통으로🗑️">

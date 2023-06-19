@@ -14,7 +14,7 @@
 	<div id="noteList_box">
 		<div class="noteList">
 			<h2><i class="fa-regular fa-envelope"></i> 보낸쪽지함</h2>
-			<form id="noteDelForm" action="./noteDel" method="post">
+			<form id="noteDelForm" action="./noteDel?mode=del" method="post">
 				<table>
 					<tr>
 						<input name="RecycleBtn" type="submit" value="삭제❌">
