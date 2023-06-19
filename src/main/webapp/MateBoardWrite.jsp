@@ -24,7 +24,7 @@
 <%@ include file="Navi.jsp" %>
 
 	<div id="write_box">
-		<h2>메이트게시판 글 쓰기</h2>
+		<h3>메이트게시판 글 쓰기</h3>
 		<div class="searchDiv">
 			<div class="searchDiv1">
 				<h2>일정</h2>
@@ -62,7 +62,7 @@
 
 				<div id="scheduleBox">
 					<div>
-						<span class="sbSpan"><i id="scheduleModal" class="fa-solid fa-calendar-days">일정</i></span>
+						<span class="sbSpan"><i id="scheduleModal" class="fa-solid fa-calendar-days" style="font-size: 25px; margin-right: 50px;"></i></span>
 						<span class="sbSpan">
 							목적지 : <input type="text" id="mName1" name="mName1" value="${dto.m_name }" placeholder="일정을 선택해 주세요" disabled>
 							<span class="mInfo">난이도 : ${dto.level } 추천수 : ${dto.m_recommend }</span>

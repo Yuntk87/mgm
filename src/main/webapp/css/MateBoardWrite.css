@@ -44,9 +44,7 @@
 	#scheduleBox {
 	    display: flex;
 	    justify-content: space-between;
-	    border-top: 1px solid lightgray;
-	    border-bottom: 1px solid lightgray;
-	    padding-top: 10px;
+	    padding: 20px;
 	    padding-bottom: 10px;
 	    line-height: 60px;
 	    margin:40px auto;
@@ -141,4 +139,7 @@
 	}
 	#dDayVal {
 		width:35%;
+	}
+	h3 {
+		text-align: center;
 	}

@@ -43,11 +43,8 @@
 	String maxDay = Integer.toString(cal.getActualMaximum(Calendar.DAY_OF_MONTH));
 
 
-// 	String firstDay =  year + month + 1;
-//     String lastDay = year + month + maxDay;
-// 테스트용 날짜
-    String firstDay = "20230401";
-	String lastDay = "20230430";
+	String firstDay =  year + month + 1;
+    String lastDay = year + month + maxDay;
 	
 	List<HashMap<String, String>> uListMonth = dao.userRankingMonth(firstDay, lastDay);
 	dao.close();

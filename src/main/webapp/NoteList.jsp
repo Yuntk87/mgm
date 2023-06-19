@@ -14,8 +14,7 @@
 <%@ include file="./NoteNavi.jsp" %>
 	<div id="noteList_box">
 		<div class="noteList">
-		<h2><i class="fa-regular fa-envelope"></i> 쪽지함</h2>
-		<p>읽지 않은 메세지 ${cnt }</p>
+			<h2 id="noteTitle""><i class="fa-regular fa-envelope"><span id="noteCnt"><sup>${cnt }</sup></span></i> 쪽지함</h2>
 			<form id="noteRecycleform" action="./noteDel?mode=recycle" method="post">
 				<table>
 					<tr>

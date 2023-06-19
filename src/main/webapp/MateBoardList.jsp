@@ -42,7 +42,7 @@
 							<option value="title" ${param.searchField eq 'title'? "selected" : "" }>제목</option>
 							<option value="content" ${param.searchField eq 'content'? "selected" : "" } >내용</option>
 							<option value="m_name" ${param.searchField eq 'm_name'? "selected" : "" } >산이름</option>
-							<option value="id" ${param.searchField eq 'id'? "selected" : "" }>작성자</option>
+							<option value="nickName" ${param.searchField eq 'nickName'? "selected" : "" }>작성자</option>
 						</select>
 						<div id="textSearch">
 							<input type="text" name="searchWord" id="search" placeholder="검색" value="${not empty param.searchWord? param.searchWord : '' }" >
