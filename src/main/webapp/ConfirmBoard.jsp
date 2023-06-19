@@ -47,11 +47,11 @@
 							</td>
 				            <td>
 								<select id="listBox" name="listName"></select>					
-					            <input type="text" id="mLocation" name="mLocation" value=""/><br>
+					            <input type="hidden" id="mLocation" name="mLocation" value=""/><br>
 				            </td>	
 							<td>
 					        	<button type="button" id="myLocationBtn" class="myButton" onclick="myLocations()">위치 확인</button>
-					 	        <input type="text" id="myLocation" name="myLocation" value=""/>
+					 	        <input type="hidden" id="myLocation" name="myLocation" value=""/>
 					        	<div id="myLocationInfo"></div>
 							</td>
 							<td>
