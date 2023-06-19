@@ -73,8 +73,8 @@ public class MateBoardCommentController extends HttpServlet{
 				
 		HttpSession session = req.getSession();
 		String commenter = "";
-//		if(session.getAttribute("UserNickName") != null) commenter = session.getAttribute("UserNickName").toString();
-		if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
+		if(session.getAttribute("UserNickName") != null) commenter = session.getAttribute("UserNickName").toString();
+//		if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
 		
 		MateBoardCommentDto dto = new MateBoardCommentDto(commenter, comment, mate_num);
 		
@@ -111,7 +111,7 @@ public class MateBoardCommentController extends HttpServlet{
 			mdao.close();
 			System.out.println("del");
 			
-		} else if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
+		} else if(session.getAttribute("UserNickName") != null) commenter = session.getAttribute("UserNickName").toString();
 		
 			HashMap<String, String> param = new HashMap<String, String>();
 			param.put("matec_num", matec_num);
@@ -133,8 +133,8 @@ public class MateBoardCommentController extends HttpServlet{
 		
 		HttpSession session = req.getSession();
 		String commenter = "";
-//		if(session.getAttribute("UserNickName") != null) commenter = session.getAttribute("UserNickName").toString();
-		if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
+		if(session.getAttribute("UserNickName") != null) commenter = session.getAttribute("UserNickName").toString();
+//		if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
 		
 		MateBoardCommentDto dto = new MateBoardCommentDto(matec_num, commenter, comment);
 		

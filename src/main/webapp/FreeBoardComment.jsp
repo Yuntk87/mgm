@@ -121,7 +121,7 @@
 			tmp += '<span class="commenter"><a href="./yourpage?id=' + comment.commenter + '">' + comment.commenter + '</a></span> : '
 			tmp += '<span class="comment"> ' + comment.comment + '</span><br>'
 			tmp += '<span class="postDate"> ' + comment.postDate + '</span>'
-			if(comment.commenter == "${sessionScope.UserId}" || "admin" == ("${sessionScope.UserId}")) {
+			if(comment.commenter == "${sessionScope.UserNickName}" || "admin" == ("${sessionScope.UserNickName}")) {
 				tmp += '<button class="delBtn myButton">삭제</button>'
 				tmp += '<button class="modBtnb myButton">수정</button>'
 			}

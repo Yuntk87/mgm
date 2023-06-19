@@ -18,7 +18,7 @@
 	<div id="view_box">
 		<form name="writeFrm">
 			<input type="hidden" id="num" name="num" value="${dto.mate_num }">
-			<input type="hidden" id="id" name="id" value="${dto.id }">
+			<input type="hidden" id="id" name="id" value="${dto.nickName }">
 			<input type="hidden" id="mNum" name="mNum" value="${dto.m_num }">
 			<div class="mbtitle">
 				<input type="text" class="mbtitle1" name="title" value="${dto.title }" disabled>

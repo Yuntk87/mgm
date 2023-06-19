@@ -70,8 +70,8 @@ public class FreeBoardCommentController extends HttpServlet{
 				
 		HttpSession session = req.getSession();
 		String commenter = "";
-//		if(session.getAttribute("UserNickName") != null) commenter = session.getAttribute("UserNickName").toString();
-		if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
+		if(session.getAttribute("UserNickName") != null) commenter = session.getAttribute("UserNickName").toString();
+//		if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
 		
 		CommentDto dto = new CommentDto(commenter, comment, fb_num);
 		
@@ -108,7 +108,7 @@ public class FreeBoardCommentController extends HttpServlet{
 			fdao.close();
 			System.out.println("del");
 			
-		} else if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
+		} else if(session.getAttribute("UserNickName") != null) commenter = session.getAttribute("UserNickName").toString();
 		
 		HashMap<String, String> param = new HashMap<String, String>();
 		param.put("fbc_num", fbc_num);
@@ -130,8 +130,8 @@ public class FreeBoardCommentController extends HttpServlet{
 		
 		HttpSession session = req.getSession();
 		String commenter = "";
-//		if(session.getAttribute("UserNickName") != null) commenter = session.getAttribute("UserNickName").toString();
-		if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
+		if(session.getAttribute("UserNickName") != null) commenter = session.getAttribute("UserNickName").toString();
+//		if(session.getAttribute("UserId") != null) commenter = session.getAttribute("UserId").toString();
 		
 		CommentDto dto = new CommentDto(fbc_num, commenter, comment);
 		

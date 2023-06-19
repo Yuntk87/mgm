@@ -282,7 +282,7 @@ public class MateBoardDao extends JDBConnect {
 					dto.setContent(rs.getString("content"));
 					dto.setdDay(rs.getTimestamp("dDay"));
 					dto.setMateLimit(rs.getInt("mateLimit"));
-					dto.setViewCount(rs.getInt("count"));
+					dto.setViewCount(rs.getInt("viewCount"));
 					dto.setCommentCount(rs.getInt("commentCount"));
 					dto.setPostDate(rs.getTimestamp("postDate"));
 					dto.setM_name(rs.getString("m_name"));

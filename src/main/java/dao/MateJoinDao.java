@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
+import javax.xml.crypto.dsig.spec.SignatureMethodParameterSpec;
 
 import common.JDBConnect;
 import dto.FreeBoardDto;
