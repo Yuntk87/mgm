@@ -60,6 +60,7 @@
 		display: flex;
 		justify-content: space-between;
 		border-top: 1px solid lightgray;
+		border-bottom: 1px solid lightgray;
 		padding-top: 20px;
 		padding-bottom: 20px;
 	}

@@ -23,7 +23,7 @@
     	border-bottom:1px solid lightgray;
     	border-radius:5px;
     	box-shadow: 1px 1px 1px 1px gray;
-    	margin:5px;
+    	margin:5px auto;
     	text-align:center;
     }
     #wtop .bweather {
